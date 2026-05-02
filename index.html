@@ -16,7 +16,7 @@
       
       
       
-        <link rel="next" href="concepts/a2a-protocol/">
+        <link rel="next" href="a2a-protocol/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>LLM Wiki</title>
+        <title>LLM Wiki - LLM Wiki</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#llm-wiki-knowledge-base" class="md-skip">
+        <a href="#llm-wiki" class="md-skip">
           跳转至
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              首页
+              LLM Wiki
             
           </span>
         </div>
@@ -330,7 +330,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📌 说明
+        概念
       
     </span>
   </a>
@@ -341,7 +341,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📁 结构
+        对比
       
     </span>
   </a>
@@ -352,7 +352,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 使用方式
+        实体
       
     </span>
   </a>
@@ -363,7 +363,18 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📋 标签体系
+        查询存档
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        笔记
       
     </span>
   </a>
@@ -447,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/a2a-protocol/" class="md-nav__link">
+      <a href="a2a-protocol/" class="md-nav__link">
         
   
   
@@ -475,7 +486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/a2a-task-state-machine/" class="md-nav__link">
+      <a href="a2a-task-state-machine/" class="md-nav__link">
         
   
   
@@ -503,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/a2a-security-analysis/" class="md-nav__link">
+      <a href="a2a-security-analysis/" class="md-nav__link">
         
   
   
@@ -531,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/a2a-ecosystem/" class="md-nav__link">
+      <a href="a2a-ecosystem/" class="md-nav__link">
         
   
   
@@ -622,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="comparisons/a2a-vs-mcp/" class="md-nav__link">
+      <a href="a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -707,7 +718,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📌 说明
+        概念
       
     </span>
   </a>
@@ -718,7 +729,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📁 结构
+        对比
       
     </span>
   </a>
@@ -729,7 +740,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 使用方式
+        实体
       
     </span>
   </a>
@@ -740,7 +751,18 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📋 标签体系
+        查询存档
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        笔记
       
     </span>
   </a>
@@ -758,6 +780,14 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -767,48 +797,77 @@
   
 
 
-<h1 id="llm-wiki-knowledge-base">LLM Wiki — Knowledge Base<a class="headerlink" href="#llm-wiki-knowledge-base" title="Permanent link">&para;</a></h1>
+<h1 id="llm-wiki">LLM Wiki<a class="headerlink" href="#llm-wiki" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>基于 <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Karpathy's LLM Wiki</a> 模式构建的个人知识库。</p>
+<p>基于 <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Karpathy's LLM Wiki</a> 模式构建的个人知识库。不同于 RAG 每次重新发现知识，Wiki 一次性编译知识并保持更新。</p>
 </blockquote>
-<h2 id="_1">📌 说明<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>这是一个持久化的、互相链接的 Markdown 知识库。不同于 RAG 每次重新发现知识，Wiki 一次性编译知识并保持更新。</p>
-<p><strong>分工：</strong> 人类负责筛选来源和引导分析，Agent 负责总结、交叉引用、归档和维护一致性。</p>
-<h2 id="_2">📁 结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>wiki/
-├── SCHEMA.md           # 规范、结构规则、标签体系
-├── index.md            # 内容目录（按类型分段）
-├── log.md              # 操作日志（只追加）
-├── raw/                # Layer 1: 原始来源（不可修改）
-│   ├── articles/       # 文章、网页
-│   ├── papers/         # 论文、PDF
-│   ├── transcripts/    # 会议记录、访谈
-│   └── assets/         # 图片、图表
-├── entities/           # Layer 2: 实体页面（人、公司、产品）
-├── concepts/           # Layer 2: 概念/主题页面
-├── comparisons/        # Layer 2: 对比分析
-└── queries/            # Layer 2: 查询结果存档
-</code></pre></div>
-<h2 id="_3">🚀 使用方式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Obsidian</strong>: 直接打开为 vault，支持 <code>[[wikilinks]]</code> 和 Graph View</li>
-<li><strong>VS Code</strong>: 配合 Markdown 预览使用</li>
-<li><strong>GitHub Pages</strong>: 可部署为静态站点</li>
-<li><strong>Hermes Agent</strong>: 通过 llm-wiki skill 自动维护</li>
-</ul>
-<h2 id="_4">📋 标签体系<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>详见 [[SCHEMA.md]]，涵盖：
-- <strong>AI/ML 技术</strong>: model, architecture, agent, training, inference, alignment, benchmark, multimodal
-- <strong>协议与框架</strong>: protocol, framework, tool-use
-- <strong>行业与生态</strong>: company, person, open-source, product, trend
-- <strong>个人知识</strong>: note, reflection, how-to, comparison
-- <strong>Meta</strong>: timeline, controversy, prediction</p>
+<hr />
+<h2 id="_1">概念<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>条目</th>
+<th>摘要</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="a2a-protocol/">A2A 协议详解</a></td>
+<td>A2A 协议完整详解：数据模型、会话机制、消息流转、RPC 方法</td>
+<td><code>protocol</code> <code>agent</code> <code>architecture</code></td>
+</tr>
+<tr>
+<td><a href="a2a-task-state-machine/">Task 状态机</a></td>
+<td>Task 状态机：8 个状态、转换规则、v0.3→v1.0 变更</td>
+<td><code>protocol</code> <code>agent</code></td>
+</tr>
+<tr>
+<td><a href="a2a-security-analysis/">A2A 安全分析</a></td>
+<td>10 个已知安全缺口：Prompt 注入、AgentCard 投毒、会话走私</td>
+<td><code>protocol</code> <code>security</code></td>
+</tr>
+<tr>
+<td><a href="a2a-ecosystem/">A2A 生态系统</a></td>
+<td>生态工具链：Waggle、A2Apex、EDDI、实际部署案例</td>
+<td><code>protocol</code> <code>open-source</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">对比<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>条目</th>
+<th>摘要</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="a2a-vs-mcp/">A2A vs MCP</a></td>
+<td>A2A 与 MCP 全面对比：定位、交互模式、适用场景、采纳现状</td>
+<td><code>protocol</code> <code>comparison</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">实体<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>暂无条目。</p>
+<h2 id="_4">查询存档<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>暂无条目。</p>
+<h2 id="_5">笔记<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>暂无条目。</p>
+<hr />
+<p><em>共 5 个条目 · 最后更新：2026-05-02</em></p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -874,7 +933,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "search.share", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>

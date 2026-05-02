@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/SCHEMA/">
       
       
-        <link rel="prev" href="../comparisons/a2a-vs-mcp/">
+        <link rel="prev" href="../a2a-vs-mcp/">
       
       
       
@@ -356,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/a2a-protocol/" class="md-nav__link">
+      <a href="../a2a-protocol/" class="md-nav__link">
         
   
   
@@ -384,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/a2a-task-state-machine/" class="md-nav__link">
+      <a href="../a2a-task-state-machine/" class="md-nav__link">
         
   
   
@@ -412,7 +412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/a2a-security-analysis/" class="md-nav__link">
+      <a href="../a2a-security-analysis/" class="md-nav__link">
         
   
   
@@ -440,7 +440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/a2a-ecosystem/" class="md-nav__link">
+      <a href="../a2a-ecosystem/" class="md-nav__link">
         
   
   
@@ -531,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../comparisons/a2a-vs-mcp/" class="md-nav__link">
+      <a href="../a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -1012,6 +1012,14 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -1028,7 +1036,7 @@
 <ul>
 <li>File names: lowercase, hyphens, no spaces (e.g., <code>a2a-protocol.md</code>)</li>
 <li>Every wiki page starts with YAML frontmatter (see below)</li>
-<li>Use <code>[[wikilinks]]</code> to link between pages (minimum 2 outbound links per page)</li>
+<li>Use <code>[wikilinks](wikilinks)</code> to link between pages (minimum 2 outbound links per page)</li>
 <li>When updating a page, always bump the <code>updated</code> date</li>
 <li>Every new page must be added to <code>index.md</code> under the correct section</li>
 <li>Every action must be appended to <code>log.md</code></li>
@@ -1096,14 +1104,14 @@
 <p>One page per notable entity. Include:
 - Overview / what it is
 - Key facts and dates
-- Relationships to other entities ([[wikilinks]])
+- Relationships to other entities (<a href="wikilinks">wikilinks</a>)
 - Source references</p>
 <h2 id="concept-pages">Concept Pages<a class="headerlink" href="#concept-pages" title="Permanent link">&para;</a></h2>
 <p>One page per concept or topic. Include:
 - Definition / explanation
 - Current state of knowledge
 - Open questions or debates
-- Related concepts ([[wikilinks]])</p>
+- Related concepts (<a href="wikilinks">wikilinks</a>)</p>
 <h2 id="comparison-pages">Comparison Pages<a class="headerlink" href="#comparison-pages" title="Permanent link">&para;</a></h2>
 <p>Side-by-side analyses. Include:
 - What is being compared and why
@@ -1115,7 +1123,7 @@
 - Source reference (book, article, video)
 - Key takeaways
 - Personal thoughts and connections
-- Related wiki pages ([[wikilinks]])</p>
+- Related wiki pages (<a href="wikilinks">wikilinks</a>)</p>
 <h2 id="update-policy">Update Policy<a class="headerlink" href="#update-policy" title="Permanent link">&para;</a></h2>
 <p>When new information conflicts with existing content:
 1. Check the dates — newer sources generally supersede older ones
@@ -1193,7 +1201,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "search.share", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>

@@ -12,31 +12,31 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/a2a-security-analysis/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/a2a-ecosystem/">
       
       
-        <link rel="prev" href="../a2a-task-state-machine/">
+        <link rel="prev" href="../a2a-security-analysis/">
       
       
-        <link rel="next" href="../a2a-ecosystem/">
+        <link rel="next" href="../a2a-vs-mcp/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>A2A 安全问题分析 - LLM Wiki</title>
+        <title>A2A 生态系统与工具链 - LLM Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -96,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href=".." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              A2A 安全问题分析
+              A2A 生态系统与工具链
             
           </span>
         </div>
@@ -239,7 +239,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href=".." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -269,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -413,6 +413,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../a2a-security-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2A 安全分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -432,7 +460,7 @@
   <span class="md-ellipsis">
     
   
-    A2A 安全分析
+    A2A 生态系统
   
 
     
@@ -450,7 +478,7 @@
   <span class="md-ellipsis">
     
   
-    A2A 安全分析
+    A2A 生态系统
   
 
     
@@ -476,10 +504,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#202605" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心结论
+        生态现状（2026.05）
       
     </span>
   </a>
@@ -487,44 +515,56 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10 个已知安全缺口
+        社区项目
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="10 个已知安全缺口">
+    <nav class="md-nav" aria-label="社区项目">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent 发现与注册
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent 框架
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        高危
+        实际部署案例
       
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="实际部署案例">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#nullclaw-ironclaw-irc-a2a" class="md-nav__link">
     <span class="md-ellipsis">
       
-        中危
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        已验证攻击
+        nullclaw + ironclaw — IRC + A2A 混合架构
       
     </span>
   </a>
@@ -533,6 +573,72 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实际使用模式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实际使用模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-a2a-passthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模式 1: A2A Passthrough
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-meta-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模式 2: Meta-Agent（发现 + 委托）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mcp-a2a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模式 3: 混合 MCP + A2A
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        采纳挑战
+      
+    </span>
+  </a>
   
 </li>
       
@@ -540,76 +646,15 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        攻击场景详解
+        未来展望
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="攻击场景详解">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-agent-in-the-middle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        场景 1: Agent in the Middle
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-prompt" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        场景 2: 跨轮次 Prompt 注入
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        场景 3: 授权链滥用
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        缓解建议
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        学术研究
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         相关页面
@@ -623,34 +668,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../a2a-ecosystem/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    A2A 生态系统
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -726,7 +743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../comparisons/a2a-vs-mcp/" class="md-nav__link">
+      <a href="../a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -761,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../SCHEMA/" class="md-nav__link">
+      <a href="../SCHEMA/" class="md-nav__link">
         
   
   
@@ -808,10 +825,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#202605" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心结论
+        生态现状（2026.05）
       
     </span>
   </a>
@@ -819,44 +836,56 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10 个已知安全缺口
+        社区项目
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="10 个已知安全缺口">
+    <nav class="md-nav" aria-label="社区项目">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent 发现与注册
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent 框架
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        高危
+        实际部署案例
       
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="实际部署案例">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#nullclaw-ironclaw-irc-a2a" class="md-nav__link">
     <span class="md-ellipsis">
       
-        中危
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        已验证攻击
+        nullclaw + ironclaw — IRC + A2A 混合架构
       
     </span>
   </a>
@@ -865,6 +894,72 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实际使用模式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实际使用模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-a2a-passthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模式 1: A2A Passthrough
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-meta-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模式 2: Meta-Agent（发现 + 委托）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mcp-a2a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模式 3: 混合 MCP + A2A
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        采纳挑战
+      
+    </span>
+  </a>
   
 </li>
       
@@ -872,76 +967,15 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        攻击场景详解
+        未来展望
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="攻击场景详解">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-agent-in-the-middle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        场景 1: Agent in the Middle
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-prompt" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        场景 2: 跨轮次 Prompt 注入
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        场景 3: 授权链滥用
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        缓解建议
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        学术研究
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         相关页面
@@ -962,6 +996,54 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href=".." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../a2a-protocol/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    概念
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -971,153 +1053,103 @@
   
 
 
-<h1 id="a2a">A2A 安全问题分析<a class="headerlink" href="#a2a" title="Permanent link">&para;</a></h1>
+<h1 id="a2a">A2A 生态系统与工具链<a class="headerlink" href="#a2a" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>基于 grith.ai 安全审计（2026.03）、Palo Alto Unit 42、Semgrep、Trustwave SpiderLabs、Solo.io 的研究。</p>
+<p>A2A 协议的社区项目、工具和实际使用案例。</p>
 </blockquote>
-<h2 id="_1">核心结论<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>"A2A 是一个通信协议，不是安全执行层。" — Solo.io</p>
-</blockquote>
-<p>A2A v1.0 在协议层面<strong>零防御</strong> OWASP LLM Top #1（Prompt 注入）。安全完全依赖实现层，而协议没有提供标准化的安全模型。</p>
-<h2 id="10">10 个已知安全缺口<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
-<h3 id="_2">高危<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>漏洞</th>
-<th>说明</th>
-<th>来源</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td><strong>无 Prompt 注入防御</strong></td>
-<td>协议层零机制检测/防止跨 Agent 注入</td>
-<td>grith.ai</td>
-</tr>
-<tr>
-<td>2</td>
-<td><strong>AgentCard 签名可选</strong></td>
-<td><code>MAY</code> 而非 <code>MUST</code>，可被伪造</td>
-<td>Semgrep</td>
-</tr>
-<tr>
-<td>3</td>
-<td><strong>执行不透明</strong></td>
-<td>调用方无法查看远程 Agent 内部操作</td>
-<td>设计缺陷</td>
-</tr>
-<tr>
-<td>4</td>
-<td><strong>工具调用无预审</strong></td>
-<td>无协议级策略门控</td>
-<td>grith.ai</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_3">中危<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>漏洞</th>
-<th>说明</th>
-<th>来源</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>5</td>
-<td><strong>无用户同意状态</strong></td>
-<td>只有 <code>input_required</code>，对敏感操作不够精细</td>
-<td>grith.ai</td>
-</tr>
-<tr>
-<td>6</td>
-<td><strong>授权模型不统一</strong></td>
-<td>每个部署自行实现，无标准可审计</td>
-<td>grith.ai</td>
-</tr>
-<tr>
-<td>7</td>
-<td><strong>无 Token 生命周期</strong></td>
-<td>窃取的 OAuth Token 可永久有效</td>
-<td>grith.ai</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_4">已验证攻击<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>攻击方式</th>
-<th>详情</th>
-<th>来源</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>8</td>
-<td><strong>多轮会话走私</strong></td>
-<td>Unit 42 构建 PoC：跨轮次的隐藏指令导致未经授权的股票购买，对终端用户不可见</td>
-<td>Unit 42</td>
-</tr>
-<tr>
-<td>9</td>
-<td><strong>AgentCard 投毒</strong></td>
-<td>Trustwave 展示伪造 AgentCard 通过夸大描述赢得 LLM-as-judge 路由，然后篡改结果（如汇率转换）</td>
-<td>Trustwave</td>
-</tr>
-<tr>
-<td>10</td>
-<td><strong>路线图未解决</strong></td>
-<td>聚焦治理/SDK，未提及授权标准化、同意机制、Prompt 注入防御</td>
-<td>grith.ai</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_5">攻击场景详解<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<h3 id="1-agent-in-the-middle">场景 1: Agent in the Middle<a class="headerlink" href="#1-agent-in-the-middle" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>用户 → 编排 Agent → [恶意 AgentCard 投毒] → 路由到恶意 Agent
-                                     ↓
-                          返回被篡改的结果
-                          (如错误的汇率数据)
-</code></pre></div>
-<p><strong>工作原理</strong>: 恶意 Agent 在 AgentCard 中夸大自己的能力描述，通过 LLM-as-judge 路由机制骗取任务委托。</p>
-<h3 id="2-prompt">场景 2: 跨轮次 Prompt 注入<a class="headerlink" href="#2-prompt" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>Turn 1: 用户 → Agent A → Agent B（正常请求）
-Turn 2: Agent B 返回含隐藏指令的结果
-Turn 3: 用户 → Agent A → Agent A 执行了隐藏指令（如转账）
-</code></pre></div>
-<p><strong>工作原理</strong>: 在多轮对话中，恶意 Agent 在正常响应中嵌入隐藏指令，后续轮次被利用。</p>
-<h3 id="3">场景 3: 授权链滥用<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>用户 → 编排 Agent (已授权) → 子 Agent A → 子 Agent B → 子 Agent C
-                                                         ↓
-                                                   未授权操作
-</code></pre></div>
-<p><strong>工作原理</strong>: 委托链中的授权边界模糊，v1.0 的 <code>auth_required</code> 状态没有标准化的授权粒度。</p>
-<h2 id="_6">缓解建议<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>实现层加密 AgentCard</strong> — 即使协议不要求，也要签名验证</li>
-<li><strong>工具调用白名单</strong> — 在 Agent 实现中限制可执行的操作</li>
-<li><strong>人类在环</strong> — 对敏感操作（支付、删除）强制人工确认</li>
-<li><strong>会话审计日志</strong> — 记录所有跨 Agent 消息用于事后审查</li>
-<li><strong>Token 生命周期管理</strong> — 设置合理的过期时间和刷新机制</li>
-<li><strong>Prompt 注入检测</strong> — 在 Agent 输入层添加检测过滤</li>
-</ol>
-<h2 id="_7">学术研究<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="202605">生态现状（2026.05）<a class="headerlink" href="#202605" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>ArXiv 2505.12490</strong>: 提出在 A2A 中添加 consent orchestration（同意编排）</li>
-<li>方向：在协议层引入细粒度的用户同意状态机</li>
+<li>公开 Agent 数量: ~100+</li>
+<li>在线率: ~50%</li>
+<li>成熟度: 早期 — 大量 "hello world" demo，少量生产级实现</li>
+<li>主流客户端采纳: <strong>零</strong>（对比 MCP 有 Claude Desktop、Cursor 等）</li>
 </ul>
-<h2 id="_8">相关页面<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_1">社区项目<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="agent">Agent 发现与注册<a class="headerlink" href="#agent" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Waggle</strong> (waggle.zone)</td>
+<td>A2A Agent 搜索引擎，爬取 AgentCard 并用语义嵌入索引，自身是 A2A 兼容的 meta-agent</td>
+</tr>
+<tr>
+<td><strong>A2Apex</strong> (a2apex.io)</td>
+<td>测试/认证平台，50+ 自动合规检查，0-100 信任评分，被称为 "SSL Labs + npm + LinkedIn — for AI agents"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="agent_1">Agent 框架<a class="headerlink" href="#agent_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>EDDI</strong> (labsai/EDDI)</td>
+<td>Java/Quarkus 多 Agent 引擎，同时实现 MCP（server+client）和 A2A，JSON 配置驱动，级联置信度提升</td>
+</tr>
+<tr>
+<td><strong>SuperLocalMemory</strong></td>
+<td>10 层本地优先 AI 记忆架构，A2A 作为第 10 层（v2.6，计划 2026.05）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2">实际部署案例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h4 id="nullclaw-ironclaw-irc-a2a">nullclaw + ironclaw — IRC + A2A 混合架构<a class="headerlink" href="#nullclaw-ironclaw-irc-a2a" title="Permanent link">&para;</a></h4>
 <ul>
-<li>[[a2a-protocol]] — A2A 协议完整详解</li>
-<li>[[a2a-task-state-machine]] — Task 状态机</li>
+<li><strong>nullclaw</strong>: 公共 Agent，IRC 传输，678KB Zig 二进制，~1MB RAM</li>
+<li><strong>ironclaw</strong>: 私有 Agent，邮件/日程，通过 Tailscale 使用 A2A 协议</li>
+<li><strong>A2A Passthrough 模式</strong>: 私有 Agent 借用网关的推理管道 → 一个 API Key，一个计费关系</li>
+<li><strong>分层推理</strong>: Haiku 4.5 用于对话，Sonnet 4.6 用于工具使用，$2/天上限</li>
+</ul>
+<h2 id="_3">实际使用模式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1-a2a-passthrough">模式 1: A2A Passthrough<a class="headerlink" href="#1-a2a-passthrough" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>用户 → 网关 Agent → [A2A] → 内部 Agent
+                        ↓
+                  借用网关的 LLM API Key
+                  共享计费关系
+</code></pre></div>
+<p><strong>优势</strong>: 统一 API Key 管理，内部 Agent 无需独立 LLM 订阅。</p>
+<h3 id="2-meta-agent">模式 2: Meta-Agent（发现 + 委托）<a class="headerlink" href="#2-meta-agent" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>用户 → Meta-Agent (如 Waggle)
+         → 发现合适的 Agent
+         → 委托任务
+         → 汇总结果
+</code></pre></div>
+<h3 id="3-mcp-a2a">模式 3: 混合 MCP + A2A<a class="headerlink" href="#3-mcp-a2a" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>编排 Agent
+├── A2A → 外部 Agent A
+├── A2A → 外部 Agent B
+├── MCP → 内部工具 (DB, API)
+└── MCP → 数据源 (文档, 知识库)
+</code></pre></div>
+<h2 id="_4">采纳挑战<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>分发问题</strong>: MCP 有 Claude Desktop/Cursor 等分发渠道，A2A 零主流客户端</li>
+<li><strong>竞争者困境</strong>: Google 的竞争对手（OpenAI, Anthropic）不太可能采用 Google 主导的协议</li>
+<li><strong>质量参差</strong>: 大量 demo 级 Agent，降低了生态可信度</li>
+<li><strong>安全担忧</strong>: 协议层安全缺陷影响企业采纳意愿</li>
+</ol>
+<h2 id="_5">未来展望<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>协议共存预期（类似 REST/WebSocket/GraphQL）</li>
+<li>原生模型间通信可能最终绕过所有中间协议</li>
+<li>标准化安全机制是最紧迫的需求</li>
+</ul>
+<h2 id="_6">相关页面<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="a2a-protocol">a2a-protocol</a> — A2A 协议完整详解</li>
+<li><a href="a2a-vs-mcp">a2a-vs-mcp</a> — A2A 与 MCP 对比</li>
+<li><a href="a2a-security-analysis">a2a-security-analysis</a> — 安全问题分析</li>
 </ul>
 
 
@@ -1193,10 +1225,10 @@ Turn 3: 用户 → Agent A → Agent A 执行了隐藏指令（如转账）
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "search.share", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
