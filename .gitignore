@@ -1,0 +1,5 @@
+# 忽略规则
+.DS_Store
+_archive/
+*.tmp
+log-*.md
