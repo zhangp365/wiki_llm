@@ -21,3 +21,15 @@
   - comparisons/a2a-vs-mcp.md — A2A vs MCP 全面对比
 - 更新 index.md（5 个页面）
 - 总计: 2 raw + 5 wiki pages
+
+## [2026-05-03] ingest | Hermes Agent 记忆系统架构
+- 来源: Manthan Gupta (@manthanguptaa) 英文原文 + @宝玉xp 中文转译
+- 原文链接: https://x.com/manthanguptaa/status/2034849672985288957
+- 微博链接: https://m.weibo.cn/detail/5293206420062939
+- 创建原始来源:
+  - raw/articles/hermes-memory-system-english-original.md — 英文原文
+  - raw/articles/hermes-memory-system-chinese-translation.md — 中文翻译
+- 创建 Wiki 页面:
+  - concepts/hermes-agent-memory-architecture.md — 四层记忆系统完整架构
+- 更新 index.md（6 个页面）
+- 总计: 2 raw + 1 wiki page

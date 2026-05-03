@@ -4,6 +4,7 @@ site_url: https://zhangp365.github.io/wiki_llm/
 site_author: zhangp365
 repo_url: https://github.com/zhangp365/wiki_llm
 repo_name: zhangp365/wiki_llm
+edit_uri: edit/main/docs/
 
 theme:
   name: material
@@ -26,10 +27,12 @@ theme:
     - navigation.sections
     - navigation.top
     - navigation.tracking
+    - navigation.path
     - search.suggest
     - search.highlight
     - search.share
     - toc.follow
+    - content.code.copy
   icon:
     repo: fontawesome/brands/github
 
@@ -50,18 +53,21 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - attr_list
   - md_in_html
+  - tables
 
 nav:
   - 首页: index.md
   - 概念:
-    - A2A 协议详解: concepts/a2a-protocol.md
-    - Task 状态机: concepts/a2a-task-state-machine.md
-    - A2A 安全分析: concepts/a2a-security-analysis.md
-    - A2A 生态系统: concepts/a2a-ecosystem.md
+    - A2A 协议详解: a2a-protocol.md
+    - Task 状态机: a2a-task-state-machine.md
+    - A2A 安全分析: a2a-security-analysis.md
+    - A2A 生态系统: a2a-ecosystem.md
   - 对比:
-    - A2A vs MCP: comparisons/a2a-vs-mcp.md
+    - A2A vs MCP: a2a-vs-mcp.md
   - Wiki 规范: SCHEMA.md
 
 extra:

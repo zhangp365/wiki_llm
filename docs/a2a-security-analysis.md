@@ -93,5 +93,5 @@ Turn 3: 用户 → Agent A → Agent A 执行了隐藏指令（如转账）
 
 ## 相关页面
 
-- [[a2a-protocol]] — A2A 协议完整详解
-- [[a2a-task-state-machine]] — Task 状态机
+- [a2a-protocol](a2a-protocol.md) — A2A 协议完整详解
+- [a2a-task-state-machine](a2a-task-state-machine.md) — Task 状态机

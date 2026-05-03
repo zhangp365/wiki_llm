@@ -1,25 +1,40 @@
 ---
+title: LLM Wiki
+---
+
+# LLM Wiki
+
+> 基于 [Karpathy's LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) 模式构建的个人知识库。不同于 RAG 每次重新发现知识，Wiki 一次性编译知识并保持更新。
 
 ---
 
-# 📚 LLM Wiki
+## 概念
 
-> 基于 [Karpathy's LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) 模式构建的个人知识库。
+| 条目 | 摘要 | 标签 |
+|------|------|------|
+| [A2A 协议详解](a2a-protocol.md) | A2A 协议完整详解：数据模型、会话机制、消息流转、RPC 方法 | `protocol` `agent` `architecture` |
+| [Task 状态机](a2a-task-state-machine.md) | Task 状态机：8 个状态、转换规则、v0.3→v1.0 变更 | `protocol` `agent` |
+| [A2A 安全分析](a2a-security-analysis.md) | 10 个已知安全缺口：Prompt 注入、AgentCard 投毒、会话走私 | `protocol` `security` |
+| [A2A 生态系统](a2a-ecosystem.md) | 生态工具链：Waggle、A2Apex、EDDI、实际部署案例 | `protocol` `open-source` |
 
-覆盖 **AI/ML 技术研究** 和 **个人知识管理**，通过互相链接的 Markdown 页面持续积累知识。
+## 对比
 
-## 快速导航
+| 条目 | 摘要 | 标签 |
+|------|------|------|
+| [A2A vs MCP](a2a-vs-mcp.md) | A2A 与 MCP 全面对比：定位、交互模式、适用场景、采纳现状 | `protocol` `comparison` |
 
-- 📖 [[概念]] — 技术概念和协议详解
-- ⚖️ [[对比]] — 技术方案对比分析
-- 📋 [Wiki 规范](SCHEMA.md) — 标签体系、页面规范
+## 实体
 
-## 这个 Wiki 的特点
+暂无条目。
 
-- **持久化**: 不同于 RAG 每次重新发现知识，Wiki 一次性编译并持续更新
-- **交叉引用**: 页面之间通过链接互联，形成知识网络
-- **人机协作**: 人类筛选来源，Agent 负责总结、归档和维护
+## 查询存档
+
+暂无条目。
+
+## 笔记
+
+暂无条目。
 
 ---
 
-*由 Hermes Agent + MkDocs Material 构建*
+*共 5 个条目 · 最后更新：2026-05-02*

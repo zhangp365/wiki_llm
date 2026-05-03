@@ -107,5 +107,5 @@ sources: [raw/articles/a2a-official-spec.md]
 
 ## 相关页面
 
-- [[a2a-protocol]] — A2A 协议完整详解
-- [[a2a-security-analysis]] — 安全问题深度分析
+- [a2a-protocol](a2a-protocol.md) — A2A 协议完整详解
+- [a2a-security-analysis](a2a-security-analysis.md) — 安全问题深度分析

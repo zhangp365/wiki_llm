@@ -6,7 +6,7 @@ AI/ML 技术研究 + 个人知识管理。覆盖 AI 技术架构、Agent 协议�
 ## Conventions
 - File names: lowercase, hyphens, no spaces (e.g., `a2a-protocol.md`)
 - Every wiki page starts with YAML frontmatter (see below)
-- Use `[[wikilinks]]` to link between pages (minimum 2 outbound links per page)
+- Use `[wikilinks](wikilinks)` to link between pages (minimum 2 outbound links per page)
 - When updating a page, always bump the `updated` date
 - Every new page must be added to `index.md` under the correct section
 - Every action must be appended to `log.md`
@@ -72,7 +72,7 @@ Rule: every tag on a page must appear in this taxonomy. If a new tag is needed, 
 One page per notable entity. Include:
 - Overview / what it is
 - Key facts and dates
-- Relationships to other entities ([[wikilinks]])
+- Relationships to other entities ([wikilinks](wikilinks))
 - Source references
 
 ## Concept Pages
@@ -80,7 +80,7 @@ One page per concept or topic. Include:
 - Definition / explanation
 - Current state of knowledge
 - Open questions or debates
-- Related concepts ([[wikilinks]])
+- Related concepts ([wikilinks](wikilinks))
 
 ## Comparison Pages
 Side-by-side analyses. Include:
@@ -94,7 +94,7 @@ Personal reading notes, reflections, learning logs. Include:
 - Source reference (book, article, video)
 - Key takeaways
 - Personal thoughts and connections
-- Related wiki pages ([[wikilinks]])
+- Related wiki pages ([wikilinks](wikilinks))
 
 ## Update Policy
 When new information conflicts with existing content:

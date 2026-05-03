@@ -84,5 +84,5 @@ sources: [raw/articles/a2a-official-spec.md, raw/articles/a2a-community-research
 
 ## 相关页面
 
-- [[a2a-protocol]] — A2A 协议完整详解
-- [[a2a-ecosystem]] — A2A 生态工具链
+- [a2a-protocol](a2a-protocol.md) — A2A 协议完整详解
+- [a2a-ecosystem](a2a-ecosystem.md) — A2A 生态工具链
