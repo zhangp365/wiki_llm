@@ -66,6 +66,7 @@ nav:
     - Task 状态机: a2a-task-state-machine.md
     - A2A 安全分析: a2a-security-analysis.md
     - A2A 生态系统: a2a-ecosystem.md
+    - Hermes Agent 记忆架构: hermes-agent-memory-architecture.md
   - 对比:
     - A2A vs MCP: a2a-vs-mcp.md
   - Wiki 规范: SCHEMA.md
