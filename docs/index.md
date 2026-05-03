@@ -16,6 +16,7 @@ title: LLM Wiki
 | [Task 状态机](a2a-task-state-machine.md) | Task 状态机：8 个状态、转换规则、v0.3→v1.0 变更 | `protocol` `agent` |
 | [A2A 安全分析](a2a-security-analysis.md) | 10 个已知安全缺口：Prompt 注入、AgentCard 投毒、会话走私 | `protocol` `security` |
 | [A2A 生态系统](a2a-ecosystem.md) | 生态工具链：Waggle、A2Apex、EDDI、实际部署案例 | `protocol` `open-source` |
+| [Hermes Agent 记忆架构](hermes-agent-memory-architecture.md) | 四层记忆系统：提示词记忆、会话搜索、技能系统、Honcho 深层建模 | `agent` `architecture` `open-source` |
 
 ## 对比
 
@@ -37,4 +38,4 @@ title: LLM Wiki
 
 ---
 
-*共 5 个条目 · 最后更新：2026-05-02*
+*共 6 个条目 · 最后更新：2026-05-03*
