@@ -13,6 +13,8 @@ sources:
 
 > Hermes Agent 采用分层记忆架构，核心设计原则：**保持提示词稳定以利用缓存，其他信息按需检索**。不是一套记忆系统，而是四套协同工作的系统。
 
+![Hermes Agent 记忆系统架构图](../raw/assets/hermes-memory-architecture-diagram.jpg)
+
 ## 核心设计哲学
 
 Hermes 针对供应商侧 **Prompt Caching** 优化：系统提示词的前缀部分（工具定义、记忆快照、技能索引等）在会话中保持不变，避免频繁变更导致缓存失效。
