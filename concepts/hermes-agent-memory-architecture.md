@@ -130,5 +130,5 @@ FTS5 全文搜索 → 按会话分组 → 解析父子关系 → 截取匹配片
 
 ## 相关页面
 
-- [[a2a-protocol]] — Agent 间通信协议
-- [[a2a-vs-mcp]] — Agent 协议对比
+- [A2A 协议详解](a2a-protocol.md) — Agent 间通信协议
+- [A2A vs MCP](a2a-vs-mcp.md) — Agent 协议对比
