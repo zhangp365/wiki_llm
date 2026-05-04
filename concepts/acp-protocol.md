@@ -80,19 +80,10 @@ ACP 是基于 **JSON-RPC 2.0** 的双向通信协议，用于 UI 客户端（如
 
 ## 与相关协议的关系
 
-- **ACP vs MCP**：MCP 是模型与工具的协议（工具服务器），ACP 是 UI 与 Agent 的协议（客户端-代理）
-- **ACP vs A2A**：[[a2a-protocol]] 是 Agent 间通信协议（点对点），ACP 是 Agent 与宿主编排器的协议
-- 三者互补：MCP 管工具，ACP 管编排，[[a2a-protocol]] 管协作
+- **ACP vs MCP**：MCP 是模型与工具的协议（工具服务器），ACP 是 UI 与 Agent 的协议（客户端-代理），详见 [A2A vs MCP](a2a-vs-mcp.md)
+- **ACP vs A2A**：[A2A 协议](a2a-protocol.md) 是 Agent 间通信协议（点对点），ACP 是 Agent 与宿主编排器的协议
+- 三者互补：MCP 管工具，ACP 管编排，[A2A 协议](a2a-protocol.md) 管协作
 
-## 参考实现
+## 参考
 
-- **Client 侧**：TensorChat（Electron 应用）
-  - `acpProcessManager.ts` — 进程生命周期
-  - `acpSessionManager.ts` — 会话管理
-  - `acpProvider.ts` — prompt 执行、权限处理
-- **Agent 侧**：OpenCode
-  - `server/routes/global.ts` — initialize
-  - `server/routes/session.ts` — 会话控制
-  - `server/routes/permission.ts` — 权限网关
-- **SDK**：`@agentclientprotocol/sdk`
 - **官方文档**：https://agentclientprotocol.com

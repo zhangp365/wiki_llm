@@ -10,7 +10,7 @@ sources: [raw/articles/acp-stdio-auth-flow.md]
 # ACP stdio 授权流程详解
 
 > 基于 JSON-RPC 2.0 over stdin/stdout 的 UI ↔ Agent 授权机制完整拆解。
-> 详见 [[acp-protocol]] 了解全部接口总览。
+> 详见 [ACP 接口总览](acp-protocol.md) 了解全部接口总览。
 
 ## 传输基础
 
@@ -131,6 +131,6 @@ Agent → Client (Notification, 无需回应)
 
 ## 参见
 
-- [[acp-protocol]] — ACP 全部接口分类总览
-- [[a2a-protocol]] — Agent 间通信协议（与 ACP 互补）
-- [[a2a-vs-mcp]] — 协议对比分析
+- [ACP 接口总览](acp-protocol.md) — ACP 全部接口分类总览
+- [A2A 协议详解](a2a-protocol.md) — Agent 间通信协议（与 ACP 互补）
+- [A2A vs MCP](a2a-vs-mcp.md) — 协议对比分析
