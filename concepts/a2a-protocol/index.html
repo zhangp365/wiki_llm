@@ -12,29 +12,27 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/SCHEMA/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/a2a-protocol/">
       
-      
-        <link rel="prev" href="../a2a-vs-mcp/">
       
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Wiki 规范 - LLM Wiki</title>
+        <title>A2A 协议详解 — Agent-to-Agent Communication - LLM Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wiki-schema" class="md-skip">
+        <a href="#a2a" class="md-skip">
           跳转至
         </a>
       
@@ -94,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Wiki 规范
+              A2A 协议详解 — Agent-to-Agent Communication
             
           </span>
         </div>
@@ -237,7 +235,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -267,7 +265,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -362,7 +360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-protocol/" class="md-nav__link">
+      <a href="../../a2a-protocol/" class="md-nav__link">
         
   
   
@@ -390,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-task-state-machine/" class="md-nav__link">
+      <a href="../../a2a-task-state-machine/" class="md-nav__link">
         
   
   
@@ -418,7 +416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-security-analysis/" class="md-nav__link">
+      <a href="../../a2a-security-analysis/" class="md-nav__link">
         
   
   
@@ -446,7 +444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-ecosystem/" class="md-nav__link">
+      <a href="../../a2a-ecosystem/" class="md-nav__link">
         
   
   
@@ -474,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-protocol/" class="md-nav__link">
+      <a href="../../acp-protocol/" class="md-nav__link">
         
   
   
@@ -502,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-stdio-auth-flow/" class="md-nav__link">
+      <a href="../../acp-stdio-auth-flow/" class="md-nav__link">
         
   
   
@@ -530,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hermes-agent-memory-architecture/" class="md-nav__link">
+      <a href="../../hermes-agent-memory-architecture/" class="md-nav__link">
         
   
   
@@ -621,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-vs-mcp/" class="md-nav__link">
+      <a href="../../a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -653,37 +651,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Wiki 规范
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../SCHEMA/" class="md-nav__link">
         
   
   
@@ -699,197 +670,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#domain" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Domain
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conventions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conventions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#frontmatter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Frontmatter
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tag-taxonomy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tag Taxonomy
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tag Taxonomy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#aiml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AI/ML 技术
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        协议与框架
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        行业与生态
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        个人知识
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#meta" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Meta
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#page-thresholds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Page Thresholds
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#entity-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Entity Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#concept-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Concept Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comparison-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comparison Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#note-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Note Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#update-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Update Policy
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -921,77 +701,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#domain" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Domain
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conventions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conventions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#frontmatter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Frontmatter
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tag-taxonomy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tag Taxonomy
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tag Taxonomy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#aiml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AI/ML 技术
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        协议与框架
+        概述
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        行业与生态
+        核心数据模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心数据模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task — 任务
       
     </span>
   </a>
@@ -999,10 +735,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#message" class="md-nav__link">
     <span class="md-ellipsis">
       
-        个人知识
+        Message — 消息
       
     </span>
   </a>
@@ -1010,10 +746,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#meta" class="md-nav__link">
+  <a href="#part" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Meta
+        Part — 内容单元
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Artifact — 产出物
       
     </span>
   </a>
@@ -1026,10 +773,99 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#page-thresholds" class="md-nav__link">
+  <a href="#session" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Page Thresholds
+        会话机制（Session）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="会话机制（Session）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        会话流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键规则
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        消息流转
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="消息流转">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非流式请求/响应
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        流式传输（SSE）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多轮交互（需要输入）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rpc-v10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPC 方法（v1.0）
       
     </span>
   </a>
@@ -1037,10 +873,165 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#entity-pages" class="md-nav__link">
+  <a href="#agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Entity Pages
+        Agent 发现
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agent 发现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agentcard-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AgentCard — Agent 数字名片
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        发现方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agentcard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AgentCard 签名
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键注意点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="关键注意点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-v03-vs-v10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. v0.3 vs v1.0 破坏性变更
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. JSON 字段命名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 消息持久化不保证
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 错误处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 推送通知
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 扩展机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 认证
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-v10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. v1.0 新增：任务内授权
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安全问题
       
     </span>
   </a>
@@ -1048,43 +1039,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#concept-pages" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Concept Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comparison-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comparison Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#note-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Note Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#update-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Update Policy
+        相关页面
       
     </span>
   </a>
@@ -1119,113 +1077,383 @@
   
 
 
-<h1 id="wiki-schema">Wiki Schema<a class="headerlink" href="#wiki-schema" title="Permanent link">&para;</a></h1>
-<h2 id="domain">Domain<a class="headerlink" href="#domain" title="Permanent link">&para;</a></h2>
-<p>AI/ML 技术研究 + 个人知识管理。覆盖 AI 技术架构、Agent 协议、模型训练推理、行业动态，以及读书笔记、技术随笔等个人学习内容。</p>
-<h2 id="conventions">Conventions<a class="headerlink" href="#conventions" title="Permanent link">&para;</a></h2>
+<h1 id="a2a">A2A 协议详解<a class="headerlink" href="#a2a" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Agent-to-Agent Protocol — Google 主导、Linux Foundation 托管的开放标准，定义 AI Agent 之间的通信与协作方式。</p>
+</blockquote>
+<h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>A2A 是一个开放标准，定义了自主 AI Agent 如何以对等方式通信和协作。它标准化了 Agent 发现、任务管理、消息交换、流式传输和安全机制。</p>
 <ul>
-<li>File names: lowercase, hyphens, no spaces (e.g., <code>a2a-protocol.md</code>)</li>
-<li>Every wiki page starts with YAML frontmatter (see below)</li>
-<li>Use <code>[[wikilinks]]</code> to link between pages (minimum 2 outbound links per page)</li>
-<li>When updating a page, always bump the <code>updated</code> date</li>
-<li>Every new page must be added to <code>index.md</code> under the correct section</li>
-<li>Every action must be appended to <code>log.md</code></li>
-<li>Language: 中文为主，技术术语保留英文</li>
+<li><strong>仓库</strong>: <code>https://github.com/a2aproject/A2A</code></li>
+<li><strong>当前版本</strong>: v1.0（替代 v0.3.0）</li>
+<li><strong>规范来源</strong>: Protocol Buffers (<code>a2a.proto</code>) — 唯一的规范性数据模型</li>
+<li><strong>Content-Type</strong>: <code>application/a2a+json</code></li>
+<li><strong>三种协议绑定</strong>: JSON-RPC 2.0、gRPC、HTTP/REST（功能等价）</li>
 </ul>
-<h2 id="frontmatter">Frontmatter<a class="headerlink" href="#frontmatter" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Page Title</span>
-<span class="nt">created</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YYYY-MM-DD</span>
-<span class="nt">updated</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YYYY-MM-DD</span>
-<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">entity | concept | comparison | query | note</span>
-<span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">from taxonomy below</span><span class="p p-Indicator">]</span>
-<span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">raw/articles/source-name.md</span><span class="p p-Indicator">]</span>
-<span class="nn">---</span>
+<h2 id="_2">核心数据模型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="task">Task — 任务<a class="headerlink" href="#task" title="Permanent link">&para;</a></h3>
+<p>Task 是 A2A 的核心工作单元，所有通信围绕 Task 展开。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>UUID，服务端生成</td>
+</tr>
+<tr>
+<td><code>contextId</code></td>
+<td>会话标识，将相关任务分组</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>[[a2a-task-state-machine|TaskStatus]]，包含 state + 可选 message</td>
+</tr>
+<tr>
+<td><code>artifacts[]</code></td>
+<td>输出结果（文件、数据、文本）</td>
+</tr>
+<tr>
+<td><code>history[]</code></td>
+<td>Message 数组（对话线程）</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td>可扩展键值对</td>
+</tr>
+<tr>
+<td><code>extensions[]</code></td>
+<td>协议扩展标识符</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td>ISO 8601 时间戳</td>
+</tr>
+<tr>
+<td><code>lastModified</code></td>
+<td>ISO 8601 时间戳</td>
+</tr>
+</tbody>
+</table>
+<h3 id="message">Message — 消息<a class="headerlink" href="#message" title="Permanent link">&para;</a></h3>
+<p>Task 中的单次通信单元：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>messageId</code></td>
+<td>UUID，客户端提供</td>
+</tr>
+<tr>
+<td><code>taskId</code></td>
+<td>可选，引用已有任务用于后续交互</td>
+</tr>
+<tr>
+<td><code>contextId</code></td>
+<td>可选，用于会话连续性</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td><code>ROLE_USER</code> 或 <code>ROLE_AGENT</code></td>
+</tr>
+<tr>
+<td><code>parts[]</code></td>
+<td>[[#part-内容单元|Part]] 数组</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td>可扩展键值对</td>
+</tr>
+<tr>
+<td><code>referenceTaskIds[]</code></td>
+<td>关联任务链接</td>
+</tr>
+</tbody>
+</table>
+<h3 id="part">Part — 内容单元<a class="headerlink" href="#part" title="Permanent link">&para;</a></h3>
+<p>多态内容，按字段区分类型：</p>
+<ul>
+<li><strong>TextPart</strong>: <code>{ "text": "..." }</code> — 纯文本或结构化文本</li>
+<li><strong>FilePart</strong>: <code>{ "files": [...] }</code> — 文件附件，含 <code>filename</code>、<code>mediaType</code>，以及 <code>raw</code>（base64）或 <code>url</code>（远程引用）</li>
+<li><strong>DataPart</strong>: <code>{ "data": {...} }</code> — 结构化 JSON 数据</li>
+</ul>
+<h3 id="artifact">Artifact — 产出物<a class="headerlink" href="#artifact" title="Permanent link">&para;</a></h3>
+<p>任务的输出结果，与 Message 不同：Message 用于通信，Artifact 用于交付成果。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>artifactId</code></td>
+<td>UUID</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>人类可读名称</td>
+</tr>
+<tr>
+<td><code>parts[]</code></td>
+<td>Part 数组</td>
+</tr>
+<tr>
+<td><code>index</code></td>
+<td>位置索引</td>
+</tr>
+<tr>
+<td><code>append</code></td>
+<td>是否追加到前一个 artifact</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>注意</strong>: 不要用 Message 来交付结果，区分 Message（通信）和 Artifact（产出）。</p>
+</blockquote>
+<h2 id="session">会话机制（Session）<a class="headerlink" href="#session" title="Permanent link">&para;</a></h2>
+<p>A2A 使用 <code>contextId</code> 维持会话连续性，<strong>没有独立的 Session 对象</strong>。</p>
+<h3 id="_3">会话流程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>1. 首次消息
+   Client → Message（无 taskId，无 contextId）
+   Server → 创建 Task，生成 contextId，返回
+
+2. 继续对话
+   Client → Message（携带 contextId）
+   Server → 在同一会话上下文中处理
+
+3. 跟进已有任务
+   Client → Message（携带 taskId）
+   Server → 继续处理该任务
+
+4. 同一会话中的新任务
+   Client → Message（携带 contextId，不带 taskId）
+   Server → 创建新 Task，继承会话上下文
 </code></pre></div>
-<h2 id="tag-taxonomy">Tag Taxonomy<a class="headerlink" href="#tag-taxonomy" title="Permanent link">&para;</a></h2>
-<h3 id="aiml">AI/ML 技术<a class="headerlink" href="#aiml" title="Permanent link">&para;</a></h3>
+<h3 id="_4">关键规则<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>model</code> — 模型相关（GPT, Claude, GLM 等）</li>
-<li><code>architecture</code> — 架构设计（Transformer, MoE 等）</li>
-<li><code>agent</code> — AI Agent 框架与协议</li>
-<li><code>training</code> — 训练方法（RLHF, DPO, SFT 等）</li>
-<li><code>inference</code> — 推理与部署</li>
-<li><code>alignment</code> — 对齐与安全</li>
-<li><code>benchmark</code> — 评测基准</li>
-<li><code>multimodal</code> — 多模态</li>
+<li><code>taskId</code> <strong>始终由服务端生成</strong>，客户端不能提供</li>
+<li><code>contextId</code> / <code>taskId</code> 不匹配时，Agent <strong>必须拒绝</strong></li>
+<li>Client 可以只发 <code>contextId</code> 不发 <code>taskId</code>，在同一会话中开启新任务</li>
+<li>新任务可继承同一 <code>contextId</code> 下之前交互的上下文</li>
 </ul>
-<h3 id="_1">协议与框架<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>📌 [[a2a-vs-mcp|对比 MCP]]：A2A 是有状态的、多轮的；MCP 通常是单次无状态调用。</p>
+</blockquote>
+<h2 id="_5">消息流转<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">非流式请求/响应<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Client → POST /message:send → Agent
+Client ← { task: { id, contextId, status, artifacts } } ← Agent
+</code></pre></div>
+<h3 id="sse">流式传输（SSE）<a class="headerlink" href="#sse" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Client → POST /message:stream → Agent
+Client ← SSE: { &quot;task&quot;: { &quot;status&quot;: { &quot;state&quot;: &quot;TASK_STATE_WORKING&quot; } } }
+Client ← SSE: { &quot;artifactUpdate&quot;: { &quot;artifact&quot;: {...} } }
+Client ← SSE: { &quot;statusUpdate&quot;: { &quot;status&quot;: { &quot;state&quot;: &quot;TASK_STATE_COMPLETED&quot; } } }
+</code></pre></div>
+<p>需要 AgentCard 中 <code>capabilities.streaming</code> 为 <code>true</code>。</p>
+<p><strong>StreamResponse</strong> — 按存在哪个 JSON 成员来区分：
+- <code>{ "task": {...} }</code> — 完整任务状态
+- <code>{ "message": {...} }</code> — 消息响应
+- <code>{ "statusUpdate": {...} }</code> — 状态更新
+- <code>{ "artifactUpdate": {...} }</code> — 产出物更新</p>
+<blockquote>
+<p>⚠️ 事件<strong>必须按顺序</strong>投递。同一 Task 允许多个并发流（广播给所有订阅者）。</p>
+</blockquote>
+<h3 id="_7">多轮交互（需要输入）<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>1. Client 发送消息
+2. Agent 返回 TASK_STATE_INPUT_REQUIRED + 澄清消息
+3. Client 发送跟进消息（同一 taskId + contextId）
+4. Agent 继续处理
+</code></pre></div>
+<h2 id="rpc-v10">RPC 方法（v1.0）<a class="headerlink" href="#rpc-v10" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>HTTP/REST</th>
+<th>JSON-RPC</th>
+<th>gRPC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SendMessage</strong></td>
+<td><code>POST /message:send</code></td>
+<td><code>SendMessage</code></td>
+<td><code>SendMessage</code></td>
+</tr>
+<tr>
+<td><strong>SendStreamingMessage</strong></td>
+<td><code>POST /message:stream</code></td>
+<td><code>SendStreamingMessage</code></td>
+<td><code>SendStreamingMessage</code></td>
+</tr>
+<tr>
+<td><strong>GetTask</strong></td>
+<td><code>GET /tasks/{id}</code></td>
+<td><code>GetTask</code></td>
+<td><code>GetTask</code></td>
+</tr>
+<tr>
+<td><strong>ListTasks</strong></td>
+<td><code>GET /tasks</code></td>
+<td><code>ListTasks</code></td>
+<td><code>ListTasks</code></td>
+</tr>
+<tr>
+<td><strong>CancelTask</strong></td>
+<td><code>POST /tasks/{id}:cancel</code></td>
+<td><code>CancelTask</code></td>
+<td><code>CancelTask</code></td>
+</tr>
+<tr>
+<td><strong>SubscribeToTask</strong></td>
+<td><code>POST /tasks/{id}:subscribe</code></td>
+<td><code>SubscribeToTask</code></td>
+<td><code>SubscribeToTask</code></td>
+</tr>
+<tr>
+<td><strong>GetExtendedAgentCard</strong></td>
+<td><code>GET /extendedAgentCard</code></td>
+<td><code>GetExtendedAgentCard</code></td>
+<td><code>GetExtendedAgentCard</code></td>
+</tr>
+<tr>
+<td><strong>CreateTaskPushNotificationConfig</strong></td>
+<td><code>POST /tasks/{id}/pushNotificationConfigs</code></td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<p><strong>v0.3 → v1.0 变更</strong>: <code>message/send</code> → <code>SendMessage</code>，<code>message/stream</code> → <code>SendStreamingMessage</code></p>
+<p><strong>版本头</strong>: 客户端必须发送 <code>A2A-Version: 1.0</code> 头。</p>
+<h2 id="agent">Agent 发现<a class="headerlink" href="#agent" title="Permanent link">&para;</a></h2>
+<h3 id="agentcard-agent">AgentCard — Agent 数字名片<a class="headerlink" href="#agentcard-agent" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>Agent 名称（必填）</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>功能描述（必填）</td>
+</tr>
+<tr>
+<td><code>supportedInterfaces[]</code></td>
+<td>服务端点（v1.0），含 url、protocolBinding、protocolVersion</td>
+</tr>
+<tr>
+<td><code>provider</code></td>
+<td>组织信息</td>
+</tr>
+<tr>
+<td><code>capabilities</code></td>
+<td>streaming, pushNotifications, stateTransitionHistory, extendedAgentCard</td>
+</tr>
+<tr>
+<td><code>securitySchemes</code></td>
+<td>API Key / HTTP Auth / OAuth2 / OpenID Connect / mTLS</td>
+</tr>
+<tr>
+<td><code>skills[]</code></td>
+<td>AgentSkill 数组，描述具体能力</td>
+</tr>
+<tr>
+<td><code>defaultInputModes</code></td>
+<td>输入格式</td>
+</tr>
+<tr>
+<td><code>defaultOutputModes</code></td>
+<td>输出格式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">发现方式<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Well-Known URI</strong>（推荐）: <code>GET https://{domain}/.well-known/agent-card.json</code>，遵循 RFC 8615</li>
+<li><strong>注册中心</strong>（企业/市场）: 查询 skills、tags、capabilities（无标准化 API）</li>
+<li><strong>直接配置</strong>（私有/开发）: 硬编码 URL、配置文件、环境变量</li>
+</ol>
+<h3 id="agentcard">AgentCard 签名<a class="headerlink" href="#agentcard" title="Permanent link">&para;</a></h3>
+<p>可选使用 JWS（RFC 7515）签名 + JCS 规范化（RFC 8785）进行防篡改验证。</p>
+<h2 id="_9">关键注意点<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="1-v03-vs-v10">1. v0.3 vs v1.0 破坏性变更<a class="headerlink" href="#1-v03-vs-v10" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>protocol</code> — 通信协议（A2A, MCP, OpenAPI 等）</li>
-<li><code>framework</code> — 开发框架（LangChain, CrewAI 等）</li>
-<li><code>tool-use</code> — 工具使用</li>
+<li>枚举值从 <code>kebab-case</code> → <code>SCREAMING_SNAKE_CASE</code>（如 <code>submitted</code> → <code>TASK_STATE_SUBMITTED</code>）</li>
+<li>流事件移除了 <code>kind</code> 判别符，改用 JSON 成员名</li>
+<li>移除了 <code>final</code> 布尔值</li>
+<li>简单 UUID 替代复合 ID</li>
+<li>方法名改为 CamelCase</li>
 </ul>
-<h3 id="_2">行业与生态<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="2-json">2. JSON 字段命名<a class="headerlink" href="#2-json" title="Permanent link">&para;</a></h3>
+<p>必须使用 <strong>camelCase</strong>（不是 proto 的 snake_case）</p>
+<h3 id="3">3. 消息持久化不保证<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>Agent 自行决定 <code>history[]</code> 中存储什么。客户端<strong>不能依赖</strong>通过流式传输收到所有状态消息。</p>
+<h3 id="4">4. 错误处理<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>标准化错误码：
+- <code>TaskNotFoundError</code> → 404 / NOT_FOUND / -32001
+- <code>TaskNotCancelableError</code> → 400 / FAILED_PRECONDITION / -32002
+- <code>VersionNotSupportedError</code> → 400 / FAILED_PRECONDITION / -32009</p>
+<h3 id="5">5. 推送通知<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>基于 Webhook，使用 HTTP POST + <code>application/a2a+json</code>。客户端必须返回 2xx。Agent 必须尝试至少一次投递。</p>
+<h3 id="6">6. 扩展机制<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<p>在 AgentCard 中声明，通过 <code>A2A-Extensions</code> 头激活。必需扩展在不支持时应报错。</p>
+<h3 id="7">7. 认证<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<p>带外凭证获取，支持 OAuth2（Auth Code、Client Credentials、Device Code）、API Key、HTTP Auth、mTLS、OpenID Connect。</p>
+<h3 id="8-v10">8. v1.0 新增：任务内授权<a class="headerlink" href="#8-v10" title="Permanent link">&para;</a></h3>
+<p>新增 <code>TASK_STATE_AUTH_REQUIRED</code> 状态，允许 Agent 在任务执行中途请求授权，支持委托链。</p>
+<h2 id="_10">安全问题<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>基于 grith.ai 安全审计（2026.03）和社区分析，A2A v1.0 存在 <strong>10 个已知安全缺口</strong>：</p>
+<ol>
+<li><strong>无 Prompt 注入防御</strong> — 协议层零机制检测/防止跨 Agent 注入</li>
+<li><strong>AgentCard 签名可选</strong> — <code>MAY</code> 而非 <code>MUST</code>，可被伪造</li>
+<li><strong>执行不透明</strong> — 调用方无法查看远程 Agent 内部操作</li>
+<li><strong>工具调用无预审</strong> — 无协议级策略门控</li>
+<li><strong>无用户同意状态</strong> — 只有 <code>input_required</code>，不够精细</li>
+<li><strong>授权模型不统一</strong> — 每个部署自行实现</li>
+<li><strong>无 Token 生命周期</strong> — 窃取的 OAuth Token 可永久有效</li>
+<li><strong>多轮会话走私</strong> — Unit 42 构建 PoC 成功实现</li>
+<li><strong>AgentCard 投毒</strong> — Trustwave 展示了 "Agent in the Middle" 攻击</li>
+<li><strong>路线图未解决</strong> — 聚焦治理/SDK，未提及授权标准化</li>
+</ol>
+<blockquote>
+<p>详见 [[a2a-security-analysis|A2A 安全分析]]</p>
+</blockquote>
+<h2 id="_11">相关页面<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>company</code> — 公司（OpenAI, Anthropic, Google 等）</li>
-<li><code>person</code> — 人物</li>
-<li><code>open-source</code> — 开源项目</li>
-<li><code>product</code> — 产品与服务</li>
-<li><code>trend</code> — 行业趋势</li>
+<li>[[a2a-task-state-machine]] — Task 状态机详解</li>
+<li>[[a2a-vs-mcp]] — A2A 与 MCP 对比</li>
+<li>[[a2a-security-analysis]] — 安全问题深度分析</li>
+<li>[[a2a-ecosystem]] — 生态系统与工具链</li>
 </ul>
-<h3 id="_3">个人知识<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>note</code> — 读书/文章笔记</li>
-<li><code>reflection</code> — 思考与总结</li>
-<li><code>how-to</code> — 操作指南</li>
-<li><code>comparison</code> — 对比分析</li>
-</ul>
-<h3 id="meta">Meta<a class="headerlink" href="#meta" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>timeline</code> — 时间线</li>
-<li><code>controversy</code> — 争议话题</li>
-<li><code>prediction</code> — 预测</li>
-</ul>
-<p>Rule: every tag on a page must appear in this taxonomy. If a new tag is needed, add it here first, then use it.</p>
-<h2 id="page-thresholds">Page Thresholds<a class="headerlink" href="#page-thresholds" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Create a page</strong> when an entity/concept appears in 2+ sources OR is central to one source</li>
-<li><strong>Add to existing page</strong> when a source mentions something already covered</li>
-<li><strong>DON'T create a page</strong> for passing mentions, minor details, or things outside the domain</li>
-<li><strong>Split a page</strong> when it exceeds ~200 lines — break into sub-topics with cross-links</li>
-<li><strong>Archive a page</strong> when its content is fully superseded — move to <code>_archive/</code>, remove from index</li>
-</ul>
-<h2 id="entity-pages">Entity Pages<a class="headerlink" href="#entity-pages" title="Permanent link">&para;</a></h2>
-<p>One page per notable entity. Include:
-- Overview / what it is
-- Key facts and dates
-- Relationships to other entities ([[wikilinks]])
-- Source references</p>
-<h2 id="concept-pages">Concept Pages<a class="headerlink" href="#concept-pages" title="Permanent link">&para;</a></h2>
-<p>One page per concept or topic. Include:
-- Definition / explanation
-- Current state of knowledge
-- Open questions or debates
-- Related concepts ([[wikilinks]])</p>
-<h2 id="comparison-pages">Comparison Pages<a class="headerlink" href="#comparison-pages" title="Permanent link">&para;</a></h2>
-<p>Side-by-side analyses. Include:
-- What is being compared and why
-- Dimensions of comparison (table format preferred)
-- Verdict or synthesis
-- Sources</p>
-<h2 id="note-pages">Note Pages<a class="headerlink" href="#note-pages" title="Permanent link">&para;</a></h2>
-<p>Personal reading notes, reflections, learning logs. Include:
-- Source reference (book, article, video)
-- Key takeaways
-- Personal thoughts and connections
-- Related wiki pages ([[wikilinks]])</p>
-<h2 id="update-policy">Update Policy<a class="headerlink" href="#update-policy" title="Permanent link">&para;</a></h2>
-<p>When new information conflicts with existing content:
-1. Check the dates — newer sources generally supersede older ones
-2. If genuinely contradictory, note both positions with dates and sources
-3. Mark the contradiction in frontmatter: <code>contradictions: [page-name]</code>
-4. Flag for user review in the lint report</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1291,10 +1519,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

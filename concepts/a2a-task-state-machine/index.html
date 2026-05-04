@@ -12,29 +12,27 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/SCHEMA/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/a2a-task-state-machine/">
       
-      
-        <link rel="prev" href="../a2a-vs-mcp/">
       
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Wiki 规范 - LLM Wiki</title>
+        <title>A2A Task 状态机 - LLM Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wiki-schema" class="md-skip">
+        <a href="#a2a-task" class="md-skip">
           跳转至
         </a>
       
@@ -94,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Wiki 规范
+              A2A Task 状态机
             
           </span>
         </div>
@@ -237,7 +235,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -267,7 +265,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -362,7 +360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-protocol/" class="md-nav__link">
+      <a href="../../a2a-protocol/" class="md-nav__link">
         
   
   
@@ -390,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-task-state-machine/" class="md-nav__link">
+      <a href="../../a2a-task-state-machine/" class="md-nav__link">
         
   
   
@@ -418,7 +416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-security-analysis/" class="md-nav__link">
+      <a href="../../a2a-security-analysis/" class="md-nav__link">
         
   
   
@@ -446,7 +444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-ecosystem/" class="md-nav__link">
+      <a href="../../a2a-ecosystem/" class="md-nav__link">
         
   
   
@@ -474,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-protocol/" class="md-nav__link">
+      <a href="../../acp-protocol/" class="md-nav__link">
         
   
   
@@ -502,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-stdio-auth-flow/" class="md-nav__link">
+      <a href="../../acp-stdio-auth-flow/" class="md-nav__link">
         
   
   
@@ -530,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hermes-agent-memory-architecture/" class="md-nav__link">
+      <a href="../../hermes-agent-memory-architecture/" class="md-nav__link">
         
   
   
@@ -621,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-vs-mcp/" class="md-nav__link">
+      <a href="../../a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -653,37 +651,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Wiki 规范
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../SCHEMA/" class="md-nav__link">
         
   
   
@@ -699,197 +670,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#domain" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Domain
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conventions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conventions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#frontmatter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Frontmatter
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tag-taxonomy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tag Taxonomy
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tag Taxonomy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#aiml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AI/ML 技术
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        协议与框架
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        行业与生态
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        个人知识
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#meta" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Meta
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#page-thresholds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Page Thresholds
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#entity-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Entity Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#concept-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Concept Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comparison-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comparison Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#note-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Note Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#update-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Update Policy
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -921,66 +701,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#domain" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Domain
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conventions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conventions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#frontmatter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Frontmatter
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tag-taxonomy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tag Taxonomy
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tag Taxonomy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#aiml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AI/ML 技术
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        协议与框架
+        状态列表
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="状态列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#non-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非终态（Non-Terminal）
       
     </span>
   </a>
@@ -988,32 +724,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#terminal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        行业与生态
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        个人知识
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#meta" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Meta
+        终态（Terminal）
       
     </span>
   </a>
@@ -1026,10 +740,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#page-thresholds" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Page Thresholds
+        状态转换图
       
     </span>
   </a>
@@ -1037,10 +751,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#entity-pages" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Entity Pages
+        状态转换规则
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="状态转换规则">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        正向流转
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        取消
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v03-v10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.3 → v1.0 变更
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实现注意点
       
     </span>
   </a>
@@ -1048,43 +812,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#concept-pages" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Concept Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comparison-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comparison Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#note-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Note Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#update-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Update Policy
+        相关页面
       
     </span>
   </a>
@@ -1119,113 +850,222 @@
   
 
 
-<h1 id="wiki-schema">Wiki Schema<a class="headerlink" href="#wiki-schema" title="Permanent link">&para;</a></h1>
-<h2 id="domain">Domain<a class="headerlink" href="#domain" title="Permanent link">&para;</a></h2>
-<p>AI/ML 技术研究 + 个人知识管理。覆盖 AI 技术架构、Agent 协议、模型训练推理、行业动态，以及读书笔记、技术随笔等个人学习内容。</p>
-<h2 id="conventions">Conventions<a class="headerlink" href="#conventions" title="Permanent link">&para;</a></h2>
-<ul>
-<li>File names: lowercase, hyphens, no spaces (e.g., <code>a2a-protocol.md</code>)</li>
-<li>Every wiki page starts with YAML frontmatter (see below)</li>
-<li>Use <code>[[wikilinks]]</code> to link between pages (minimum 2 outbound links per page)</li>
-<li>When updating a page, always bump the <code>updated</code> date</li>
-<li>Every new page must be added to <code>index.md</code> under the correct section</li>
-<li>Every action must be appended to <code>log.md</code></li>
-<li>Language: 中文为主，技术术语保留英文</li>
-</ul>
-<h2 id="frontmatter">Frontmatter<a class="headerlink" href="#frontmatter" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Page Title</span>
-<span class="nt">created</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YYYY-MM-DD</span>
-<span class="nt">updated</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YYYY-MM-DD</span>
-<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">entity | concept | comparison | query | note</span>
-<span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">from taxonomy below</span><span class="p p-Indicator">]</span>
-<span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">raw/articles/source-name.md</span><span class="p p-Indicator">]</span>
-<span class="nn">---</span>
+<h1 id="a2a-task">A2A Task 状态机<a class="headerlink" href="#a2a-task" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Task 是 A2A 协议的核心工作单元。理解状态机是正确实现 A2A 的基础。</p>
+</blockquote>
+<h2 id="_1">状态列表<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="non-terminal">非终态（Non-Terminal）<a class="headerlink" href="#non-terminal" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>枚举值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>已提交</td>
+<td><code>TASK_STATE_SUBMITTED</code></td>
+<td>任务已创建，等待处理</td>
+</tr>
+<tr>
+<td>处理中</td>
+<td><code>TASK_STATE_WORKING</code></td>
+<td>Agent 正在执行任务</td>
+</tr>
+<tr>
+<td>需要输入</td>
+<td><code>TASK_STATE_INPUT_REQUIRED</code></td>
+<td>Agent 需要更多信息才能继续</td>
+</tr>
+<tr>
+<td>需要授权</td>
+<td><code>TASK_STATE_AUTH_REQUIRED</code></td>
+<td>Agent 需要授权才能继续（v1.0 新增）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="terminal">终态（Terminal）<a class="headerlink" href="#terminal" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>枚举值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>已完成</td>
+<td><code>TASK_STATE_COMPLETED</code></td>
+<td>任务成功完成</td>
+</tr>
+<tr>
+<td>已失败</td>
+<td><code>TASK_STATE_FAILED</code></td>
+<td>任务执行失败</td>
+</tr>
+<tr>
+<td>已取消</td>
+<td><code>TASK_STATE_CANCELLED</code></td>
+<td>任务被取消</td>
+</tr>
+<tr>
+<td>未知</td>
+<td><code>TASK_STATE_UNKNOWN</code></td>
+<td>遗留/错误回退状态</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">状态转换图<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>                    ┌──────────────────┐
+                    │ TASK_STATE_      │
+                    │   SUBMITTED      │
+                    └────────┬─────────┘
+                             │
+                    ┌────────▼─────────┐
+           ┌──────►│ TASK_STATE_      │◄──────┐
+           │        │   WORKING        │       │
+           │        └──┬──┬──┬──┬─────┘       │
+           │           │  │  │  │              │
+           │     ┌─────┘  │  │  └──────┐      │
+           │     │        │  │         │      │
+           │     ▼        │  ▼         ▼      │
+           │  ┌────────┐  │ ┌─────────────┐   │
+           │  │COMPLETED│  │ │INPUT_REQUIRED│  │
+           │  └────────┘  │ └──────┬──────┘   │
+           │              │        │           │
+           │     ┌────────┐  ┌─────▼──────┐   │
+           │     │ FAILED │  │AUTH_REQUIRED│   │
+           │     └────────┘  │(v1.0 only) │   │
+           │                 └─────┬──────┘   │
+           │                       │           │
+           │  ┌────────────┐       │           │
+           └──│ CANCELLED  │◄──────┴───────────┘
+              └────────────┘
+              (任何非终态 → cancelled)
 </code></pre></div>
-<h2 id="tag-taxonomy">Tag Taxonomy<a class="headerlink" href="#tag-taxonomy" title="Permanent link">&para;</a></h2>
-<h3 id="aiml">AI/ML 技术<a class="headerlink" href="#aiml" title="Permanent link">&para;</a></h3>
+<h2 id="_3">状态转换规则<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">正向流转<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>起始状态</th>
+<th>目标状态</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>submitted</code></td>
+<td><code>working</code></td>
+<td>Agent 开始处理</td>
+</tr>
+<tr>
+<td><code>working</code></td>
+<td><code>completed</code></td>
+<td>任务成功完成</td>
+</tr>
+<tr>
+<td><code>working</code></td>
+<td><code>failed</code></td>
+<td>执行出错</td>
+</tr>
+<tr>
+<td><code>working</code></td>
+<td><code>input_required</code></td>
+<td>Agent 需要用户澄清</td>
+</tr>
+<tr>
+<td><code>working</code></td>
+<td><code>auth_required</code></td>
+<td>Agent 需要授权（v1.0）</td>
+</tr>
+<tr>
+<td><code>input_required</code></td>
+<td><code>working</code></td>
+<td>客户端提供所需信息</td>
+</tr>
+<tr>
+<td><code>auth_required</code></td>
+<td><code>working</code></td>
+<td>客户端完成授权</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">取消<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>任何非终态都可以被取消：
+- <code>submitted</code> → <code>cancelled</code>
+- <code>working</code> → <code>cancelled</code>
+- <code>input_required</code> → <code>cancelled</code>
+- <code>auth_required</code> → <code>cancelled</code></p>
+<h3 id="v03-v10">v0.3 → v1.0 变更<a class="headerlink" href="#v03-v10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>v0.3</th>
+<th>v1.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>submitted</code></td>
+<td><code>TASK_STATE_SUBMITTED</code></td>
+</tr>
+<tr>
+<td><code>working</code></td>
+<td><code>TASK_STATE_WORKING</code></td>
+</tr>
+<tr>
+<td><code>completed</code></td>
+<td><code>TASK_STATE_COMPLETED</code></td>
+</tr>
+<tr>
+<td><code>failed</code></td>
+<td><code>TASK_STATE_FAILED</code></td>
+</tr>
+<tr>
+<td><code>cancelled</code></td>
+<td><code>TASK_STATE_CANCELLED</code></td>
+</tr>
+<tr>
+<td><code>unknown</code></td>
+<td><code>TASK_STATE_UNKNOWN</code></td>
+</tr>
+<tr>
+<td><code>input-required</code></td>
+<td><code>TASK_STATE_INPUT_REQUIRED</code></td>
+</tr>
+<tr>
+<td><em>(不存在)</em></td>
+<td><code>TASK_STATE_AUTH_REQUIRED</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">实现注意点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>终态不可逆</strong> — 一旦进入 <code>completed</code>/<code>failed</code>/<code>cancelled</code>，不能转换到其他状态</li>
+<li><strong>多轮 input_required</strong> — <code>input_required → working → input_required</code> 循环是合法的</li>
+<li><strong>取消不一定即时</strong> — Agent 可以在 <code>working</code> 状态下完成当前操作后再进入 <code>cancelled</code></li>
+<li><strong>unknown 是兜底</strong> — 客户端遇到无法识别的状态值时应映射为 <code>unknown</code></li>
+<li><strong>状态更新必须投递</strong> — 在流式模式中，每次状态变更都必须通过 SSE 事件通知客户端</li>
+</ol>
+<h2 id="_7">相关页面<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>model</code> — 模型相关（GPT, Claude, GLM 等）</li>
-<li><code>architecture</code> — 架构设计（Transformer, MoE 等）</li>
-<li><code>agent</code> — AI Agent 框架与协议</li>
-<li><code>training</code> — 训练方法（RLHF, DPO, SFT 等）</li>
-<li><code>inference</code> — 推理与部署</li>
-<li><code>alignment</code> — 对齐与安全</li>
-<li><code>benchmark</code> — 评测基准</li>
-<li><code>multimodal</code> — 多模态</li>
+<li>[[a2a-protocol]] — A2A 协议完整详解</li>
+<li>[[a2a-security-analysis]] — 安全问题深度分析</li>
 </ul>
-<h3 id="_1">协议与框架<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>protocol</code> — 通信协议（A2A, MCP, OpenAPI 等）</li>
-<li><code>framework</code> — 开发框架（LangChain, CrewAI 等）</li>
-<li><code>tool-use</code> — 工具使用</li>
-</ul>
-<h3 id="_2">行业与生态<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>company</code> — 公司（OpenAI, Anthropic, Google 等）</li>
-<li><code>person</code> — 人物</li>
-<li><code>open-source</code> — 开源项目</li>
-<li><code>product</code> — 产品与服务</li>
-<li><code>trend</code> — 行业趋势</li>
-</ul>
-<h3 id="_3">个人知识<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>note</code> — 读书/文章笔记</li>
-<li><code>reflection</code> — 思考与总结</li>
-<li><code>how-to</code> — 操作指南</li>
-<li><code>comparison</code> — 对比分析</li>
-</ul>
-<h3 id="meta">Meta<a class="headerlink" href="#meta" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>timeline</code> — 时间线</li>
-<li><code>controversy</code> — 争议话题</li>
-<li><code>prediction</code> — 预测</li>
-</ul>
-<p>Rule: every tag on a page must appear in this taxonomy. If a new tag is needed, add it here first, then use it.</p>
-<h2 id="page-thresholds">Page Thresholds<a class="headerlink" href="#page-thresholds" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Create a page</strong> when an entity/concept appears in 2+ sources OR is central to one source</li>
-<li><strong>Add to existing page</strong> when a source mentions something already covered</li>
-<li><strong>DON'T create a page</strong> for passing mentions, minor details, or things outside the domain</li>
-<li><strong>Split a page</strong> when it exceeds ~200 lines — break into sub-topics with cross-links</li>
-<li><strong>Archive a page</strong> when its content is fully superseded — move to <code>_archive/</code>, remove from index</li>
-</ul>
-<h2 id="entity-pages">Entity Pages<a class="headerlink" href="#entity-pages" title="Permanent link">&para;</a></h2>
-<p>One page per notable entity. Include:
-- Overview / what it is
-- Key facts and dates
-- Relationships to other entities ([[wikilinks]])
-- Source references</p>
-<h2 id="concept-pages">Concept Pages<a class="headerlink" href="#concept-pages" title="Permanent link">&para;</a></h2>
-<p>One page per concept or topic. Include:
-- Definition / explanation
-- Current state of knowledge
-- Open questions or debates
-- Related concepts ([[wikilinks]])</p>
-<h2 id="comparison-pages">Comparison Pages<a class="headerlink" href="#comparison-pages" title="Permanent link">&para;</a></h2>
-<p>Side-by-side analyses. Include:
-- What is being compared and why
-- Dimensions of comparison (table format preferred)
-- Verdict or synthesis
-- Sources</p>
-<h2 id="note-pages">Note Pages<a class="headerlink" href="#note-pages" title="Permanent link">&para;</a></h2>
-<p>Personal reading notes, reflections, learning logs. Include:
-- Source reference (book, article, video)
-- Key takeaways
-- Personal thoughts and connections
-- Related wiki pages ([[wikilinks]])</p>
-<h2 id="update-policy">Update Policy<a class="headerlink" href="#update-policy" title="Permanent link">&para;</a></h2>
-<p>When new information conflicts with existing content:
-1. Check the dates — newer sources generally supersede older ones
-2. If genuinely contradictory, note both positions with dates and sources
-3. Mark the contradiction in frontmatter: <code>contradictions: [page-name]</code>
-4. Flag for user review in the lint report</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1291,10 +1131,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
