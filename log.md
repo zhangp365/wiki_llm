@@ -33,3 +33,14 @@
   - concepts/hermes-agent-memory-architecture.md — 四层记忆系统完整架构
 - 更新 index.md（6 个页面）
 - 总计: 2 raw + 1 wiki page
+
+## [2026-05-04] ingest | ACP（Agent Client Protocol）接口与授权流程
+- 来源: 用户提供的两份 ACP 文档（acp_interfaces.md + acp_stdio_auth_flow.md）
+- 创建原始来源:
+  - raw/articles/acp-interfaces-summary.md — ACP 接口总览（11 个接口分类）
+  - raw/articles/acp-stdio-auth-flow.md — stdio 授权完整流程（含 JSON 示例）
+- 创建 Wiki 页面:
+  - concepts/acp-protocol.md — ACP 全部接口分类总览（生命周期、会话管理、扩展机制、权限请求、关键设计决策）
+  - concepts/acp-stdio-auth-flow.md — stdio 授权流程详解（spawn→initialize→prompt→permission→执行→结束，含消息方向速查）
+- 更新 index.md（8 个页面）
+- 总计: 2 raw + 2 wiki pages
