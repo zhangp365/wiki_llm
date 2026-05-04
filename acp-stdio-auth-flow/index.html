@@ -12,13 +12,13 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/hermes-agent-memory-architecture/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/acp-stdio-auth-flow/">
       
       
-        <link rel="prev" href="../acp-stdio-auth-flow/">
+        <link rel="prev" href="../acp-protocol/">
       
       
-        <link rel="next" href="../a2a-vs-mcp/">
+        <link rel="next" href="../hermes-agent-memory-architecture/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Hermes Agent 记忆系统架构 - LLM Wiki</title>
+        <title>ACP stdio 授权流程详解 - LLM Wiki</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hermes-agent" class="md-skip">
+        <a href="#acp-stdio" class="md-skip">
           跳转至
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hermes Agent 记忆系统架构
+              ACP stdio 授权流程详解
             
           </span>
         </div>
@@ -503,34 +503,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../acp-stdio-auth-flow/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ACP stdio 授权流程
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -550,7 +522,7 @@
   <span class="md-ellipsis">
     
   
-    Hermes Agent 记忆架构
+    ACP stdio 授权流程
   
 
     
@@ -568,7 +540,7 @@
   <span class="md-ellipsis">
     
   
-    Hermes Agent 记忆架构
+    ACP stdio 授权流程
   
 
     
@@ -597,7 +569,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心设计哲学
+        传输基础
       
     </span>
   </a>
@@ -608,30 +580,19 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        系统提示词组装顺序
+        完整生命周期
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四层记忆系统
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四层记忆系统">
+    <nav class="md-nav" aria-label="完整生命周期">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-prompt-memory" class="md-nav__link">
+  <a href="#1-spawn-initialize" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 提示词记忆（Prompt Memory）— 热记忆
+        ① spawn + initialize 握手
       
     </span>
   </a>
@@ -639,10 +600,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-session_search" class="md-nav__link">
+  <a href="#2-sessionnew" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 会话搜索（session_search）— 情景回溯
+        ② session/new — 创建会话
       
     </span>
   </a>
@@ -650,10 +611,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-skills" class="md-nav__link">
+  <a href="#3-sessionprompt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 技能系统（Skills）— 程序记忆
+        ③ session/prompt — 发送任务
       
     </span>
   </a>
@@ -661,10 +622,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-honcho" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Honcho 层 — 深层用户建模（可选）
+        ④ 权限请求（核心阻塞流程）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⑤ 权限授予后执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-turn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⑥ 流式总结 + Turn 结束
       
     </span>
   </a>
@@ -677,10 +660,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#memory-flush" class="md-nav__link">
+  <a href="#tool_call-kind" class="md-nav__link">
     <span class="md-ellipsis">
       
-        压缩与记忆冲刷（Memory Flush）
+        tool_call kind 枚举
       
     </span>
   </a>
@@ -688,10 +671,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#openclaw" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        与 OpenClaw 的对比
+        消息方向速查
       
     </span>
   </a>
@@ -702,18 +685,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        总结：三层洞察
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关页面
+        参见
       
     </span>
   </a>
@@ -724,6 +696,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hermes-agent-memory-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hermes Agent 记忆架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -884,7 +884,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心设计哲学
+        传输基础
       
     </span>
   </a>
@@ -895,30 +895,19 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        系统提示词组装顺序
+        完整生命周期
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四层记忆系统
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四层记忆系统">
+    <nav class="md-nav" aria-label="完整生命周期">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-prompt-memory" class="md-nav__link">
+  <a href="#1-spawn-initialize" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 提示词记忆（Prompt Memory）— 热记忆
+        ① spawn + initialize 握手
       
     </span>
   </a>
@@ -926,10 +915,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-session_search" class="md-nav__link">
+  <a href="#2-sessionnew" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 会话搜索（session_search）— 情景回溯
+        ② session/new — 创建会话
       
     </span>
   </a>
@@ -937,10 +926,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-skills" class="md-nav__link">
+  <a href="#3-sessionprompt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 技能系统（Skills）— 程序记忆
+        ③ session/prompt — 发送任务
       
     </span>
   </a>
@@ -948,10 +937,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-honcho" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Honcho 层 — 深层用户建模（可选）
+        ④ 权限请求（核心阻塞流程）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⑤ 权限授予后执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-turn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⑥ 流式总结 + Turn 结束
       
     </span>
   </a>
@@ -964,10 +975,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#memory-flush" class="md-nav__link">
+  <a href="#tool_call-kind" class="md-nav__link">
     <span class="md-ellipsis">
       
-        压缩与记忆冲刷（Memory Flush）
+        tool_call kind 枚举
       
     </span>
   </a>
@@ -975,10 +986,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#openclaw" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        与 OpenClaw 的对比
+        消息方向速查
       
     </span>
   </a>
@@ -989,18 +1000,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        总结：三层洞察
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关页面
+        参见
       
     </span>
   </a>
@@ -1075,155 +1075,162 @@
   
 
 
-<h1 id="hermes-agent">Hermes Agent 记忆系统架构<a class="headerlink" href="#hermes-agent" title="Permanent link">&para;</a></h1>
+<h1 id="acp-stdio">ACP stdio 授权流程详解<a class="headerlink" href="#acp-stdio" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>Hermes Agent 采用分层记忆架构，核心设计原则：<strong>保持提示词稳定以利用缓存，其他信息按需检索</strong>。不是一套记忆系统，而是四套协同工作的系统。</p>
+<p>基于 JSON-RPC 2.0 over stdin/stdout 的 UI ↔ Agent 授权机制完整拆解。
+详见 [[acp-protocol]] 了解全部接口总览。</p>
 </blockquote>
-<p><img alt="Hermes Agent 记忆系统架构图" src="../assets/images/hermes-memory-architecture-diagram.jpg" /></p>
-<h2 id="_1">核心设计哲学<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Hermes 针对供应商侧 <strong>Prompt Caching</strong> 优化：系统提示词的前缀部分（工具定义、记忆快照、技能索引等）在会话中保持不变，避免频繁变更导致缓存失效。</p>
-<p>如果信息每一轮都需要 → 缩小注入提示词
-如果信息量大、偶尔需要 → 踢出提示词，按需检索</p>
-<h2 id="_2">系统提示词组装顺序<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>[0] 默认智能体身份
-[1] 工具使用行为指南
-[2] Honcho 集成模块（可选）
-[3] 可选系统消息
-[4] 固化 MEMORY.md 快照
-[5] 固化 USER.md 快照
-[6] 技能索引
-[7] 上下文文件（AGENTS.md, SOUL.md, .cursorrules 等）
-[8] 日期/时间 + 平台信息
-[9] 对话历史
-[10] 当前用户消息
+<h2 id="_1">传输基础<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Editor UI (Client)    stdin / stdout    Agent 子进程
+      |                    |                  |
+      |── spawn 子进程 ──────────────────────&gt;|  监听 stdin
+      |── initialize ─────&gt;|─────────────────&gt;|
+      |&lt;── capabilities ──|&lt;─────────────────|
 </code></pre></div>
-<h2 id="_3">四层记忆系统<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="1-prompt-memory">1. 提示词记忆（Prompt Memory）— 热记忆<a class="headerlink" href="#1-prompt-memory" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/memories/</code></p>
-<table>
-<thead>
-<tr>
-<th>文件</th>
-<th>用途</th>
-<th>容量限制</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>MEMORY.md</code></td>
-<td>智能体笔记：环境、规范、工具怪癖、教训</td>
-<td>2,200 字符</td>
-</tr>
-<tr>
-<td><code>USER.md</code></td>
-<td>用户画像：偏好、沟通风格、身份</td>
-<td>1,375 字符</td>
-</tr>
-</tbody>
-</table>
-<p><strong>设计特点：</strong>
-- 使用<strong>字符限制</strong>而非 Token 限制 → 模型无关
-- 条目用 <code>§</code> 分隔的纯文本格式 → 简单可读
-- 会话开始时加载并<strong>固化快照</strong> → 中途写入不改变当前提示词
-- 记忆是<strong>精选状态</strong>（curated state），不是日记</p>
-<p><strong>保存 vs 不保存：</strong>
-- ✅ 用户偏好、环境事实、反复修正、稳定规范
-- ❌ 任务进度、会话结果、临时 TODO</p>
-<p><strong>安全机制：</strong> 拦截 Prompt Injection、凭证泄露、SSH 后门、隐藏 Unicode 字符</p>
-<p>管理工具：<code>memory(action=add|replace|remove)</code> — replace/remove 使用子字符串匹配，无需内部 ID</p>
-<h3 id="2-session_search">2. 会话搜索（session_search）— 情景回溯<a class="headerlink" href="#2-session_search" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/state.db</code>（SQLite）</p>
-<div class="highlight"><pre><span></span><code>FTS5 全文搜索 → 按会话分组 → 解析父子关系 → 截取匹配片段 → 辅助模型摘要 → 返回主模型
-</code></pre></div>
-<p><strong>与提示词记忆的分工：</strong>
-- <code>MEMORY.md</code> = 持久性事实（Semantic Memory）
-- <code>session_search</code> = 情景性回溯（Episodic Recall）</p>
-<h3 id="3-skills">3. 技能系统（Skills）— 程序记忆<a class="headerlink" href="#3-skills" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/skills/</code></p>
 <ul>
-<li>可复用的知识文档和操作流程</li>
-<li><strong>惰性加载</strong>：提示词中只放索引，需要时才加载完整内容</li>
-<li>解决"如何做"的问题（Procedural Memory），而非"是什么"</li>
+<li><strong>stdout</strong>：专用于 JSON-RPC 消息流</li>
+<li><strong>stderr</strong>：专用于日志输出，不污染消息流</li>
+<li><strong>消息格式</strong>：newline-delimited JSON，每条消息以 <code>\n</code> 结尾</li>
 </ul>
-<h3 id="4-honcho">4. Honcho 层 — 深层用户建模（可选）<a class="headerlink" href="#4-honcho" title="Permanent link">&para;</a></h3>
+<h2 id="_2">完整生命周期<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="1-spawn-initialize">① spawn + initialize 握手<a class="headerlink" href="#1-spawn-initialize" title="Permanent link">&para;</a></h3>
+<p>Client 必须<strong>最先</strong>发送 <code>initialize</code>，双方交换能力表：</p>
 <ul>
-<li>跨设备、跨平台的记忆连续性</li>
-<li>同时建模用户和 AI 自身</li>
-<li>第一轮：织入缓存系统提示词</li>
-<li>后续轮：附加在用户消息后面 → 保持缓存稳定</li>
+<li><code>protocolVersion</code> — 双方必须一致</li>
+<li><code>clientCapabilities.fs.readTextFile / writeTextFile</code> — 声明支持反向文件操作</li>
+<li><code>clientCapabilities.terminal</code> — 声明支持 terminal 方法</li>
+<li><code>authMethods</code> — Agent 支持的认证方式（可空）</li>
 </ul>
-<h2 id="memory-flush">压缩与记忆冲刷（Memory Flush）<a class="headerlink" href="#memory-flush" title="Permanent link">&para;</a></h2>
-<p>长对话需要压缩时，Hermes 先执行"记忆冲刷"：</p>
-<div class="highlight"><pre><span></span><code>长对话 → 发送冲刷指令 → 模型保存持久事实到 memory → 压缩旧轮次 → 重建 prompt → 继续
+<h3 id="2-sessionnew">② session/new — 创建会话<a class="headerlink" href="#2-sessionnew" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session/new&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/project&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
-<p>关键步骤：
-1. 压缩前注入指令，让模型保存值得记住的内容
-2. 运行额外模型调用，只开启 memory 工具
-3. 压缩后重建系统提示词，从磁盘重新加载 memory
-4. 冲刷的内容立即成为新的稳定快照</p>
-<h2 id="openclaw">与 OpenClaw 的对比<a class="headerlink" href="#openclaw" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>维度</th>
-<th>OpenClaw</th>
-<th>Hermes Agent</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>记忆存储</td>
-<td>Markdown 为主的存储</td>
-<td>分层架构</td>
-</tr>
-<tr>
-<td>主要事实来源</td>
-<td>日志和长效文件</td>
-<td>小型提示词 + SQLite</td>
-</tr>
-<tr>
-<td>记忆回溯</td>
-<td>混合搜索存储笔记</td>
-<td>session_search FTS5</td>
-</tr>
-<tr>
-<td>提示词记忆</td>
-<td>有边界但更激进</td>
-<td>严格限制（~1300 tokens）</td>
-</tr>
-<tr>
-<td>程序记忆</td>
-<td>—</td>
-<td>Skills 系统</td>
-</tr>
-<tr>
-<td>深层建模</td>
-<td>—</td>
-<td>Honcho（可选）</td>
-</tr>
-<tr>
-<td>缓存意识</td>
-<td>较弱</td>
-<td>核心设计驱动</td>
-</tr>
-</tbody>
-</table>
-<p><strong>核心区别：</strong>
-- OpenClaw = "记忆即知识库"
-- Hermes = "热工作集 + 冷检索层"</p>
-<h2 id="_4">总结：三层洞察<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>返回 <code>sessionId</code>，后续所有消息携带此 ID。</p>
+<h3 id="3-sessionprompt">③ session/prompt — 发送任务<a class="headerlink" href="#3-sessionprompt" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session/prompt&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sessionId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sess_xxx&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;帮我重构 main.py&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;resource&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file:///...&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>⚠️ Response <strong>不会立即返回</strong>，整个 turn 完成才回复。中间进展通过 <code>session/update</code> Notification 推送。</p>
+</blockquote>
+<h3 id="4">④ 权限请求（核心阻塞流程）<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>当 Agent 需要执行受限制操作时：</p>
 <ol>
-<li><strong>冷热分离</strong>：小规模热记忆 + 大规模冷检索，而非全塞进提示词</li>
-<li><strong>缓存优先</strong>：冻结快照、延迟更新、逐轮注入 Honcho、压缩重建 → 都服务于"不轻易变更提示词"</li>
-<li><strong>记忆多样性</strong>：语义记忆 + 情景回溯 + 程序记忆 + 深层建模 → 更贴近 Agent 实际需求</li>
+<li>Agent 先推送 <code>session/update</code>（tool_call pending）— UI 显示待授权</li>
+<li>Agent 发送 <code>session/request_permission</code>（Request，有 id）— <strong>Agent 挂起等待</strong></li>
+<li>UI 弹出授权对话框</li>
 </ol>
-<blockquote>
-<p>"不是记住更多，而是在正确的层级、以正确的成本，记住正确的事情。"</p>
-</blockquote>
-<h2 id="_5">相关页面<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p><strong>三种授权结果 + 一种取消：</strong></p>
+<table>
+<thead>
+<tr>
+<th>用户操作</th>
+<th>outcome</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>允许一次</td>
+<td><code>selected</code> + <code>allow-once</code></td>
+<td>执行本次，后续仍需授权</td>
+</tr>
+<tr>
+<td>始终允许</td>
+<td><code>selected</code> + <code>allow-always</code></td>
+<td>执行本次 + Client 记忆偏好</td>
+</tr>
+<tr>
+<td>拒绝</td>
+<td><code>selected</code> + <code>reject-once</code></td>
+<td>跳过此 tool call，告知 LLM</td>
+</tr>
+<tr>
+<td>取消任务</td>
+<td><code>cancelled</code></td>
+<td>终止整个 prompt turn</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5">⑤ 权限授予后执行<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>Agent 收到允许后依次推送：</p>
+<div class="highlight"><pre><span></span><code>session/update: tool_call_update in_progress
+  → (可选) fs/write_text_file 反向调用
+session/update: tool_call_update completed (附 diff 内容)
+</code></pre></div>
+<h3 id="6-turn">⑥ 流式总结 + Turn 结束<a class="headerlink" href="#6-turn" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>session/update: agent_message_chunk (多次，逐 token)
+session/prompt Response: { &quot;stopReason&quot;: &quot;end_turn&quot; | &quot;max_tokens&quot; | &quot;cancelled&quot; }
+</code></pre></div>
+<h2 id="tool_call-kind">tool_call kind 枚举<a class="headerlink" href="#tool_call-kind" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>read</code></td>
+<td>读取文件或数据</td>
+</tr>
+<tr>
+<td><code>edit</code></td>
+<td>修改文件内容</td>
+</tr>
+<tr>
+<td><code>delete</code></td>
+<td>删除文件</td>
+</tr>
+<tr>
+<td><code>execute</code></td>
+<td>执行命令或代码</td>
+</tr>
+<tr>
+<td><code>fetch</code></td>
+<td>拉取外部数据</td>
+</tr>
+<tr>
+<td><code>think</code></td>
+<td>内部推理规划</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>搜索信息</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">消息方向速查<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Client → Agent (Request, Client 等待)
+  ├── initialize          握手，必须最先发
+  ├── session/new         创建会话
+  ├── session/prompt      发送任务（不设超时）
+  └── session/cancel      取消当前 turn
+
+Agent → Client (Request, Agent 阻塞等待)
+  ├── session/request_permission   ← 授权核心
+  └── fs/read_text_file / fs/write_text_file  ← 反向文件操作
+
+Agent → Client (Notification, 无需回应)
+  └── session/update
+       ├── plan                  计划列表
+       ├── tool_call             新 tool call（pending）
+       ├── tool_call_update      状态更新
+       └── agent_message_chunk   流式文本
+</code></pre></div>
+<h2 id="_4">参见<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[[a2a-protocol]] — Agent 间通信协议</li>
-<li>[[a2a-vs-mcp]] — Agent 协议对比</li>
+<li>[[acp-protocol]] — ACP 全部接口分类总览</li>
+<li>[[a2a-protocol]] — Agent 间通信协议（与 ACP 互补）</li>
+<li>[[a2a-vs-mcp]] — 协议对比分析</li>
 </ul>
 
 
