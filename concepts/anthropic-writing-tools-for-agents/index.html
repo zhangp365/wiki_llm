@@ -1,0 +1,1906 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AI/ML 技术研究 + 个人知识管理">
+      
+      
+        <meta name="author" content="zhangp365">
+      
+      
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/anthropic-writing-tools-for-agents/">
+      
+      
+        <link rel="prev" href="../anthropic-advanced-tool-use/">
+      
+      
+        <link rel="next" href="../anthropic-think-tool/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>为 Agent 编写高效工具——借助 Agent 自身 - LLM Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#agent-agent" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LLM Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              为 Agent 编写高效工具——借助 Agent 自身
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到暗色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到暗色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到亮色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zhangp365/wiki_llm" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhangp365/wiki_llm
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    LLM Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zhangp365/wiki_llm" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhangp365/wiki_llm
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概念
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概念
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../a2a-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2A 协议详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../a2a-task-state-machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 状态机
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../a2a-security-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2A 安全分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../a2a-ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2A 生态系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acp-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACP 接口总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acp-stdio-auth-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACP stdio 授权流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hermes-agent-memory-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hermes Agent 记忆架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chromafs-virtual-filesystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChromaFs 虚拟文件系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-building-effective-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building effective agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-building-agents-agent-sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Agent SDK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-advanced-tool-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Tool Use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Tools for Agents
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Tools for Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        什么是工具？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        如何编写工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        构建原型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行评估
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="运行评估">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        生成评估任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行评估
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分析结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与 Agent 协作
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编写高效工具的原则
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为 Agent 选择合适的工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具命名空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从工具返回有意义的上下文
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        优化工具响应的 token 效率
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具描述的 Prompt Engineering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        展望未来
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        致谢
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        了解更多
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        订阅开发者通讯
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-think-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Think Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-agent-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-context-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-contextual-retrieval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contextual Retrieval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-harnesses-long-running-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Harnesses for Long-running Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-multi-agent-research-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Agent Research System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-code-execution-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Execution with MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-demystifying-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Demystifying Agent Evals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-claude-code-sandboxing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code Sandboxing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-agentic-coding-best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic Coding Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-postmortem-three-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Postmortem Three Issues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    对比
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../a2a-vs-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2A vs MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SCHEMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wiki 规范
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        什么是工具？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        如何编写工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        构建原型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行评估
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="运行评估">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        生成评估任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行评估
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分析结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与 Agent 协作
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编写高效工具的原则
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为 Agent 选择合适的工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具命名空间
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从工具返回有意义的上下文
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        优化工具响应的 token 效率
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具描述的 Prompt Engineering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        展望未来
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        致谢
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        了解更多
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        订阅开发者通讯
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../a2a-protocol/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    概念
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="agent-agent">为 Agent 编写高效工具——借助 Agent 自身<a class="headerlink" href="#agent-agent" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>原文链接: <a href="https://www.anthropic.com/engineering/writing-tools-for-agents">English Original</a></p>
+</blockquote>
+<p><em>Engineering at Anthropic</em></p>
+<p>发布于 2025年9月11日</p>
+<p>Agent 的效能取决于我们提供给它们的工具。我们将分享如何编写高质量的工具和评估方法，以及如何利用 Claude 优化自身的工具来提升性能。</p>
+<p>Model Context Protocol（MCP）可以赋予 LLM agent 潜在数百种工具来解决真实世界任务。但我们如何让这些工具发挥最大效能？</p>
+<p>在本文中，我们将介绍在各种 agentic AI 系统中提升性能的最有效技术。</p>
+<p>我们首先介绍如何：
+- 构建和测试工具原型
+- 使用 agent 创建和运行全面的工具评估
+- 与 Claude Code 等 agent 协作，自动提升工具性能</p>
+<p>最后，我们将分享在此过程中总结出的编写高质量工具的关键原则：
+- 选择合适实现的工具（以及不实现的工具）
+- 通过命名空间（namespacing）定义清晰的功能边界
+- 从工具返回有意义的上下文给 agent
+- 优化工具响应的 token 效率
+- 对工具描述和规格进行 prompt engineering</p>
+<p>构建评估可以让你系统地衡量工具的性能。你可以使用 Claude Code 针对此评估自动优化你的工具。</p>
+<h2 id="_1">什么是工具？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在计算领域，确定性系统在给定相同输入时每次都产生相同的输出，而非确定性系统（如 agent）即使在相同起始条件下也可能产生不同的响应。</p>
+<p>传统编写软件时，我们建立的是确定性系统之间的契约。例如，函数调用 <code>getWeather("NYC")</code> 每次调用时都会以完全相同的方式获取纽约市的天气。</p>
+<p>工具是一种新型软件，它反映的是确定性系统与非确定性 agent 之间的契约。当用户问"我今天需要带伞吗？"时，agent 可能会调用天气工具，根据常识回答，甚至先询问一个关于位置的澄清问题。有时，agent 可能会产生幻觉，甚至无法掌握如何使用工具。</p>
+<p>这意味着在为 agent 编写软件时需要从根本上重新思考我们的方法：我们不应像为其他开发者或系统编写函数和 API 那样来编写工具和 MCP server，而是需要为 agent 来设计它们。</p>
+<p>我们的目标是通过使用工具来追求各种成功策略，扩大 agent 在解决广泛任务方面的有效范围。幸运的是，根据我们的经验，对 agent 最"符合人体工程学"的工具最终对人类来说也出奇地直观易懂。</p>
+<h2 id="_2">如何编写工具<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在本节中，我们将介绍如何与 agent 协作来编写和改进你提供给它们的工具。首先，快速构建工具原型并在本地进行测试。然后，运行全面的评估来衡量后续的变更。与 agent 协作，你可以重复评估和改进工具的过程，直到你的 agent 在真实世界任务上取得良好的性能。</p>
+<h2 id="_3">构建原型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>在不亲自动手的情况下，很难预判 agent 会觉得哪些工具好用，哪些不好用。首先快速构建工具原型。如果你使用 Claude Code 编写工具（可能一次性完成），最好给 Claude 提供你的工具将依赖的任何软件库、API 或 SDK（包括 MCP SDK）的文档。LLM 友好的文档通常可以在官方文档网站上的平面 <code>llms.txt</code> 文件中找到（这是我们的 API 文档的例子）。</p>
+<p>将你的工具包装在本地 MCP server 或 Desktop 扩展（DXT）中，可以让你在 Claude Code 或 Claude Desktop 应用中连接和测试你的工具。</p>
+<p>要将本地 MCP server 连接到 Claude Code，运行 <code>claude mcp add [args...]</code>。</p>
+<p>要将本地 MCP server 或 DXT 连接到 Claude Desktop 应用，分别导航到 Settings &gt; Developer 或 Settings &gt; Extensions。</p>
+<p>工具也可以直接传入 Anthropic API 调用中进行程序化测试。</p>
+<p>亲自测试工具以发现任何粗糙之处。收集用户的反馈，建立对你期望工具支持的使用场景和提示的直觉。</p>
+<h2 id="_4">运行评估<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>接下来，你需要通过运行评估来衡量 Claude 使用工具的效果。首先，基于真实世界使用生成大量评估任务。我们建议与 agent 协作来帮助分析结果并确定如何改进工具。在我们的工具评估 cookbook 中查看这个端到端的过程。</p>
+<h3 id="_5">生成评估任务<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>使用你的早期原型，Claude Code 可以快速探索你的工具并创建数十个提示和响应对。提示应受到真实世界使用的启发，并基于现实的数据源和服务（例如，内部知识库和微服务）。我们建议避免过于简单或肤浅的"沙盒"环境，它们不会以足够的复杂性对你的工具进行压力测试。优秀的评估任务可能需要多次工具调用——可能多达数十次。</p>
+<p>以下是一些强任务的示例：
+- 与 Jane 安排下周的会议讨论我们最新的 Acme Corp 项目。附上上次项目规划会议的记录，并预订一个会议室。
+- 客户 ID 9182 报告称他们因一次购买尝试被扣款三次。查找所有相关日志条目，并确定是否有其他客户受到同一问题的影响。
+- 客户 Sarah Chen 刚提交了取消请求。准备一个挽留方案。确定：(1) 她们离开的原因，(2) 什么样的挽留方案最有吸引力，以及 (3) 在提出方案前我们应该注意的风险因素。</p>
+<p>以下是一些较弱的任务示例：
+- 与 jane@acme.corp 安排下周的会议。
+- 在支付日志中搜索 purchase_complete 和 customer_id=9182。
+- 查找客户 ID 45892 的取消请求。</p>
+<p>每个评估提示都应配有一个可验证的响应或结果。你的验证器可以简单到标准答案与采样响应之间的精确字符串比较，也可以高级到让 Claude 来评判响应。避免过于严格的验证器，它们可能因格式、标点或有效替代措辞等虚假差异而拒绝正确响应。</p>
+<p>对于每个提示-响应对，你还可以选择性地指定你期望 agent 在解决任务时调用的工具，以衡量 agent 在评估期间是否成功掌握了每个工具的用途。但是，由于可能存在多条有效的正确解决路径，尽量避免过度指定或过拟合到特定策略。</p>
+<h3 id="_6">运行评估<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>我们建议通过直接 LLM API 调用以程序化方式运行评估。使用简单的 agentic 循环（包装交替 LLM API 调用和工具调用的 <code>while</code> 循环）：每个评估任务一个循环。每个评估 agent 应被赋予一个单独的任务提示和你的工具。</p>
+<p>在评估 agent 的系统提示中，我们建议指导 agent 不仅输出结构化的响应块（用于验证），还输出推理和反馈块。指导 agent 在工具调用和响应块之前输出这些内容，可以通过触发 chain-of-thought（CoT）行为来增加 LLM 的有效智能。</p>
+<p>如果你使用 Claude 运行评估，你可以开启 interleaved thinking 以获得类似功能的"开箱即用"体验。这将帮助你探究为什么 agent 会或不会调用某些工具，并突出工具描述和规格中需要改进的具体领域。</p>
+<p>除了顶级准确率，我们还建议收集其他指标，如单个工具调用和任务的总运行时间、工具调用总数、总 token 消耗以及工具错误。跟踪工具调用可以帮助揭示 agent 追求的常见工作流，并提供一些工具整合的机会。</p>
+<h3 id="_7">分析结果<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>Agent 是你发现问题的得力合作伙伴，它们可以提供从矛盾的工具描述到低效的工具实现和令人困惑的工具 schema 等各方面的反馈。但请记住，agent 在反馈和响应中省略的内容往往比包含的内容更重要。LLM 并不总是说它们所想的。</p>
+<p>观察你的 agent 在哪些地方卡住或困惑。阅读评估 agent 的推理和反馈（或 CoT）以识别粗糙之处。查看原始转录（包括工具调用和工具响应），以捕获 agent 的 CoT 中未明确描述的任何行为。仔细阅读字里行间；请记住，你的评估 agent 不一定知道正确的答案和策略。</p>
+<p>分析你的工具调用指标。大量冗余的工具调用可能表明需要对分页或 token 限制参数进行适当调整；大量因无效参数导致的工具错误可能表明工具需要更清晰的描述或更好的示例。当我们推出 Claude 的网络搜索工具时，我们发现 Claude 不必要地在工具的查询参数中附加了 2025，这使搜索结果产生偏差并降低了性能（我们通过改进工具描述将 Claude 引导回正确方向）。</p>
+<h2 id="agent">与 Agent 协作<a class="headerlink" href="#agent" title="Permanent link">&para;</a></h2>
+<p>你甚至可以让 agent 分析你的结果并为你改进工具。只需将评估 agent 的转录拼接起来并粘贴到 Claude Code 中。Claude 是分析转录和一次性重构大量工具的专家——例如，确保在引入新变更时工具实现和描述保持自洽。</p>
+<p>事实上，本文中的大部分建议都是通过使用 Claude Code 反复优化我们内部工具实现而得出的。我们的评估是在我们内部工作空间之上创建的，反映了我们内部工作流的复杂性，包括真实的项目、文档和消息。</p>
+<p>我们依靠留出测试集来确保我们没有对"训练"评估过拟合。这些测试集显示，即使在"专家"工具实现取得的效果之上，我们仍能获得额外的性能提升——无论这些工具是由我们的研究人员手动编写的，还是由 Claude 生成的。</p>
+<p>在下一节中，我们将分享在此过程中的一些发现。</p>
+<h2 id="_8">编写高效工具的原则<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>在本节中，我们将我们的经验提炼为编写高效工具的几个指导原则。</p>
+<h2 id="agent_1">为 Agent 选择合适的工具<a class="headerlink" href="#agent_1" title="Permanent link">&para;</a></h2>
+<p>更多的工具并不总是带来更好的结果。我们观察到的常见错误是工具仅仅包装了现有的软件功能或 API 端点——无论这些工具是否适合 agent。这是因为 agent 具有与传统软件不同的"可操作性"（affordances）——即它们感知可以使用这些工具执行的潜在操作的方式不同。</p>
+<p>LLM agent 的"上下文"有限（即它们一次能处理的信息量有限），而计算机内存既便宜又充裕。考虑在地址簿中搜索联系人的任务。传统软件程序可以高效地逐个存储和处理联系人列表，在移动到下一个之前检查每一个。</p>
+<p>然而，如果一个 LLM agent 使用一个返回所有联系人的工具，然后必须逐个 token 地阅读每一个，它就在用不相关的信息浪费有限的上下文空间（想象一下通过从上到下阅读每一页来在地址簿中搜索联系人——即通过暴力搜索）。对 agent 和人类来说，更好、更自然的方法是先跳到相关页面（也许是按字母顺序找到它）。</p>
+<p>我们建议构建少量针对特定高影响工作流的精心设计的工具，这些工具应与你的评估任务匹配，并从此处逐步扩展。在地址簿的例子中，你可能选择实现 <code>search_contacts</code> 或 <code>message_contact</code> 工具，而不是 <code>list_contacts</code> 工具。</p>
+<p>工具可以整合功能，在底层处理可能多个离散操作（或 API 调用）。例如，工具可以用相关元数据丰富工具响应，或在单个工具调用中处理频繁链接的多步骤任务。</p>
+<p>以下是一些示例：
+- 与其实现 <code>list_users</code>、<code>list_events</code> 和 <code>create_event</code> 工具，不如考虑实现一个 <code>schedule_event</code> 工具，它可以查找可用时间并安排事件。
+- 与其实现 <code>read_logs</code> 工具，不如考虑实现一个 <code>search_logs</code> 工具，它只返回相关的日志行及一些周围上下文。
+- 与其实现 <code>get_customer_by_id</code>、<code>list_transactions</code> 和 <code>list_notes</code> 工具，不如实现一个 <code>get_customer_context</code> 工具，它可以一次性编译客户的所有近期和相关信息。</p>
+<p>确保你构建的每个工具都有清晰、独特的用途。工具应使 agent 能够以类似于人类在访问相同底层资源时的方式细分和解决任务，同时减少本应被中间输出消耗的上下文。</p>
+<p>过多的工具或功能重叠的工具也可能分散 agent 追求高效策略的注意力。仔细、有选择地规划你构建（或不构建）的工具可以真正产生回报。</p>
+<h2 id="_9">工具命名空间<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>你的 AI agent 可能获得访问数十个 MCP server 和数百种不同工具的能力——包括其他开发者创建的工具。当工具在功能上重叠或目的模糊时，agent 可能会困惑于该使用哪些工具。</p>
+<p>命名空间（将相关工具分组在共同前缀下）可以帮助在大量工具之间划定边界；MCP 客户端有时会默认执行此操作。例如，按服务命名空间化工具（如 <code>asana_search</code>、<code>jira_search</code>）和按资源命名空间化工具（如 <code>asana_projects_search</code>、<code>asana_users_search</code>），可以帮助 agent 在正确的时间选择正确的工具。</p>
+<p>我们发现选择基于前缀还是基于后缀的命名空间对我们的工具使用评估有不可忽视的影响。效果因 LLM 而异，我们鼓励你根据自己的评估选择命名方案。</p>
+<p>Agent 可能会调用错误的工具、用错误的参数调用正确的工具、调用太少的工具，或错误地处理工具响应。通过选择性地实现名称反映任务自然细分的工具，你同时减少了加载到 agent 上下文中的工具和工具描述的数量，并将 agentic 计算从 agent 的上下文卸载回工具调用本身。这降低了 agent 犯错的整体风险。</p>
+<h2 id="_10">从工具返回有意义的上下文<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>同样地，工具实现应注意只向 agent 返回高信号信息。它们应优先考虑上下文相关性而非灵活性，并避免使用低级技术标识符（例如：<code>uuid</code>、<code>256px_image_url</code>、<code>mime_type</code>）。<code>name</code>、<code>image_url</code> 和 <code>file_type</code> 等字段更有可能直接为 agent 的下游操作和响应提供信息。</p>
+<p>Agent 在处理自然语言名称、术语或标识符时，通常比处理晦涩的标识符更为成功。我们发现，仅仅将任意字母数字 UUID 解析为更具语义意义和可解释的语言（甚至 0 索引的 ID 方案），就能通过减少幻觉显著提高 Claude 在检索任务中的精确度。</p>
+<p>在某些情况下，agent 可能需要与自然语言和技术标识符输出交互的灵活性，即使只是为了触发下游工具调用（例如，<code>search_user(name='jane')</code> → <code>send_message(id=12345)</code>）。你可以通过在工具中暴露一个简单的 <code>response_format</code> enum 参数来启用两者，允许 agent 控制工具返回"简洁"还是"详细"的响应。</p>
+<p>你可以添加更多格式以获得更大的灵活性，类似于 GraphQL 中你可以精确选择要接收的信息片段。以下是一个控制工具响应详细程度的 ResponseFormat enum 示例：</p>
+<p><code>enum ResponseFormat {
+DETAILED = "detailed",
+CONCISE = "concise"
+}</code></p>
+<p>即使是工具响应结构——例如 XML、JSON 或 Markdown——也会对评估性能产生影响：没有一刀切的解决方案。这是因为 LLM 是基于下一个 token 预测训练的，在与训练数据匹配的格式上表现更好。最佳响应结构将因任务和 agent 而大不相同。我们鼓励你根据自己的评估选择最佳响应结构。</p>
+<h2 id="token">优化工具响应的 token 效率<a class="headerlink" href="#token" title="Permanent link">&para;</a></h2>
+<p>优化上下文质量很重要。但优化工具响应中返回给 agent 的上下文数量同样重要。</p>
+<p>对于任何可能消耗大量上下文的工具响应，我们建议实现分页、范围选择、过滤和/或截断的某种组合，并设置合理的默认参数值。对于 Claude Code，我们默认将工具响应限制为 25,000 tokens。我们预计 agent 的有效上下文长度会随时间增长，但对上下文高效工具的需求将持续存在。</p>
+<p>如果你选择截断响应，请确保使用有用的指令引导 agent。你可以直接鼓励 agent 追求更省 token 的策略，例如在知识检索任务中进行多次小而精准的搜索，而不是一次宽泛的搜索。同样，如果工具调用引发错误（例如，在输入验证期间），你可以对错误响应进行 prompt engineering，以清晰传达具体且可操作的改进建议，而不是不透明的错误代码或堆栈跟踪。</p>
+<p>工具截断和错误响应可以引导 agent 采取更省 token 的工具使用行为（使用过滤器或分页），或提供正确格式化工具输入的示例。</p>
+<h2 id="prompt-engineering">工具描述的 Prompt Engineering<a class="headerlink" href="#prompt-engineering" title="Permanent link">&para;</a></h2>
+<p>我们现在来到改进工具最有效的方法之一：对工具描述和规格进行 prompt engineering。因为这些内容被加载到 agent 的上下文中，它们可以集体引导 agent 采取有效的工具调用行为。</p>
+<p>在编写工具描述和规格时，想想你会如何向团队中的新员工描述你的工具。考虑你可能会隐式带来的上下文——专门的查询格式、小众术语的定义、底层资源之间的关系——并将其明确化。通过清晰描述（并用严格数据模型强制执行）预期输入和输出来避免歧义。特别是，输入参数应明确命名：与其使用名为 <code>user</code> 的参数，不如尝试使用名为 <code>user_id</code> 的参数。</p>
+<p>通过你的评估，你可以更有信心地衡量 prompt engineering 的影响。即使对工具描述的微小改进也能产生显著的性能提升。Claude Sonnet 3.5 在我们对工具描述进行精确改进后，在 SWE-bench Verified 评估上取得了最先进的性能，大幅降低了错误率并提升了任务完成率。</p>
+<p>你可以在我们的开发者指南中找到工具定义的其他最佳实践。如果你为 Claude 构建工具，我们还建议阅读关于工具如何动态加载到 Claude 系统提示中的说明。最后，如果你为 MCP server 编写工具，工具注释有助于披露哪些工具需要开放世界访问或进行破坏性更改。</p>
+<h2 id="_11">展望未来<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>要为 agent 构建高效工具，我们需要将软件开发实践从可预测的、确定性的模式重新定位为非确定性的模式。</p>
+<p>通过本文描述的迭代式、评估驱动的过程，我们识别出了工具成功的一致模式：高效的工具是有意图地、清晰地定义的，审慎地使用 agent 上下文，可以在多样化的工作流中组合使用，并使 agent 能够直观地解决真实世界任务。</p>
+<p>展望未来，我们预计 agent 与世界交互的具体机制将不断演变——从 MCP 协议的更新到底层 LLM 本身的升级。通过系统化、评估驱动的方法来改进 agent 工具，我们可以确保随着 agent 变得更加强大，它们使用的工具也将随之进化。</p>
+<h2 id="_12">致谢<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>由 Ken Aizawa 撰写，Research（Barry Zhang、Zachary Witten、Daniel Jiang、Sami Al-Sheikh、Matt Bell、Maggie Vo）、MCP（Theodora Chu、John Welsh、David Soria Parra、Adam Jones）、Product Engineering（Santiago Seira）、Marketing（Molly Vorwerck）、Design（Drew Roper）和 Applied AI（Christian Ryan、Alexander Bricken）各部门同事提供了宝贵贡献。</p>
+<h2 id="_13">了解更多<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>探索我们的课程。</p>
+<h2 id="_14">订阅开发者通讯<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<p>产品更新、操作指南、社区聚焦等内容。每月发送到您的邮箱。</p>
+<p>请提供您的电子邮件地址以接收我们的月度开发者通讯。您可以随时取消订阅。</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zhangp365" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

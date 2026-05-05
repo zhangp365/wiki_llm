@@ -12,31 +12,31 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/hermes-agent-memory-architecture/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/anthropic-contextual-retrieval/">
       
       
-        <link rel="prev" href="../acp-stdio-auth-flow/">
+        <link rel="prev" href="../anthropic-context-engineering/">
       
       
-        <link rel="next" href="../concepts/chromafs-virtual-filesystem/">
+        <link rel="next" href="../anthropic-harnesses-long-running-agents/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Hermes Agent 记忆系统架构 - LLM Wiki</title>
+        <title>Contextual Retrieval：上下文感知检索 - LLM Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hermes-agent" class="md-skip">
+        <a href="#contextual-retrieval" class="md-skip">
           跳转至
         </a>
       
@@ -96,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hermes Agent 记忆系统架构
+              Contextual Retrieval：上下文感知检索
             
           </span>
         </div>
@@ -239,7 +239,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -269,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -398,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-protocol/" class="md-nav__link">
+      <a href="../../a2a-protocol/" class="md-nav__link">
         
   
   
@@ -426,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-task-state-machine/" class="md-nav__link">
+      <a href="../../a2a-task-state-machine/" class="md-nav__link">
         
   
   
@@ -454,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-security-analysis/" class="md-nav__link">
+      <a href="../../a2a-security-analysis/" class="md-nav__link">
         
   
   
@@ -482,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-ecosystem/" class="md-nav__link">
+      <a href="../../a2a-ecosystem/" class="md-nav__link">
         
   
   
@@ -510,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-protocol/" class="md-nav__link">
+      <a href="../../acp-protocol/" class="md-nav__link">
         
   
   
@@ -538,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-stdio-auth-flow/" class="md-nav__link">
+      <a href="../../acp-stdio-auth-flow/" class="md-nav__link">
         
   
   
@@ -546,6 +546,258 @@
     
   
     ACP stdio 授权流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hermes-agent-memory-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hermes Agent 记忆架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chromafs-virtual-filesystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChromaFs 虚拟文件系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-building-effective-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building effective agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-building-agents-agent-sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Agent SDK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-advanced-tool-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Tool Use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-writing-tools-for-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Tools for Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-think-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Think Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-agent-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-context-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Engineering
   
 
     
@@ -582,7 +834,7 @@
   <span class="md-ellipsis">
     
   
-    Hermes Agent 记忆架构
+    Contextual Retrieval
   
 
     
@@ -600,7 +852,7 @@
   <span class="md-ellipsis">
     
   
-    Hermes Agent 记忆架构
+    Contextual Retrieval
   
 
     
@@ -626,10 +878,76 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关于直接使用更长 Prompt 的说明
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG 入门：扩展到更大的知识库
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        传统 RAG 中的 Context 困境
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contextual-retrieval_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        介绍 Contextual Retrieval
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contextual-retrieval_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实现 Contextual Retrieval
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-caching-contextual-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用 Prompt Caching 降低 Contextual Retrieval 的成本
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心设计哲学
+        方法论
       
     </span>
   </a>
@@ -640,7 +958,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        系统提示词组装顺序
+        性能改进
       
     </span>
   </a>
@@ -651,68 +969,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        四层记忆系统
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四层记忆系统">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-prompt-memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 提示词记忆（Prompt Memory）— 热记忆
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-session_search" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 会话搜索（session_search）— 情景回溯
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-skills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 技能系统（Skills）— 程序记忆
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-honcho" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Honcho 层 — 深层用户建模（可选）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#memory-flush" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        压缩与记忆冲刷（Memory Flush）
+        实现注意事项
       
     </span>
   </a>
@@ -720,10 +977,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#openclaw" class="md-nav__link">
+  <a href="#reranking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        与 OpenClaw 的对比
+        通过 Reranking 进一步提升性能
       
     </span>
   </a>
@@ -734,7 +991,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        总结：三层洞察
+        性能改进
       
     </span>
   </a>
@@ -745,7 +1002,40 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        相关页面
+        成本和延迟考虑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结论
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        附录 I
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        致谢
       
     </span>
   </a>
@@ -768,259 +1058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/chromafs-virtual-filesystem/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ChromaFs 虚拟文件系统
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-building-effective-agents/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Building effective agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-building-agents-agent-sdk/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Claude Agent SDK
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-advanced-tool-use/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Advanced Tool Use
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-writing-tools-for-agents/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Writing Tools for Agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-think-tool/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Think Tool
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-agent-skills/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Agent Skills
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-context-engineering/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Context Engineering
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-contextual-retrieval/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Contextual Retrieval
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-harnesses-long-running-agents/" class="md-nav__link">
+      <a href="../anthropic-harnesses-long-running-agents/" class="md-nav__link">
         
   
   
@@ -1048,7 +1086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-multi-agent-research-system/" class="md-nav__link">
+      <a href="../anthropic-multi-agent-research-system/" class="md-nav__link">
         
   
   
@@ -1076,7 +1114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-code-execution-mcp/" class="md-nav__link">
+      <a href="../anthropic-code-execution-mcp/" class="md-nav__link">
         
   
   
@@ -1104,7 +1142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-demystifying-evals/" class="md-nav__link">
+      <a href="../anthropic-demystifying-evals/" class="md-nav__link">
         
   
   
@@ -1132,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-claude-code-sandboxing/" class="md-nav__link">
+      <a href="../anthropic-claude-code-sandboxing/" class="md-nav__link">
         
   
   
@@ -1160,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-agentic-coding-best-practices/" class="md-nav__link">
+      <a href="../anthropic-agentic-coding-best-practices/" class="md-nav__link">
         
   
   
@@ -1188,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-postmortem-three-issues/" class="md-nav__link">
+      <a href="../anthropic-postmortem-three-issues/" class="md-nav__link">
         
   
   
@@ -1279,7 +1317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-vs-mcp/" class="md-nav__link">
+      <a href="../../a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -1314,7 +1352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SCHEMA/" class="md-nav__link">
+      <a href="../../SCHEMA/" class="md-nav__link">
         
   
   
@@ -1361,10 +1399,76 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关于直接使用更长 Prompt 的说明
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG 入门：扩展到更大的知识库
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        传统 RAG 中的 Context 困境
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contextual-retrieval_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        介绍 Contextual Retrieval
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contextual-retrieval_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实现 Contextual Retrieval
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-caching-contextual-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用 Prompt Caching 降低 Contextual Retrieval 的成本
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心设计哲学
+        方法论
       
     </span>
   </a>
@@ -1375,7 +1479,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        系统提示词组装顺序
+        性能改进
       
     </span>
   </a>
@@ -1386,68 +1490,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        四层记忆系统
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四层记忆系统">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-prompt-memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 提示词记忆（Prompt Memory）— 热记忆
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-session_search" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 会话搜索（session_search）— 情景回溯
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-skills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 技能系统（Skills）— 程序记忆
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-honcho" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Honcho 层 — 深层用户建模（可选）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#memory-flush" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        压缩与记忆冲刷（Memory Flush）
+        实现注意事项
       
     </span>
   </a>
@@ -1455,10 +1498,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#openclaw" class="md-nav__link">
+  <a href="#reranking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        与 OpenClaw 的对比
+        通过 Reranking 进一步提升性能
       
     </span>
   </a>
@@ -1469,7 +1512,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        总结：三层洞察
+        性能改进
       
     </span>
   </a>
@@ -1480,7 +1523,40 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        相关页面
+        成本和延迟考虑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结论
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        附录 I
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        致谢
       
     </span>
   </a>
@@ -1512,7 +1588,7 @@
   
   
     <li class="md-path__item">
-      <a href=".." class="md-path__link">
+      <a href="../.." class="md-path__link">
         
   <span class="md-ellipsis">
     首页
@@ -1530,7 +1606,7 @@
     
     
       <li class="md-path__item">
-        <a href="../a2a-protocol/" class="md-path__link">
+        <a href="../../a2a-protocol/" class="md-path__link">
           
   <span class="md-ellipsis">
     概念
@@ -1555,156 +1631,117 @@
   
 
 
-<h1 id="hermes-agent">Hermes Agent 记忆系统架构<a class="headerlink" href="#hermes-agent" title="Permanent link">&para;</a></h1>
+<h1 id="contextual-retrieval">Contextual Retrieval：上下文感知检索<a class="headerlink" href="#contextual-retrieval" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>Hermes Agent 采用分层记忆架构，核心设计原则：<strong>保持提示词稳定以利用缓存，其他信息按需检索</strong>。不是一套记忆系统，而是四套协同工作的系统。</p>
+<p>原文链接: <a href="https://www.anthropic.com/engineering/contextual-retrieval">English Original</a></p>
 </blockquote>
-<p><img alt="Hermes Agent 记忆系统架构图" src="../raw/assets/hermes-memory-architecture-diagram.jpg" /></p>
-<h2 id="_1">核心设计哲学<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Hermes 针对供应商侧 <strong>Prompt Caching</strong> 优化：系统提示词的前缀部分（工具定义、记忆快照、技能索引等）在会话中保持不变，避免频繁变更导致缓存失效。</p>
-<p>如果信息每一轮都需要 → 缩小注入提示词
-如果信息量大、偶尔需要 → 踢出提示词，按需检索</p>
-<h2 id="_2">系统提示词组装顺序<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>[0] 默认智能体身份
-[1] 工具使用行为指南
-[2] Honcho 集成模块（可选）
-[3] 可选系统消息
-[4] 固化 MEMORY.md 快照
-[5] 固化 USER.md 快照
-[6] 技能索引
-[7] 上下文文件（AGENTS.md, SOUL.md, .cursorrules 等）
-[8] 日期/时间 + 平台信息
-[9] 对话历史
-[10] 当前用户消息
-</code></pre></div>
-<h2 id="_3">四层记忆系统<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="1-prompt-memory">1. 提示词记忆（Prompt Memory）— 热记忆<a class="headerlink" href="#1-prompt-memory" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/memories/</code></p>
-<table>
-<thead>
-<tr>
-<th>文件</th>
-<th>用途</th>
-<th>容量限制</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>MEMORY.md</code></td>
-<td>智能体笔记：环境、规范、工具怪癖、教训</td>
-<td>2,200 字符</td>
-</tr>
-<tr>
-<td><code>USER.md</code></td>
-<td>用户画像：偏好、沟通风格、身份</td>
-<td>1,375 字符</td>
-</tr>
-</tbody>
-</table>
-<p><strong>设计特点：</strong>
-- 使用<strong>字符限制</strong>而非 Token 限制 → 模型无关
-- 条目用 <code>§</code> 分隔的纯文本格式 → 简单可读
-- 会话开始时加载并<strong>固化快照</strong> → 中途写入不改变当前提示词
-- 记忆是<strong>精选状态</strong>（curated state），不是日记</p>
-<p><strong>保存 vs 不保存：</strong>
-- ✅ 用户偏好、环境事实、反复修正、稳定规范
-- ❌ 任务进度、会话结果、临时 TODO</p>
-<p><strong>安全机制：</strong> 拦截 Prompt Injection、凭证泄露、SSH 后门、隐藏 Unicode 字符</p>
-<p>管理工具：<code>memory(action=add|replace|remove)</code> — replace/remove 使用子字符串匹配，无需内部 ID</p>
-<h3 id="2-session_search">2. 会话搜索（session_search）— 情景回溯<a class="headerlink" href="#2-session_search" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/state.db</code>（SQLite）</p>
-<div class="highlight"><pre><span></span><code>FTS5 全文搜索 → 按会话分组 → 解析父子关系 → 截取匹配片段 → 辅助模型摘要 → 返回主模型
-</code></pre></div>
-<p><strong>与提示词记忆的分工：</strong>
-- <code>MEMORY.md</code> = 持久性事实（Semantic Memory）
-- <code>session_search</code> = 情景性回溯（Episodic Recall）</p>
-<h3 id="3-skills">3. 技能系统（Skills）— 程序记忆<a class="headerlink" href="#3-skills" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/skills/</code></p>
+<p>AI 模型要在特定场景中发挥作用，通常需要获取背景知识。例如，客户支持聊天机器人需要了解其服务的特定业务知识，法律分析机器人需要了解大量过去的案例。</p>
+<p>开发者通常使用 <strong>Retrieval-Augmented Generation (RAG)</strong> 来增强 AI 模型的知识。RAG 是一种从知识库中检索相关信息并将其附加到用户 prompt 的方法，能显著增强模型的响应。问题在于，传统的 RAG 解决方案在编码信息时会丢失 context，这经常导致系统无法从知识库中检索到相关信息。</p>
+<p>在本文中，我们概述了一种大幅改进 RAG 中检索步骤的方法。该方法称为 <strong>"Contextual Retrieval"</strong>（上下文感知检索），使用两个子技术：Contextual Embeddings 和 Contextual BM25。该方法可以将检索失败率降低 49%，当结合 reranking 时可降低 67%。这些代表了检索准确性的显著改进，直接转化为下游任务更好的性能。你可以使用我们的 cookbook 轻松部署自己的 Contextual Retrieval 解决方案。</p>
+<h2 id="prompt">关于直接使用更长 Prompt 的说明<a class="headerlink" href="#prompt" title="Permanent link">&para;</a></h2>
+<p>有时最简单的解决方案就是最好的。如果你的知识库小于 200,000 个 token（约 500 页材料），你可以直接将整个知识库包含在给模型的 prompt 中，无需 RAG 或类似方法。</p>
+<p>几周前，我们为 Claude 发布了 prompt caching 功能，这使得这种方法显著更快且更具成本效益。开发者现在可以在 API 调用之间缓存频繁使用的 prompt，将延迟降低 2 倍以上，成本降低高达 90%（你可以阅读我们的 prompt caching cookbook 了解其工作原理）。</p>
+<p>然而，随着知识库的增长，你需要一个更具可扩展性的解决方案。这就是 Contextual Retrieval 发挥作用的地方。</p>
+<h2 id="rag">RAG 入门：扩展到更大的知识库<a class="headerlink" href="#rag" title="Permanent link">&para;</a></h2>
+<p>对于不适合 context window 的较大知识库，RAG 是典型的解决方案。RAG 通过以下步骤预处理知识库：</p>
 <ul>
-<li>可复用的知识文档和操作流程</li>
-<li><strong>惰性加载</strong>：提示词中只放索引，需要时才加载完整内容</li>
-<li>解决"如何做"的问题（Procedural Memory），而非"是什么"</li>
+<li>将知识库（文档的"语料库"）分解为较小的文本块，通常不超过几百个 token</li>
+<li>使用嵌入模型将这些块转换为编码语义的向量嵌入</li>
+<li>将这些嵌入存储在允许按语义相似性搜索的向量数据库中</li>
 </ul>
-<h3 id="4-honcho">4. Honcho 层 — 深层用户建模（可选）<a class="headerlink" href="#4-honcho" title="Permanent link">&para;</a></h3>
+<p>在运行时，当用户向模型输入查询时，向量数据库被用来根据与查询的语义相似性找到最相关的文本块。然后，最相关的文本块被添加到发送给生成模型的 prompt 中。</p>
+<p>虽然嵌入模型擅长捕捉语义关系，但它们可能会遗漏关键的精确匹配。幸运的是，有一种较旧的技术可以帮助处理这些情况。<strong>BM25（Best Matching 25）</strong> 是一种使用词法匹配来查找精确词语或短语匹配的排名函数。它对于包含唯一标识符或技术术语的查询特别有效。</p>
+<p>BM25 基于 TF-IDF（词频-逆文档频率）概念构建。TF-IDF 衡量一个词在文档集合中对某个文档的重要性。BM25 通过考虑文档长度并对词频应用饱和函数来改进这一点，有助于防止常见词主导结果。</p>
+<p>以下是 BM25 在语义嵌入失败之处成功的示例：假设用户在技术支持数据库中查询"Error code TS-999"。嵌入模型可能会找到关于错误代码的一般内容，但可能错过精确的"TS-999"匹配。BM25 则会查找这个特定的文本字符串来识别相关文档。</p>
+<p>RAG 解决方案可以通过结合嵌入和 BM25 技术更准确地检索最适用的文本块，步骤如下：</p>
 <ul>
-<li>跨设备、跨平台的记忆连续性</li>
-<li>同时建模用户和 AI 自身</li>
-<li>第一轮：织入缓存系统提示词</li>
-<li>后续轮：附加在用户消息后面 → 保持缓存稳定</li>
+<li>将知识库（文档的"语料库"）分解为较小的文本块，通常不超过几百个 token</li>
+<li>为这些块创建 TF-IDF 编码和语义嵌入</li>
+<li>使用 BM25 基于精确匹配找到 top 文本块</li>
+<li>使用嵌入基于语义相似性找到 top 文本块</li>
+<li>使用 rank fusion 技术合并和去重（3）和（4）的结果</li>
+<li>将 top-K 文本块添加到 prompt 以生成响应</li>
 </ul>
-<h2 id="memory-flush">压缩与记忆冲刷（Memory Flush）<a class="headerlink" href="#memory-flush" title="Permanent link">&para;</a></h2>
-<p>长对话需要压缩时，Hermes 先执行"记忆冲刷"：</p>
-<div class="highlight"><pre><span></span><code>长对话 → 发送冲刷指令 → 模型保存持久事实到 memory → 压缩旧轮次 → 重建 prompt → 继续
+<p>通过利用 BM25 和嵌入模型两者，传统 RAG 系统可以提供更全面和准确的结果，在精确词语匹配与更广泛的语义理解之间取得平衡。</p>
+<p>这种方法使你可以经济高效地扩展到巨大的知识库，远超单个 prompt 所能容纳的范围。但这些传统 RAG 系统有一个显著限制：它们经常破坏 context。</p>
+<h2 id="rag-context">传统 RAG 中的 Context 困境<a class="headerlink" href="#rag-context" title="Permanent link">&para;</a></h2>
+<p>在传统 RAG 中，文档通常被分割成较小的文本块以便高效检索。虽然这种方法对许多应用程序效果良好，但当单个文本块缺乏足够的 context 时可能会导致问题。</p>
+<p>例如，假设你在知识库中嵌入了一组财务信息（比如美国 SEC 文件），并收到以下问题："ACME Corp 在 2023 年第二季度的收入增长是多少？"</p>
+<p>一个相关的文本块可能包含文本："该公司的收入比上一季度增长了 3%。"然而，这个文本块本身并未指定它指的是哪家公司或相关时间段，使得检索正确信息或有效使用信息变得困难。</p>
+<h2 id="contextual-retrieval_1">介绍 Contextual Retrieval<a class="headerlink" href="#contextual-retrieval_1" title="Permanent link">&para;</a></h2>
+<p>Contextual Retrieval 通过在每个文本块嵌入前（"Contextual Embeddings"）和创建 BM25 索引前（"Contextual BM25"）在文本块前添加特定于该块的解释性 context 来解决这一问题。</p>
+<p>让我们回到 SEC 文件集合的示例。以下是一个文本块可能如何被转换的示例：</p>
+<div class="highlight"><pre><span></span><code>original_chunk = &quot;The company&#39;s revenue grew by 3% over the previous quarter.&quot;
+
+contextualized_chunk = &quot;This chunk is from an SEC filing on ACME corp&#39;s performance in Q2 2023; the previous quarter&#39;s revenue was $314 million. The company&#39;s revenue grew by 3% over the previous quarter.&quot;
 </code></pre></div>
-<p>关键步骤：
-1. 压缩前注入指令，让模型保存值得记住的内容
-2. 运行额外模型调用，只开启 memory 工具
-3. 压缩后重建系统提示词，从磁盘重新加载 memory
-4. 冲刷的内容立即成为新的稳定快照</p>
-<h2 id="openclaw">与 OpenClaw 的对比<a class="headerlink" href="#openclaw" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>维度</th>
-<th>OpenClaw</th>
-<th>Hermes Agent</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>记忆存储</td>
-<td>Markdown 为主的存储</td>
-<td>分层架构</td>
-</tr>
-<tr>
-<td>主要事实来源</td>
-<td>日志和长效文件</td>
-<td>小型提示词 + SQLite</td>
-</tr>
-<tr>
-<td>记忆回溯</td>
-<td>混合搜索存储笔记</td>
-<td>session_search FTS5</td>
-</tr>
-<tr>
-<td>提示词记忆</td>
-<td>有边界但更激进</td>
-<td>严格限制（~1300 tokens）</td>
-</tr>
-<tr>
-<td>程序记忆</td>
-<td>—</td>
-<td>Skills 系统</td>
-</tr>
-<tr>
-<td>深层建模</td>
-<td>—</td>
-<td>Honcho（可选）</td>
-</tr>
-<tr>
-<td>缓存意识</td>
-<td>较弱</td>
-<td>核心设计驱动</td>
-</tr>
-</tbody>
-</table>
-<p><strong>核心区别：</strong>
-- OpenClaw = "记忆即知识库"
-- Hermes = "热工作集 + 冷检索层"</p>
-<h2 id="_4">总结：三层洞察<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>冷热分离</strong>：小规模热记忆 + 大规模冷检索，而非全塞进提示词</li>
-<li><strong>缓存优先</strong>：冻结快照、延迟更新、逐轮注入 Honcho、压缩重建 → 都服务于"不轻易变更提示词"</li>
-<li><strong>记忆多样性</strong>：语义记忆 + 情景回溯 + 程序记忆 + 深层建模 → 更贴近 Agent 实际需求</li>
-</ol>
-<blockquote>
-<p>"不是记住更多，而是在正确的层级、以正确的成本，记住正确的事情。"</p>
-</blockquote>
-<h2 id="_5">相关页面<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>值得注意的是，过去也提出过其他使用 context 改进检索的方法。其他提案包括：将通用文档摘要添加到文本块中（我们实验后发现收益非常有限）、hypothetical document embedding 以及基于摘要的索引（我们评估后发现性能较低）。这些方法与本文提出的方法不同。</p>
+<h2 id="contextual-retrieval_2">实现 Contextual Retrieval<a class="headerlink" href="#contextual-retrieval_2" title="Permanent link">&para;</a></h2>
+<p>当然，手动注释知识库中数千甚至数百万个文本块工作量太大了。为了实现 Contextual Retrieval，我们求助于 Claude。我们编写了一个 prompt 指示模型使用整体文档的 context 提供简洁的、特定于文本块的 context 来解释该文本块。我们使用以下 Claude 3 Haiku prompt 为每个文本块生成 context：</p>
+<div class="highlight"><pre><span></span><code>&lt;document&gt;
+{{WHOLE_DOCUMENT}}
+&lt;/document&gt;
+
+Here is the chunk we want to situate within the whole document
+
+&lt;chunk&gt;
+{{CHUNK_CONTENT}}
+&lt;/chunk&gt;
+
+Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. Answer only with the succinct context and nothing else.
+</code></pre></div>
+<p>生成的 context 文本通常为 50-100 个 token，在嵌入和创建 BM25 索引之前被添加到文本块前面。</p>
+<p>如果你有兴趣使用 Contextual Retrieval，可以从我们的 cookbook 开始。</p>
+<h2 id="prompt-caching-contextual-retrieval">使用 Prompt Caching 降低 Contextual Retrieval 的成本<a class="headerlink" href="#prompt-caching-contextual-retrieval" title="Permanent link">&para;</a></h2>
+<p>得益于我们上面提到的特殊 prompt caching 功能，在 Claude 上以低成本实现 Contextual Retrieval 是独特可行的。使用 prompt caching，你不需要为每个文本块都传入参考文档。你只需将文档加载到缓存中一次，然后引用之前缓存的内容。假设 800 token 的文本块、8k token 的文档、50 token 的 context 指令和每个文本块 100 token 的 context，生成 contextualized 文本块的一次性成本为每百万文档 token $1.02。</p>
+<h2 id="_1">方法论<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>我们在各种知识领域（代码库、小说、ArXiv 论文、科学论文）、嵌入模型、检索策略和评估指标上进行了实验。我们在附录 II 中包含了每个领域使用的问答示例。</p>
+<p>下面的图表显示了在所有知识领域中，使用表现最佳的嵌入配置（Gemini Text 004）和检索 top-20 文本块时的平均性能。我们使用 1 减去 recall@20 作为评估指标，衡量在 top-20 文本块中未能检索到的相关文档的百分比。你可以在附录中查看完整结果——contextualization 在我们评估的每种嵌入-来源组合中都改善了性能。</p>
+<h2 id="_2">性能改进<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>我们的实验表明：</p>
 <ul>
-<li><a href="../a2a-protocol/">A2A 协议详解</a> — Agent 间通信协议</li>
-<li><a href="../a2a-vs-mcp/">A2A vs MCP</a> — Agent 协议对比</li>
+<li>Contextual Embeddings 将 top-20 文本块检索失败率降低了 35%（5.7% → 3.7%）</li>
+<li>结合 Contextual Embeddings 和 Contextual BM25 将 top-20 文本块检索失败率降低了 49%（5.7% → 2.9%）</li>
 </ul>
+<h2 id="_3">实现注意事项<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>在实现 Contextual Retrieval 时，有几个注意事项需要牢记：</p>
+<ul>
+<li><strong>文本块边界</strong>：考虑如何将文档分割成文本块。文本块大小、边界和重叠的选择会影响检索性能。</li>
+<li><strong>嵌入模型</strong>：虽然 Contextual Retrieval 改善了我们测试的所有嵌入模型的性能，但有些模型可能比其他模型受益更多。我们发现 Gemini 和 Voyage 嵌入特别有效。</li>
+<li><strong>自定义 context 生成 prompt</strong>：虽然我们提供的通用 prompt 效果良好，但你可能通过针对特定领域或用例定制的 prompt 获得更好的结果（例如，包含可能只在知识库其他文档中定义的关键术语词汇表）。</li>
+<li><strong>文本块数量</strong>：将更多文本块添加到 context window 增加了包含相关信息的几率。然而，更多信息可能会分散模型的注意力，因此这是有限制的。我们尝试传递 5、10 和 20 个文本块，发现使用 20 个是这些选项中性能最好的（见附录的比较），但值得在你的用例上进行实验。</li>
+</ul>
+<p>始终运行评估：响应生成可能通过传递 contextualized 文本块并区分什么是 context 什么是文本块来改善。</p>
+<h2 id="reranking">通过 Reranking 进一步提升性能<a class="headerlink" href="#reranking" title="Permanent link">&para;</a></h2>
+<p>在最后一步中，我们可以将 Contextual Retrieval 与另一种技术结合以获得更多性能改进。在传统 RAG 中，AI 系统搜索其知识库以找到潜在相关的信息文本块。对于大型知识库，这种初始检索通常返回大量文本块——有时数百个——具有不同的相关性和重要性。</p>
+<p><strong>Reranking</strong> 是一种常用的过滤技术，确保只有最相关的文本块被传递给模型。Reranking 提供更好的响应并降低成本和延迟，因为模型处理的信息更少。关键步骤是：</p>
+<ul>
+<li>执行初始检索以获取 top 潜在相关文本块（我们使用了 top 150）</li>
+<li>将 top-N 文本块与用户查询一起传递给 reranking 模型</li>
+<li>使用 reranking 模型，根据每个文本块与 prompt 的相关性和重要性给出分数，然后选择 top-K 文本块（我们使用了 top 20）</li>
+<li>将 top-K 文本块作为 context 传递给模型以生成最终结果</li>
+</ul>
+<h2 id="_4">性能改进<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>市场上有几种 reranking 模型。我们使用 Cohere reranker 进行了测试。Voyage 也提供 reranker，但我们没有时间测试。我们的实验表明，在各种领域中，添加 reranking 步骤进一步优化了检索。</p>
+<p>具体来说，我们发现 Reranked Contextual Embedding 和 Contextual BM25 将 top-20 文本块检索失败率降低了 67%（5.7% → 1.9%）。</p>
+<h2 id="_5">成本和延迟考虑<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Reranking 的一个重要考虑是对延迟和成本的影响，特别是在 reranking 大量文本块时。由于 reranking 在运行时增加了额外步骤，即使 reranker 并行处理所有文本块，也不可避免地增加了少量延迟。在 reranking 更多文本块以获得更好性能与 reranking 更少文本块以降低延迟和成本之间存在固有的权衡。我们建议在你的特定用例上尝试不同设置以找到合适的平衡。</p>
+<h2 id="_6">结论<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>我们进行了大量测试，比较了上述所有技术的不同组合（嵌入模型、BM25 的使用、contextual retrieval 的使用、reranker 的使用以及检索的 top-K 结果总数），涵盖了各种不同的数据集类型。以下是我们发现的总结：</p>
+<ul>
+<li>Embeddings + BM25 优于单独的 embeddings</li>
+<li>Voyage 和 Gemini 在我们测试的嵌入中表现最佳</li>
+<li>传递 top-20 文本块给模型比仅传递 top-10 或 top-5 更有效</li>
+<li>为文本块添加 context 大幅改善检索准确性</li>
+<li>Reranking 优于不使用 reranking</li>
+<li>所有这些好处可以叠加：为了最大化性能改进，我们可以结合 contextual embeddings（来自 Voyage 或 Gemini）与 contextual BM25，加上 reranking 步骤，并将 20 个文本块添加到 prompt 中</li>
+</ul>
+<p>我们鼓励所有使用知识库的开发者使用我们的 cookbook 来实验这些方法以释放新的性能水平。</p>
+<h2 id="i">附录 I<a class="headerlink" href="#i" title="Permanent link">&para;</a></h2>
+<p>以下是跨数据集、嵌入提供商、嵌入之外使用 BM25、使用 contextual retrieval 以及使用 reranking 的 Retrievals @ 20 结果细分。</p>
+<p>见附录 II 了解 Retrievals @ 10 和 @ 5 的细分以及每个数据集的问答示例。</p>
+<h2 id="_7">致谢<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>研究和撰写由 Daniel Ford 完成。感谢 Orowa Sikder、Gautam Mittal 和 Kenneth Lien 的关键反馈，Samuel Flamini 实现了 cookbook，Lauren Polansky 协调项目，以及 Alex Albert、Susan Payne、Stuart Ritchie 和 Brad Abrams 对本文的贡献。</p>
 
 
 
@@ -1779,10 +1816,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

@@ -12,31 +12,31 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/hermes-agent-memory-architecture/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/anthropic-context-engineering/">
       
       
-        <link rel="prev" href="../acp-stdio-auth-flow/">
+        <link rel="prev" href="../anthropic-agent-skills/">
       
       
-        <link rel="next" href="../concepts/chromafs-virtual-filesystem/">
+        <link rel="next" href="../anthropic-contextual-retrieval/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Hermes Agent 记忆系统架构 - LLM Wiki</title>
+        <title>面向 AI Agent 的有效 Context Engineering - LLM Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hermes-agent" class="md-skip">
+        <a href="#ai-agent-context-engineering" class="md-skip">
           跳转至
         </a>
       
@@ -96,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hermes Agent 记忆系统架构
+              面向 AI Agent 的有效 Context Engineering
             
           </span>
         </div>
@@ -239,7 +239,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -269,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -398,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-protocol/" class="md-nav__link">
+      <a href="../../a2a-protocol/" class="md-nav__link">
         
   
   
@@ -426,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-task-state-machine/" class="md-nav__link">
+      <a href="../../a2a-task-state-machine/" class="md-nav__link">
         
   
   
@@ -454,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-security-analysis/" class="md-nav__link">
+      <a href="../../a2a-security-analysis/" class="md-nav__link">
         
   
   
@@ -482,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-ecosystem/" class="md-nav__link">
+      <a href="../../a2a-ecosystem/" class="md-nav__link">
         
   
   
@@ -510,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-protocol/" class="md-nav__link">
+      <a href="../../acp-protocol/" class="md-nav__link">
         
   
   
@@ -538,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-stdio-auth-flow/" class="md-nav__link">
+      <a href="../../acp-stdio-auth-flow/" class="md-nav__link">
         
   
   
@@ -546,6 +546,230 @@
     
   
     ACP stdio 授权流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hermes-agent-memory-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hermes Agent 记忆架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chromafs-virtual-filesystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChromaFs 虚拟文件系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-building-effective-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building effective agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-building-agents-agent-sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Agent SDK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-advanced-tool-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Tool Use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-writing-tools-for-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Tools for Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-think-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Think Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-agent-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Skills
   
 
     
@@ -582,7 +806,7 @@
   <span class="md-ellipsis">
     
   
-    Hermes Agent 记忆架构
+    Context Engineering
   
 
     
@@ -600,7 +824,7 @@
   <span class="md-ellipsis">
     
   
-    Hermes Agent 记忆架构
+    Context Engineering
   
 
     
@@ -626,10 +850,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#context-engineering-prompt-engineering" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心设计哲学
+        Context Engineering 与 Prompt Engineering 的区别
       
     </span>
   </a>
@@ -637,10 +861,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#context-engineering-agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        系统提示词组装顺序
+        为什么 Context Engineering 对构建强大的 Agent 至关重要
       
     </span>
   </a>
@@ -648,22 +872,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        四层记忆系统
+        有效 Context 的解剖结构
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="四层记忆系统">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-agentic-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context 检索与 Agentic Search
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        长时间跨度任务的 Context Engineering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="长时间跨度任务的 Context Engineering">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-prompt-memory" class="md-nav__link">
+  <a href="#compaction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 提示词记忆（Prompt Memory）— 热记忆
+        Compaction
       
     </span>
   </a>
@@ -671,10 +917,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-session_search" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 会话搜索（session_search）— 情景回溯
+        结构化笔记
       
     </span>
   </a>
@@ -682,21 +928,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-skills" class="md-nav__link">
+  <a href="#multi-agent-architectures" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 技能系统（Skills）— 程序记忆
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-honcho" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Honcho 层 — 深层用户建模（可选）
+        Multi-Agent Architectures
       
     </span>
   </a>
@@ -709,10 +944,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#memory-flush" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        压缩与记忆冲刷（Memory Flush）
+        结语
       
     </span>
   </a>
@@ -720,32 +955,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#openclaw" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        与 OpenClaw 的对比
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        总结：三层洞察
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关页面
+        致谢
       
     </span>
   </a>
@@ -768,231 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/chromafs-virtual-filesystem/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ChromaFs 虚拟文件系统
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-building-effective-agents/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Building effective agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-building-agents-agent-sdk/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Claude Agent SDK
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-advanced-tool-use/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Advanced Tool Use
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-writing-tools-for-agents/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Writing Tools for Agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-think-tool/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Think Tool
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-agent-skills/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Agent Skills
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-context-engineering/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Context Engineering
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-contextual-retrieval/" class="md-nav__link">
+      <a href="../anthropic-contextual-retrieval/" class="md-nav__link">
         
   
   
@@ -1020,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-harnesses-long-running-agents/" class="md-nav__link">
+      <a href="../anthropic-harnesses-long-running-agents/" class="md-nav__link">
         
   
   
@@ -1048,7 +1037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-multi-agent-research-system/" class="md-nav__link">
+      <a href="../anthropic-multi-agent-research-system/" class="md-nav__link">
         
   
   
@@ -1076,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-code-execution-mcp/" class="md-nav__link">
+      <a href="../anthropic-code-execution-mcp/" class="md-nav__link">
         
   
   
@@ -1104,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-demystifying-evals/" class="md-nav__link">
+      <a href="../anthropic-demystifying-evals/" class="md-nav__link">
         
   
   
@@ -1132,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-claude-code-sandboxing/" class="md-nav__link">
+      <a href="../anthropic-claude-code-sandboxing/" class="md-nav__link">
         
   
   
@@ -1160,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-agentic-coding-best-practices/" class="md-nav__link">
+      <a href="../anthropic-agentic-coding-best-practices/" class="md-nav__link">
         
   
   
@@ -1188,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-postmortem-three-issues/" class="md-nav__link">
+      <a href="../anthropic-postmortem-three-issues/" class="md-nav__link">
         
   
   
@@ -1279,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-vs-mcp/" class="md-nav__link">
+      <a href="../../a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -1314,7 +1303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SCHEMA/" class="md-nav__link">
+      <a href="../../SCHEMA/" class="md-nav__link">
         
   
   
@@ -1361,10 +1350,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#context-engineering-prompt-engineering" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心设计哲学
+        Context Engineering 与 Prompt Engineering 的区别
       
     </span>
   </a>
@@ -1372,10 +1361,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#context-engineering-agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        系统提示词组装顺序
+        为什么 Context Engineering 对构建强大的 Agent 至关重要
       
     </span>
   </a>
@@ -1383,22 +1372,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        四层记忆系统
+        有效 Context 的解剖结构
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="四层记忆系统">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-agentic-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context 检索与 Agentic Search
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        长时间跨度任务的 Context Engineering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="长时间跨度任务的 Context Engineering">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-prompt-memory" class="md-nav__link">
+  <a href="#compaction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 提示词记忆（Prompt Memory）— 热记忆
+        Compaction
       
     </span>
   </a>
@@ -1406,10 +1417,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-session_search" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 会话搜索（session_search）— 情景回溯
+        结构化笔记
       
     </span>
   </a>
@@ -1417,21 +1428,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-skills" class="md-nav__link">
+  <a href="#multi-agent-architectures" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 技能系统（Skills）— 程序记忆
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-honcho" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Honcho 层 — 深层用户建模（可选）
+        Multi-Agent Architectures
       
     </span>
   </a>
@@ -1444,10 +1444,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#memory-flush" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        压缩与记忆冲刷（Memory Flush）
+        结语
       
     </span>
   </a>
@@ -1455,32 +1455,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#openclaw" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        与 OpenClaw 的对比
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        总结：三层洞察
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关页面
+        致谢
       
     </span>
   </a>
@@ -1512,7 +1490,7 @@
   
   
     <li class="md-path__item">
-      <a href=".." class="md-path__link">
+      <a href="../.." class="md-path__link">
         
   <span class="md-ellipsis">
     首页
@@ -1530,7 +1508,7 @@
     
     
       <li class="md-path__item">
-        <a href="../a2a-protocol/" class="md-path__link">
+        <a href="../../a2a-protocol/" class="md-path__link">
           
   <span class="md-ellipsis">
     概念
@@ -1555,156 +1533,58 @@
   
 
 
-<h1 id="hermes-agent">Hermes Agent 记忆系统架构<a class="headerlink" href="#hermes-agent" title="Permanent link">&para;</a></h1>
+<h1 id="ai-agent-context-engineering">面向 AI Agent 的有效 Context Engineering<a class="headerlink" href="#ai-agent-context-engineering" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>Hermes Agent 采用分层记忆架构，核心设计原则：<strong>保持提示词稳定以利用缓存，其他信息按需检索</strong>。不是一套记忆系统，而是四套协同工作的系统。</p>
+<p>原文链接: <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">English Original</a></p>
 </blockquote>
-<p><img alt="Hermes Agent 记忆系统架构图" src="../raw/assets/hermes-memory-architecture-diagram.jpg" /></p>
-<h2 id="_1">核心设计哲学<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Hermes 针对供应商侧 <strong>Prompt Caching</strong> 优化：系统提示词的前缀部分（工具定义、记忆快照、技能索引等）在会话中保持不变，避免频繁变更导致缓存失效。</p>
-<p>如果信息每一轮都需要 → 缩小注入提示词
-如果信息量大、偶尔需要 → 踢出提示词，按需检索</p>
-<h2 id="_2">系统提示词组装顺序<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>[0] 默认智能体身份
-[1] 工具使用行为指南
-[2] Honcho 集成模块（可选）
-[3] 可选系统消息
-[4] 固化 MEMORY.md 快照
-[5] 固化 USER.md 快照
-[6] 技能索引
-[7] 上下文文件（AGENTS.md, SOUL.md, .cursorrules 等）
-[8] 日期/时间 + 平台信息
-[9] 对话历史
-[10] 当前用户消息
-</code></pre></div>
-<h2 id="_3">四层记忆系统<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="1-prompt-memory">1. 提示词记忆（Prompt Memory）— 热记忆<a class="headerlink" href="#1-prompt-memory" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/memories/</code></p>
-<table>
-<thead>
-<tr>
-<th>文件</th>
-<th>用途</th>
-<th>容量限制</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>MEMORY.md</code></td>
-<td>智能体笔记：环境、规范、工具怪癖、教训</td>
-<td>2,200 字符</td>
-</tr>
-<tr>
-<td><code>USER.md</code></td>
-<td>用户画像：偏好、沟通风格、身份</td>
-<td>1,375 字符</td>
-</tr>
-</tbody>
-</table>
-<p><strong>设计特点：</strong>
-- 使用<strong>字符限制</strong>而非 Token 限制 → 模型无关
-- 条目用 <code>§</code> 分隔的纯文本格式 → 简单可读
-- 会话开始时加载并<strong>固化快照</strong> → 中途写入不改变当前提示词
-- 记忆是<strong>精选状态</strong>（curated state），不是日记</p>
-<p><strong>保存 vs 不保存：</strong>
-- ✅ 用户偏好、环境事实、反复修正、稳定规范
-- ❌ 任务进度、会话结果、临时 TODO</p>
-<p><strong>安全机制：</strong> 拦截 Prompt Injection、凭证泄露、SSH 后门、隐藏 Unicode 字符</p>
-<p>管理工具：<code>memory(action=add|replace|remove)</code> — replace/remove 使用子字符串匹配，无需内部 ID</p>
-<h3 id="2-session_search">2. 会话搜索（session_search）— 情景回溯<a class="headerlink" href="#2-session_search" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/state.db</code>（SQLite）</p>
-<div class="highlight"><pre><span></span><code>FTS5 全文搜索 → 按会话分组 → 解析父子关系 → 截取匹配片段 → 辅助模型摘要 → 返回主模型
-</code></pre></div>
-<p><strong>与提示词记忆的分工：</strong>
-- <code>MEMORY.md</code> = 持久性事实（Semantic Memory）
-- <code>session_search</code> = 情景性回溯（Episodic Recall）</p>
-<h3 id="3-skills">3. 技能系统（Skills）— 程序记忆<a class="headerlink" href="#3-skills" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/skills/</code></p>
-<ul>
-<li>可复用的知识文档和操作流程</li>
-<li><strong>惰性加载</strong>：提示词中只放索引，需要时才加载完整内容</li>
-<li>解决"如何做"的问题（Procedural Memory），而非"是什么"</li>
-</ul>
-<h3 id="4-honcho">4. Honcho 层 — 深层用户建模（可选）<a class="headerlink" href="#4-honcho" title="Permanent link">&para;</a></h3>
-<ul>
-<li>跨设备、跨平台的记忆连续性</li>
-<li>同时建模用户和 AI 自身</li>
-<li>第一轮：织入缓存系统提示词</li>
-<li>后续轮：附加在用户消息后面 → 保持缓存稳定</li>
-</ul>
-<h2 id="memory-flush">压缩与记忆冲刷（Memory Flush）<a class="headerlink" href="#memory-flush" title="Permanent link">&para;</a></h2>
-<p>长对话需要压缩时，Hermes 先执行"记忆冲刷"：</p>
-<div class="highlight"><pre><span></span><code>长对话 → 发送冲刷指令 → 模型保存持久事实到 memory → 压缩旧轮次 → 重建 prompt → 继续
-</code></pre></div>
-<p>关键步骤：
-1. 压缩前注入指令，让模型保存值得记住的内容
-2. 运行额外模型调用，只开启 memory 工具
-3. 压缩后重建系统提示词，从磁盘重新加载 memory
-4. 冲刷的内容立即成为新的稳定快照</p>
-<h2 id="openclaw">与 OpenClaw 的对比<a class="headerlink" href="#openclaw" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>维度</th>
-<th>OpenClaw</th>
-<th>Hermes Agent</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>记忆存储</td>
-<td>Markdown 为主的存储</td>
-<td>分层架构</td>
-</tr>
-<tr>
-<td>主要事实来源</td>
-<td>日志和长效文件</td>
-<td>小型提示词 + SQLite</td>
-</tr>
-<tr>
-<td>记忆回溯</td>
-<td>混合搜索存储笔记</td>
-<td>session_search FTS5</td>
-</tr>
-<tr>
-<td>提示词记忆</td>
-<td>有边界但更激进</td>
-<td>严格限制（~1300 tokens）</td>
-</tr>
-<tr>
-<td>程序记忆</td>
-<td>—</td>
-<td>Skills 系统</td>
-</tr>
-<tr>
-<td>深层建模</td>
-<td>—</td>
-<td>Honcho（可选）</td>
-</tr>
-<tr>
-<td>缓存意识</td>
-<td>较弱</td>
-<td>核心设计驱动</td>
-</tr>
-</tbody>
-</table>
-<p><strong>核心区别：</strong>
-- OpenClaw = "记忆即知识库"
-- Hermes = "热工作集 + 冷检索层"</p>
-<h2 id="_4">总结：三层洞察<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>冷热分离</strong>：小规模热记忆 + 大规模冷检索，而非全塞进提示词</li>
-<li><strong>缓存优先</strong>：冻结快照、延迟更新、逐轮注入 Honcho、压缩重建 → 都服务于"不轻易变更提示词"</li>
-<li><strong>记忆多样性</strong>：语义记忆 + 情景回溯 + 程序记忆 + 深层建模 → 更贴近 Agent 实际需求</li>
-</ol>
-<blockquote>
-<p>"不是记住更多，而是在正确的层级、以正确的成本，记住正确的事情。"</p>
-</blockquote>
-<h2 id="_5">相关页面<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../a2a-protocol/">A2A 协议详解</a> — Agent 间通信协议</li>
-<li><a href="../a2a-vs-mcp/">A2A vs MCP</a> — Agent 协议对比</li>
-</ul>
+<p>Context 是 AI Agent 的一项关键但有限的资源。在本文中，我们将探讨有效策划和管理驱动 Agent 的 context 的策略。</p>
+<p>在 prompt engineering 成为应用 AI 领域关注焦点的几年之后，一个新术语开始脱颖而出：<strong>context engineering</strong>。基于语言模型的构建正变得越来越少地关注如何为 prompt 找到合适的词语和短语，而更多地转向回答一个更广泛的问题："什么样的 context 配置最有可能产生模型期望的行为？"</p>
+<p>Context 是指从大型语言模型（LLM）采样时包含的 token 集合。当前的工程问题是在 LLM 固有约束下优化这些 token 的效用，以持续达成期望的结果。有效地驾驭 LLM 通常需要以 context 的方式思考——换句话说：考虑 LLM 在任何给定时刻可用的整体状态，以及该状态可能产生哪些潜在行为。</p>
+<p>在本文中，我们将探讨 context engineering 这一新兴艺术，并为构建可操控、高效的 Agent 提供一个精炼的心智模型。</p>
+<h2 id="context-engineering-prompt-engineering">Context Engineering 与 Prompt Engineering 的区别<a class="headerlink" href="#context-engineering-prompt-engineering" title="Permanent link">&para;</a></h2>
+<p>在 Anthropic，我们将 context engineering 视为 prompt engineering 的自然演进。Prompt engineering 是指编写和组织 LLM 指令以获得最优结果的方法（参见我们的文档了解概述和有用的 prompt engineering 策略）。Context engineering 是指在 LLM 推理期间策划和维护最优 token（信息）集的策略，包括 prompt 之外可能进入 context 的所有其他信息。</p>
+<p>在使用 LLM 进行工程的早期，prompt 是 AI 工程工作的最大组成部分，因为日常聊天交互之外的大多数用例都需要针对一次性分类或文本生成任务优化的 prompt。顾名思义，prompt engineering 的主要焦点是如何编写有效的 prompt，特别是系统 prompt。然而，随着我们走向工程化更强大的、在多轮推理和更长时间跨度上运行的 Agent，我们需要管理整个 context 状态（系统指令、工具、Model Context Protocol (MCP)、外部数据、消息历史等）的策略。</p>
+<p>在循环中运行的 Agent 会生成越来越多的可能与下一轮推理相关的数据，这些信息必须被循环优化。Context engineering 是一种艺术和科学，它从不断演变的可能信息宇宙中策划出有限 context window 中应包含的内容。</p>
+<p>与编写 prompt 的离散任务不同，context engineering 是迭代的，策划阶段在我们每次决定传递给模型什么内容时都会发生。</p>
+<h2 id="context-engineering-agent">为什么 Context Engineering 对构建强大的 Agent 至关重要<a class="headerlink" href="#context-engineering-agent" title="Permanent link">&para;</a></h2>
+<p>尽管 LLM 速度越来越快、管理数据量的能力越来越大，但我们观察到，LLM 和人类一样，在某个点会失去焦点或经历困惑。对"大海捞针"式基准测试的研究揭示了 <strong>context rot</strong>（上下文腐化）的概念：随着 context window 中 token 数量的增加，模型从该 context 中准确回忆信息的能力会下降。</p>
+<p>虽然一些模型表现出比其他模型更温和的退化，但这一特征在所有模型中都会出现。因此，context 必须被视为一种边际收益递减的有限资源。就像具有有限工作记忆容量的人类一样，LLM 在解析大量 context 时也有一个"注意力预算"。引入的每一个新 token 都会消耗这个预算的一部分，增加了仔细策划可用 token 的需求。</p>
+<p>这种注意力稀缺性源于 LLM 的架构约束。LLM 基于 transformer 架构，该架构使得每个 token 都能关注整个 context 中的所有其他 token。这对 n 个 token 产生了 n² 的成对关系。</p>
+<p>随着 context 长度的增加，模型捕捉这些成对关系的能力会被摊薄，在 context 大小和注意力焦点之间产生自然的张力。此外，模型从训练数据分布中发展其注意力模式，其中较短序列通常比较长序列更常见。这意味着模型对 context 范围内的依赖关系的经验更少，专门的参数也更少。</p>
+<p>Position encoding interpolation 等技术允许模型通过将其适应最初训练的较小 context 来处理更长的序列，尽管 token 位置理解会有一些退化。这些因素创造了一个性能梯度而非硬性悬崖：模型在更长 context 下仍然高度有能，但在信息检索和长程推理方面可能表现出降低的精度。</p>
+<h2 id="context">有效 Context 的解剖结构<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<p>鉴于 LLM 受限于有限的注意力预算，良好的 context engineering 意味着找到尽可能最小的、最大化某些期望结果可能性的高信号 token 集。实施这一实践说起来容易做起来难，但在以下部分，我们概述了这一指导原则在 context 的不同组件中的实际含义。</p>
+<p><strong>系统 prompt</strong> 应该非常清晰，使用简单直接的语言，以适合 Agent 的合适高度呈现概念。合适的高度是两种常见失败模式之间的 Goldilocks 区间。在一个极端，我们看到工程师在 prompt 中硬编码复杂、脆弱的逻辑以引发精确的 Agent 行为。这种方法随着时间的推移会制造脆弱性并增加维护复杂性。在另一个极端，工程师有时提供模糊的高层指导，未能给 LLM 提供期望输出的具体信号，或错误地假设共享的 context。最优高度在两者之间取得平衡：足够具体以有效引导行为，又足够灵活以为模型提供强有力的启发式指导来引导行为。</p>
+<p>频谱的一端是脆弱的 if-else 硬编码 prompt，另一端是过于笼统或错误假设共享 context 的 prompt。</p>
+<p>我们建议将 prompt 组织成不同的部分（如 <code>&lt;role&gt;</code>、<code>&lt;tool_guidance&gt;</code>、<code>## Output description</code> 等），并使用 XML 标签或 Markdown 标题等技术来划分这些部分，尽管随着模型变得更加强大，prompt 的确切格式可能变得不那么重要。</p>
+<p>无论你决定如何构建系统 prompt，都应该努力提供完全概述期望行为的最小信息集。（请注意，最小不一定意味着简短；你仍然需要提前给 Agent 足够的信息以确保它遵循期望的行为。）最好从用最好的模型测试一个最小 prompt 开始，然后仅在有证据表明 Agent 偏离预期行为时才添加更多指令。</p>
+<p><strong>工具定义</strong> 本质上也是 context，并且同样受益于精心策划。每个工具定义所用的 token 都会从可用的注意力预算中消耗一部分，因此工具定义的 token 效率对于 Agent 性能至关重要。我们在之前关于构建高效 Agent 的帖子中讨论了 token 效率工具的概念——工具的输入和输出模式经过精心设计，使用最少的 token 来传递最大量的信息。</p>
+<p><strong>检索到的 context</strong> 是 Agent 被赋予的任务相关信息。理想情况下，这是通过 RAG 或 agentic search 获取的，我们将在下面讨论。</p>
+<h2 id="context-agentic-search">Context 检索与 Agentic Search<a class="headerlink" href="#context-agentic-search" title="Permanent link">&para;</a></h2>
+<p>在 <a href="concepts/构建高效 AI Agent.md">anthropic-building-effective-agents</a> 一文中，我们强调了基于 LLM 的工作流和 Agent 之间的区别。自那篇文章发表以来，我们倾向于对 Agent 采用一个简单的定义：LLM 在循环中自主使用工具。</p>
+<p>与客户合作，我们看到业界正在向这个简单的范式靠拢。随着底层模型变得更有能力，Agent 的自主水平可以扩展：更聪明的模型允许 Agent 独立导航细微差别的问题空间并从错误中恢复。</p>
+<p>我们现在看到工程师在设计 Agent 的 context 方式上的转变。如今，许多 AI 原生应用程序采用某种形式的基于嵌入的预推理时检索来提供重要的 context 供 Agent 推理。随着领域转向更 Agent 化的方法，我们越来越多地看到团队用"just in time"（即时）context 策略来增强这些检索系统。</p>
+<p>"just in time"方法不是预先处理所有相关数据，而是让 Agent 维护轻量级标识符（文件路径、存储的查询、Web 链接等），并使用这些引用在运行时通过工具动态加载数据到 context 中。Anthropic 的 Agent 编码解决方案 Claude Code 使用这种方法对大型数据库执行复杂的数据分析。模型可以编写针对性的查询、存储结果，并利用 Bash 命令如 <code>head</code> 和 <code>tail</code> 分析大量数据，而无需将完整数据对象加载到 context 中。这种方法反映了人类的认知方式：我们通常不会记住整个信息库，而是引入外部组织和索引系统（如文件系统、收件箱和书签）来按需检索相关信息。</p>
+<p>除了存储效率之外，这些引用的元数据还提供了一种有效优化行为的机制，无论是否显式提供或是直观的。对于一个在文件系统中操作的 Agent 来说，tests 文件夹中名为 <code>test_utils.py</code> 的文件的存在意味着与 <code>utils.py</code> 文件不同的功能角色。这种元数据使 Agent 能够做出更明智的决策，而不需要先读取这些文件的全部内容。</p>
+<p>在 RAG 之外，我们还看到了 Agent 自主确定何时检索信息的价值——通过使用搜索工具、读取文档或执行代码来探索其环境。这赋予了 Agent 自主探索的灵活性，类似于人类工程师在项目之间导航或阅读文档以解决具体问题时的方式。</p>
+<h2 id="context-engineering">长时间跨度任务的 Context Engineering<a class="headerlink" href="#context-engineering" title="Permanent link">&para;</a></h2>
+<p>长时间跨度任务要求 Agent 在 token 数超过 LLM context window 的动作序列中保持连贯性、context 和目标导向行为。对于跨越数十分钟到数小时持续工作的任务，如大型代码库迁移或综合研究项目，Agent 需要专门的技术来绕过 context window 大小的限制。</p>
+<p>等待更大的 context window 似乎是一个明显的策略。但可以预见的是，至少在想要最强 Agent 性能的情况下，所有大小的 context window 都会受到 context 污染和信息相关性问题的影响。为了使 Agent 能够在扩展的时间跨度上有效工作，我们开发了几种直接解决 context 污染约束的技术：<strong>compaction</strong>、<strong>structured note-taking</strong> 和 <strong>multi-agent architectures</strong>。</p>
+<h3 id="compaction">Compaction<a class="headerlink" href="#compaction" title="Permanent link">&para;</a></h3>
+<p>Compaction 是将近乎 context window 限制的对话进行总结，然后以总结内容重新启动新 context window 的做法。Compaction 通常作为 context engineering 中驱动更好长期连贯性的第一个杠杆。其核心是以高保真方式蒸馏 context window 的内容，使 Agent 能够以最小的性能退化继续工作。</p>
+<p>例如在 Claude Code 中，我们通过将消息历史传递给模型来总结和压缩最关键的细节来实现这一点。模型保留架构决策、未解决的 bug 和实现细节，同时丢弃冗余的工具输出或消息。Agent 然后可以继续使用这个压缩的 context 加上最近访问的五个文件。用户获得连续性而无需担心 context window 的限制。</p>
+<p>Compaction 的艺术在于选择保留什么与丢弃什么，因为过于激进的 compaction 可能导致丢失微妙但关键的 context。</p>
+<h3 id="_1">结构化笔记<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>结构化笔记是一种 practice，即要求 Agent 在每轮结束时明确写下一份简明的状态报告。这在 Agent 之间传递信息方面比仅依赖 compacted context 更有效。</p>
+<p>这种方法为下一个 Agent 提供了一个清晰、可操作的起点，大大减少了"猜测之前发生了什么"的时间。关键在于为笔记创建一个结构化的格式——在 Claude Code 中，我们使用 claude-progress.txt 文件，Agent 在其中记录其工作状态和计划。</p>
+<h3 id="multi-agent-architectures">Multi-Agent Architectures<a class="headerlink" href="#multi-agent-architectures" title="Permanent link">&para;</a></h3>
+<p>Multi-agent architectures 将 long-horizon 任务分解为专门的子任务，每个子任务由一个专门的 Agent 处理。通过给每个 Agent 一个更窄的 focus，可以减少每个 Agent 需要跟踪的 context 量，并使整体行为更加可靠。一个 Agent 可以专注于研究，另一个专注于写作，还有一个专注于审查——每个 Agent 都从之前 Agent 的输出中受益，而无需承担整个上下文的负担。</p>
+<h2 id="_2">结语<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Context engineering 代表了我们使用 LLM 构建方式的一个根本性转变。随着模型变得更有能力，挑战不仅仅是编写完美的 prompt——而是深思熟虑地策划每一步进入模型有限注意力预算的信息。无论你是在为长时间跨度任务实现 compaction、设计 token 高效的工具，还是使 Agent 能够即时探索其环境，指导原则保持不变：找到最大化期望结果可能性的最小高信号 token 集。</p>
+<p>我们概述的技术将继续随着模型的改进而发展。我们已经看到更聪明的模型需要更少的规范性工程，允许 Agent 以更多自主权运行。但即使能力扩展，将 context 视为珍贵有限的资源仍将是构建可靠、高效 Agent 的核心。</p>
+<p>立即在 Claude Developer Platform 中开始使用 context engineering，并通过我们的 memory 和 context management cookbook 获取有用的技巧和最佳实践。</p>
+<h2 id="_3">致谢<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>本文由 Anthropic 的 Applied AI 团队撰写：Prithvi Rajasekaran、Ethan Dixon、Carly Ryan 和 Jeremy Hadfield，Rafi Ayub、Hannah Moran、Cal Rueb 和 Connor Jennings 也有贡献。特别感谢 Molly Vorwerck、Stuart Ritchie 和 Maggie Vo 的支持。</p>
 
 
 
@@ -1779,10 +1659,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

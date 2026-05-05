@@ -12,31 +12,31 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/hermes-agent-memory-architecture/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/anthropic-claude-code-sandboxing/">
       
       
-        <link rel="prev" href="../acp-stdio-auth-flow/">
+        <link rel="prev" href="../anthropic-demystifying-evals/">
       
       
-        <link rel="next" href="../concepts/chromafs-virtual-filesystem/">
+        <link rel="next" href="../anthropic-agentic-coding-best-practices/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Hermes Agent 记忆系统架构 - LLM Wiki</title>
+        <title>超越权限提示：让 Claude Code 更安全、更自主 - LLM Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hermes-agent" class="md-skip">
+        <a href="#claude-code" class="md-skip">
           跳转至
         </a>
       
@@ -96,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hermes Agent 记忆系统架构
+              超越权限提示：让 Claude Code 更安全、更自主
             
           </span>
         </div>
@@ -239,7 +239,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -269,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -398,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-protocol/" class="md-nav__link">
+      <a href="../../a2a-protocol/" class="md-nav__link">
         
   
   
@@ -426,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-task-state-machine/" class="md-nav__link">
+      <a href="../../a2a-task-state-machine/" class="md-nav__link">
         
   
   
@@ -454,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-security-analysis/" class="md-nav__link">
+      <a href="../../a2a-security-analysis/" class="md-nav__link">
         
   
   
@@ -482,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-ecosystem/" class="md-nav__link">
+      <a href="../../a2a-ecosystem/" class="md-nav__link">
         
   
   
@@ -510,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-protocol/" class="md-nav__link">
+      <a href="../../acp-protocol/" class="md-nav__link">
         
   
   
@@ -538,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-stdio-auth-flow/" class="md-nav__link">
+      <a href="../../acp-stdio-auth-flow/" class="md-nav__link">
         
   
   
@@ -546,6 +546,398 @@
     
   
     ACP stdio 授权流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hermes-agent-memory-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hermes Agent 记忆架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chromafs-virtual-filesystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChromaFs 虚拟文件系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-building-effective-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building effective agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-building-agents-agent-sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Agent SDK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-advanced-tool-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Tool Use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-writing-tools-for-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Tools for Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-think-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Think Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-agent-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-context-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-contextual-retrieval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contextual Retrieval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-harnesses-long-running-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Harnesses for Long-running Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-multi-agent-research-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Agent Research System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-code-execution-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Execution with MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-demystifying-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Demystifying Agent Evals
   
 
     
@@ -582,7 +974,7 @@
   <span class="md-ellipsis">
     
   
-    Hermes Agent 记忆架构
+    Claude Code Sandboxing
   
 
     
@@ -600,7 +992,7 @@
   <span class="md-ellipsis">
     
   
-    Hermes Agent 记忆架构
+    Claude Code Sandboxing
   
 
     
@@ -626,10 +1018,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#claude-code_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        让 Claude Code 中的用户更安全
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心设计哲学
+        沙箱：一种更安全、更自主的方法
       
     </span>
   </a>
@@ -637,33 +1040,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#claude-code_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        系统提示词组装顺序
+        Claude Code 中的两个新沙箱功能
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四层记忆系统
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四层记忆系统">
+    <nav class="md-nav" aria-label="Claude Code 中的两个新沙箱功能">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-prompt-memory" class="md-nav__link">
+  <a href="#bash-bash" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 提示词记忆（Prompt Memory）— 热记忆
+        沙箱化 Bash 工具：无需权限提示的安全 Bash 执行
       
     </span>
   </a>
@@ -671,32 +1063,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-session_search" class="md-nav__link">
+  <a href="#claude-code-on-the-web-claude-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 会话搜索（session_search）— 情景回溯
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-skills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 技能系统（Skills）— 程序记忆
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-honcho" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Honcho 层 — 深层用户建模（可选）
+        Claude Code on the Web：在云端安全运行 Claude Code
       
     </span>
   </a>
@@ -709,10 +1079,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#memory-flush" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        压缩与记忆冲刷（Memory Flush）
+        开始使用
       
     </span>
   </a>
@@ -720,32 +1090,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#openclaw" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        与 OpenClaw 的对比
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        总结：三层洞察
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关页面
+        致谢
       
     </span>
   </a>
@@ -768,399 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/chromafs-virtual-filesystem/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ChromaFs 虚拟文件系统
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-building-effective-agents/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Building effective agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-building-agents-agent-sdk/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Claude Agent SDK
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-advanced-tool-use/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Advanced Tool Use
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-writing-tools-for-agents/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Writing Tools for Agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-think-tool/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Think Tool
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-agent-skills/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Agent Skills
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-context-engineering/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Context Engineering
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-contextual-retrieval/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Contextual Retrieval
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-harnesses-long-running-agents/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Harnesses for Long-running Agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-multi-agent-research-system/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi-Agent Research System
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-code-execution-mcp/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Code Execution with MCP
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-demystifying-evals/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Demystifying Agent Evals
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-claude-code-sandboxing/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Claude Code Sandboxing
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-agentic-coding-best-practices/" class="md-nav__link">
+      <a href="../anthropic-agentic-coding-best-practices/" class="md-nav__link">
         
   
   
@@ -1188,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-postmortem-three-issues/" class="md-nav__link">
+      <a href="../anthropic-postmortem-three-issues/" class="md-nav__link">
         
   
   
@@ -1279,7 +1235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-vs-mcp/" class="md-nav__link">
+      <a href="../../a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -1314,7 +1270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SCHEMA/" class="md-nav__link">
+      <a href="../../SCHEMA/" class="md-nav__link">
         
   
   
@@ -1361,10 +1317,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#claude-code_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        让 Claude Code 中的用户更安全
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心设计哲学
+        沙箱：一种更安全、更自主的方法
       
     </span>
   </a>
@@ -1372,33 +1339,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#claude-code_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        系统提示词组装顺序
+        Claude Code 中的两个新沙箱功能
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四层记忆系统
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四层记忆系统">
+    <nav class="md-nav" aria-label="Claude Code 中的两个新沙箱功能">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-prompt-memory" class="md-nav__link">
+  <a href="#bash-bash" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 提示词记忆（Prompt Memory）— 热记忆
+        沙箱化 Bash 工具：无需权限提示的安全 Bash 执行
       
     </span>
   </a>
@@ -1406,32 +1362,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-session_search" class="md-nav__link">
+  <a href="#claude-code-on-the-web-claude-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 会话搜索（session_search）— 情景回溯
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-skills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 技能系统（Skills）— 程序记忆
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-honcho" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Honcho 层 — 深层用户建模（可选）
+        Claude Code on the Web：在云端安全运行 Claude Code
       
     </span>
   </a>
@@ -1444,10 +1378,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#memory-flush" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        压缩与记忆冲刷（Memory Flush）
+        开始使用
       
     </span>
   </a>
@@ -1455,32 +1389,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#openclaw" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        与 OpenClaw 的对比
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        总结：三层洞察
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关页面
+        致谢
       
     </span>
   </a>
@@ -1512,7 +1424,7 @@
   
   
     <li class="md-path__item">
-      <a href=".." class="md-path__link">
+      <a href="../.." class="md-path__link">
         
   <span class="md-ellipsis">
     首页
@@ -1530,7 +1442,7 @@
     
     
       <li class="md-path__item">
-        <a href="../a2a-protocol/" class="md-path__link">
+        <a href="../../a2a-protocol/" class="md-path__link">
           
   <span class="md-ellipsis">
     概念
@@ -1555,156 +1467,50 @@
   
 
 
-<h1 id="hermes-agent">Hermes Agent 记忆系统架构<a class="headerlink" href="#hermes-agent" title="Permanent link">&para;</a></h1>
+<h1 id="claude-code">超越权限提示：让 Claude Code 更安全、更自主<a class="headerlink" href="#claude-code" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>Hermes Agent 采用分层记忆架构，核心设计原则：<strong>保持提示词稳定以利用缓存，其他信息按需检索</strong>。不是一套记忆系统，而是四套协同工作的系统。</p>
+<p>原文链接: <a href="https://www.anthropic.com/engineering/claude-code-sandboxing">English Original</a></p>
 </blockquote>
-<p><img alt="Hermes Agent 记忆系统架构图" src="../raw/assets/hermes-memory-architecture-diagram.jpg" /></p>
-<h2 id="_1">核心设计哲学<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Hermes 针对供应商侧 <strong>Prompt Caching</strong> 优化：系统提示词的前缀部分（工具定义、记忆快照、技能索引等）在会话中保持不变，避免频繁变更导致缓存失效。</p>
-<p>如果信息每一轮都需要 → 缩小注入提示词
-如果信息量大、偶尔需要 → 踢出提示词，按需检索</p>
-<h2 id="_2">系统提示词组装顺序<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>[0] 默认智能体身份
-[1] 工具使用行为指南
-[2] Honcho 集成模块（可选）
-[3] 可选系统消息
-[4] 固化 MEMORY.md 快照
-[5] 固化 USER.md 快照
-[6] 技能索引
-[7] 上下文文件（AGENTS.md, SOUL.md, .cursorrules 等）
-[8] 日期/时间 + 平台信息
-[9] 对话历史
-[10] 当前用户消息
-</code></pre></div>
-<h2 id="_3">四层记忆系统<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="1-prompt-memory">1. 提示词记忆（Prompt Memory）— 热记忆<a class="headerlink" href="#1-prompt-memory" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/memories/</code></p>
-<table>
-<thead>
-<tr>
-<th>文件</th>
-<th>用途</th>
-<th>容量限制</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>MEMORY.md</code></td>
-<td>智能体笔记：环境、规范、工具怪癖、教训</td>
-<td>2,200 字符</td>
-</tr>
-<tr>
-<td><code>USER.md</code></td>
-<td>用户画像：偏好、沟通风格、身份</td>
-<td>1,375 字符</td>
-</tr>
-</tbody>
-</table>
-<p><strong>设计特点：</strong>
-- 使用<strong>字符限制</strong>而非 Token 限制 → 模型无关
-- 条目用 <code>§</code> 分隔的纯文本格式 → 简单可读
-- 会话开始时加载并<strong>固化快照</strong> → 中途写入不改变当前提示词
-- 记忆是<strong>精选状态</strong>（curated state），不是日记</p>
-<p><strong>保存 vs 不保存：</strong>
-- ✅ 用户偏好、环境事实、反复修正、稳定规范
-- ❌ 任务进度、会话结果、临时 TODO</p>
-<p><strong>安全机制：</strong> 拦截 Prompt Injection、凭证泄露、SSH 后门、隐藏 Unicode 字符</p>
-<p>管理工具：<code>memory(action=add|replace|remove)</code> — replace/remove 使用子字符串匹配，无需内部 ID</p>
-<h3 id="2-session_search">2. 会话搜索（session_search）— 情景回溯<a class="headerlink" href="#2-session_search" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/state.db</code>（SQLite）</p>
-<div class="highlight"><pre><span></span><code>FTS5 全文搜索 → 按会话分组 → 解析父子关系 → 截取匹配片段 → 辅助模型摘要 → 返回主模型
-</code></pre></div>
-<p><strong>与提示词记忆的分工：</strong>
-- <code>MEMORY.md</code> = 持久性事实（Semantic Memory）
-- <code>session_search</code> = 情景性回溯（Episodic Recall）</p>
-<h3 id="3-skills">3. 技能系统（Skills）— 程序记忆<a class="headerlink" href="#3-skills" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/skills/</code></p>
+<h2 id="claude-code_1">让 Claude Code 中的用户更安全<a class="headerlink" href="#claude-code_1" title="Permanent link">&para;</a></h2>
+<p>在 Claude Code 中，Claude 与你一起编写、测试和调试代码，浏览你的代码库、编辑多个文件并运行命令来验证其工作。给予 Claude 对代码库和文件如此多的访问权限可能会引入风险，特别是在 prompt injection（提示注入）的情况下。</p>
+<p>为了帮助解决这个问题，我们在 Claude Code 中引入了两个基于沙箱技术构建的新功能，这两个功能旨在为开发者提供一个更安全的工作环境，同时允许 Claude 更自主地运行，并减少权限提示。在我们的内部使用中，我们发现沙箱技术安全地将权限提示减少了 84%。通过定义 Claude 可以在其中自由工作的固定边界，它们提高了安全性和自主性。</p>
+<p>Claude Code 基于权限模型运行：默认情况下，它是只读的，这意味着它在进行修改或运行任何命令之前都会请求权限。有一些例外情况：我们自动允许 <code>echo</code> 或 <code>cat</code> 等安全命令，但大多数操作仍然需要明确的批准。</p>
+<p>不断点击"批准"会减慢开发周期，并可能导致"审批疲劳"——用户可能不再仔细关注他们批准的内容，从而反而降低了开发的安全性。</p>
+<p>为了解决这个问题，我们为 Claude Code 推出了沙箱功能。</p>
+<h2 id="_1">沙箱：一种更安全、更自主的方法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>沙箱创建了预定义的边界，Claude 可以在其中更自由地工作，而不需要为每个操作请求权限。启用沙箱后，权限提示大幅减少，安全性也得到提高。</p>
+<p>我们的沙箱方法建立在操作系统级别的特性之上，实现了两个边界：</p>
 <ul>
-<li>可复用的知识文档和操作流程</li>
-<li><strong>惰性加载</strong>：提示词中只放索引，需要时才加载完整内容</li>
-<li>解决"如何做"的问题（Procedural Memory），而非"是什么"</li>
+<li><strong>文件系统隔离</strong>：确保 Claude 只能访问或修改特定目录。这在防止被 prompt injection 的 Claude 修改敏感系统文件方面尤为重要。</li>
+<li><strong>网络隔离</strong>：确保 Claude 只能连接到已批准的服务器。这防止了被 prompt injection 的 Claude 泄露敏感信息或下载恶意软件。</li>
 </ul>
-<h3 id="4-honcho">4. Honcho 层 — 深层用户建模（可选）<a class="headerlink" href="#4-honcho" title="Permanent link">&para;</a></h3>
+<p>值得注意的是，有效的沙箱需要同时具备文件系统和网络隔离。没有网络隔离，被攻破的 agent 可以窃取敏感文件（如 SSH 密钥）；没有文件系统隔离，被攻破的 agent 可以轻松逃出沙箱并获得网络访问权限。只有同时使用这两种技术，我们才能为 Claude Code 用户提供更安全、更快速的 agentic 体验。</p>
+<h2 id="claude-code_2">Claude Code 中的两个新沙箱功能<a class="headerlink" href="#claude-code_2" title="Permanent link">&para;</a></h2>
+<h3 id="bash-bash">沙箱化 Bash 工具：无需权限提示的安全 Bash 执行<a class="headerlink" href="#bash-bash" title="Permanent link">&para;</a></h3>
+<p>我们正在引入一个新的沙箱运行时（目前作为研究预览版提供 beta），它允许你精确地定义你的 agent 可以访问哪些目录和网络主机，而无需启动和管理容器的开销。它可以用于对任意进程、agent 和 MCP 服务器进行沙箱化。该功能也作为开源研究预览版提供。</p>
+<p>在 Claude Code 中，我们使用这个运行时对 bash 工具进行沙箱化，允许 Claude 在你设定的限制范围内运行命令。在安全的沙箱中，Claude 可以更自主地运行，安全地执行命令而无需权限提示。如果 Claude 尝试访问沙箱外的内容，你会立即收到通知，并可以选择是否允许。</p>
+<p>我们基于操作系统级别的原语构建了这一功能，例如 Linux 的 bubblewrap 和 MacOS 的 seatbelt，在操作系统级别执行这些限制。它们不仅覆盖 Claude Code 的直接交互，还包括命令产生的任何脚本、程序或子进程。</p>
+<p>如上所述，该沙箱强制执行以下两项：</p>
 <ul>
-<li>跨设备、跨平台的记忆连续性</li>
-<li>同时建模用户和 AI 自身</li>
-<li>第一轮：织入缓存系统提示词</li>
-<li>后续轮：附加在用户消息后面 → 保持缓存稳定</li>
+<li><strong>文件系统隔离</strong>：允许对当前工作目录进行读写访问，但阻止修改其外的任何文件。</li>
+<li><strong>网络隔离</strong>：仅允许通过连接到沙箱外部运行的代理服务器的 unix domain socket 进行互联网访问。该代理服务器对进程可以连接的域执行限制，并处理新请求域的用户确认。如果你希望进一步提高安全性，我们还支持自定义此代理以对出站流量执行任意规则。</li>
 </ul>
-<h2 id="memory-flush">压缩与记忆冲刷（Memory Flush）<a class="headerlink" href="#memory-flush" title="Permanent link">&para;</a></h2>
-<p>长对话需要压缩时，Hermes 先执行"记忆冲刷"：</p>
-<div class="highlight"><pre><span></span><code>长对话 → 发送冲刷指令 → 模型保存持久事实到 memory → 压缩旧轮次 → 重建 prompt → 继续
-</code></pre></div>
-<p>关键步骤：
-1. 压缩前注入指令，让模型保存值得记住的内容
-2. 运行额外模型调用，只开启 memory 工具
-3. 压缩后重建系统提示词，从磁盘重新加载 memory
-4. 冲刷的内容立即成为新的稳定快照</p>
-<h2 id="openclaw">与 OpenClaw 的对比<a class="headerlink" href="#openclaw" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>维度</th>
-<th>OpenClaw</th>
-<th>Hermes Agent</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>记忆存储</td>
-<td>Markdown 为主的存储</td>
-<td>分层架构</td>
-</tr>
-<tr>
-<td>主要事实来源</td>
-<td>日志和长效文件</td>
-<td>小型提示词 + SQLite</td>
-</tr>
-<tr>
-<td>记忆回溯</td>
-<td>混合搜索存储笔记</td>
-<td>session_search FTS5</td>
-</tr>
-<tr>
-<td>提示词记忆</td>
-<td>有边界但更激进</td>
-<td>严格限制（~1300 tokens）</td>
-</tr>
-<tr>
-<td>程序记忆</td>
-<td>—</td>
-<td>Skills 系统</td>
-</tr>
-<tr>
-<td>深层建模</td>
-<td>—</td>
-<td>Honcho（可选）</td>
-</tr>
-<tr>
-<td>缓存意识</td>
-<td>较弱</td>
-<td>核心设计驱动</td>
-</tr>
-</tbody>
-</table>
-<p><strong>核心区别：</strong>
-- OpenClaw = "记忆即知识库"
-- Hermes = "热工作集 + 冷检索层"</p>
-<h2 id="_4">总结：三层洞察<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>冷热分离</strong>：小规模热记忆 + 大规模冷检索，而非全塞进提示词</li>
-<li><strong>缓存优先</strong>：冻结快照、延迟更新、逐轮注入 Honcho、压缩重建 → 都服务于"不轻易变更提示词"</li>
-<li><strong>记忆多样性</strong>：语义记忆 + 情景回溯 + 程序记忆 + 深层建模 → 更贴近 Agent 实际需求</li>
-</ol>
-<blockquote>
-<p>"不是记住更多，而是在正确的层级、以正确的成本，记住正确的事情。"</p>
-</blockquote>
-<h2 id="_5">相关页面<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../a2a-protocol/">A2A 协议详解</a> — Agent 间通信协议</li>
-<li><a href="../a2a-vs-mcp/">A2A vs MCP</a> — Agent 协议对比</li>
-</ul>
+<p>两个组件都是可配置的：你可以轻松地选择允许或禁止特定的文件路径或域。Claude Code 的沙箱架构通过文件系统和网络控制来隔离代码执行，自动允许安全操作，阻止恶意操作，仅在需要时请求权限。</p>
+<p>沙箱确保即使成功的 prompt injection 也被完全隔离，不会影响用户的整体安全。这样，被攻破的 Claude Code 无法窃取你的 SSH 密钥，也无法连接到攻击者的服务器。</p>
+<p>要开始使用此功能，请在 Claude Code 中运行 <code>/sandbox</code>，并查看有关我们安全模型的更多技术细节。</p>
+<p>为了让其他团队更轻松地构建更安全的 agent，我们已将此功能开源。我们认为其他人应该考虑为他们的 agent 采用这项技术，以增强其 agent 的安全态势。</p>
+<h3 id="claude-code-on-the-web-claude-code">Claude Code on the Web：在云端安全运行 Claude Code<a class="headerlink" href="#claude-code-on-the-web-claude-code" title="Permanent link">&para;</a></h3>
+<p>今天，我们还发布了 Claude Code on the Web，使用户能够在云端的隔离沙箱中运行 Claude Code。Claude Code on the Web 在隔离的沙箱中执行每个 Claude Code 会话，使其能够以安全可靠的方式完全访问其服务器。我们设计了此沙箱，确保敏感凭据（如 git 凭据或签名密钥）永远不会与 Claude Code 一起存在于沙箱内。这样，即使沙箱中运行的代码被攻破，用户也能免受进一步的损害。</p>
+<p>Claude Code on the Web 使用自定义代理服务来透明地处理所有 git 交互。在沙箱内，git 客户端使用自定义的范围凭据向该服务进行身份验证。代理验证此凭据和 git 交互的内容（例如确保它只推送到配置的分支），然后在将请求发送到 GitHub 之前附加正确的身份验证令牌。Claude Code 的 Git 集成通过一个安全代理路由命令，该代理验证身份验证令牌、分支名称和仓库目标——允许安全的版本控制工作流，同时防止未经授权的推送。</p>
+<h2 id="_2">开始使用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>我们新的沙箱化 bash 工具和 Claude Code on the Web 为使用 Claude 进行工程工作的开发者在安全性和生产力方面提供了显著的改进。</p>
+<p>要开始使用这些工具：
+- 在 Claude 中运行 <code>/sandbox</code>，并查看有关如何配置此沙箱的文档。
+- 前往 claude.com/code 试用 Claude Code on the Web。</p>
+<p>或者，如果你正在构建自己的 agent，请查看我们开源的沙箱代码，并考虑将其集成到你的工作中。我们期待看到你的作品。</p>
+<p>要了解更多关于 Claude Code on the Web 的信息，请查看我们的发布公告。</p>
+<h2 id="_3">致谢<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>本文由 David Dworken 和 Oliver Weller-Davies 撰写，Meaghan Choi、Catherine Wu、Molly Vorwerck、Alex Isken、Kier Bradwell 和 Kevin Garcia 参与贡献。</p>
 
 
 
@@ -1779,10 +1585,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

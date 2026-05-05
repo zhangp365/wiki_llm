@@ -1,0 +1,2430 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AI/ML 技术研究 + 个人知识管理">
+      
+      
+        <meta name="author" content="zhangp365">
+      
+      
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/anthropic-advanced-tool-use/">
+      
+      
+        <link rel="prev" href="../anthropic-building-agents-agent-sdk/">
+      
+      
+        <link rel="next" href="../anthropic-writing-tools-for-agents/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Claude 高级工具使用 - LLM Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#claude-tool-search-toolprogrammatic-tool-calling-tool-use-examples" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LLM Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Claude 高级工具使用
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到暗色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到暗色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到亮色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zhangp365/wiki_llm" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhangp365/wiki_llm
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    LLM Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zhangp365/wiki_llm" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhangp365/wiki_llm
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概念
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概念
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../a2a-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2A 协议详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../a2a-task-state-machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task 状态机
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../a2a-security-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2A 安全分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../a2a-ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2A 生态系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acp-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACP 接口总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acp-stdio-auth-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACP stdio 授权流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hermes-agent-memory-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hermes Agent 记忆架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chromafs-virtual-filesystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChromaFs 虚拟文件系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-building-effective-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building effective agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-building-agents-agent-sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Agent SDK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Tool Use
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Tool Use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude 开发者平台上的高级工具使用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-search-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Search Tool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool Search Tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        挑战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们的解决方案
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-search-tool_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Search Tool 的工作原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-search-tool_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        何时使用 Tool Search Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programmatic-tool-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programmatic Tool Calling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programmatic Tool Calling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        挑战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们的解决方案
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例：预算合规检查
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programmatic-tool-calling_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programmatic Tool Calling 的工作原理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programmatic Tool Calling 的工作原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 将工具标记为可从代码调用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Claude 编写编排代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 工具执行而不影响 Claude 的上下文
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 只有最终输出进入上下文
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programmatic-tool-calling_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        何时使用 Programmatic Tool Calling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-use-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Use Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool Use Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        挑战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们的解决方案
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-use-examples_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        何时使用 Tool Use Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        战略性地分层功能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-search-tool_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置 Tool Search Tool 以实现更好的发现
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programmatic-tool-calling_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置 Programmatic Tool Calling 以实现正确执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-use-examples_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置 Tool Use Examples 以实现参数准确性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开始使用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        致谢
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-writing-tools-for-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Tools for Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-think-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Think Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-agent-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-context-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-contextual-retrieval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contextual Retrieval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-harnesses-long-running-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Harnesses for Long-running Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-multi-agent-research-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Agent Research System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-code-execution-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Execution with MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-demystifying-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Demystifying Agent Evals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-claude-code-sandboxing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code Sandboxing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-agentic-coding-best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic Coding Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-postmortem-three-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Postmortem Three Issues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    对比
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    对比
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../a2a-vs-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2A vs MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SCHEMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wiki 规范
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude 开发者平台上的高级工具使用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-search-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Search Tool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool Search Tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        挑战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们的解决方案
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-search-tool_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Search Tool 的工作原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-search-tool_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        何时使用 Tool Search Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programmatic-tool-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programmatic Tool Calling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programmatic Tool Calling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        挑战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们的解决方案
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例：预算合规检查
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programmatic-tool-calling_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programmatic Tool Calling 的工作原理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programmatic Tool Calling 的工作原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 将工具标记为可从代码调用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Claude 编写编排代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 工具执行而不影响 Claude 的上下文
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 只有最终输出进入上下文
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programmatic-tool-calling_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        何时使用 Programmatic Tool Calling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-use-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Use Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool Use Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        挑战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们的解决方案
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-use-examples_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        何时使用 Tool Use Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        战略性地分层功能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-search-tool_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置 Tool Search Tool 以实现更好的发现
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programmatic-tool-calling_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置 Programmatic Tool Calling 以实现正确执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-use-examples_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置 Tool Use Examples 以实现参数准确性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开始使用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        致谢
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../a2a-protocol/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    概念
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="claude-tool-search-toolprogrammatic-tool-calling-tool-use-examples">Claude 高级工具使用：Tool Search Tool、Programmatic Tool Calling 和 Tool Use Examples<a class="headerlink" href="#claude-tool-search-toolprogrammatic-tool-calling-tool-use-examples" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>原文链接: <a href="https://www.anthropic.com/engineering/advanced-tool-use">English Original</a></p>
+</blockquote>
+<ul>
+<li>Anthropic 工程博客</li>
+</ul>
+<h2 id="claude">Claude 开发者平台上的高级工具使用<a class="headerlink" href="#claude" title="Permanent link">&para;</a></h2>
+<p>发布于 2025年11月24日</p>
+<p>我们添加了三个新的 beta 功能，让 Claude 能够动态地发现、学习和执行工具。以下是它们的工作原理。</p>
+<p>AI Agent 的未来是模型无缝地跨数百或数千个工具工作的场景。一个集成 git 操作、文件操作、包管理器、测试框架和部署流水线的 IDE 助手。一个同时连接 Slack、GitHub、Google Drive、Jira、公司数据库和数十个 MCP server 的运营协调器。</p>
+<p>要构建有效的 Agent，它们需要与无限的工具库协作，而无需预先将每个定义都塞入上下文。我们关于将代码执行与 MCP 结合使用的博客文章讨论了工具结果和定义有时在 Agent 读取请求之前就消耗了 50,000+ token 的情况。Agent 应该按需发现和加载工具，只保留与当前任务相关的内容。</p>
+<p>Agent 还需要从代码中调用工具的能力。使用自然语言工具调用时，每次调用都需要完整的推理过程，中间结果无论是否有用都会在上下文中堆积。代码是编排逻辑（如循环、条件语句和数据转换）的自然选择。Agent 需要根据任务灵活选择代码执行和推理。</p>
+<p>Agent 还需要从示例中学习正确的工具使用方法，而不仅仅是 schema 定义。JSON schema 定义了结构上有效的配置，但无法表达使用模式：何时包含可选参数、哪些组合是合理的，或者你的 API 期望什么约定。</p>
+<p>今天，我们发布三个使这一切成为可能的功能：</p>
+<ul>
+<li><strong>Tool Search Tool</strong>，允许 Claude 使用搜索工具访问数千个工具而不消耗其 context window</li>
+<li><strong>Programmatic Tool Calling</strong>，允许 Claude 在代码执行环境中调用工具，减少对模型 context window 的影响</li>
+<li><strong>Tool Use Examples</strong>，提供了用于演示工具使用的通用标准</li>
+</ul>
+<p>在内部测试中，我们发现这些功能帮助我们构建了使用传统工具使用模式不可能实现的东西。例如，Claude for Excel 使用 Programmatic Tool Calling 读取和修改数千行的电子表格，而不会使模型的 context window 过载。</p>
+<p>基于我们的经验，我们相信这些功能为使用 Claude 构建的功能开辟了新的可能性。</p>
+<h2 id="tool-search-tool">Tool Search Tool<a class="headerlink" href="#tool-search-tool" title="Permanent link">&para;</a></h2>
+<h3 id="_1">挑战<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>MCP 工具定义提供了重要的上下文，但随着更多 server 连接，这些 token 会累积。考虑一个五个 server 的设置：
+- GitHub：35 个工具（~26K token）
+- Slack：11 个工具（~21K token）
+- Sentry：5 个工具（~3K token）
+- Grafana：5 个工具（~3K token）
+- Splunk：2 个工具（~2K token）</p>
+<p>这在对话开始前就有 58 个工具消耗约 55K token。添加更多 server 如 Jira（仅它就使用 ~17K token），你很快就接近 100K+ token 的开销。在 Anthropic，我们曾看到工具定义在优化前消耗了 134K token。</p>
+<p>但 token 成本不是唯一的问题。最常见的失败是错误的工具选择和不正确的参数，特别是当工具有类似名称时，如 <code>notification-send-user</code> vs. <code>notification-send-channel</code>。</p>
+<h3 id="_2">我们的解决方案<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>与其预先加载所有工具定义，Tool Search Tool 按需发现工具。Claude 只看到当前任务实际需要的工具。Tool Search Tool 相比 Claude 的传统方法保留了 191,300 token 的上下文（传统方法为 122,800）。</p>
+<p><strong>传统方法：</strong>
+- 预先加载所有工具定义（50+ MCP 工具约 ~72K token）
+- 对话历史和系统 prompt 竞争剩余空间
+- 在任何工作开始前总上下文消耗：~77K token</p>
+<p><strong>使用 Tool Search Tool：</strong>
+- 仅预先加载 Tool Search Tool（~500 token）
+- 按需发现工具（3-5 个相关工具，~3K token）
+- 总上下文消耗：~8.7K token，保留 95% 的 context window</p>
+<p>这代表了 token 使用量减少 85%，同时保持对完整工具库的访问。内部测试显示，在使用大型工具库时，MCP 评估的准确性显著提高。Opus 4 从 49% 提升到 74%，Opus 4.5 从 79.5% 提升到 88.1%。</p>
+<h3 id="tool-search-tool_1">Tool Search Tool 的工作原理<a class="headerlink" href="#tool-search-tool_1" title="Permanent link">&para;</a></h3>
+<p>Tool Search Tool 让 Claude 动态发现工具，而不是预先加载所有定义。你向 API 提供所有工具定义，但用 <code>defer_loading: true</code> 标记工具使其可按需发现。延迟加载的工具最初不会加载到 Claude 的上下文中。Claude 只看到 Tool Search Tool 本身加上任何 <code>defer_loading: false</code> 的工具（你最重要、最常用的工具）。</p>
+<p>当 Claude 需要特定功能时，它搜索相关工具。Tool Search Tool 返回匹配工具的引用，这些引用会在 Claude 的上下文中扩展为完整定义。</p>
+<p>例如，如果 Claude 需要与 GitHub 交互，它搜索"github"，只有 <code>github.createPullRequest</code> 和 <code>github.listIssues</code> 会被加载——而不是你来自 Slack、Jira 和 Google Drive 的其他 50+ 工具。</p>
+<p>这样，Claude 可以访问你的完整工具库，同时只为它实际需要的工具支付 token 成本。</p>
+<p><strong>Prompt caching 说明：</strong> Tool Search Tool 不会破坏 prompt caching，因为延迟加载的工具完全从初始 prompt 中排除。它们只在 Claude 搜索它们之后才被添加到上下文中，所以你的系统 prompt 和核心工具定义保持可缓存。</p>
+<p><strong>实现：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;tools&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="c1">// 包含一个工具搜索工具（regex、BM25 或自定义）</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tool_search_tool_regex_20251119&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tool_search_tool_regex&quot;</span><span class="p">},</span>
+
+<span class="w">    </span><span class="c1">// 标记工具以按需发现</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;github.createPullRequest&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Create a pull request&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;input_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;defer_loading&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// ... 数百个更多延迟加载的工具，设置 defer_loading: true</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>对于 MCP server，你可以延迟加载整个 server，同时保持特定高使用率工具的加载：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mcp_toolset&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;mcp_server_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google-drive&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;default_config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;defer_loading&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;configs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;search_files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;defer_loading&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Claude 开发者平台提供了开箱即用的基于 regex 和 BM25 的搜索工具，但你也可以使用 embeddings 或其他策略实现自定义搜索工具。</p>
+<h3 id="tool-search-tool_2">何时使用 Tool Search Tool<a class="headerlink" href="#tool-search-tool_2" title="Permanent link">&para;</a></h3>
+<p>像任何架构决策一样，启用 Tool Search Tool 涉及权衡。该功能在工具调用之前添加了一个搜索步骤，所以它在上下文节省和准确性改进超过额外延迟时提供最佳 ROI。</p>
+<p><strong>适合使用时：</strong>
+- 工具定义消耗 &gt;10K token
+- 遇到工具选择准确性问题
+- 构建由多个 server 驱动的 MCP 系统
+- 有 10+ 个可用工具</p>
+<p><strong>不太适合时：</strong>
+- 小型工具库</p>
+<h2 id="programmatic-tool-calling">Programmatic Tool Calling<a class="headerlink" href="#programmatic-tool-calling" title="Permanent link">&para;</a></h2>
+<h3 id="_3">挑战<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>传统工具调用在 workflow 变得复杂时产生两个根本问题：</p>
+<ul>
+<li><strong>中间结果导致的上下文污染：</strong> 当 Claude 分析 10MB 日志文件中的错误模式时，整个文件进入其 context window，尽管 Claude 只需要错误频率的摘要。当跨多个表获取客户数据时，每条记录无论是否相关都会在上下文中累积。这些中间结果消耗大量 token 预算，可能将重要信息完全推出 context window。</li>
+<li><strong>推理开销和手动综合：</strong> 每次工具调用都需要完整的模型推理过程。收到结果后，Claude 必须"目测"数据以提取相关信息，推理各部分如何关联，并决定下一步做什么——全部通过自然语言处理。一个五个工具的 workflow 意味着五次推理过程加上 Claude 解析每个结果、比较值和综合结论。这既慢又容易出错。</li>
+</ul>
+<h3 id="_4">我们的解决方案<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Programmatic Tool Calling 使 Claude 能够通过代码而非单独的 API 往返来编排工具。Claude 不再逐个请求工具并将每个结果返回到其上下文，而是编写调用多个工具、处理其输出并控制哪些信息实际进入其 context window 的代码。</p>
+<p>Claude 擅长编写代码，通过让它用 Python 而非自然语言工具调用表达编排逻辑，你获得了更可靠、精确的控制流。循环、条件语句、数据转换和错误处理在代码中都是显式的，而非隐含在 Claude 的推理中。</p>
+<h3 id="_5">示例：预算合规检查<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>考虑一个常见的业务任务："哪些团队成员超过了他们的 Q3 差旅预算？"</p>
+<p>你有三个可用工具：
+- <code>get_team_members(department)</code> - 返回团队成员列表（包含 ID 和级别）
+- <code>get_expenses(user_id, quarter)</code> - 返回用户的费用明细
+- <code>get_budget_by_level(level)</code> - 返回员工级别的预算限制</p>
+<p><strong>传统方法：</strong>
+- 获取团队成员 → 20 人
+- 对每个人获取 Q3 费用 → 20 次工具调用，每次返回 50-100 条明细（机票、酒店、餐饮、收据）
+- 按员工级别获取预算限制
+- 所有这些进入 Claude 的上下文：2,000+ 条费用明细（50KB+）
+- Claude 手动汇总每个人的费用，查找其预算，比较费用与预算限制
+- 更多的模型往返，显著的上下文消耗</p>
+<p><strong>使用 Programmatic Tool Calling：</strong></p>
+<p>Claude 编写一个 Python 脚本来编排整个 workflow。脚本在 Code Execution 工具（沙盒环境）中运行，在需要来自工具的结果时暂停。当你通过 API 返回工具结果时，它们由脚本处理而非被模型消费。脚本继续执行，Claude 只看到最终输出。</p>
+<p>以下是 Claude 在预算合规任务中的编排代码：</p>
+<div class="highlight"><pre><span></span><code><span class="n">team</span> <span class="o">=</span> <span class="k">await</span> <span class="n">get_team_members</span><span class="p">(</span><span class="s2">&quot;engineering&quot;</span><span class="p">)</span>
+
+<span class="c1"># 获取每个唯一级别的预算</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">team</span><span class="p">))</span>
+<span class="n">budget_results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="p">[</span>
+    <span class="n">get_budget_by_level</span><span class="p">(</span><span class="n">level</span><span class="p">)</span> <span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="n">levels</span>
+<span class="p">])</span>
+
+<span class="c1"># 创建查找字典：{&quot;junior&quot;: budget1, &quot;senior&quot;: budget2, ...}</span>
+<span class="n">budgets</span> <span class="o">=</span> <span class="p">{</span><span class="n">level</span><span class="p">:</span> <span class="n">budget</span> <span class="k">for</span> <span class="n">level</span><span class="p">,</span> <span class="n">budget</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">levels</span><span class="p">,</span> <span class="n">budget_results</span><span class="p">)}</span>
+
+<span class="c1"># 并行获取所有费用</span>
+<span class="n">expenses</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="p">[</span>
+    <span class="n">get_expenses</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span> <span class="s2">&quot;Q3&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">team</span>
+<span class="p">])</span>
+
+<span class="c1"># 查找超过差旅预算的员工</span>
+<span class="n">exceeded</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">member</span><span class="p">,</span> <span class="n">exp</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">team</span><span class="p">,</span> <span class="n">expenses</span><span class="p">):</span>
+    <span class="n">budget</span> <span class="o">=</span> <span class="n">budgets</span><span class="p">[</span><span class="n">member</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">]]</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="s2">&quot;amount&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">exp</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="n">budget</span><span class="p">[</span><span class="s2">&quot;travel_limit&quot;</span><span class="p">]:</span>
+        <span class="n">exceeded</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">member</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;spent&quot;</span><span class="p">:</span> <span class="n">total</span><span class="p">,</span>
+            <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">budget</span><span class="p">[</span><span class="s2">&quot;travel_limit&quot;</span><span class="p">]</span>
+        <span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">exceeded</span><span class="p">))</span>
+</code></pre></div>
+<p>Claude 的上下文只收到最终结果：超过预算的两三个人。2,000+ 条明细、中间汇总和预算查找不影响 Claude 的上下文，将消耗从 200KB 的原始费用数据减少到仅 1KB 的结果。</p>
+<p>效率提升是显著的：
+- <strong>Token 节省：</strong> 通过将中间结果排除在 Claude 的上下文之外，PTC 显著减少了 token 消耗。平均使用量从 43,588 降至 27,297 token，在复杂研究任务上减少了 37%。
+- <strong>降低延迟：</strong> 每次 API 往返都需要模型推理（数百毫秒到数秒）。当 Claude 在单个代码块中编排 20+ 次工具调用时，你消除了 19+ 次推理过程。API 处理工具执行而无需每次返回模型。
+- <strong>提高准确性：</strong> 通过编写显式的编排逻辑，Claude 比在自然语言中处理多个工具结果时犯更少的错误。内部知识检索从 25.6% 提高到 28.5%；GIA 基准从 46.5% 提高到 51.2%。</p>
+<p>生产 workflow 涉及杂乱的数据、条件逻辑和需要扩展的操作。Programmatic Tool Calling 让 Claude 以编程方式处理这种复杂性，同时保持其专注于可操作的结果而非原始数据处理。</p>
+<h3 id="programmatic-tool-calling_1">Programmatic Tool Calling 的工作原理<a class="headerlink" href="#programmatic-tool-calling_1" title="Permanent link">&para;</a></h3>
+<h4 id="1">1. 将工具标记为可从代码调用<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<p>在工具中添加 <code>code_execution</code>，并设置 <code>allowed_callers</code> 以启用工具的程序化执行：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;tools&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;code_execution_20250825&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;code_execution&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_team_members&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Get all members of a department...&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;input_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;allowed_callers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;code_execution_20250825&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_expenses&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;...&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_budget_by_level&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;...&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>API 将这些工具定义转换为 Claude 可以调用的 Python 函数。</p>
+<h4 id="2-claude">2. Claude 编写编排代码<a class="headerlink" href="#2-claude" title="Permanent link">&para;</a></h4>
+<p>Claude 不是逐个请求工具，而是生成 Python 代码：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;server_tool_use&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;srvtoolu_abc&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;code_execution&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;team = get_team_members(&#39;engineering&#39;)\n...&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="3-claude">3. 工具执行而不影响 Claude 的上下文<a class="headerlink" href="#3-claude" title="Permanent link">&para;</a></h4>
+<p>当代码调用 <code>get_expenses()</code> 时，你会收到一个带有 <code>caller</code> 字段的工具请求：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tool_use&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;toolu_xyz&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_expenses&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;emp_123&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;quarter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Q3&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;caller&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;code_execution_20250825&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tool_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;srvtoolu_abc&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>你提供结果，结果在 Code Execution 环境中处理而非 Claude 的上下文。这个请求-响应循环对代码中的每个工具调用重复。</p>
+<h4 id="4">4. 只有最终输出进入上下文<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<p>当代码完成运行时，只有代码的结果返回给 Claude：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;code_execution_tool_result&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;tool_use_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;srvtoolu_abc&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;stdout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[{\&quot;name\&quot;: \&quot;Alice\&quot;, \&quot;spent\&quot;: 12500, \&quot;limit\&quot;: 10000}...]&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>这就是 Claude 看到的全部，而不是沿途处理的 2000+ 条费用明细。</p>
+<h3 id="programmatic-tool-calling_2">何时使用 Programmatic Tool Calling<a class="headerlink" href="#programmatic-tool-calling_2" title="Permanent link">&para;</a></h3>
+<p>Programmatic Tool Calling 在你的 workflow 中添加了一个代码执行步骤。当 token 节省、延迟改进和准确性提升显著时，这个额外开销是值得的。</p>
+<p><strong>最有利时：</strong>
+- 处理大型数据集且只需要聚合或摘要
+- 运行具有三个或更多依赖工具调用的多步骤 workflow
+- 在 Claude 看到之前过滤、排序或转换工具结果
+- 处理中间数据不应影响 Claude 推理的任务
+- 跨多个项目运行并行操作（例如检查 50 个端点）</p>
+<p><strong>不太有利时：</strong>
+- 进行简单的单工具调用
+- Claude 应该看到并推理所有中间结果的任务
+- 运行响应量小的快速查找</p>
+<h2 id="tool-use-examples">Tool Use Examples<a class="headerlink" href="#tool-use-examples" title="Permanent link">&para;</a></h2>
+<h3 id="_6">挑战<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>JSON Schema 擅长定义结构——类型、必填字段、允许的枚举——但它无法表达使用模式：何时包含可选参数、哪些组合是合理的，或者你的 API 期望什么约定。</p>
+<p>考虑一个支持工单 API：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;create_ticket&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;input_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;priority&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;low&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;high&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;critical&quot;</span><span class="p">]},</span>
+<span class="w">      </span><span class="nt">&quot;labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">}},</span>
+<span class="w">      </span><span class="nt">&quot;reporter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;contact&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">              </span><span class="nt">&quot;phone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;escalation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;notify_manager&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;sla_hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Schema 定义了什么是有效的，但关键问题仍未回答：
+- <strong>格式歧义：</strong> <code>due_date</code> 应使用 "2024-11-06"、"Nov 6, 2024" 还是 "2024-11-06T00:00:00Z"？
+- <strong>ID 约定：</strong> <code>reporter.id</code> 是 UUID、"USR-12345" 还是只是 "12345"？
+- <strong>嵌套结构使用：</strong> 何时应该 Claude 填充 <code>reporter.contact</code>？
+- <strong>参数关联：</strong> <code>escalation.level</code> 和 <code>escalation.sla_hours</code> 如何与 priority 关联？</p>
+<p>这些歧义可能导致格式错误的工具调用和不一致的参数使用。</p>
+<h3 id="_7">我们的解决方案<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>Tool Use Examples 让你直接在工具定义中提供示例工具调用。不只依赖 schema，你向 Claude 展示具体的使用模式：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;create_ticket&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;input_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* 与上相同的 schema */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;input_examples&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Login page returns 500 error&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;priority&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;critical&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bug&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;authentication&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;production&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;reporter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USR-12345&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jane Smith&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;contact&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jane@acme.com&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;phone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;+1-555-0123&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-11-06&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;escalation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;notify_manager&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sla_hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Add dark mode support&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;feature-request&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ui&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;reporter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USR-67890&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Alex Chen&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Update API documentation&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>从这三个示例中，Claude 学到：
+- <strong>格式约定：</strong> 日期使用 YYYY-MM-DD，用户 ID 遵循 USR-XXXXX，labels 使用 kebab-case
+- <strong>嵌套结构模式：</strong> 如何构建包含嵌套 contact 对象的 reporter 对象
+- <strong>可选参数关联：</strong> 关键 bug 有完整联系信息 + 紧密 SLA 的升级；功能请求有 reporter 但无 contact/escalation；内部任务只有 title</p>
+<p>在我们自己的内部测试中，Tool Use Examples 将复杂参数处理的准确性从 72% 提高到 90%。</p>
+<h3 id="tool-use-examples_1">何时使用 Tool Use Examples<a class="headerlink" href="#tool-use-examples_1" title="Permanent link">&para;</a></h3>
+<p>Tool Use Examples 为你的工具定义增加了 token，所以当准确性改进超过额外成本时它们最有价值。</p>
+<p><strong>最有利时：</strong>
+- 复杂嵌套结构，其中有效 JSON 不意味着正确使用
+- 有许多可选参数且包含模式重要的工具
+- 具有 schema 中未捕获的领域特定约定的 API
+- 类似工具，其中示例澄清使用哪个（例如 <code>create_ticket</code> vs <code>create_incident</code>）</p>
+<p><strong>不太有利时：</strong>
+- 使用明显的简单单参数工具
+- Claude 已经理解的标准格式如 URL 或 email
+- 最好由 JSON Schema 约束处理的验证问题</p>
+<h2 id="_8">最佳实践<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>构建执行真实世界操作的 Agent 意味着同时处理规模、复杂性和精确性。这三个功能协同工作以解决工具使用 workflow 中的不同瓶颈。以下是如何有效地组合它们。</p>
+<h3 id="_9">战略性地分层功能<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>并非每个 Agent 都需要针对给定任务使用所有三个功能。从你最大的瓶颈开始：
+- 工具定义导致的上下文膨胀 → Tool Search Tool
+- 大型中间结果污染上下文 → Programmatic Tool Calling
+- 参数错误和格式错误的调用 → Tool Use Examples</p>
+<p>这种专注的方法让你能够解决限制 Agent 性能的特定约束，而不是预先增加复杂性。</p>
+<p>然后根据需要分层额外功能。它们是互补的：Tool Search Tool 确保找到正确的工具，Programmatic Tool Calling 确保高效执行，Tool Use Examples 确保正确调用。</p>
+<h3 id="tool-search-tool_3">设置 Tool Search Tool 以实现更好的发现<a class="headerlink" href="#tool-search-tool_3" title="Permanent link">&para;</a></h3>
+<p>工具搜索匹配名称和描述，所以清晰、描述性的定义能提高发现准确性。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 好</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;search_customer_orders&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Search for customer orders by date range, status, or total amount. Returns order details including items, shipping, and payment info.&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// 差</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;query_db_orders&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Execute order query&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>添加系统 prompt 指导，让 Claude 知道什么可用：</p>
+<div class="highlight"><pre><span></span><code>You have access to tools for Slack messaging, Google Drive file management,
+Jira ticket tracking, and GitHub repository operations. Use the tool search
+to find specific capabilities.
+</code></pre></div>
+<p>保持你最常用的三到五个工具始终加载，其余延迟加载。这在常见操作的即时访问和所有其他操作的按需发现之间取得平衡。</p>
+<h3 id="programmatic-tool-calling_3">设置 Programmatic Tool Calling 以实现正确执行<a class="headerlink" href="#programmatic-tool-calling_3" title="Permanent link">&para;</a></h3>
+<p>由于 Claude 编写代码来解析工具输出，请清楚地记录返回格式。这有助于 Claude 编写正确的解析逻辑：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_orders&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Retrieve orders for a customer.\nReturns:\nList of order objects, each containing:\n- id (str): Order identifier\n- total (float): Order total in USD\n- status (str): One of &#39;pending&#39;, &#39;shipped&#39;, &#39;delivered&#39;\n- items (list): Array of {sku, quantity, price}\n- created_at (str): ISO 8601 timestamp&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>以下是从程序化编排中受益的 opt-in 工具：
+- 可以并行运行的工具（独立操作）
+- 可以安全重试的操作（幂等操作）</p>
+<h3 id="tool-use-examples_2">设置 Tool Use Examples 以实现参数准确性<a class="headerlink" href="#tool-use-examples_2" title="Permanent link">&para;</a></h3>
+<p>为行为清晰度精心设计示例：
+- 使用真实数据（真实城市名称、合理价格，而非 "string" 或 "value"）
+- 通过最小、部分和完整规范模式展示多样性
+- 保持简洁：每个工具 1-5 个示例
+- 专注于歧义（只在正确使用从 schema 不明显的地方添加示例）</p>
+<h2 id="_10">开始使用<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>这些功能在 beta 中可用。要启用它们，添加 beta header 并包含你需要的工具：</p>
+<div class="highlight"><pre><span></span><code><span class="n">client</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">betas</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;advanced-tool-use-2025-11-20&quot;</span><span class="p">],</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;claude-sonnet-4-5-20250929&quot;</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span>
+    <span class="n">tools</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;tool_search_tool_regex_20251119&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tool_search_tool_regex&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;code_execution_20250825&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;code_execution&quot;</span><span class="p">},</span>
+        <span class="c1"># 你的带有 defer_loading、allowed_callers 和 input_examples 的工具</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>有关详细的 API 文档和 SDK 示例，请参阅我们的：
+- Tool Search Tool 的文档和 cookbook
+- Programmatic Tool Calling 的文档和 cookbook
+- Tool Use Examples 的文档</p>
+<p>这些功能将工具使用从简单的函数调用推向智能编排。随着 Agent 处理跨越数十个工具和大型数据集的更复杂 workflow，动态发现、高效执行和可靠调用变得至关重要。</p>
+<p>我们期待看到你构建什么。</p>
+<h2 id="_11">致谢<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>由 Bin Wu 撰写，Adam Jones、Artur Renault、Henry Tay、Jake Noble、Noah Picard、Sam Jiang 和 Claude 开发者平台团队做出了贡献。本文建立在 Chris Gorgolewski、Daniel Jiang、Jeremy Fox 和 Mike Lambert 的基础研究之上。我们还从整个 AI 生态系统中获得灵感，包括 Joel Pobar 的 LLMVM、Cloudflare 的 Code Mode 和 Code Execution as MCP。特别感谢 Andy Schumeister、Hamish Kerr、Keir Bradwell、Matt Bleifer 和 Molly Vorwerck 的支持。</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zhangp365" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

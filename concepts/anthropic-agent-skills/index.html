@@ -12,31 +12,31 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/hermes-agent-memory-architecture/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/anthropic-agent-skills/">
       
       
-        <link rel="prev" href="../acp-stdio-auth-flow/">
+        <link rel="prev" href="../anthropic-think-tool/">
       
       
-        <link rel="next" href="../concepts/chromafs-virtual-filesystem/">
+        <link rel="next" href="../anthropic-context-engineering/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Hermes Agent 记忆系统架构 - LLM Wiki</title>
+        <title>使用 Agent Skills 为 Agent 装备真实世界能力 - LLM Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hermes-agent" class="md-skip">
+        <a href="#agent-skills-agent" class="md-skip">
           跳转至
         </a>
       
@@ -96,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hermes Agent 记忆系统架构
+              使用 Agent Skills 为 Agent 装备真实世界能力
             
           </span>
         </div>
@@ -239,7 +239,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -269,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -398,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-protocol/" class="md-nav__link">
+      <a href="../../a2a-protocol/" class="md-nav__link">
         
   
   
@@ -426,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-task-state-machine/" class="md-nav__link">
+      <a href="../../a2a-task-state-machine/" class="md-nav__link">
         
   
   
@@ -454,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-security-analysis/" class="md-nav__link">
+      <a href="../../a2a-security-analysis/" class="md-nav__link">
         
   
   
@@ -482,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-ecosystem/" class="md-nav__link">
+      <a href="../../a2a-ecosystem/" class="md-nav__link">
         
   
   
@@ -510,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-protocol/" class="md-nav__link">
+      <a href="../../acp-protocol/" class="md-nav__link">
         
   
   
@@ -538,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-stdio-auth-flow/" class="md-nav__link">
+      <a href="../../acp-stdio-auth-flow/" class="md-nav__link">
         
   
   
@@ -546,6 +546,202 @@
     
   
     ACP stdio 授权流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hermes-agent-memory-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hermes Agent 记忆架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chromafs-virtual-filesystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChromaFs 虚拟文件系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-building-effective-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building effective agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-building-agents-agent-sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Agent SDK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-advanced-tool-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Tool Use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-writing-tools-for-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Tools for Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-think-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Think Tool
   
 
     
@@ -582,7 +778,7 @@
   <span class="md-ellipsis">
     
   
-    Hermes Agent 记忆架构
+    Agent Skills
   
 
     
@@ -600,7 +796,7 @@
   <span class="md-ellipsis">
     
   
-    Hermes Agent 记忆架构
+    Agent Skills
   
 
     
@@ -626,126 +822,76 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 的结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills-context-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills 和 Context Window
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills 和代码执行
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开发和评估 Skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用 Skills 的安全注意事项
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills 的未来
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心设计哲学
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        系统提示词组装顺序
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四层记忆系统
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四层记忆系统">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-prompt-memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 提示词记忆（Prompt Memory）— 热记忆
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-session_search" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 会话搜索（session_search）— 情景回溯
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-skills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 技能系统（Skills）— 程序记忆
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-honcho" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Honcho 层 — 深层用户建模（可选）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#memory-flush" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        压缩与记忆冲刷（Memory Flush）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openclaw" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        与 OpenClaw 的对比
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        总结：三层洞察
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关页面
+        致谢
       
     </span>
   </a>
@@ -768,203 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/chromafs-virtual-filesystem/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ChromaFs 虚拟文件系统
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-building-effective-agents/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Building effective agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-building-agents-agent-sdk/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Claude Agent SDK
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-advanced-tool-use/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Advanced Tool Use
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-writing-tools-for-agents/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Writing Tools for Agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-think-tool/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Think Tool
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-agent-skills/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Agent Skills
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-context-engineering/" class="md-nav__link">
+      <a href="../anthropic-context-engineering/" class="md-nav__link">
         
   
   
@@ -992,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-contextual-retrieval/" class="md-nav__link">
+      <a href="../anthropic-contextual-retrieval/" class="md-nav__link">
         
   
   
@@ -1020,7 +970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-harnesses-long-running-agents/" class="md-nav__link">
+      <a href="../anthropic-harnesses-long-running-agents/" class="md-nav__link">
         
   
   
@@ -1048,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-multi-agent-research-system/" class="md-nav__link">
+      <a href="../anthropic-multi-agent-research-system/" class="md-nav__link">
         
   
   
@@ -1076,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-code-execution-mcp/" class="md-nav__link">
+      <a href="../anthropic-code-execution-mcp/" class="md-nav__link">
         
   
   
@@ -1104,7 +1054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-demystifying-evals/" class="md-nav__link">
+      <a href="../anthropic-demystifying-evals/" class="md-nav__link">
         
   
   
@@ -1132,7 +1082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-claude-code-sandboxing/" class="md-nav__link">
+      <a href="../anthropic-claude-code-sandboxing/" class="md-nav__link">
         
   
   
@@ -1160,7 +1110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-agentic-coding-best-practices/" class="md-nav__link">
+      <a href="../anthropic-agentic-coding-best-practices/" class="md-nav__link">
         
   
   
@@ -1188,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/anthropic-postmortem-three-issues/" class="md-nav__link">
+      <a href="../anthropic-postmortem-three-issues/" class="md-nav__link">
         
   
   
@@ -1279,7 +1229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-vs-mcp/" class="md-nav__link">
+      <a href="../../a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -1314,7 +1264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SCHEMA/" class="md-nav__link">
+      <a href="../../SCHEMA/" class="md-nav__link">
         
   
   
@@ -1361,126 +1311,76 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 的结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills-context-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills 和 Context Window
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills 和代码执行
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开发和评估 Skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用 Skills 的安全注意事项
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills 的未来
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心设计哲学
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        系统提示词组装顺序
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四层记忆系统
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四层记忆系统">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-prompt-memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 提示词记忆（Prompt Memory）— 热记忆
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-session_search" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 会话搜索（session_search）— 情景回溯
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-skills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 技能系统（Skills）— 程序记忆
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-honcho" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Honcho 层 — 深层用户建模（可选）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#memory-flush" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        压缩与记忆冲刷（Memory Flush）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openclaw" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        与 OpenClaw 的对比
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        总结：三层洞察
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关页面
+        致谢
       
     </span>
   </a>
@@ -1512,7 +1412,7 @@
   
   
     <li class="md-path__item">
-      <a href=".." class="md-path__link">
+      <a href="../.." class="md-path__link">
         
   <span class="md-ellipsis">
     首页
@@ -1530,7 +1430,7 @@
     
     
       <li class="md-path__item">
-        <a href="../a2a-protocol/" class="md-path__link">
+        <a href="../../a2a-protocol/" class="md-path__link">
           
   <span class="md-ellipsis">
     概念
@@ -1555,156 +1455,60 @@
   
 
 
-<h1 id="hermes-agent">Hermes Agent 记忆系统架构<a class="headerlink" href="#hermes-agent" title="Permanent link">&para;</a></h1>
+<h1 id="agent-skills-agent">使用 Agent Skills 为 Agent 装备真实世界能力<a class="headerlink" href="#agent-skills-agent" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>Hermes Agent 采用分层记忆架构，核心设计原则：<strong>保持提示词稳定以利用缓存，其他信息按需检索</strong>。不是一套记忆系统，而是四套协同工作的系统。</p>
+<p>原文链接: <a href="https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills">English Original</a></p>
 </blockquote>
-<p><img alt="Hermes Agent 记忆系统架构图" src="../raw/assets/hermes-memory-architecture-diagram.jpg" /></p>
-<h2 id="_1">核心设计哲学<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Hermes 针对供应商侧 <strong>Prompt Caching</strong> 优化：系统提示词的前缀部分（工具定义、记忆快照、技能索引等）在会话中保持不变，避免频繁变更导致缓存失效。</p>
-<p>如果信息每一轮都需要 → 缩小注入提示词
-如果信息量大、偶尔需要 → 踢出提示词，按需检索</p>
-<h2 id="_2">系统提示词组装顺序<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>[0] 默认智能体身份
-[1] 工具使用行为指南
-[2] Honcho 集成模块（可选）
-[3] 可选系统消息
-[4] 固化 MEMORY.md 快照
-[5] 固化 USER.md 快照
-[6] 技能索引
-[7] 上下文文件（AGENTS.md, SOUL.md, .cursorrules 等）
-[8] 日期/时间 + 平台信息
-[9] 对话历史
-[10] 当前用户消息
-</code></pre></div>
-<h2 id="_3">四层记忆系统<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="1-prompt-memory">1. 提示词记忆（Prompt Memory）— 热记忆<a class="headerlink" href="#1-prompt-memory" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/memories/</code></p>
-<table>
-<thead>
-<tr>
-<th>文件</th>
-<th>用途</th>
-<th>容量限制</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>MEMORY.md</code></td>
-<td>智能体笔记：环境、规范、工具怪癖、教训</td>
-<td>2,200 字符</td>
-</tr>
-<tr>
-<td><code>USER.md</code></td>
-<td>用户画像：偏好、沟通风格、身份</td>
-<td>1,375 字符</td>
-</tr>
-</tbody>
-</table>
-<p><strong>设计特点：</strong>
-- 使用<strong>字符限制</strong>而非 Token 限制 → 模型无关
-- 条目用 <code>§</code> 分隔的纯文本格式 → 简单可读
-- 会话开始时加载并<strong>固化快照</strong> → 中途写入不改变当前提示词
-- 记忆是<strong>精选状态</strong>（curated state），不是日记</p>
-<p><strong>保存 vs 不保存：</strong>
-- ✅ 用户偏好、环境事实、反复修正、稳定规范
-- ❌ 任务进度、会话结果、临时 TODO</p>
-<p><strong>安全机制：</strong> 拦截 Prompt Injection、凭证泄露、SSH 后门、隐藏 Unicode 字符</p>
-<p>管理工具：<code>memory(action=add|replace|remove)</code> — replace/remove 使用子字符串匹配，无需内部 ID</p>
-<h3 id="2-session_search">2. 会话搜索（session_search）— 情景回溯<a class="headerlink" href="#2-session_search" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/state.db</code>（SQLite）</p>
-<div class="highlight"><pre><span></span><code>FTS5 全文搜索 → 按会话分组 → 解析父子关系 → 截取匹配片段 → 辅助模型摘要 → 返回主模型
-</code></pre></div>
-<p><strong>与提示词记忆的分工：</strong>
-- <code>MEMORY.md</code> = 持久性事实（Semantic Memory）
-- <code>session_search</code> = 情景性回溯（Episodic Recall）</p>
-<h3 id="3-skills">3. 技能系统（Skills）— 程序记忆<a class="headerlink" href="#3-skills" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/skills/</code></p>
-<ul>
-<li>可复用的知识文档和操作流程</li>
-<li><strong>惰性加载</strong>：提示词中只放索引，需要时才加载完整内容</li>
-<li>解决"如何做"的问题（Procedural Memory），而非"是什么"</li>
-</ul>
-<h3 id="4-honcho">4. Honcho 层 — 深层用户建模（可选）<a class="headerlink" href="#4-honcho" title="Permanent link">&para;</a></h3>
-<ul>
-<li>跨设备、跨平台的记忆连续性</li>
-<li>同时建模用户和 AI 自身</li>
-<li>第一轮：织入缓存系统提示词</li>
-<li>后续轮：附加在用户消息后面 → 保持缓存稳定</li>
-</ul>
-<h2 id="memory-flush">压缩与记忆冲刷（Memory Flush）<a class="headerlink" href="#memory-flush" title="Permanent link">&para;</a></h2>
-<p>长对话需要压缩时，Hermes 先执行"记忆冲刷"：</p>
-<div class="highlight"><pre><span></span><code>长对话 → 发送冲刷指令 → 模型保存持久事实到 memory → 压缩旧轮次 → 重建 prompt → 继续
-</code></pre></div>
-<p>关键步骤：
-1. 压缩前注入指令，让模型保存值得记住的内容
-2. 运行额外模型调用，只开启 memory 工具
-3. 压缩后重建系统提示词，从磁盘重新加载 memory
-4. 冲刷的内容立即成为新的稳定快照</p>
-<h2 id="openclaw">与 OpenClaw 的对比<a class="headerlink" href="#openclaw" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>维度</th>
-<th>OpenClaw</th>
-<th>Hermes Agent</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>记忆存储</td>
-<td>Markdown 为主的存储</td>
-<td>分层架构</td>
-</tr>
-<tr>
-<td>主要事实来源</td>
-<td>日志和长效文件</td>
-<td>小型提示词 + SQLite</td>
-</tr>
-<tr>
-<td>记忆回溯</td>
-<td>混合搜索存储笔记</td>
-<td>session_search FTS5</td>
-</tr>
-<tr>
-<td>提示词记忆</td>
-<td>有边界但更激进</td>
-<td>严格限制（~1300 tokens）</td>
-</tr>
-<tr>
-<td>程序记忆</td>
-<td>—</td>
-<td>Skills 系统</td>
-</tr>
-<tr>
-<td>深层建模</td>
-<td>—</td>
-<td>Honcho（可选）</td>
-</tr>
-<tr>
-<td>缓存意识</td>
-<td>较弱</td>
-<td>核心设计驱动</td>
-</tr>
-</tbody>
-</table>
-<p><strong>核心区别：</strong>
-- OpenClaw = "记忆即知识库"
-- Hermes = "热工作集 + 冷检索层"</p>
-<h2 id="_4">总结：三层洞察<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>冷热分离</strong>：小规模热记忆 + 大规模冷检索，而非全塞进提示词</li>
-<li><strong>缓存优先</strong>：冻结快照、延迟更新、逐轮注入 Honcho、压缩重建 → 都服务于"不轻易变更提示词"</li>
-<li><strong>记忆多样性</strong>：语义记忆 + 情景回溯 + 程序记忆 + 深层建模 → 更贴近 Agent 实际需求</li>
-</ol>
+<p><em>Engineering at Anthropic</em></p>
+<p>发布于 2025年10月16日</p>
+<p>Claude 很强大，但真实工作需要程序性知识和组织上下文。推出 Agent Skills——一种使用文件和文件夹构建专业化 agent 的新方法。</p>
 <blockquote>
-<p>"不是记住更多，而是在正确的层级、以正确的成本，记住正确的事情。"</p>
+<p><strong>更新：</strong> 我们已将 Agent Skills 作为跨平台可移植性的开放标准发布。（2025年12月18日）</p>
 </blockquote>
-<h2 id="_5">相关页面<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>随着模型能力的提升，我们现在可以构建与完整计算环境交互的通用 agent。例如，Claude Code 可以使用本地代码执行和文件系统跨领域完成复杂任务。但随着这些 agent 变得更加强大，我们需要更加可组合、可扩展和可移植的方式来为它们配备领域专业知识。</p>
+<p>这促使我们创建了 Agent Skills：有组织的指令、脚本和资源文件夹，agent 可以动态发现和加载这些内容以更好地执行特定任务。Skills 通过将你的专业知识打包成可组合的资源来扩展 Claude 的能力，将通用 agent 转变为满足你需求的专业化 agent。</p>
+<p>为 agent 构建 skill 就像为新人准备入职指南。与其为每个用例构建碎片化的、定制设计的 agent，任何人现在都可以通过捕获和共享他们的程序性知识来用可组合的能力专业化他们的 agent。在本文中，我们将解释 Skills 是什么，展示它们如何工作，并分享构建你自己的 skill 的最佳实践。</p>
+<p>Skill 是一个包含 <code>SKILL.md</code> 文件的目录，该文件包含有组织的指令、脚本和资源文件夹，赋予 agent 额外能力。</p>
+<h2 id="skill">Skill 的结构<a class="headerlink" href="#skill" title="Permanent link">&para;</a></h2>
+<p>要看到 Skills 的实际应用，让我们来看一个真实的例子：驱动 Claude 最近推出的文档编辑能力的 skill 之一。Claude 已经对理解 PDF 有了很多了解，但在直接操作它们方面能力有限（例如填写表格）。这个 PDF skill 让我们能够赋予 Claude 这些新能力。</p>
+<p>最简单的情况下，skill 是一个包含 <code>SKILL.md</code> 文件的目录。该文件必须以包含一些必需元数据的 YAML frontmatter 开始：<code>name</code> 和 <code>description</code>。在启动时，agent 将每个已安装 skill 的名称和描述预加载到其系统提示中。</p>
+<p>此元数据是渐进式信息披露的第一层：它为 Claude 提供了刚好足够的信息，使其知道何时应使用每个 skill，而无需将所有内容加载到上下文中。该文件的实际正文是第二层细节。如果 Claude 认为该 skill 与当前任务相关，它会通过将完整的 <code>SKILL.md</code> 读入上下文来加载该 skill。</p>
+<p><code>SKILL.md</code> 文件必须以包含文件名和描述的 YAML Frontmatter 开始，这些内容在启动时被加载到系统提示中。</p>
+<p>随着 skill 在复杂度上的增长，它们可能包含过多的上下文而无法放入单个 <code>SKILL.md</code> 中，或者包含仅在特定场景中相关的上下文。在这些情况下，skill 可以在 skill 目录中捆绑额外文件，并从 <code>SKILL.md</code> 中按名称引用它们。这些额外的链接文件是第三层（及更多层）细节，Claude 可以根据需要选择性地导航和发现。</p>
+<p>在下面显示的 PDF skill 中，<code>SKILL.md</code> 引用了 skill 作者选择与核心 <code>SKILL.md</code> 捆绑的两个额外文件（<code>reference.md</code> 和 <code>forms.md</code>）。通过将表格填写说明移到单独的文件（<code>forms.md</code>）中，skill 作者能够保持 skill 核心的精简，相信 Claude 只在填写表格时才会读取 <code>forms.md</code>。</p>
+<p>你可以在 skill 中纳入更多上下文（通过额外文件），然后根据需要由 Claude 动态发现。</p>
+<h2 id="skills-context-window">Skills 和 Context Window<a class="headerlink" href="#skills-context-window" title="Permanent link">&para;</a></h2>
+<p>下图展示了当 skill 被用户消息触发时 context window 如何变化。</p>
+<p>Skills 通过你的系统提示在 context window 中被触发。所示操作序列为：</p>
 <ul>
-<li><a href="../a2a-protocol/">A2A 协议详解</a> — Agent 间通信协议</li>
-<li><a href="../a2a-vs-mcp/">A2A vs MCP</a> — Agent 协议对比</li>
+<li>首先，context window 包含核心系统提示和每个已安装 skill 的元数据，以及用户的初始消息。</li>
+<li>Claude 通过调用 Bash 工具读取 <code>pdf/SKILL.md</code> 的内容来触发 PDF skill。</li>
+<li>Claude 选择读取与 skill 捆绑的 <code>forms.md</code> 文件。</li>
+<li>最后，Claude 在从 PDF skill 加载了相关指令后继续执行用户的任务。</li>
 </ul>
+<h2 id="skills">Skills 和代码执行<a class="headerlink" href="#skills" title="Permanent link">&para;</a></h2>
+<p>Skills 还可以包含让 Claude 作为工具自行决定执行的代码。</p>
+<p>大型语言模型在许多任务上表现出色，但某些操作更适合传统代码执行。例如，通过 token 生成排序列表远比运行排序算法昂贵得多。除了效率考虑，许多应用需要只有代码才能提供的确定性可靠性。</p>
+<p>在我们的示例中，PDF skill 包含一个预先编写的 Python 脚本，用于读取 PDF 并提取所有表格字段。Claude 可以运行此脚本而无需将脚本或 PDF 加载到上下文中。而且因为代码是确定性的，这个工作流是一致且可重复的。Skills 还可以包含让 Claude 根据任务性质自行决定作为工具执行的代码。</p>
+<h2 id="skills_1">开发和评估 Skills<a class="headerlink" href="#skills_1" title="Permanent link">&para;</a></h2>
+<p>以下是一些关于开始编写和测试 skills 的有用指南：</p>
+<ul>
+<li><strong>从评估开始</strong>：通过在代表性任务上运行 agent 并观察它们在哪些地方遇到困难或需要额外上下文来识别 agent 能力中的具体差距。然后逐步构建 skills 来解决这些不足。</li>
+<li><strong>为扩展而结构化</strong>：当 <code>SKILL.md</code> 文件变得难以管理时，将其内容拆分为单独的文件并引用它们。如果某些上下文是互斥的或很少一起使用，保持路径分开将减少 token 使用量。最后，代码既可以作为可执行工具，也可以作为文档。应该明确 Claude 是应该直接运行脚本还是将它们作为参考读入上下文。</li>
+<li><strong>从 Claude 的角度思考</strong>：监控 Claude 在真实场景中如何使用你的 skill，并根据观察进行迭代：注意意外的轨迹或对某些上下文的过度依赖。特别关注你的 skill 的名称和描述。Claude 在决定是否根据当前任务触发 skill 时会使用这些信息。</li>
+<li><strong>与 Claude 一起迭代</strong>：当你与 Claude 一起处理任务时，让 Claude 将其成功的方法和常见错误捕获到 skill 中可重用的上下文和代码中。如果 Claude 在使用 skill 完成任务时偏离轨道，让它自我反思哪里出了问题。这个过程将帮助你发现 Claude 实际需要什么上下文，而不是试图提前预判。</li>
+</ul>
+<h2 id="skills_2">使用 Skills 的安全注意事项<a class="headerlink" href="#skills_2" title="Permanent link">&para;</a></h2>
+<p>Skills 通过指令和代码为 Claude 提供新能力。虽然这使它们很强大，但也意味着恶意 skill 可能在使用环境中引入漏洞，或指示 Claude 窃取数据和执行非预期操作。</p>
+<p>我们建议仅从可信来源安装 skills。当从较不可信的来源安装 skill 时，在使用前应彻底审计。首先阅读 skill 中捆绑文件的内容以了解其功能，特别关注代码依赖项和捆绑的资源（如图像或脚本）。同样，注意 skill 中指示 Claude 连接到潜在不可信外部网络源的指令或代码。</p>
+<h2 id="skills_3">Skills 的未来<a class="headerlink" href="#skills_3" title="Permanent link">&para;</a></h2>
+<p>Agent Skills 目前已在 Claude.ai、Claude Code、Claude Agent SDK 和 Claude Developer Platform 中得到支持。</p>
+<p>在未来几周，我们将继续添加支持创建、编辑、发现、共享和使用 Skills 全生命周期的新功能。我们对 Skills 帮助组织和个人与 Claude 共享其上下文和工作流的机会感到特别兴奋。我们还将探索 Skills 如何补充 Model Context Protocol（MCP） server，通过教导 agent 涉及外部工具和软件的更复杂工作流。</p>
+<p>展望更远的未来，我们希望让 agent 能够自主创建、编辑和评估 Skills，让它们将自己的行为模式编码为可重用的能力。</p>
+<p>Skills 是一个简单的概念，具有相应简单的格式。这种简单性使组织、开发者和终端用户更容易构建定制化的 agent 并赋予它们新能力。</p>
+<p>我们期待看到人们用 Skills 构建什么。今天就通过查看我们的 Skills 文档和 cookbook 开始吧。</p>
+<h2 id="_1">致谢<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>由 Barry Zhang、Keith Lazuka 和 Mahesh Murag 撰写，他们都非常喜欢文件夹。特别感谢 Anthropic 内部许多倡导、支持和构建 Skills 的其他人。</p>
 
 
 
@@ -1779,10 +1583,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

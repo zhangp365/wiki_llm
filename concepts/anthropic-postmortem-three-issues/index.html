@@ -12,31 +12,31 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/hermes-agent-memory-architecture/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/anthropic-postmortem-three-issues/">
       
       
-        <link rel="prev" href="../acp-stdio-auth-flow/">
+        <link rel="prev" href="../anthropic-agentic-coding-best-practices/">
       
       
-        <link rel="next" href="../concepts/chromafs-virtual-filesystem/">
+        <link rel="next" href="../../a2a-vs-mcp/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Hermes Agent 记忆系统架构 - LLM Wiki</title>
+        <title>三起近期事件的事后复盘 - LLM Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hermes-agent" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -96,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hermes Agent 记忆系统架构
+              三起近期事件的事后复盘
             
           </span>
         </div>
@@ -239,7 +239,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -269,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -398,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-protocol/" class="md-nav__link">
+      <a href="../../a2a-protocol/" class="md-nav__link">
         
   
   
@@ -426,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-task-state-machine/" class="md-nav__link">
+      <a href="../../a2a-task-state-machine/" class="md-nav__link">
         
   
   
@@ -454,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-security-analysis/" class="md-nav__link">
+      <a href="../../a2a-security-analysis/" class="md-nav__link">
         
   
   
@@ -482,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-ecosystem/" class="md-nav__link">
+      <a href="../../a2a-ecosystem/" class="md-nav__link">
         
   
   
@@ -510,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-protocol/" class="md-nav__link">
+      <a href="../../acp-protocol/" class="md-nav__link">
         
   
   
@@ -538,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-stdio-auth-flow/" class="md-nav__link">
+      <a href="../../acp-stdio-auth-flow/" class="md-nav__link">
         
   
   
@@ -546,6 +546,454 @@
     
   
     ACP stdio 授权流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hermes-agent-memory-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hermes Agent 记忆架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chromafs-virtual-filesystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChromaFs 虚拟文件系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-building-effective-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building effective agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-building-agents-agent-sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Agent SDK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-advanced-tool-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Tool Use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-writing-tools-for-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Tools for Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-think-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Think Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-agent-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-context-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-contextual-retrieval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contextual Retrieval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-harnesses-long-running-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Harnesses for Long-running Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-multi-agent-research-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Agent Research System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-code-execution-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Execution with MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-demystifying-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Demystifying Agent Evals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-claude-code-sandboxing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code Sandboxing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-agentic-coding-best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic Coding Best Practices
   
 
     
@@ -582,7 +1030,7 @@
   <span class="md-ellipsis">
     
   
-    Hermes Agent 记忆架构
+    Postmortem Three Issues
   
 
     
@@ -600,7 +1048,7 @@
   <span class="md-ellipsis">
     
   
-    Hermes Agent 记忆架构
+    Postmortem Three Issues
   
 
     
@@ -626,10 +1074,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心设计哲学
+        背景
       
     </span>
   </a>
@@ -637,10 +1085,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#claude" class="md-nav__link">
     <span class="md-ellipsis">
       
-        系统提示词组装顺序
+        我们如何大规模提供 Claude 服务
       
     </span>
   </a>
@@ -651,19 +1099,30 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        四层记忆系统
+        事件时间线
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="四层记忆系统">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三个重叠的问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三个重叠的问题">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-prompt-memory" class="md-nav__link">
+  <a href="#1-context-window" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 提示词记忆（Prompt Memory）— 热记忆
+        1. Context window 路由错误
       
     </span>
   </a>
@@ -671,10 +1130,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-session_search" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 会话搜索（session_search）— 情景回溯
+        2. 输出损坏
       
     </span>
   </a>
@@ -682,21 +1141,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-skills" class="md-nav__link">
+  <a href="#3-approximate-top-k-xlatpu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 技能系统（Skills）— 程序记忆
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-honcho" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Honcho 层 — 深层用户建模（可选）
+        3. Approximate Top-k XLA:TPU 编译错误
       
     </span>
   </a>
@@ -709,32 +1157,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#memory-flush" class="md-nav__link">
+  <a href="#xla-bug" class="md-nav__link">
     <span class="md-ellipsis">
       
-        压缩与记忆冲刷（Memory Flush）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openclaw" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        与 OpenClaw 的对比
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        总结：三层洞察
+        深入了解 XLA 编译器 bug
       
     </span>
   </a>
@@ -745,7 +1171,40 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        相关页面
+        为什么检测很困难
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们正在改变什么
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        脚注
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        致谢
       
     </span>
   </a>
@@ -756,454 +1215,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/chromafs-virtual-filesystem/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ChromaFs 虚拟文件系统
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-building-effective-agents/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Building effective agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-building-agents-agent-sdk/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Claude Agent SDK
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-advanced-tool-use/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Advanced Tool Use
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-writing-tools-for-agents/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Writing Tools for Agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-think-tool/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Think Tool
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-agent-skills/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Agent Skills
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-context-engineering/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Context Engineering
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-contextual-retrieval/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Contextual Retrieval
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-harnesses-long-running-agents/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Harnesses for Long-running Agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-multi-agent-research-system/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi-Agent Research System
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-code-execution-mcp/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Code Execution with MCP
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-demystifying-evals/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Demystifying Agent Evals
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-claude-code-sandboxing/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Claude Code Sandboxing
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-agentic-coding-best-practices/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Agentic Coding Best Practices
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/anthropic-postmortem-three-issues/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Postmortem Three Issues
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1279,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-vs-mcp/" class="md-nav__link">
+      <a href="../../a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -1314,7 +1325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SCHEMA/" class="md-nav__link">
+      <a href="../../SCHEMA/" class="md-nav__link">
         
   
   
@@ -1361,10 +1372,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心设计哲学
+        背景
       
     </span>
   </a>
@@ -1372,10 +1383,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#claude" class="md-nav__link">
     <span class="md-ellipsis">
       
-        系统提示词组装顺序
+        我们如何大规模提供 Claude 服务
       
     </span>
   </a>
@@ -1386,19 +1397,30 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        四层记忆系统
+        事件时间线
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="四层记忆系统">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三个重叠的问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三个重叠的问题">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-prompt-memory" class="md-nav__link">
+  <a href="#1-context-window" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 提示词记忆（Prompt Memory）— 热记忆
+        1. Context window 路由错误
       
     </span>
   </a>
@@ -1406,10 +1428,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-session_search" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 会话搜索（session_search）— 情景回溯
+        2. 输出损坏
       
     </span>
   </a>
@@ -1417,21 +1439,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-skills" class="md-nav__link">
+  <a href="#3-approximate-top-k-xlatpu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 技能系统（Skills）— 程序记忆
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-honcho" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Honcho 层 — 深层用户建模（可选）
+        3. Approximate Top-k XLA:TPU 编译错误
       
     </span>
   </a>
@@ -1444,32 +1455,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#memory-flush" class="md-nav__link">
+  <a href="#xla-bug" class="md-nav__link">
     <span class="md-ellipsis">
       
-        压缩与记忆冲刷（Memory Flush）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openclaw" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        与 OpenClaw 的对比
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        总结：三层洞察
+        深入了解 XLA 编译器 bug
       
     </span>
   </a>
@@ -1480,7 +1469,40 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        相关页面
+        为什么检测很困难
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们正在改变什么
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        脚注
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        致谢
       
     </span>
   </a>
@@ -1512,7 +1534,7 @@
   
   
     <li class="md-path__item">
-      <a href=".." class="md-path__link">
+      <a href="../.." class="md-path__link">
         
   <span class="md-ellipsis">
     首页
@@ -1530,7 +1552,7 @@
     
     
       <li class="md-path__item">
-        <a href="../a2a-protocol/" class="md-path__link">
+        <a href="../../a2a-protocol/" class="md-path__link">
           
   <span class="md-ellipsis">
     概念
@@ -1555,156 +1577,74 @@
   
 
 
-<h1 id="hermes-agent">Hermes Agent 记忆系统架构<a class="headerlink" href="#hermes-agent" title="Permanent link">&para;</a></h1>
+<h1 id="_1">三起近期事件的事后复盘<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>Hermes Agent 采用分层记忆架构，核心设计原则：<strong>保持提示词稳定以利用缓存，其他信息按需检索</strong>。不是一套记忆系统，而是四套协同工作的系统。</p>
+<p>原文链接: <a href="https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues">English Original</a></p>
 </blockquote>
-<p><img alt="Hermes Agent 记忆系统架构图" src="../raw/assets/hermes-memory-architecture-diagram.jpg" /></p>
-<h2 id="_1">核心设计哲学<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Hermes 针对供应商侧 <strong>Prompt Caching</strong> 优化：系统提示词的前缀部分（工具定义、记忆快照、技能索引等）在会话中保持不变，避免频繁变更导致缓存失效。</p>
-<p>如果信息每一轮都需要 → 缩小注入提示词
-如果信息量大、偶尔需要 → 踢出提示词，按需检索</p>
-<h2 id="_2">系统提示词组装顺序<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>[0] 默认智能体身份
-[1] 工具使用行为指南
-[2] Honcho 集成模块（可选）
-[3] 可选系统消息
-[4] 固化 MEMORY.md 快照
-[5] 固化 USER.md 快照
-[6] 技能索引
-[7] 上下文文件（AGENTS.md, SOUL.md, .cursorrules 等）
-[8] 日期/时间 + 平台信息
-[9] 对话历史
-[10] 当前用户消息
-</code></pre></div>
-<h2 id="_3">四层记忆系统<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="1-prompt-memory">1. 提示词记忆（Prompt Memory）— 热记忆<a class="headerlink" href="#1-prompt-memory" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/memories/</code></p>
-<table>
-<thead>
-<tr>
-<th>文件</th>
-<th>用途</th>
-<th>容量限制</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>MEMORY.md</code></td>
-<td>智能体笔记：环境、规范、工具怪癖、教训</td>
-<td>2,200 字符</td>
-</tr>
-<tr>
-<td><code>USER.md</code></td>
-<td>用户画像：偏好、沟通风格、身份</td>
-<td>1,375 字符</td>
-</tr>
-</tbody>
-</table>
-<p><strong>设计特点：</strong>
-- 使用<strong>字符限制</strong>而非 Token 限制 → 模型无关
-- 条目用 <code>§</code> 分隔的纯文本格式 → 简单可读
-- 会话开始时加载并<strong>固化快照</strong> → 中途写入不改变当前提示词
-- 记忆是<strong>精选状态</strong>（curated state），不是日记</p>
-<p><strong>保存 vs 不保存：</strong>
-- ✅ 用户偏好、环境事实、反复修正、稳定规范
-- ❌ 任务进度、会话结果、临时 TODO</p>
-<p><strong>安全机制：</strong> 拦截 Prompt Injection、凭证泄露、SSH 后门、隐藏 Unicode 字符</p>
-<p>管理工具：<code>memory(action=add|replace|remove)</code> — replace/remove 使用子字符串匹配，无需内部 ID</p>
-<h3 id="2-session_search">2. 会话搜索（session_search）— 情景回溯<a class="headerlink" href="#2-session_search" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/state.db</code>（SQLite）</p>
-<div class="highlight"><pre><span></span><code>FTS5 全文搜索 → 按会话分组 → 解析父子关系 → 截取匹配片段 → 辅助模型摘要 → 返回主模型
-</code></pre></div>
-<p><strong>与提示词记忆的分工：</strong>
-- <code>MEMORY.md</code> = 持久性事实（Semantic Memory）
-- <code>session_search</code> = 情景性回溯（Episodic Recall）</p>
-<h3 id="3-skills">3. 技能系统（Skills）— 程序记忆<a class="headerlink" href="#3-skills" title="Permanent link">&para;</a></h3>
-<p>存储位置：<code>~/.hermes/skills/</code></p>
+<p>这是一份关于三个间歇性降低 Claude 响应质量的 bug 的技术报告。下文我们将解释发生了什么、为什么修复耗时较长，以及我们正在做出哪些改变。</p>
+<h2 id="_2">背景<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在 8 月到 9 月初期间，三个基础设施 bug 间歇性地降低了 Claude 的响应质量。我们现已解决这些问题，并希望解释发生了什么。</p>
+<p>8 月初，一些用户开始报告 Claude 的响应质量下降。这些最初的报告很难与用户反馈中的正常波动区分开来。到 8 月底，这些报告的频率和持续性不断增加，促使我们展开调查，最终发现了三个独立的基础设施 bug。</p>
+<p>需要明确声明：<strong>我们绝不会因为需求量、时段或服务器负载而降低模型质量。</strong> 用户报告的问题完全是由基础设施 bug 造成的。</p>
+<p>我们认识到用户期望 Claude 提供一致的质量，我们维护着极高的标准，以确保基础设施更改不影响模型输出。在最近的这些事件中，我们没有达到这个标准。以下的事后复盘解释了出了什么问题、为什么检测和解决的时间比我们预期的更长，以及我们正在做出哪些改变以防止类似事件再次发生。</p>
+<p>我们通常不会分享关于基础设施的这一级别的技术细节，但这些问题的范围和复杂性值得进行更全面的解释。</p>
+<h2 id="claude">我们如何大规模提供 Claude 服务<a class="headerlink" href="#claude" title="Permanent link">&para;</a></h2>
+<p>我们通过我们的第一方 API、Amazon Bedrock 和 Google Cloud 的 Vertex AI 向数百万用户提供 Claude 服务。我们将 Claude 部署在多个硬件平台上，即 AWS Trainium、NVIDIA GPU 和 Google TPU。这种方法提供了为全球用户服务所需的容量和地理分布。</p>
+<p>每个硬件平台具有不同的特性，需要特定的优化。尽管存在这些差异，我们对模型实现有严格的等效性标准。我们的目标是无论哪个平台服务用户的请求，用户都应该获得相同质量的响应。这种复杂性意味着任何基础设施更改都需要在所有平台和配置上进行仔细验证。</p>
+<h2 id="_3">事件时间线<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>这些 bug 的重叠性质使得诊断特别具有挑战性。第一个 bug 于 8 月 5 日引入，影响了约 0.8% 的发往 Sonnet 4 的请求。另外两个 bug 来自 8 月 25 日和 26 日的部署。</p>
+<p>虽然最初的影响有限，但 8 月 29 日的一次负载均衡更改开始增加受影响的流量。这导致更多用户体验到问题，而其他用户继续看到正常性能，产生了令人困惑和矛盾的反馈。</p>
+<h2 id="_4">三个重叠的问题<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>以下是造成质量下降的三个 bug 的描述，包括它们发生的时间以及我们如何解决它们：</p>
+<h3 id="1-context-window">1. Context window 路由错误<a class="headerlink" href="#1-context-window" title="Permanent link">&para;</a></h3>
+<p>8 月 5 日，一些 Sonnet 4 请求被错误路由到为即将推出的 1M token context window 配置的服务器。这个 bug 最初影响了 0.8% 的请求。8 月 29 日，一次常规的负载均衡更改无意中增加了被路由到 1M context 服务器的短 context 请求数量。在 8 月 31 日受影响最严重的那一小时，16% 的 Sonnet 4 请求受到影响。</p>
+<p>在此期间发送请求的 Claude Code 用户中，约 30% 至少有一条消息被路由到错误的服务器类型，导致响应质量下降。在 Amazon Bedrock 上，从 8 月 12 日起，错误路由的流量峰值达到所有 Sonnet 4 请求的 0.18%。在 Google Cloud 的 Vertex AI 上，8 月 27 日至 9 月 16 日期间，错误路由影响了不到 0.0004% 的请求。</p>
+<p>然而，一些用户受到的影响更为严重，因为我们的路由是"粘性"的。这意味着一旦一个请求由错误的服务器提供服务，后续的跟进请求也可能会由同一个错误的服务器提供服务。</p>
+<p><strong>解决方案</strong>：我们修复了路由逻辑，确保短 context 和长 context 请求被定向到正确的服务器池。我们于 9 月 4 日部署了修复。到 9 月 16 日完成了向第一方平台和 Google Cloud Vertex AI 的推广，到 9 月 18 日完成了向 AWS Bedrock 的推广。</p>
+<h3 id="2">2. 输出损坏<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>8 月 25 日，我们向 Claude API TPU 服务器部署了一个错误配置，导致 token 生成过程中出现错误。由运行时性能优化引起的一个问题偶尔会给在给定 context 下本应很少产生的 token 分配高概率，例如在响应英文 prompt 时产生泰文或中文字符，或在代码中产生明显的语法错误。一小部分用英语提问的用户可能会在响应中间看到"สวัสดี"，例如。</p>
+<p>这种损坏影响了 8 月 25-28 日期间发往 Opus 4.1 和 Opus 4 的请求，以及 8 月 25 日至 9 月 2 日期间发往 Sonnet 4 的请求。第三方平台未受此问题影响。</p>
+<p><strong>解决方案</strong>：我们识别了该问题并于 9 月 2 日回滚了更改。我们在部署过程中添加了针对意外字符输出的检测测试。</p>
+<h3 id="3-approximate-top-k-xlatpu">3. Approximate Top-k XLA:TPU 编译错误<a class="headerlink" href="#3-approximate-top-k-xlatpu" title="Permanent link">&para;</a></h3>
+<p>8 月 25 日，我们部署了代码来改进 Claude 在文本生成期间选择 token 的方式。此更改无意中触发了 XLA:TPU 编译器中的一个潜在 bug，已确认该 bug 影响了发往 Claude Haiku 3.5 的请求。</p>
+<p>我们还认为这可能影响了 Claude API 上 Sonnet 4 和 Opus 3 的一个子集。第三方平台未受此问题影响。</p>
+<p><strong>解决方案</strong>：我们首先观察到该 bug 影响 Haiku 3.5，并于 9 月 4 日回滚。后来我们注意到用户报告了与该 bug 兼容的 Opus 3 问题，并于 9 月 12 日回滚。经过广泛调查，我们无法在 Sonnet 4 上复现此 bug，但出于谨慎考虑也决定回滚。</p>
+<p>同时，我们 (a) 一直在与 XLA:TPU 团队合作修复编译器 bug，(b) 部署了使用增强精度的精确 top-k 的修复。</p>
+<h2 id="xla-bug">深入了解 XLA 编译器 bug<a class="headerlink" href="#xla-bug" title="Permanent link">&para;</a></h2>
+<p>为了说明这些问题的复杂性，以下是 XLA 编译器 bug 的表现方式以及为什么它的诊断特别具有挑战性。</p>
+<p>当 Claude 生成文本时，它计算每个可能的下一个词的概率，然后从这个概率分布中随机选择一个样本。我们使用"top-p sampling"来避免无意义的输出——只考虑累计概率达到阈值（通常为 0.99 或 0.999）的词。在 TPU 上，我们的模型跨多个芯片运行，概率计算在不同的位置进行。为了对这些概率进行排序，我们需要在芯片之间协调数据，这很复杂。</p>
+<p>2024 年 12 月，我们发现我们的 TPU 实现偶尔会在温度为零时丢弃最可能的 token。我们部署了一个临时修复方案来解决这种情况。</p>
+<p>根本原因涉及混合精度算术。我们的模型使用 bf16（16 位浮点）计算下一个 token 的概率。然而，向量处理器是 fp32 原生的，因此 TPU 编译器 (XLA) 可以通过将某些操作转换为 fp32（32 位）来优化运行时。此优化过程由 <code>xla_allow_excess_precision</code> 标志保护，该标志默认为 true。</p>
+<p>这造成了一个不匹配：本应在最高概率 token 上达成一致的操作在不同的精度级别上运行。精度不匹配意味着它们无法就哪个 token 具有最高概率达成一致。这导致最高概率 token 有时完全从考虑范围中消失。</p>
+<p>8 月 26 日，我们部署了采样代码的重写版本，以修复精度问题并改进我们处理达到 top-p 阈值的概率的方式。但在修复这些问题的过程中，我们暴露了一个更棘手的问题。</p>
+<h2 id="_5">为什么检测很困难<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>我们的验证过程通常依赖于基准测试以及安全评估和性能指标。工程团队进行抽查，并首先部署到小的"canary"组。</p>
+<p>这些问题暴露了我们应该更早识别的关键差距。我们运行的评估根本没有捕捉到用户报告的质量下降，部分原因是 Claude 通常能很好地从孤立的错误中恢复。我们自己的隐私实践也给调查报告带来了挑战。我们的内部隐私和安全控制限制了工程师访问用户与 Claude 交互的方式和时间，特别是当这些交互未作为反馈报告给我们时。这保护了用户隐私，但阻止工程师检查识别或复现 bug 所需的有问题的交互。</p>
+<p>每个 bug 在不同平台上以不同的速率产生不同的症状。这产生了一系列令人困惑的报告，不指向任何单一原因。它看起来像是随机的、不一致的质量下降。</p>
+<p>更根本的是，我们过于依赖嘈杂的评估。虽然我们意识到了在线报告的增加，但缺乏将它们与我们最近每个更改联系起来的清晰方法。当负面报告在 8 月 29 日激增时，我们没有立即将其与一个原本标准的负载均衡更改联系起来。</p>
+<h2 id="_6">我们正在改变什么<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>在继续改进基础设施的同时，我们也在改进评估和防止上述 bug 的方式，涵盖我们提供 Claude 服务的所有平台。以下是我们正在改变的内容：</p>
 <ul>
-<li>可复用的知识文档和操作流程</li>
-<li><strong>惰性加载</strong>：提示词中只放索引，需要时才加载完整内容</li>
-<li>解决"如何做"的问题（Procedural Memory），而非"是什么"</li>
+<li>
+<p><strong>更灵敏的评估</strong>：为了帮助发现任何给定问题的根本原因，我们开发了能更可靠地区分正常和异常实现的评估。我们将继续改进这些评估，以更密切地监控模型质量。</p>
+</li>
+<li>
+<p><strong>在更多位置进行质量评估</strong>：虽然我们在系统上定期运行评估，但我们将在真正的生产系统上持续运行它们，以捕获诸如 context window 负载均衡错误之类的问题。</p>
+</li>
+<li>
+<p><strong>更快的调试工具</strong>：我们将开发基础设施和工具，以在不牺牲用户隐私的情况下更好地调试社区来源的反馈。此外，这里开发的一些专门工具将用于减少未来类似事件（如果发生的话）的修复时间。</p>
+</li>
 </ul>
-<h3 id="4-honcho">4. Honcho 层 — 深层用户建模（可选）<a class="headerlink" href="#4-honcho" title="Permanent link">&para;</a></h3>
-<ul>
-<li>跨设备、跨平台的记忆连续性</li>
-<li>同时建模用户和 AI 自身</li>
-<li>第一轮：织入缓存系统提示词</li>
-<li>后续轮：附加在用户消息后面 → 保持缓存稳定</li>
-</ul>
-<h2 id="memory-flush">压缩与记忆冲刷（Memory Flush）<a class="headerlink" href="#memory-flush" title="Permanent link">&para;</a></h2>
-<p>长对话需要压缩时，Hermes 先执行"记忆冲刷"：</p>
-<div class="highlight"><pre><span></span><code>长对话 → 发送冲刷指令 → 模型保存持久事实到 memory → 压缩旧轮次 → 重建 prompt → 继续
-</code></pre></div>
-<p>关键步骤：
-1. 压缩前注入指令，让模型保存值得记住的内容
-2. 运行额外模型调用，只开启 memory 工具
-3. 压缩后重建系统提示词，从磁盘重新加载 memory
-4. 冲刷的内容立即成为新的稳定快照</p>
-<h2 id="openclaw">与 OpenClaw 的对比<a class="headerlink" href="#openclaw" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>维度</th>
-<th>OpenClaw</th>
-<th>Hermes Agent</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>记忆存储</td>
-<td>Markdown 为主的存储</td>
-<td>分层架构</td>
-</tr>
-<tr>
-<td>主要事实来源</td>
-<td>日志和长效文件</td>
-<td>小型提示词 + SQLite</td>
-</tr>
-<tr>
-<td>记忆回溯</td>
-<td>混合搜索存储笔记</td>
-<td>session_search FTS5</td>
-</tr>
-<tr>
-<td>提示词记忆</td>
-<td>有边界但更激进</td>
-<td>严格限制（~1300 tokens）</td>
-</tr>
-<tr>
-<td>程序记忆</td>
-<td>—</td>
-<td>Skills 系统</td>
-</tr>
-<tr>
-<td>深层建模</td>
-<td>—</td>
-<td>Honcho（可选）</td>
-</tr>
-<tr>
-<td>缓存意识</td>
-<td>较弱</td>
-<td>核心设计驱动</td>
-</tr>
-</tbody>
-</table>
-<p><strong>核心区别：</strong>
-- OpenClaw = "记忆即知识库"
-- Hermes = "热工作集 + 冷检索层"</p>
-<h2 id="_4">总结：三层洞察<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>冷热分离</strong>：小规模热记忆 + 大规模冷检索，而非全塞进提示词</li>
-<li><strong>缓存优先</strong>：冻结快照、延迟更新、逐轮注入 Honcho、压缩重建 → 都服务于"不轻易变更提示词"</li>
-<li><strong>记忆多样性</strong>：语义记忆 + 情景回溯 + 程序记忆 + 深层建模 → 更贴近 Agent 实际需求</li>
-</ol>
-<blockquote>
-<p>"不是记住更多，而是在正确的层级、以正确的成本，记住正确的事情。"</p>
-</blockquote>
-<h2 id="_5">相关页面<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../a2a-protocol/">A2A 协议详解</a> — Agent 间通信协议</li>
-<li><a href="../a2a-vs-mcp/">A2A vs MCP</a> — Agent 协议对比</li>
-</ul>
+<p>评估和监控很重要。但这些事件表明，当 Claude 的响应未达到通常标准时，我们还需要来自用户的持续信号。观察到的具体变化的报告、遇到的意外行为的示例以及不同用例中的模式都帮助我们隔离了问题。</p>
+<p>用户继续直接向我们发送反馈仍然特别有帮助。你可以在 Claude Code 中使用 <code>/bug</code> 命令，或者在 Claude 应用中使用"踩"按钮来这样做。开发者和研究人员经常创建新的、有趣的方法来评估模型质量，以补充我们的内部测试。如果你想分享你的方法，请联系 feedback@anthropic.com。</p>
+<p>我们对社区的这些贡献表示感谢。</p>
+<h2 id="_7">脚注<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>[1] XLA:TPU 是优化编译器，将 XLA 高级优化语言——通常使用 JAX 编写——翻译为 TPU 机器指令。</p>
+<p>[2] 我们的模型对于单个芯片来说太大，被分割在数十个或更多芯片上，使我们的排序操作成为分布式排序。TPU（就像 GPU 和 Trainium 一样）也与 CPU 有不同的性能特征，需要使用向量化操作而非串行算法的不同实现技术。</p>
+<p>[3] 我们之前一直在使用这种近似操作，因为它产生了显著的性能改进。近似操作通过接受最低概率 token 中潜在的误差来工作，这不应影响质量——除非 bug 导致它丢弃了最高概率 token。</p>
+<p>[4] 请注意，现在正确的 top-k 实现可能会导致 top-p 阈值附近 token 的包含出现细微差异，在罕见情况下用户可能受益于重新调整其 top-p 选择。</p>
+<h2 id="_8">致谢<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>由 Sam McAllister 撰写，感谢 Stuart Ritchie、Jonathan Gray、Kashyap Murali、Brennan Saeta、Oliver Rausch、Alex Palcuie 以及许多其他人。</p>
 
 
 
@@ -1779,10 +1719,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
