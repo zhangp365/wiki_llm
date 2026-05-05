@@ -33,9 +33,14 @@ wiki/
 - **GitHub Pages**: 可部署为静态站点
 - **Hermes Agent**: 通过 llm-wiki skill 自动维护
 
+## 🔗 在线访问
+
+- **GitHub 仓库**: https://github.com/zhangp365/wiki_llm
+- **MkDocs 站点**: https://zhangp365.github.io/wiki_llm/
+
 ## 📋 标签体系
 
-详见 [[SCHEMA.md]]，涵盖：
+详见 [SCHEMA.md](SCHEMA.md)，涵盖：
 - **AI/ML 技术**: model, architecture, agent, training, inference, alignment, benchmark, multimodal
 - **协议与框架**: protocol, framework, tool-use
 - **行业与生态**: company, person, open-source, product, trend
