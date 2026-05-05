@@ -2,7 +2,7 @@
 
 > 内容目录。每个 Wiki 页面按类型列出，附一行摘要。
 > 先看这里来找到相关页面。
-> Last updated: 2026-05-04 | Total pages: 8
+> Last updated: 2026-05-05 | Total pages: 9
 
 ## Entities
 <!-- 按字母排序 -->
@@ -15,6 +15,7 @@
 - [[acp-protocol]] — ACP（Agent Client Protocol）全部接口分类：生命周期、会话管理、扩展机制、权限请求
 - [[acp-stdio-auth-flow]] — ACP stdio 授权完整流程：spawn→initialize→prompt→permission→执行→结束
 - [[hermes-agent-memory-architecture]] — Hermes Agent 四层记忆系统：提示词记忆、会话搜索、技能系统、Honcho 深层建模
+- [[chromafs-virtual-filesystem]] — Mintlify ChromaFs：虚拟文件系统让 Agent 用 UNIX 命令探索文档，替代昂贵的 sandbox
 
 ## Comparisons
 - [[a2a-vs-mcp]] — A2A 与 MCP 全面对比：定位、交互模式、适用场景、采纳现状

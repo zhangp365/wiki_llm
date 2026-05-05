@@ -44,3 +44,14 @@
   - concepts/acp-stdio-auth-flow.md — stdio 授权流程详解（spawn→initialize→prompt→permission→执行→结束，含消息方向速查）
 - 更新 index.md（8 个页面）
 - 总计: 2 raw + 2 wiki pages
+
+## [2026-05-05] ingest | Mintlify ChromaFs 虚拟文件系统
+- 来源: Mintlify Engineering Blog
+- 原文链接: https://www.mintlify.com/blog/how-we-built-a-virtual-filesystem-for-our-assistant
+- 作者: Dens Sumesh, 2026-03-24
+- 创建原始来源:
+  - raw/articles/mintlify-chromafs-virtual-filesystem.md — 原文全文存档
+- 创建 Wiki 页面:
+  - concepts/chromafs-virtual-filesystem.md — ChromaFs 虚拟文件系统架构（just-bash、目录树引导、RBAC、grep 两阶段优化）
+- 更新 index.md（9 个页面）
+- 总计: 1 raw + 1 wiki page

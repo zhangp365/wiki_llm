@@ -1,79 +1,80 @@
-site_name: LLM Wiki
-site_description: AI/ML 技术研究 + 个人知识管理
-site_url: https://zhangp365.github.io/wiki_llm/
-site_author: zhangp365
-repo_url: https://github.com/zhangp365/wiki_llm
-repo_name: zhangp365/wiki_llm
-edit_uri: edit/main/docs/
-
-theme:
-  name: material
-  language: zh
-  palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-7
-        name: 切换到暗色模式
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-4
-        name: 切换到亮色模式
-  features:
-    - navigation.indexes
-    - navigation.sections
-    - navigation.top
-    - navigation.tracking
-    - navigation.path
-    - search.suggest
-    - search.highlight
-    - search.share
-    - toc.follow
-    - content.code.copy
-  icon:
-    repo: fontawesome/brands/github
-
-plugins:
-  - search:
-      lang:
-        - zh
-        - en
-
-markdown_extensions:
-  - toc:
-      permalink: true
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - attr_list
-  - md_in_html
-  - tables
-
-nav:
-  - 首页: index.md
-  - 概念:
-    - A2A 协议详解: a2a-protocol.md
-    - Task 状态机: a2a-task-state-machine.md
-    - A2A 安全分析: a2a-security-analysis.md
-    - A2A 生态系统: a2a-ecosystem.md
-    - ACP 接口总览: acp-protocol.md
-    - ACP stdio 授权流程: acp-stdio-auth-flow.md
-    - Hermes Agent 记忆架构: hermes-agent-memory-architecture.md
-  - 对比:
-    - A2A vs MCP: a2a-vs-mcp.md
-  - Wiki 规范: SCHEMA.md
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/zhangp365
+     1|site_name: LLM Wiki
+     2|site_description: AI/ML 技术研究 + 个人知识管理
+     3|site_url: https://zhangp365.github.io/wiki_llm/
+     4|site_author: zhangp365
+     5|repo_url: https://github.com/zhangp365/wiki_llm
+     6|repo_name: zhangp365/wiki_llm
+     7|edit_uri: edit/main/docs/
+     8|
+     9|theme:
+    10|  name: material
+    11|  language: zh
+    12|  palette:
+    13|    - scheme: default
+    14|      primary: indigo
+    15|      accent: indigo
+    16|      toggle:
+    17|        icon: material/brightness-7
+    18|        name: 切换到暗色模式
+    19|    - scheme: slate
+    20|      primary: indigo
+    21|      accent: indigo
+    22|      toggle:
+    23|        icon: material/brightness-4
+    24|        name: 切换到亮色模式
+    25|  features:
+    26|    - navigation.indexes
+    27|    - navigation.sections
+    28|    - navigation.top
+    29|    - navigation.tracking
+    30|    - navigation.path
+    31|    - search.suggest
+    32|    - search.highlight
+    33|    - search.share
+    34|    - toc.follow
+    35|    - content.code.copy
+    36|  icon:
+    37|    repo: fontawesome/brands/github
+    38|
+    39|plugins:
+    40|  - search:
+    41|      lang:
+    42|        - zh
+    43|        - en
+    44|
+    45|markdown_extensions:
+    46|  - toc:
+    47|      permalink: true
+    48|  - admonition
+    49|  - pymdownx.details
+    50|  - pymdownx.superfences
+    51|  - pymdownx.tabbed:
+    52|      alternate_style: true
+    53|  - pymdownx.emoji:
+    54|      emoji_index: !!python/name:material.extensions.emoji.twemoji
+    55|      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+    56|  - pymdownx.tasklist:
+    57|      custom_checkbox: true
+    58|  - attr_list
+    59|  - md_in_html
+    60|  - tables
+    61|
+    62|nav:
+    63|  - 首页: index.md
+    64|  - 概念:
+    65|    - A2A 协议详解: a2a-protocol.md
+    66|    - Task 状态机: a2a-task-state-machine.md
+    67|    - A2A 安全分析: a2a-security-analysis.md
+    68|    - A2A 生态系统: a2a-ecosystem.md
+    69|    - ACP 接口总览: acp-protocol.md
+    70|    - ACP stdio 授权流程: acp-stdio-auth-flow.md
+    71|    - Hermes Agent 记忆架构: hermes-agent-memory-architecture.md
+    72|  - 对比:
+    73|    - A2A vs MCP: a2a-vs-mcp.md
+    74|  - Wiki 规范: SCHEMA.md
+    75|
+    76|extra:
+    77|  social:
+    78|    - icon: fontawesome/brands/github
+    79|      link: https://github.com/zhangp365
+    80|

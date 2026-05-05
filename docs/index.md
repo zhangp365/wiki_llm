@@ -19,6 +19,7 @@ title: LLM Wiki
 | [ACP 接口总览](acp-protocol.md) | ACP 全部接口分类：生命周期、会话管理、扩展机制、权限请求 | `protocol` `agent` `tool-use` |
 | [ACP stdio 授权流程](acp-stdio-auth-flow.md) | stdio 授权完整流程：spawn→initialize→prompt→permission→执行→结束 | `protocol` `agent` `tool-use` |
 | [Hermes Agent 记忆架构](hermes-agent-memory-architecture.md) | 四层记忆系统：提示词记忆、会话搜索、技能系统、Honcho 深层建模 | `agent` `architecture` `open-source` |
+| [ChromaFs 虚拟文件系统](concepts/chromafs-virtual-filesystem.md) | Mintlify ChromaFs：虚拟文件系统让 Agent 用 UNIX 命令探索文档，替代昂贵 sandbox | `agent` `tool-use` `open-source` |
 
 ## 对比
 
@@ -40,4 +41,4 @@ title: LLM Wiki
 
 ---
 
-*共 8 个条目 · 最后更新：2026-05-04*
+*共 9 个条目 · 最后更新：2026-05-05*
