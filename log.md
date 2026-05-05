@@ -55,3 +55,27 @@
   - concepts/chromafs-virtual-filesystem.md — ChromaFs 虚拟文件系统架构（just-bash、目录树引导、RBAC、grep 两阶段优化）
 - 更新 index.md（9 个页面）
 - 总计: 1 raw + 1 wiki page
+
+## [2026-05-05] ingest | Anthropic Engineering 博文合集（15 篇）
+- 来源: Anthropic Engineering Blog (https://www.anthropic.com/engineering)
+- 触发: 微信文章推荐的 15 篇 Agent 构建博文
+- 创建原始来源: raw/articles/anthropic-{1..15}-*.md（15 篇英文原文存档）
+- 创建 Wiki 页面（中文翻译，附原文链接）:
+  1. concepts/anthropic-building-effective-agents.md — 构建高效 Agent（5 种设计模式）
+  2. concepts/anthropic-building-agents-agent-sdk.md — Claude Agent SDK（Agent Loop、子 Agent、MCP）
+  3. concepts/anthropic-advanced-tool-use.md — 高级工具使用（Tool Search、Programmatic Calling）
+  4. concepts/anthropic-writing-tools-for-agents.md — 为 Agent 编写工具（6 条核心原则）
+  5. concepts/anthropic-think-tool.md — Think 工具（复杂工具调用前思考步骤）
+  6. concepts/anthropic-agent-skills.md — Agent Skills（SKILL.md + 渐进式披露）
+  7. concepts/anthropic-context-engineering.md — 上下文工程（注意力预算、上下文衰减）
+  8. concepts/anthropic-contextual-retrieval.md — 上下文检索（Contextual Embeddings + BM25）
+  9. concepts/anthropic-harnesses-long-running-agents.md — 长运行 Agent Harness 设计
+  10. concepts/anthropic-multi-agent-research-system.md — 多 Agent 研究系统
+  11. concepts/anthropic-code-execution-mcp.md — MCP 代码执行
+  12. concepts/anthropic-demystifying-evals.md — Agent 评估方法论
+  13. concepts/anthropic-claude-code-sandboxing.md — Claude Code 沙箱化
+  14. concepts/anthropic-agentic-coding-best-practices.md — Agentic Coding 最佳实践
+  15. concepts/anthropic-postmortem-three-issues.md — 三起生产事故复盘
+- 同步 docs/ 目录（15 个文件，wikilinks → 标准 markdown 链接）
+- 更新 index.md（24 个页面）、mkdocs.yml nav、docs/index.md
+- 总计: 15 raw + 15 wiki pages

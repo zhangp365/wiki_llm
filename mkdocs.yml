@@ -70,6 +70,21 @@ nav:
     - ACP stdio 授权流程: acp-stdio-auth-flow.md
     - Hermes Agent 记忆架构: hermes-agent-memory-architecture.md
     - ChromaFs 虚拟文件系统: concepts/chromafs-virtual-filesystem.md
+    - Building effective agents: concepts/anthropic-building-effective-agents.md
+    - Claude Agent SDK: concepts/anthropic-building-agents-agent-sdk.md
+    - Advanced Tool Use: concepts/anthropic-advanced-tool-use.md
+    - Writing Tools for Agents: concepts/anthropic-writing-tools-for-agents.md
+    - Think Tool: concepts/anthropic-think-tool.md
+    - Agent Skills: concepts/anthropic-agent-skills.md
+    - Context Engineering: concepts/anthropic-context-engineering.md
+    - Contextual Retrieval: concepts/anthropic-contextual-retrieval.md
+    - Harnesses for Long-running Agents: concepts/anthropic-harnesses-long-running-agents.md
+    - Multi-Agent Research System: concepts/anthropic-multi-agent-research-system.md
+    - Code Execution with MCP: concepts/anthropic-code-execution-mcp.md
+    - Demystifying Agent Evals: concepts/anthropic-demystifying-evals.md
+    - Claude Code Sandboxing: concepts/anthropic-claude-code-sandboxing.md
+    - Agentic Coding Best Practices: concepts/anthropic-agentic-coding-best-practices.md
+    - Postmortem Three Issues: concepts/anthropic-postmortem-three-issues.md
   - 对比:
     - A2A vs MCP: a2a-vs-mcp.md
   - Wiki 规范: SCHEMA.md

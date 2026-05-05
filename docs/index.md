@@ -20,6 +20,21 @@ title: LLM Wiki
 | [ACP stdio 授权流程](acp-stdio-auth-flow.md) | stdio 授权完整流程：spawn→initialize→prompt→permission→执行→结束 | `protocol` `agent` `tool-use` |
 | [Hermes Agent 记忆架构](hermes-agent-memory-architecture.md) | 四层记忆系统：提示词记忆、会话搜索、技能系统、Honcho 深层建模 | `agent` `architecture` `open-source` |
 | [ChromaFs 虚拟文件系统](concepts/chromafs-virtual-filesystem.md) | Mintlify ChromaFs：虚拟文件系统让 Agent 用 UNIX 命令探索文档，替代昂贵 sandbox | `agent` `tool-use` `open-source` |
+| [构建高效 Agent](concepts/anthropic-building-effective-agents.md) | Anthropic Agent 设计模式：Prompt Chaining、Routing、并行化、Orchestrator-Workers、Evaluator-Optimizer | `agent` `anthropic` `patterns` |
+| [Claude Agent SDK](concepts/anthropic-building-agents-agent-sdk.md) | Agent Loop、子 Agent、Compaction、MCP 集成 | `agent` `anthropic` `sdk` |
+| [高级工具使用](concepts/anthropic-advanced-tool-use.md) | Tool Search（按需发现）、Programmatic Tool Calling、Tool Use Examples | `agent` `anthropic` `tool-use` |
+| [为 Agent 编写工具](concepts/anthropic-writing-tools-for-agents.md) | 工具原型设计、评估、6 条核心原则 | `agent` `anthropic` `tool-use` |
+| [Think 工具](concepts/anthropic-think-tool.md) | 复杂工具调用前的专用思考步骤 | `agent` `anthropic` `reasoning` |
+| [Agent Skills](concepts/anthropic-agent-skills.md) | SKILL.md 文件和渐进式披露机制 | `agent` `anthropic` `skills` |
+| [上下文工程](concepts/anthropic-context-engineering.md) | 上下文衰减、注意力预算、上下文检索与压缩 | `agent` `anthropic` `context` |
+| [上下文检索](concepts/anthropic-contextual-retrieval.md) | Contextual Embeddings + BM25 + 重排序 | `agent` `anthropic` `retrieval` |
+| [长运行 Agent Harness](concepts/anthropic-harnesses-long-running-agents.md) | 初始化器、进度追踪、环境管理 | `agent` `anthropic` `harness` |
+| [多 Agent 研究系统](concepts/anthropic-multi-agent-research-system.md) | 架构设计与实践经验 | `agent` `anthropic` `multi-agent` |
+| [MCP 代码执行](concepts/anthropic-code-execution-mcp.md) | 通过 Model Context Protocol 运行代码 | `agent` `anthropic` `mcp` |
+| [Agent 评估方法论](concepts/anthropic-demystifying-evals.md) | 评估指标、LLM-as-Judge、真实场景测试 | `agent` `anthropic` `evaluation` |
+| [Claude Code 沙箱化](concepts/anthropic-claude-code-sandboxing.md) | 安全执行 Bash 和云端运行 | `agent` `anthropic` `security` |
+| [Agentic Coding 最佳实践](concepts/anthropic-agentic-coding-best-practices.md) | Claude Code 使用指南 | `agent` `anthropic` `coding` |
+| [三起生产事故复盘](concepts/anthropic-postmortem-three-issues.md) | 路由错误、输出损坏、XLA 编译器 Bug | `anthropic` `incident` `postmortem` |
 
 ## 对比
 
@@ -41,4 +56,4 @@ title: LLM Wiki
 
 ---
 
-*共 9 个条目 · 最后更新：2026-05-05*
+*共 24 个条目 · 最后更新：2026-05-05*
