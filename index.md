@@ -2,7 +2,7 @@
      2|
      3|> 内容目录。每个 Wiki 页面按类型列出，附一行摘要。
      4|> 先看这里来找到相关页面。
-     5|> Last updated: 2026-05-11 | Total pages: 26
+     5|> Last updated: 2026-05-11 | Total pages: 27
      6|
      7|## Entities
      8|<!-- 按字母排序 -->
@@ -35,6 +35,7 @@
     19|
 ## Comparisons
 - [[prompt-cache-design-for-agents]] — Agent 提示词缓存设计：OpenCode/Aider/Claude Code 缓存策略对比、缓存友好 Prompt 最佳实践
+- [[hermes-vs-aider-prompt-caching]] — Hermes Agent vs Aider 提示词缓存设计对比：冻结策略、多 Provider 适配、cache warming
 - [[a2a-vs-mcp]]
     22|
     23|## Queries

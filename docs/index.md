@@ -42,6 +42,7 @@ title: LLM Wiki
 | 条目 | 摘要 | 标签 |
 |------|------|------|
 | [Agent 提示词缓存设计](prompt-cache-design-for-agents.md) | OpenCode/Aider/Claude Code 缓存策略对比、缓存友好 Prompt 最佳实践 | `inference` `agent` `open-source` |
+| [Hermes vs Aider 缓存对比](comparisons/hermes-vs-aider-prompt-caching.md) | Hermes Agent vs Aider 提示词缓存设计对比：冻结策略、多 Provider 适配、cache warming | `inference` `agent` `open-source` |
 | [A2A vs MCP](a2a-vs-mcp.md) | A2A 与 MCP 全面对比：定位、交互模式、适用场景、采纳现状 | `protocol` `comparison` |
 
 ## 实体
@@ -58,4 +59,4 @@ title: LLM Wiki
 
 ---
 
-*共 26 个条目 · 最后更新：2026-05-11*
+*共 27 个条目 · 最后更新：2026-05-11*

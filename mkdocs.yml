@@ -88,6 +88,7 @@ nav:
     - Postmortem Three Issues: concepts/anthropic-postmortem-three-issues.md
   - 对比:
     - Agent 提示词缓存设计: prompt-cache-design-for-agents.md
+    - Hermes vs Aider 缓存对比: comparisons/hermes-vs-aider-prompt-caching.md
     - A2A vs MCP: a2a-vs-mcp.md
   - Wiki 规范: SCHEMA.md
 
