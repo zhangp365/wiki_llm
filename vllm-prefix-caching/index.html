@@ -12,31 +12,31 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/anthropic-agent-skills/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/vllm-prefix-caching/">
       
       
-        <link rel="prev" href="../anthropic-think-tool/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../anthropic-context-engineering/">
+        <link rel="next" href="../a2a-protocol/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>使用 Agent Skills 为 Agent 装备真实世界能力 - LLM Wiki</title>
+        <title>vLLM Prefix Caching - LLM Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -79,11 +79,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#agent-skills-agent" class="md-skip">
-          跳转至
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -96,7 +91,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href=".." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              使用 Agent Skills 为 Agent 装备真实世界能力
+              vLLM Prefix Caching
             
           </span>
         </div>
@@ -239,7 +234,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href=".." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -269,7 +264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -397,10 +392,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../vllm-prefix-caching/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -416,6 +418,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -428,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../a2a-protocol/" class="md-nav__link">
+      <a href="../a2a-protocol/" class="md-nav__link">
         
   
   
@@ -456,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../a2a-task-state-machine/" class="md-nav__link">
+      <a href="../a2a-task-state-machine/" class="md-nav__link">
         
   
   
@@ -484,7 +487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../a2a-security-analysis/" class="md-nav__link">
+      <a href="../a2a-security-analysis/" class="md-nav__link">
         
   
   
@@ -512,7 +515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../a2a-ecosystem/" class="md-nav__link">
+      <a href="../a2a-ecosystem/" class="md-nav__link">
         
   
   
@@ -540,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../acp-protocol/" class="md-nav__link">
+      <a href="../acp-protocol/" class="md-nav__link">
         
   
   
@@ -568,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../acp-stdio-auth-flow/" class="md-nav__link">
+      <a href="../acp-stdio-auth-flow/" class="md-nav__link">
         
   
   
@@ -596,7 +599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hermes-agent-memory-architecture/" class="md-nav__link">
+      <a href="../hermes-agent-memory-architecture/" class="md-nav__link">
         
   
   
@@ -624,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chromafs-virtual-filesystem/" class="md-nav__link">
+      <a href="../concepts/chromafs-virtual-filesystem/" class="md-nav__link">
         
   
   
@@ -652,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-building-effective-agents/" class="md-nav__link">
+      <a href="../concepts/anthropic-building-effective-agents/" class="md-nav__link">
         
   
   
@@ -680,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-building-agents-agent-sdk/" class="md-nav__link">
+      <a href="../concepts/anthropic-building-agents-agent-sdk/" class="md-nav__link">
         
   
   
@@ -708,7 +711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-advanced-tool-use/" class="md-nav__link">
+      <a href="../concepts/anthropic-advanced-tool-use/" class="md-nav__link">
         
   
   
@@ -736,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-writing-tools-for-agents/" class="md-nav__link">
+      <a href="../concepts/anthropic-writing-tools-for-agents/" class="md-nav__link">
         
   
   
@@ -764,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-think-tool/" class="md-nav__link">
+      <a href="../concepts/anthropic-think-tool/" class="md-nav__link">
         
   
   
@@ -789,37 +792,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Agent Skills
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../concepts/anthropic-agent-skills/" class="md-nav__link">
         
   
   
@@ -835,103 +811,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#skill" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skill 的结构
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#skills-context-window" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skills 和 Context Window
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#skills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skills 和代码执行
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#skills_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        开发和评估 Skills
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#skills_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        使用 Skills 的安全注意事项
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#skills_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skills 的未来
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        致谢
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -944,7 +823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-context-engineering/" class="md-nav__link">
+      <a href="../concepts/anthropic-context-engineering/" class="md-nav__link">
         
   
   
@@ -972,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-contextual-retrieval/" class="md-nav__link">
+      <a href="../concepts/anthropic-contextual-retrieval/" class="md-nav__link">
         
   
   
@@ -1000,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-harnesses-long-running-agents/" class="md-nav__link">
+      <a href="../concepts/anthropic-harnesses-long-running-agents/" class="md-nav__link">
         
   
   
@@ -1028,7 +907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-multi-agent-research-system/" class="md-nav__link">
+      <a href="../concepts/anthropic-multi-agent-research-system/" class="md-nav__link">
         
   
   
@@ -1056,7 +935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-code-execution-mcp/" class="md-nav__link">
+      <a href="../concepts/anthropic-code-execution-mcp/" class="md-nav__link">
         
   
   
@@ -1084,7 +963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-demystifying-evals/" class="md-nav__link">
+      <a href="../concepts/anthropic-demystifying-evals/" class="md-nav__link">
         
   
   
@@ -1112,7 +991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-claude-code-sandboxing/" class="md-nav__link">
+      <a href="../concepts/anthropic-claude-code-sandboxing/" class="md-nav__link">
         
   
   
@@ -1140,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-agentic-coding-best-practices/" class="md-nav__link">
+      <a href="../concepts/anthropic-agentic-coding-best-practices/" class="md-nav__link">
         
   
   
@@ -1168,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-postmortem-three-issues/" class="md-nav__link">
+      <a href="../concepts/anthropic-postmortem-three-issues/" class="md-nav__link">
         
   
   
@@ -1261,7 +1140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../prompt-cache-design-for-agents/" class="md-nav__link">
+      <a href="../prompt-cache-design-for-agents/" class="md-nav__link">
         
   
   
@@ -1289,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../a2a-vs-mcp/" class="md-nav__link">
+      <a href="../a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -1324,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../SCHEMA/" class="md-nav__link">
+      <a href="../SCHEMA/" class="md-nav__link">
         
   
   
@@ -1361,93 +1240,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#skill" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skill 的结构
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#skills-context-window" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skills 和 Context Window
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#skills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skills 和代码执行
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#skills_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        开发和评估 Skills
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#skills_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        使用 Skills 的安全注意事项
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#skills_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skills 的未来
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        致谢
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1472,7 +1264,7 @@
   
   
     <li class="md-path__item">
-      <a href="../.." class="md-path__link">
+      <a href=".." class="md-path__link">
         
   <span class="md-ellipsis">
     首页
@@ -1490,7 +1282,7 @@
     
     
       <li class="md-path__item">
-        <a href="../../vllm-prefix-caching/" class="md-path__link">
+        <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
     概念
@@ -1515,69 +1307,135 @@
   
 
 
-<h1 id="agent-skills-agent">使用 Agent Skills 为 Agent 装备真实世界能力<a class="headerlink" href="#agent-skills-agent" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>原文链接: <a href="https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills">English Original</a></p>
-</blockquote>
-<p><em>Engineering at Anthropic</em></p>
-<p>发布于 2025年10月16日</p>
-<p>Claude 很强大，但真实工作需要程序性知识和组织上下文。推出 Agent Skills——一种使用文件和文件夹构建专业化 agent 的新方法。</p>
-<blockquote>
-<p><strong>更新：</strong> 我们已将 Agent Skills 作为跨平台可移植性的开放标准发布。（2025年12月18日）</p>
-</blockquote>
-<p>随着模型能力的提升，我们现在可以构建与完整计算环境交互的通用 agent。例如，Claude Code 可以使用本地代码执行和文件系统跨领域完成复杂任务。但随着这些 agent 变得更加强大，我们需要更加可组合、可扩展和可移植的方式来为它们配备领域专业知识。</p>
-<p>这促使我们创建了 Agent Skills：有组织的指令、脚本和资源文件夹，agent 可以动态发现和加载这些内容以更好地执行特定任务。Skills 通过将你的专业知识打包成可组合的资源来扩展 Claude 的能力，将通用 agent 转变为满足你需求的专业化 agent。</p>
-<p>为 agent 构建 skill 就像为新人准备入职指南。与其为每个用例构建碎片化的、定制设计的 agent，任何人现在都可以通过捕获和共享他们的程序性知识来用可组合的能力专业化他们的 agent。在本文中，我们将解释 Skills 是什么，展示它们如何工作，并分享构建你自己的 skill 的最佳实践。</p>
-<p>Skill 是一个包含 <code>SKILL.md</code> 文件的目录，该文件包含有组织的指令、脚本和资源文件夹，赋予 agent 额外能力。</p>
-<h2 id="skill">Skill 的结构<a class="headerlink" href="#skill" title="Permanent link">&para;</a></h2>
-<p>要看到 Skills 的实际应用，让我们来看一个真实的例子：驱动 Claude 最近推出的文档编辑能力的 skill 之一。Claude 已经对理解 PDF 有了很多了解，但在直接操作它们方面能力有限（例如填写表格）。这个 PDF skill 让我们能够赋予 Claude 这些新能力。</p>
-<p>最简单的情况下，skill 是一个包含 <code>SKILL.md</code> 文件的目录。该文件必须以包含一些必需元数据的 YAML frontmatter 开始：<code>name</code> 和 <code>description</code>。在启动时，agent 将每个已安装 skill 的名称和描述预加载到其系统提示中。</p>
-<p>此元数据是渐进式信息披露的第一层：它为 Claude 提供了刚好足够的信息，使其知道何时应使用每个 skill，而无需将所有内容加载到上下文中。该文件的实际正文是第二层细节。如果 Claude 认为该 skill 与当前任务相关，它会通过将完整的 <code>SKILL.md</code> 读入上下文来加载该 skill。</p>
-<p><code>SKILL.md</code> 文件必须以包含文件名和描述的 YAML Frontmatter 开始，这些内容在启动时被加载到系统提示中。</p>
-<p>随着 skill 在复杂度上的增长，它们可能包含过多的上下文而无法放入单个 <code>SKILL.md</code> 中，或者包含仅在特定场景中相关的上下文。在这些情况下，skill 可以在 skill 目录中捆绑额外文件，并从 <code>SKILL.md</code> 中按名称引用它们。这些额外的链接文件是第三层（及更多层）细节，Claude 可以根据需要选择性地导航和发现。</p>
-<p>在下面显示的 PDF skill 中，<code>SKILL.md</code> 引用了 skill 作者选择与核心 <code>SKILL.md</code> 捆绑的两个额外文件（<code>reference.md</code> 和 <code>forms.md</code>）。通过将表格填写说明移到单独的文件（<code>forms.md</code>）中，skill 作者能够保持 skill 核心的精简，相信 Claude 只在填写表格时才会读取 <code>forms.md</code>。</p>
-<p>你可以在 skill 中纳入更多上下文（通过额外文件），然后根据需要由 Claude 动态发现。</p>
-<h2 id="skills-context-window">Skills 和 Context Window<a class="headerlink" href="#skills-context-window" title="Permanent link">&para;</a></h2>
-<p>下图展示了当 skill 被用户消息触发时 context window 如何变化。</p>
-<p>Skills 通过你的系统提示在 context window 中被触发。所示操作序列为：</p>
-<ul>
-<li>首先，context window 包含核心系统提示和每个已安装 skill 的元数据，以及用户的初始消息。</li>
-<li>Claude 通过调用 Bash 工具读取 <code>pdf/SKILL.md</code> 的内容来触发 PDF skill。</li>
-<li>Claude 选择读取与 skill 捆绑的 <code>forms.md</code> 文件。</li>
-<li>最后，Claude 在从 PDF skill 加载了相关指令后继续执行用户的任务。</li>
-</ul>
-<h2 id="skills">Skills 和代码执行<a class="headerlink" href="#skills" title="Permanent link">&para;</a></h2>
-<p>Skills 还可以包含让 Claude 作为工具自行决定执行的代码。</p>
-<p>大型语言模型在许多任务上表现出色，但某些操作更适合传统代码执行。例如，通过 token 生成排序列表远比运行排序算法昂贵得多。除了效率考虑，许多应用需要只有代码才能提供的确定性可靠性。</p>
-<p>在我们的示例中，PDF skill 包含一个预先编写的 Python 脚本，用于读取 PDF 并提取所有表格字段。Claude 可以运行此脚本而无需将脚本或 PDF 加载到上下文中。而且因为代码是确定性的，这个工作流是一致且可重复的。Skills 还可以包含让 Claude 根据任务性质自行决定作为工具执行的代码。</p>
-<h2 id="skills_1">开发和评估 Skills<a class="headerlink" href="#skills_1" title="Permanent link">&para;</a></h2>
-<p>以下是一些关于开始编写和测试 skills 的有用指南：</p>
-<ul>
-<li><strong>从评估开始</strong>：通过在代表性任务上运行 agent 并观察它们在哪些地方遇到困难或需要额外上下文来识别 agent 能力中的具体差距。然后逐步构建 skills 来解决这些不足。</li>
-<li><strong>为扩展而结构化</strong>：当 <code>SKILL.md</code> 文件变得难以管理时，将其内容拆分为单独的文件并引用它们。如果某些上下文是互斥的或很少一起使用，保持路径分开将减少 token 使用量。最后，代码既可以作为可执行工具，也可以作为文档。应该明确 Claude 是应该直接运行脚本还是将它们作为参考读入上下文。</li>
-<li><strong>从 Claude 的角度思考</strong>：监控 Claude 在真实场景中如何使用你的 skill，并根据观察进行迭代：注意意外的轨迹或对某些上下文的过度依赖。特别关注你的 skill 的名称和描述。Claude 在决定是否根据当前任务触发 skill 时会使用这些信息。</li>
-<li><strong>与 Claude 一起迭代</strong>：当你与 Claude 一起处理任务时，让 Claude 将其成功的方法和常见错误捕获到 skill 中可重用的上下文和代码中。如果 Claude 在使用 skill 完成任务时偏离轨道，让它自我反思哪里出了问题。这个过程将帮助你发现 Claude 实际需要什么上下文，而不是试图提前预判。</li>
-</ul>
-<h2 id="skills_2">使用 Skills 的安全注意事项<a class="headerlink" href="#skills_2" title="Permanent link">&para;</a></h2>
-<p>Skills 通过指令和代码为 Claude 提供新能力。虽然这使它们很强大，但也意味着恶意 skill 可能在使用环境中引入漏洞，或指示 Claude 窃取数据和执行非预期操作。</p>
-<p>我们建议仅从可信来源安装 skills。当从较不可信的来源安装 skill 时，在使用前应彻底审计。首先阅读 skill 中捆绑文件的内容以了解其功能，特别关注代码依赖项和捆绑的资源（如图像或脚本）。同样，注意 skill 中指示 Claude 连接到潜在不可信外部网络源的指令或代码。</p>
-<h2 id="skills_3">Skills 的未来<a class="headerlink" href="#skills_3" title="Permanent link">&para;</a></h2>
-<p>Agent Skills 目前已在 Claude.ai、Claude Code、Claude Agent SDK 和 Claude Developer Platform 中得到支持。</p>
-<p>在未来几周，我们将继续添加支持创建、编辑、发现、共享和使用 Skills 全生命周期的新功能。我们对 Skills 帮助组织和个人与 Claude 共享其上下文和工作流的机会感到特别兴奋。我们还将探索 Skills 如何补充 Model Context Protocol（MCP） server，通过教导 agent 涉及外部工具和软件的更复杂工作流。</p>
-<p>展望更远的未来，我们希望让 agent 能够自主创建、编辑和评估 Skills，让它们将自己的行为模式编码为可重用的能力。</p>
-<p>Skills 是一个简单的概念，具有相应简单的格式。这种简单性使组织、开发者和终端用户更容易构建定制化的 agent 并赋予它们新能力。</p>
-<p>我们期待看到人们用 Skills 构建什么。今天就通过查看我们的 Skills 文档和 cookbook 开始吧。</p>
-<h2 id="_1">致谢<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>由 Barry Zhang、Keith Lazuka 和 Mahesh Murag 撰写，他们都非常喜欢文件夹。特别感谢 Anthropic 内部许多倡导、支持和构建 Skills 的其他人。</p>
+  <h1>vLLM Prefix Caching</h1>
+
+<pre><code> 1|---
+ 2|title: vLLM KV Cache 与 Prefix Caching 命中机制
+ 3|created: 2026-05-11
+ 4|updated: 2026-05-11
+ 5|type: concept
+ 6|tags: [inference, open-source, architecture, comparison]
+ 7|sources: []
+ 8|---
+ 9|
+10|# vLLM KV Cache 与 Prefix Caching 命中机制
+11|
+12|## 概述
+13|
+14|vLLM 的缓存体系由两层组成：底层的 PagedAttention 和上层的 Automatic Prefix Caching (APC)。在 Agent 多轮工具调用场景下，缓存命中率取决于共享前缀占总输入的比例，理论上最高可达 ~95%，但受 block 对齐粒度和调度策略限制，实际通常在 70-90%。
+15|
+16|## 核心架构
+17|
+18|### PagedAttention（基础层）
+19|
+20|借鉴 OS 虚拟内存分页思想：
+21|- KV cache 切分为固定大小的 block（默认 16 tokens）
+22|- 每个请求维护一个 block table（类似页表）
+23|- 避免连续内存分配造成的碎片化
+24|- 支持跨请求共享 block（只读 COW 语义）
+25|
+26|### Automatic Prefix Caching（APC，缓存命中层）
+27|
+28|- 开启方式：`--enable-prefix-caching`
+29|- 工作原理：对每个 block 计算 hash（基于 token 内容），新请求到来时逐 block 匹配已缓存 hash
+30|- 匹配到的 block 直接复用，跳过 prefill 计算
+31|- **粒度：block 级别（16 tokens 对齐）**，不是 token 级别
+32|
+33|## Agent 工具调用场景的缓存命中
+34|
+35|Agent 场景非常适合 prefix caching，每次工具调用重复发送：
+36|- System prompt（不变）
+37|- Tool definitions/Schema（不变，通常 3K-15K tokens）
+38|- 之前的多轮对话历史（累积增长）
+39|
+40|### 理论命中率公式
+41|
+42|```
+43|Hit Rate ≈ [2P + U×(N-1)] / [2P + U×(N+1)]
+44|```
+45|- P = 共享前缀大小（system prompt + tools）
+46|- U = 每轮新增 unique tokens
+47|- N = 轮次
+48|
+49|### 实际命中率估算
+50|
+51|| 场景 | 前缀占比 | vLLM APC | SGLang RadixAttention |
+52||------|---------|----------|----------------------|
+53|| 大 system prompt + 多 tools (10K+ tokens) | 极高 | **90-95%** | **95-99%** |
+54|| 中等 tools (3K-5K tokens) | 高 | **75-90%** | **85-95%** |
+55|| 少量 tools (&lt;1K tokens) | 中 | **50-70%** | **60-80%** |
+56|
+57|### 多轮缓存命中率衰减
+58|
+59|以 system + tools = 10K tokens，每轮新增 ~1K tokens 为例：
+60|
+61|| 轮次 | 总输入 tokens | 可缓存 tokens | 命中率 |
+62||------|-------------|-------------|--------|
+63|| Turn 2 | ~11K | ~10K | **~91%** |
+64|| Turn 5 | ~14K | ~10K | **~71%** |
+65|| Turn 10 | ~19K | ~10K | **~53%** |
+66|| Turn 20 | ~29K | ~10K | **~34%** |
+67|
+68|## vLLM vs SGLang 关键差距
+69|
+70|| 特性 | vLLM APC | SGLang RadixAttention |
+71||------|----------|----------------------|
+72|| 缓存粒度 | Block 级（16 tokens） | Token 级（Radix Tree） |
+73|| 缓存生成输出 | ❌ 不支持 | ✅ 自动缓存 |
+74|| 调度策略 | FCFS（无缓存亲和性） | Cache-aware 重排序 |
+75|| 多轮对话 | 部分支持 | 完整支持 |
+76|| 开启方式 | 需手动 flag | 默认开启 |
+77|
+78|SGLang 在 Agent 工作负载上通常领先 vLLM **10-30% 吞吐量**，核心原因是 RadixAttention 会主动重排请求调度顺序来最大化缓存命中。实现基于 LMSYS 团队的 radix tree 数据结构，将 token 序列映射到 KV tensor，自动处理 prefix 匹配、复用和 LRU 淘汰。
+79|
+80|## 已知 Bug 和问题
+81|
+82|### 关键 Bug
+83|
+84|1. **#42019** — `prompt_logprobs` 在 prefix caching 开启时结果不确定，依赖请求到达顺序。修复 PR #42245 待合并。
+85|
+86|2. **#38182** — MTP（Multi-Token Prediction）speculative decoding 与 prefix caching 冲突，命中率从 ~92% 暴降到 ~71%，未解决。
+87|
+88|3. **#39702** — CPU offload scheduler 存在 TOCTOU 竞态条件，长时间运行会导致 server crash。
+89|
+90|### 性能问题
+91|
+92|4. **#23444（13 条评论）** — 当 KV cache 利用率到 ~99% 时吞吐量崩塌。大 prompt 会驱逐大量小对话共享的缓存前缀（"缓存雪崩"）。
+93|
+94|5. **#39806** — 推理模型（如 DeepSeek-R1）的 thinking tokens 产生大量死缓存分支，50 个并发对话浪费 65-80GB 显存。SGLang 已修复，vLLM PR 仍在 open。
+95|
+96|6. **RFC #42185** — V1 调度器用 FCFS 排序，完全不感知缓存亲和性，这是 Agent 场景命中率上不去的架构根因。
+97|
+98|## 业界观点
+99|
+</code></pre>
+<p>100|- <strong>SGLang 的 RadixAttention 被公认为 Agent 场景最优方案</strong>，vLLM GitHub issues 里多个用户明确表示因缓存问题切换到 SGLang
+   101|- <strong>vLLM 团队 V2 架构计划</strong>引入类似 RadixAttention 的 token 级缓存，但时间表未定
+   102|- <strong>TensorRT-LLM</strong> 在单请求延迟上可能更优，但 Agent 多轮缓存场景公开对比数据很少
+   103|- <strong>社区共识</strong>：纯 Agent/多轮工具调用场景选 SGLang，单轮高并发场景 vLLM 仍然很强
+   104|
+   105|## 缓存友好的 Prompt 设计最佳实践
+   106|
+   107|所有 prefix caching 方案（vLLM APC、SGLang、Anthropic、OpenAI）都基于前缀匹配。因此：
+   108|
+   109|1. <strong>System prompt 放最前面，Tool 定义放第二位，历史放第三，当前消息放最后</strong>
+   110|2. <strong>工具定义按固定顺序排列</strong>（按名称字母排序），避免序列化顺序变化破坏前缀匹配
+   111|3. <strong>不在 system prompt 中注入动态内容</strong>（时间戳、请求 ID、随机数）
+   112|4. <strong>只 append 新消息到末尾，绝不 prepend 或重排</strong>
+   113|5. <strong>考虑做 cache warming</strong>：发 <code>max_tokens=1</code> 的保活请求防止 TTL 过期
+   114|
+   115|## 相关页面
+   116|
+   117|- <a href="../prompt-cache-design-for-agents/">Agent 提示词缓存设计模式</a> — Agent 提示词缓存设计模式与业界对比
+   118|- <a href="../concepts/anthropic-context-engineering/">上下文工程</a> — 高效上下文工程
+   119|- <a href="../concepts/anthropic-advanced-tool-use/">高级工具使用</a> — Claude 高级工具使用
+   120|</p>
 
 
 
 
 
 
-
-  
-  
 
 
 
@@ -1643,10 +1501,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
