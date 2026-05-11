@@ -2,13 +2,14 @@
      2|
      3|> 内容目录。每个 Wiki 页面按类型列出，附一行摘要。
      4|> 先看这里来找到相关页面。
-     5|> Last updated: 2026-05-05 | Total pages: 24
+     5|> Last updated: 2026-05-11 | Total pages: 26
      6|
      7|## Entities
      8|<!-- 按字母排序 -->
      9|
-    10|## Concepts
-    11|- [[a2a-protocol]] — A2A 协议完整详解：数据模型、会话机制、消息流转、RPC 方法、注意点
+## Concepts
+- [[vllm-prefix-caching]] — vLLM KV Cache 与 Prefix Caching：PagedAttention、APC 机制、Agent 场景命中率、已知 Bug、vs SGLang 对比
+- [[a2a-protocol]]
     12|- [[a2a-task-state-machine]] — Task 状态机：8 个状态、转换规则、v0.3→v1.0 变更
     13|- [[a2a-security-analysis]] — 10 个已知安全缺口：Prompt 注入、AgentCard 投毒、会话走私
     14|- [[a2a-ecosystem]] — 生态工具链：Waggle、A2Apex、EDDI、实际部署案例
@@ -32,8 +33,9 @@
 - [[anthropic-postmortem-three-issues]] — Anthropic 三起生产事故复盘：路由错误、输出损坏、XLA 编译器 Bug
 - [[chromafs-virtual-filesystem]] — Mintlify ChromaFs：虚拟文件系统让 Agent 用 UNIX 命令探索文档，替代昂贵的 sandbox
     19|
-    20|## Comparisons
-    21|- [[a2a-vs-mcp]] — A2A 与 MCP 全面对比：定位、交互模式、适用场景、采纳现状
+## Comparisons
+- [[prompt-cache-design-for-agents]] — Agent 提示词缓存设计：OpenCode/Aider/Claude Code 缓存策略对比、缓存友好 Prompt 最佳实践
+- [[a2a-vs-mcp]]
     22|
     23|## Queries
     24|

@@ -62,6 +62,7 @@ markdown_extensions:
 nav:
   - 首页: index.md
   - 概念:
+    - vLLM Prefix Caching: vllm-prefix-caching.md
     - A2A 协议详解: a2a-protocol.md
     - Task 状态机: a2a-task-state-machine.md
     - A2A 安全分析: a2a-security-analysis.md
@@ -86,6 +87,7 @@ nav:
     - Agentic Coding Best Practices: concepts/anthropic-agentic-coding-best-practices.md
     - Postmortem Three Issues: concepts/anthropic-postmortem-three-issues.md
   - 对比:
+    - Agent 提示词缓存设计: prompt-cache-design-for-agents.md
     - A2A vs MCP: a2a-vs-mcp.md
   - Wiki 规范: SCHEMA.md
 

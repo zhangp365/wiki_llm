@@ -12,6 +12,7 @@ title: LLM Wiki
 
 | 条目 | 摘要 | 标签 |
 |------|------|------|
+| [vLLM Prefix Caching](vllm-prefix-caching.md) | PagedAttention、APC 机制、Agent 场景命中率、已知 Bug、vs SGLang | `inference` `open-source` `architecture` |
 | [A2A 协议详解](a2a-protocol.md) | A2A 协议完整详解：数据模型、会话机制、消息流转、RPC 方法 | `protocol` `agent` `architecture` |
 | [Task 状态机](a2a-task-state-machine.md) | Task 状态机：8 个状态、转换规则、v0.3→v1.0 变更 | `protocol` `agent` |
 | [A2A 安全分析](a2a-security-analysis.md) | 10 个已知安全缺口：Prompt 注入、AgentCard 投毒、会话走私 | `protocol` `security` |
@@ -28,7 +29,7 @@ title: LLM Wiki
 | [Agent Skills](concepts/anthropic-agent-skills.md) | SKILL.md 文件和渐进式披露机制 | `agent` `anthropic` `skills` |
 | [上下文工程](concepts/anthropic-context-engineering.md) | 上下文衰减、注意力预算、上下文检索与压缩 | `agent` `anthropic` `context` |
 | [上下文检索](concepts/anthropic-contextual-retrieval.md) | Contextual Embeddings + BM25 + 重排序 | `agent` `anthropic` `retrieval` |
-| [长运行 Agent Harness](concepts/anthropic-harnesses-long-running-agents.md) | 初始化器、进度追踪、环境管理 | `agent` `anthropic` `harness` |
+| [长运行 Agent Harness](concepts/anthropic-harnesses-long-long-running-agents.md) | 初始化器、进度追踪、环境管理 | `agent` `anthropic` `harness` |
 | [多 Agent 研究系统](concepts/anthropic-multi-agent-research-system.md) | 架构设计与实践经验 | `agent` `anthropic` `multi-agent` |
 | [MCP 代码执行](concepts/anthropic-code-execution-mcp.md) | 通过 Model Context Protocol 运行代码 | `agent` `anthropic` `mcp` |
 | [Agent 评估方法论](concepts/anthropic-demystifying-evals.md) | 评估指标、LLM-as-Judge、真实场景测试 | `agent` `anthropic` `evaluation` |
@@ -40,6 +41,7 @@ title: LLM Wiki
 
 | 条目 | 摘要 | 标签 |
 |------|------|------|
+| [Agent 提示词缓存设计](prompt-cache-design-for-agents.md) | OpenCode/Aider/Claude Code 缓存策略对比、缓存友好 Prompt 最佳实践 | `inference` `agent` `open-source` |
 | [A2A vs MCP](a2a-vs-mcp.md) | A2A 与 MCP 全面对比：定位、交互模式、适用场景、采纳现状 | `protocol` `comparison` |
 
 ## 实体
@@ -56,4 +58,4 @@ title: LLM Wiki
 
 ---
 
-*共 24 个条目 · 最后更新：2026-05-05*
+*共 26 个条目 · 最后更新：2026-05-11*

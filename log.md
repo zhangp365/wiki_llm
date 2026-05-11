@@ -79,3 +79,13 @@
 - 同步 docs/ 目录（15 个文件，wikilinks → 标准 markdown 链接）
 - 更新 index.md（24 个页面）、mkdocs.yml nav、docs/index.md
 - 总计: 15 raw + 15 wiki pages
+
+## [2026-05-11] ingest | vLLM 缓存机制 + Agent 提示词缓存设计（2 篇）
+- 来源: vLLM GitHub issues/docs + SGLang 论文/LMSYS Blog + OpenCode 源码分析 + Aider 源码分析 + Anthropic Blog
+- 无原始来源文件（综合研究，非单篇文章 ingest）
+- 创建 Wiki 页面:
+  - concepts/vllm-prefix-caching.md — vLLM KV Cache 与 Prefix Caching：PagedAttention、APC 机制、Agent 场景命中率、已知 Bug、vs SGLang 对比
+  - comparisons/prompt-cache-design-for-agents.md — Agent 提示词缓存设计：OpenCode/Aider/Claude Code 缓存策略对比、缓存友好 Prompt 最佳实践
+- 同步 docs/ 目录（2 个文件，wikilinks → 标准 markdown 链接）
+- 更新 index.md（26 个页面）、docs/index.md、mkdocs.yml nav
+- 总计: 0 raw + 2 wiki pages
