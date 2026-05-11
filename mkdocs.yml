@@ -86,6 +86,7 @@ nav:
     - Claude Code Sandboxing: concepts/anthropic-claude-code-sandboxing.md
     - Agentic Coding Best Practices: concepts/anthropic-agentic-coding-best-practices.md
     - Postmortem Three Issues: concepts/anthropic-postmortem-three-issues.md
+    - The Era of Experience（体验时代）: concepts/era-of-experience.md
   - 对比:
     - Agent 提示词缓存设计: prompt-cache-design-for-agents.md
     - Hermes vs Aider 缓存对比: comparisons/hermes-vs-aider-prompt-caching.md

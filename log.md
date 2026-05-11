@@ -98,3 +98,10 @@
 - 同步 docs/ 目录（1 个文件，wikilinks → 标准 markdown 链接）
 - 更新 index.md（27 个页面）、docs/index.md、mkdocs.yml nav
 - 总计: 0 raw + 1 wiki page
+
+## [2026-05-11] ingest | The Era of Experience — David Silver
+- Created concepts/era-of-experience.md
+- Saved raw transcript to raw/articles/deepmind-era-of-experience-podcast-2025.md
+- Updated index.md (28 entries)
+- Updated mkdocs.yml nav
+- Sources: Google DeepMind Podcast, 腾讯新闻翻译

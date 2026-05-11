@@ -35,7 +35,8 @@ title: LLM Wiki
 | [Agent 评估方法论](concepts/anthropic-demystifying-evals.md) | 评估指标、LLM-as-Judge、真实场景测试 | `agent` `anthropic` `evaluation` |
 | [Claude Code 沙箱化](concepts/anthropic-claude-code-sandboxing.md) | 安全执行 Bash 和云端运行 | `agent` `anthropic` `security` |
 | [Agentic Coding 最佳实践](concepts/anthropic-agentic-coding-best-practices.md) | Claude Code 使用指南 | `agent` `anthropic` `coding` |
-| [三起生产事故复盘](concepts/anthropic-postmortem-three-issues.md) | 路由错误、输出损坏、XLA 编译器 Bug | `anthropic` `incident` `postmortem` |
+|| [三起生产事故复盘](concepts/anthropic-postmortem-three-issues.md) | 路由错误、输出损坏、XLA 编译器 Bug | `anthropic` `incident` `postmortem` |
+|| [The Era of Experience（体验时代）](concepts/era-of-experience.md) | David Silver：从人类数据时代到体验时代，AlphaZero/AlphaProof 的经验驱动路径 | `rl` `deepmind` `alpha` `reasoning` |
 
 ## 对比
 
@@ -59,4 +60,4 @@ title: LLM Wiki
 
 ---
 
-*共 27 个条目 · 最后更新：2026-05-11*
+*共 28 个条目 · 最后更新：2026-05-11*
