@@ -12,13 +12,13 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/anthropic-harnesses-long-running-agents/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/comparisons/hermes-vs-aider-prompt-caching/">
       
       
-        <link rel="prev" href="../anthropic-contextual-retrieval/">
+        <link rel="prev" href="../../prompt-cache-design-for-agents/">
       
       
-        <link rel="next" href="../anthropic-multi-agent-research-system/">
+        <link rel="next" href="../../a2a-vs-mcp/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>面向长时间运行 Agent 的有效 Harness - LLM Wiki</title>
+        <title>Hermes vs Aider 缓存对比 - LLM Wiki</title>
       
     
     
@@ -79,11 +79,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#agent-harness" class="md-skip">
-          跳转至
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -116,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              面向长时间运行 Agent 的有效 Harness
+              Hermes vs Aider 缓存对比
             
           </span>
         </div>
@@ -293,10 +288,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -357,11 +350,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -382,7 +375,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -624,7 +617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chromafs-virtual-filesystem/" class="md-nav__link">
+      <a href="../../concepts/chromafs-virtual-filesystem/" class="md-nav__link">
         
   
   
@@ -652,7 +645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-building-effective-agents/" class="md-nav__link">
+      <a href="../../concepts/anthropic-building-effective-agents/" class="md-nav__link">
         
   
   
@@ -680,7 +673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-building-agents-agent-sdk/" class="md-nav__link">
+      <a href="../../concepts/anthropic-building-agents-agent-sdk/" class="md-nav__link">
         
   
   
@@ -708,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-advanced-tool-use/" class="md-nav__link">
+      <a href="../../concepts/anthropic-advanced-tool-use/" class="md-nav__link">
         
   
   
@@ -736,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-writing-tools-for-agents/" class="md-nav__link">
+      <a href="../../concepts/anthropic-writing-tools-for-agents/" class="md-nav__link">
         
   
   
@@ -764,7 +757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-think-tool/" class="md-nav__link">
+      <a href="../../concepts/anthropic-think-tool/" class="md-nav__link">
         
   
   
@@ -792,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-agent-skills/" class="md-nav__link">
+      <a href="../../concepts/anthropic-agent-skills/" class="md-nav__link">
         
   
   
@@ -820,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-context-engineering/" class="md-nav__link">
+      <a href="../../concepts/anthropic-context-engineering/" class="md-nav__link">
         
   
   
@@ -848,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-contextual-retrieval/" class="md-nav__link">
+      <a href="../../concepts/anthropic-contextual-retrieval/" class="md-nav__link">
         
   
   
@@ -873,37 +866,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Harnesses for Long-running Agents
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../concepts/anthropic-harnesses-long-running-agents/" class="md-nav__link">
         
   
   
@@ -919,142 +885,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        长时间运行 Agent 的问题
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        环境管理
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        功能列表
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        增量进展
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        测试
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        快速上手
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="快速上手">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#agent_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Agent 失败模式与解决方案总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        未来工作
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        致谢
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        脚注
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1067,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-multi-agent-research-system/" class="md-nav__link">
+      <a href="../../concepts/anthropic-multi-agent-research-system/" class="md-nav__link">
         
   
   
@@ -1095,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-code-execution-mcp/" class="md-nav__link">
+      <a href="../../concepts/anthropic-code-execution-mcp/" class="md-nav__link">
         
   
   
@@ -1123,7 +953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-demystifying-evals/" class="md-nav__link">
+      <a href="../../concepts/anthropic-demystifying-evals/" class="md-nav__link">
         
   
   
@@ -1151,7 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-claude-code-sandboxing/" class="md-nav__link">
+      <a href="../../concepts/anthropic-claude-code-sandboxing/" class="md-nav__link">
         
   
   
@@ -1179,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-agentic-coding-best-practices/" class="md-nav__link">
+      <a href="../../concepts/anthropic-agentic-coding-best-practices/" class="md-nav__link">
         
   
   
@@ -1207,7 +1037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-postmortem-three-issues/" class="md-nav__link">
+      <a href="../../concepts/anthropic-postmortem-three-issues/" class="md-nav__link">
         
   
   
@@ -1239,8 +1069,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1259,11 +1091,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -1284,7 +1116,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1327,10 +1159,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../comparisons/hermes-vs-aider-prompt-caching/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1346,6 +1185,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1430,132 +1270,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        长时间运行 Agent 的问题
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        环境管理
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        功能列表
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        增量进展
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        测试
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        快速上手
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="快速上手">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#agent_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Agent 失败模式与解决方案总结
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        未来工作
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        致谢
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        脚注
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1598,10 +1312,10 @@
     
     
       <li class="md-path__item">
-        <a href="../../vllm-prefix-caching/" class="md-path__link">
+        <a href="../../prompt-cache-design-for-agents/" class="md-path__link">
           
   <span class="md-ellipsis">
-    概念
+    对比
   </span>
 
         </a>
@@ -1623,122 +1337,197 @@
   
 
 
-<h1 id="agent-harness">面向长时间运行 Agent 的有效 Harness<a class="headerlink" href="#agent-harness" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>原文链接: <a href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents">English Original</a></p>
-</blockquote>
-<p>Agent 在跨多个 context window 工作时仍面临挑战。我们从人类工程师那里汲取灵感，为长时间运行的 Agent 创建了更有效的 harness。</p>
-<p>随着 AI Agent 变得更有能力，开发者越来越多地要求它们承担需要数小时甚至数天工作的复杂任务。然而，让 Agent 在多个 context window 中保持一致的进展仍然是一个开放性问题。</p>
-<p>长时间运行 Agent 的核心挑战在于，它们必须在离散的会话中工作，而每个新会话开始时都没有之前的记忆。想象一个由轮班工程师组成的软件项目，每个新工程师到来时都没有上一班发生了什么的记忆。由于 context window 是有限的，且大多数复杂项目无法在单个 window 中完成，Agent 需要一种方法来弥合编码会话之间的差距。</p>
-<p>我们开发了一个两方面的解决方案，使 Claude Agent SDK 能够在多个 context window 中有效工作：一个在首次运行时设置环境的 <strong>initializer agent</strong>，以及一个在每个会话中承担增量进展任务同时为下一个会话留下清晰记录的 <strong>coding agent</strong>。你可以在配套的 quickstart 中找到代码示例。</p>
-<h2 id="agent">长时间运行 Agent 的问题<a class="headerlink" href="#agent" title="Permanent link">&para;</a></h2>
-<p>Claude Agent SDK 是一个强大的通用 Agent harness，擅长编码以及其他需要模型使用工具收集 context、规划和执行的任务。它具有 context 管理功能，如 compaction，使 Agent 可以在不耗尽 context window 的情况下工作。理论上，在这种设置下，Agent 应该能够无限期地继续做有用的工作。</p>
-<p>然而，compaction 并不足够。开箱即用，即使是像 Opus 4.5 这样的前沿编码模型在 Claude Agent SDK 上跨多个 context window 循环运行，如果只给定一个高层级的 prompt（如"构建一个 claude.ai 的克隆"），也无法构建一个生产质量的 Web 应用。</p>
-<p>Claude 的失败表现为两种模式。首先，Agent 倾向于一次做太多——本质上是尝试一次性完成整个应用。通常，这导致模型在实现过程中 context 耗尽，留给下一个会话的是一个功能半实现且无文档记录的状态。Agent 然后不得不猜测发生了什么，并花费大量时间试图让基本应用重新工作。即使使用 compaction 也会发生这种情况，因为 compaction 并不总是向下一个 Agent 传递完全清晰的指令。</p>
-<p>第二种失败模式通常在项目后期出现。一些功能已经构建后，后面的 Agent 实例会环顾四周，看到已经取得了进展，然后宣布工作完成。</p>
-<p>这将问题分解为两部分。首先，我们需要设置一个初始环境，为给定 prompt 所需的所有功能奠定基础，这将 Agent 设置为逐步、逐功能地工作。其次，我们应该 prompt 每个 Agent 朝着其目标取得增量进展，同时在会话结束时将环境保持在干净状态。所谓"干净状态"是指适合合并到主分支的那种代码：已提交到 git、没有未完成的半成品功能、有清晰的 commit message。</p>
-<p>关键洞察在于找到一种方法让 Agent 在使用全新 context window 开始工作时快速理解工作状态，这通过 claude-progress.txt 文件与 git 历史配合实现。这些实践的灵感来自于了解高效软件工程师每天做的事情。</p>
-<h2 id="_1">环境管理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>在更新的 Claude 4 prompting guide 中，我们分享了一些多 context window 工作流的最佳实践，包括使用"不同 prompt 用于第一个 context window"的 harness 结构。这个"不同 prompt"要求 initializer agent 用所有必要的 context 设置环境，以便未来的 coding agent 能够有效工作。在这里，我们深入探讨这种环境的一些关键组件。</p>
-<h2 id="_2">功能列表<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>为了解决 Agent 一次性完成应用或过早认为项目完成的问题，我们 prompt initializer agent 编写一个全面的功能需求文件，扩展用户的初始 prompt。在 claude.ai 克隆示例中，这意味着超过 200 个功能，如"用户可以打开新聊天、输入查询、按回车并看到 AI 响应"。这些功能最初都标记为"failing"，以便后来的 coding agent 对完整功能的样子有清晰的概览。</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;functional&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;New chat button creates a fresh conversation&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;steps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;Navigate to main interface&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;Click the &#39;New Chat&#39; button&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;Verify a new conversation is created&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;Check that chat area shows welcome state&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;Verify conversation appears in sidebar&quot;</span>
-<span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;passes&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>我们 prompt coding agent 只通过更改 passes 字段的状态来编辑此文件，并使用措辞强烈的指令，如"删除或编辑测试是不可接受的，因为这可能导致功能缺失或有 bug。"经过一些实验，我们决定使用 JSON 格式，因为与 Markdown 文件相比，模型不太可能不当地更改或覆盖 JSON 文件。</p>
-<h2 id="_3">增量进展<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>有了这个初始环境脚手架，coding agent 的下一次迭代被要求一次只处理一个功能。这种增量方法被证明是解决 Agent 一次做太多倾向的关键。</p>
-<p>一旦以增量方式工作，模型在更改代码后仍然需要将环境保持在干净状态。在我们的实验中，我们发现引发这种行为的最佳方式是要求模型通过描述性的 commit message 将其进展提交到 git，并在进度文件中写入进展总结。这使得模型能够使用 git 恢复错误的代码更改并恢复代码库的工作状态。</p>
-<p>这些方法也提高了效率，因为它们消除了 Agent 不得不猜测发生了什么并花费时间试图让基本应用重新工作的需要。</p>
-<h2 id="_4">测试<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>我们观察到的最后一个主要失败模式是 Claude 倾向于在没有适当测试的情况下将功能标记为完成。在缺少显式 prompting 的情况下，Claude 倾向于进行代码更改，甚至使用单元测试或对开发服务器的 curl 命令进行测试，但未能认识到功能端到端不工作。</p>
-<p>在构建 Web 应用的情况下，一旦被显式 prompt 使用浏览器自动化工具并以人类用户的方式进行所有测试，Claude 在端到端验证功能方面做得很好。Claude 通过 Puppeteer MCP server 在测试 claude.ai 克隆时截取的屏幕截图。</p>
-<p>为 Claude 提供这些测试工具极大地改善了性能，因为 Agent 能够识别和修复仅从代码中看不明显的 bug。</p>
-<p>一些问题仍然存在，比如 Claude 视觉能力的限制和浏览器自动化工具使其难以识别每种类型的 bug。例如，Claude 无法通过 Puppeteer MCP 看到浏览器原生的 alert 模态框，因此依赖这些模态框的功能往往更有 bug。</p>
-<h2 id="_5">快速上手<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>有了以上所有设置，每个 coding agent 被 prompt 执行一系列步骤来了解当前状况，其中一些很基础但仍然有帮助：</p>
-<ul>
-<li>运行 <code>pwd</code> 查看你在哪个目录工作。你只能编辑此目录中的文件。</li>
-<li>阅读 git 日志和进度文件以了解最近的工作进展。</li>
-<li>阅读功能列表文件，选择尚未完成的最高优先级功能来处理。</li>
-</ul>
-<p>这种方法为 Claude 在每个会话中节省了一些 token，因为它不需要弄清楚如何测试代码。让 initializer agent 编写一个可以运行开发服务器的 <code>init.sh</code> 脚本也很有帮助，然后在实现新功能之前运行基本端到端测试。</p>
-<p>在 claude.ai 克隆的情况下，这意味着 Agent 总是启动本地开发服务器并使用 Puppeteer MCP 开始新聊天、发送消息并接收响应。这确保了 Claude 能够快速识别应用是否被留在损坏状态，并立即修复现有的 bug。如果 Agent 反而开始实现新功能，很可能会使问题变得更糟。</p>
-<p>鉴于所有这些，一个典型的会话以以下 assistant 消息开始：</p>
-<div class="highlight"><pre><span></span><code>[Assistant] I&#39;ll start by getting my bearings and understanding the current state of the project.
-[Tool Use] pwd
-[Tool Use] cat claude-progress.txt
-[Tool Use] cat tests.json
-[Assistant] Let me check the git log to see recent work.
-[Tool Use] git log --oneline -10
-[Assistant] Now let me check if there&#39;s an init.sh script to restart the servers.
-[Tool Use] source init.sh
-[Assistant] Excellent! Now let me navigate to the application and verify that some fundamental features are still working.
-[Tool Use] browser navigation and testing...
-[Assistant] Based on my verification testing, I can see that the fundamental functionality is working well. The core chat features, theme switching, conversation loading, and error handling are all functioning correctly. Now let me review the tests.json file more comprehensively to understand what needs to be implemented next.
-</code></pre></div>
-<h3 id="agent_1">Agent 失败模式与解决方案总结<a class="headerlink" href="#agent_1" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>问题</th>
-<th>Initializer Agent 行为</th>
-<th>Coding Agent 行为</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Claude 过早宣布整个项目完成</td>
-<td>设置功能列表文件：基于输入规范，建立一个包含端到端功能描述列表的结构化 JSON 文件</td>
-<td>在会话开始时阅读功能列表文件。选择单个功能开始处理。</td>
-</tr>
-<tr>
-<td>Claude 将环境留在有 bug 或未记录进展的状态</td>
-<td>编写初始 git 仓库和进度笔记文件</td>
-<td>通过阅读进度笔记文件和 git commit 日志开始会话，并在开发服务器上运行基本测试以捕获任何未记录的 bug。通过写入 git commit 和进度更新结束会话。</td>
-</tr>
-<tr>
-<td>Claude 过早将功能标记为完成</td>
-<td>设置功能列表文件</td>
-<td>自我验证所有功能。仅在仔细测试后将功能标记为"passing"。</td>
-</tr>
-<tr>
-<td>Claude 必须花时间弄清楚如何运行应用</td>
-<td>编写可以运行开发服务器的 init.sh 脚本</td>
-<td>通过阅读 init.sh 开始会话。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_6">未来工作<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>这项研究展示了长时间运行 Agent harness 中一种可能的解决方案集，使模型能够在多个 context window 中取得增量进展。然而，仍有开放性问题。</p>
-<p>最值得注意的是，目前尚不清楚单个通用编码 Agent 是否在所有 context 中表现最佳，还是通过 multi-agent 架构可以实现更好的性能。可以合理推断，像测试 Agent、质量保证 Agent 或代码清理 Agent 这样的专门 Agent 可以在软件开发生命周期的子任务上做得更好。</p>
-<p>此外，这个 demo 针对全栈 Web 应用开发进行了优化。一个未来方向是将这些发现推广到其他领域。很可能这些经验中的一些或全部可以应用于例如科学研究或金融建模中所需的长时间运行 Agent 任务类型。</p>
-<h2 id="_7">致谢<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p>本文由 Justin Young 撰写。特别感谢 David Hershey、Prithvi Rajasakeran、Jeremy Hadfield、Naia Bouscal、Michael Tingley、Jesse Mu、Jake Eaton、Marius Buleandara、Maggie Vo、Pedram Navid、Nadine Yasser 和 Alex Notov 的贡献。</p>
-<p>这项工作反映了 Anthropic 多个团队的集体努力，使 Claude 能够安全地进行长时间跨度的自主软件工程，特别是 code RL 和 Claude Code 团队。有意贡献的候选人欢迎在 anthropic.com/careers 申请。</p>
-<h2 id="_8">脚注<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<ol>
-<li>我们在此语境中称它们为独立的 Agent，只是因为它们有不同的初始用户 prompt。系统 prompt、工具集和整体 Agent harness 在其他方面是相同的。</li>
-</ol>
+  <h1>Hermes vs Aider 缓存对比</h1>
+
+<pre><code> 1|---
+ 2|title: Hermes Agent vs Aider Prompt 缓存设计对比
+ 3|created: 2026-05-11
+ 4|updated: 2026-05-11
+ 5|type: comparison
+ 6|tags: [inference, agent, comparison, open-source]
+ 7|sources: []
+ 8|---
+ 9|
+10|# Hermes Agent vs Aider Prompt 缓存设计对比
+11|
+12|## 概述
+13|
+14|对比 Hermes Agent 和 Aider 两个开源 AI Agent 的 Prompt 构建策略与缓存优化设计。两者都意识到了 Prompt Caching 对成本和延迟的重要性，但设计哲学不同：**Aider 追求极致的多层递进缓存**，**Hermes 追求系统提示词的冻结稳定性 + 多 Provider 适配**。
+15|
+16|结论：Aider 在 Anthropic 单一 Provider 上缓存命中更精细（3 层递进断点 + cache warming），Hermes 的缓存设计更通用（同时适配 Anthropic、OpenAI、OpenRouter 等多后端），但缺少 cache warming 是主要短板。
+17|
+18|## Hermes Agent 的 Prompt 结构与缓存设计
+19|
+20|### 提示词组装顺序
+21|
+22|```
+23|[Agent Identity (SOUL.md 或默认身份)]           ← 固定，极少变
+24|[Tool-Use 行为指导 (按已加载工具条件注入)]        ← 工具集确定后固定
+25|[Tool-Use Enforcement (模型特定纪律约束)]         ← 模型确定后固定
+26|[用户/网关系统消息]                               ← 可选，会话级固定
+27|[固化 MEMORY.md 快照]                             ← 会话开始时冻结
+28|[固化 USER.md 快照]                               ← 会话开始时冻结
+29|[外部记忆 Provider 块]                            ← 插件注入，固定
+30|[Skills 索引]                                     ← 工具集确定后固定
+31|[上下文文件 (AGENTS.md, .cursorrules 等)]          ← 会话级固定
+32|[时间戳 + 平台信息 + 模型/Provider]                ← 会话开始时冻结
+33|[环境检测 (WSL, Termux)]                          ← 系统级固定
+34|[平台格式提示 (Telegram/Discord/等)]               ← 平台级固定
+35|  ↓ 组装成消息序列
+36|[System Message (上面全部)]   ← cache breakpoint #1
+37|[Tool Definitions (字母排序)] ← 独立参数传递
+38|[对话历史]                    ← cache breakpoint #2-4 (最后 3 条消息)
+39|[当前用户消息]                ← 每轮都变
+40|```
+41|
+42|### 缓存优化措施
+43|
+44|**✅ 做对的：**
+45|
+46|1. **系统提示词会话级冻结** — `_build_system_prompt()` 结果缓存在 `self._cached_system_prompt`，整个会话期间不重建。只有在上下文压缩（compression）时才设为 `None` 强制重建
+47|2. **Session DB 持久化提示词** — 精确的提示词文本存入 SQLite session 数据库，后续轮次直接读取，保证 **byte 级一致的前缀**
+48|3. **Anthropic `cache_control: {"type": "ephemeral"}` 标记** — `agent/prompt_caching.py` 实现 "system_and_3" 策略：系统消息 + 最后 3 条非系统消息，共 4 个断点（Anthropic 允许的最大值）
+49|4. **Tool 定义字母排序** — `tools/registry.py` 用 `sorted(tool_names)` 保证工具 schema 跨 API 调用完全一致
+50|5. **动态内容隔离** — `ephemeral_system_prompt` 故意不放进 `_build_system_prompt()`，而是在 API 调用时注入到 `effective_system`，保持缓存前缀稳定。Plugin 上下文注入到用户消息而非系统提示词
+51|6. **多 Provider 适配** — 原生 Anthropic API 用内层 content block 标记；OpenRouter 用消息级标记；OpenAI 用 `prompt_cache_key` 参数（session_id）
+52|7. **时间戳冻结** — 日期时间在 `_build_system_prompt()` 时冻结，后续轮次不更新
+53|8. **Deep copy 防污染** — 注入 cache_control 标记时做 `copy.deepcopy(api_messages)`，不修改原始消息列表
+54|
+55|**⚠️ 不够理想的：**
+56|
+57|1. **无 Cache Warming** — 没有周期性 heartbeat 请求保活 Anthropic 5 分钟 TTL。如果用户思考超过 5 分钟，缓存全部失效
+58|2. **环境信息在系统提示词中** — WSL/Termux 检测、平台格式提示等虽固定但增加了前缀长度，对非 Anthropic Provider 无法利用缓存
+59|3. **Memory 写入不触发重建但有延迟** — 中途写入的 memory 要到下次 compression 重建才会反映到系统提示词中，用户可能感知延迟
+60|
+61|### 缓存标记实现细节
+62|
+63|```python
+64|# agent/prompt_caching.py 核心逻辑 (简化)
+65|def apply_anthropic_cache_markers(messages, ttl="5m"):
+66|    # 策略: system_and_3
+67|    # 断点 1: 系统消息
+68|    # 断点 2-4: 最后 3 条非系统消息
+69|    marker = {"type": "ephemeral"}
+70|    if ttl == "1h":
+71|        marker["ttl"] = "1h"
+72|    
+73|    # 原生 Anthropic: 标记在 content block 内层
+74|    # OpenRouter: 标记在 message envelope 外层
+75|```
+76|
+77|## Aider 的 Prompt 结构与缓存设计
+78|
+79|### 分层缓存架构
+80|
+81|```
+82|[SYSTEM + EXAMPLES]     ← cache breakpoint #1 (极少变化)
+83|[REPO MAP + 只读文件]    ← cache breakpoint #2 (切换文件时才变)
+84|[CHAT FILES]            ← cache breakpoint #3 (编辑时才变)
+85|[DONE MESSAGES]         ← 对话历史 (累积增长)
+86|[CUR MESSAGES]          ← 当前轮 (每轮都变)
+87|[REMINDER]              ← 提醒
+88|```
+89|
+90|### 缓存优化措施
+91|
+92|**✅ 做对的：**
+93|
+94|1. **3 层递进缓存断点** — 从稳定到不稳定逐层递进，每层独立的 `cache_control: "ephemeral"` 标记。代码变化只破坏第 3 层缓存，前两层仍命中
+95|2. **Cache Warming 守护线程** — 每 5 分钟发 `max_tokens=1` 请求保活 Anthropic 5 分钟 TTL（`AIDER_CACHE_KEEPALIVE_DELAY` 可调）
+96|3. **`cacheable_messages()` 方法** — 只返回到最后一个断点的消息，最小化 cache warming 的 token 开销
+97|4. **绝不修改前缀** — 所有变化都 append 到末尾，不 prepend 不重排
+98|5. **按模型配置缓存** — `model-settings.yml` 里 Anthropic 模型设 `cache_control: true`，发送 `anthropic-beta: prompt-caching-2024-07-31` header
+99|
+</code></pre>
+<p>100|## 核心对比表
+   101|
+   102|| 维度 | Hermes Agent | Aider |
+   103||------|-------------|-------|
+   104|| <strong>缓存设计哲学</strong> | 系统提示词冻结 + 多 Provider 适配 | 多层递进断点 + Anthropic 深度优化 |
+   105|| <strong>缓存断点数</strong> | 4 个（系统 + 最后 3 条消息） | 3 层递进（SYSTEM → FILES → CHAT） |
+   106|| <strong>Cache Warming</strong> | ❌ 无 | ✅ 每 5 分钟 heartbeat |
+   107|| <strong>Provider 覆盖</strong> | Anthropic + OpenAI + OpenRouter + 第三方网关 | 仅 Anthropic（<code>cache_control: true</code>） |
+   108|| <strong>Tool 定义排序</strong> | 字母排序 (<code>sorted()</code>) | 未特别排序 |
+   109|| <strong>系统提示词稳定性</strong> | 会话级冻结 + Session DB 持久化 | 按层分离，最底层极少变化 |
+   110|| <strong>动态内容处理</strong> | 隔离到 ephemeral prompt / 用户消息 | 从不注入系统层 |
+   111|| <strong>时间戳</strong> | 冻结在首次构建时 | 不注入 prompt |
+   112|| <strong>记忆系统影响</strong> | memory 写入不触发重建（直到压缩） | 无记忆系统 |
+   113|| <strong>代码变化粒度</strong> | 整个 system prompt 原子重建 | 3 层分离，代码变只影响第 2-3 层 |
+   114|| <strong>OpenAI 缓存</strong> | ✅ 用 <code>prompt_cache_key</code> (session_id) | ❌ 未特别优化 |
+   115|
+   116|## 缓存命中率场景分析
+   117|
+   118|### 场景 1: 多轮对话（用户持续交互）
+   119|
+   120|| | Hermes | Aider |
+   121||---|---|---|
+   122|| System prompt | ✅ 每轮命中（冻结） | ✅ 每轮命中（不变） |
+   123|| Tool definitions | ✅ 每轮命中 | ✅ 每轮命中 |
+   124|| 早期对话历史 | ✅ 最后 3 条标记缓存 | ✅ 断点 2 覆盖 |
+   125|| 新增内容 | ✅ 仅当前消息变 | ✅ 仅 CUR MESSAGES 变 |
+   126|
+   127|<strong>结论：</strong> 两者在连续多轮对话中表现相当。
+   128|
+   129|### 场景 2: 用户思考超过 5 分钟（idle gap）
+   130|
+   131|| | Hermes | Aider |
+   132||---|---|---|
+   133|| 5 分钟后缓存 | ❌ <strong>全部失效</strong>（TTL 到期，无 warming） | ✅ <strong>仍然命中</strong>（warming 保活） |
+   134|| 恢复后首轮成本 | 全额计费 | 缓存价格（90% off） |
+   135|
+   136|<strong>结论：</strong> Aider 明显优于 Hermes。这是 Hermes 最大的缓存短板。
+   137|
+   138|### 场景 3: 代码文件变动
+   139|
+   140|| | Hermes | Aider |
+   141||---|---|---|
+   142|| 系统提示词 | ✅ 不受影响 | ✅ 不受影响（第 1 层） |
+   143|| 文件上下文 | 变化反映在工具返回中 | 仅第 2-3 层失效，第 1 层仍命中 |
+   144|| 缓存命中 | 系统级仍命中 | 系统级 + examples 仍命中 |
+   145|
+   146|<strong>结论：</strong> Aider 的分层粒度更细，代码变化时保留更多缓存。
+   147|
+   148|### 场景 4: 跨平台/跨 Provider
+   149|
+   150|| | Hermes | Aider |
+   151||---|---|---|
+   152|| Anthropic 原生 | ✅ | ✅ |
+   153|| OpenAI (GPT/Codex) | ✅ prompt_cache_key | ❌ 未适配 |
+   154|| OpenRouter + Claude | ✅ 消息级标记 | ❌ |
+   155|| 第三方兼容 API | ✅ 自动适配 | ❌ |
+   156|| 本地模型 (vLLM/SGLang) | ✅ 前缀自然命中 | ✅ 前缀自然命中 |
+   157|
+   158|<strong>结论：</strong> Hermes 覆盖面远超 Aider，这是其核心优势。
+   159|
+   160|## 对 Hermes 的改进建议
+   161|
+   162|1. <strong>添加 Cache Warming</strong> — 参考 Aider 的 <code>cache_warming</code> 线程，在 idle 超过阈值时发 <code>max_tokens=1</code> 保活请求。这是 ROI 最高的改进
+   163|2. <strong>考虑分层缓存断点</strong> — 将 MEMORY/USER 快照作为独立断点，与系统身份分离，memory 更新时不必放弃整个系统提示词缓存
+   164|3. <strong>追踪缓存命中统计</strong> — 像 Aider 一样解析 <code>CacheCreationInputTokens</code> / <code>CacheReadInputTokens</code>，给用户展示缓存命中率和节省金额
+   165|
+   166|## 设计哲学总结
+   167|
+   168|<code>169|Aider:    "为 Anthropic 做到极致" — 单 Provider 深度优化
+   170|Hermes:   "在所有 Provider 上都还行" — 广度优先的缓存策略
+   171|</code>
+   172|
+   173|Aider 的 3 层递进设计在 Anthropic 上确实更优，尤其有 cache warming 保底。但 Hermes 的多 Provider 适配使其在 OpenAI、OpenRouter、本地模型等场景下也能享受缓存红利，这符合 Hermes "provider-agnostic" 的核心定位。
+   174|
+   175|<strong>理想状态：</strong> Hermes 应该在保持多 Provider 适配的同时，为 Anthropic Provider 增加 cache warming 和更细粒度的分层断点。
+   176|
+   177|## 相关页面
+   178|
+   179|- <a href="prompt-cache-design-for-agents.md">prompt-cache-design-for-agents</a> — Agent 提示词缓存设计模式与 OpenCode/Aider 对比
+   180|- <a href="vllm-prefix-caching.md">vllm-prefix-caching</a> — vLLM KV Cache 与 Prefix Caching 详解
+   181|- <a href="hermes-agent-memory-architecture.md">hermes-agent-memory-architecture</a> — Hermes Agent 四层记忆系统架构
+   182|- <a href="anthropic-context-engineering.md">anthropic-context-engineering</a> — 高效上下文工程
+   183|</p>
 
 
 
 
 
 
-
-  
-  
 
 
 
