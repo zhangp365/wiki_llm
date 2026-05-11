@@ -12,13 +12,13 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/anthropic-think-tool/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/era-of-experience/">
       
       
-        <link rel="prev" href="../anthropic-writing-tools-for-agents/">
+        <link rel="prev" href="../anthropic-postmortem-three-issues/">
       
       
-        <link rel="next" href="../anthropic-agent-skills/">
+        <link rel="next" href="../../prompt-cache-design-for-agents/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>"Think" 工具：让 Claude 在复杂工具使用场景中停下来思考 - LLM Wiki</title>
+        <title>The Era of Experience（体验时代） - LLM Wiki</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#think-claude" class="md-skip">
+        <a href="#the-era-of-experience" class="md-skip">
           跳转至
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              "Think" 工具：让 Claude 在复杂工具使用场景中停下来思考
+              The Era of Experience（体验时代）
             
           </span>
         </div>
@@ -763,37 +763,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Think Tool
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../anthropic-think-tool/" class="md-nav__link">
         
   
   
@@ -809,180 +782,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#extended-thinking-20251215" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extended Thinking 更新（2025年12月15日）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#think" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        什么是"think"工具？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-bench" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        τ-Bench 上的性能
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        性能分析
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#think_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        使用 think 工具
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-bench_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        τ-Bench 分析的关键洞察
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#swe-bench" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SWE-Bench 上的性能
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#think_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        何时使用"think"工具
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        实现最佳实践
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-prompting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 使用特定领域示例进行策略性 prompting
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 将复杂指导放在系统提示中
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#think_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        何时不应使用"think"工具
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        入门指南
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        结论
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1272,10 +1071,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../era-of-experience/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Era of Experience（体验时代）
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1291,6 +1117,214 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概述
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        来源
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两个时代
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="两个时代">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#era-of-human-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        人类数据时代（Era of Human Data）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#era-of-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        体验时代（Era of Experience）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键论点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="关键论点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-alphazero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. AlphaZero 证明：零人类数据 → 更快、更强
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-37-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. "第37手" — AI 创新的标志
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. RLHF 的致命弱点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 自我生成体验 vs 合成数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-alphaproof-alphazero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. AlphaProof — 数学领域的 AlphaZero
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 模糊领域的扩展
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 对齐与安全
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心金句
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与其他概念的关系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关页面
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1508,87 +1542,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#extended-thinking-20251215" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extended Thinking 更新（2025年12月15日）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#think" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        什么是"think"工具？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-bench" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        τ-Bench 上的性能
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        性能分析
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#think_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        使用 think 工具
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-bench_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        τ-Bench 分析的关键洞察
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#swe-bench" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SWE-Bench 上的性能
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#think_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        何时使用"think"工具
+        概述
       
     </span>
   </a>
@@ -1599,40 +1556,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        实现最佳实践
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-prompting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 使用特定领域示例进行策略性 prompting
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 将复杂指导放在系统提示中
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#think_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        何时不应使用"think"工具
+        来源
       
     </span>
   </a>
@@ -1643,10 +1567,38 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        入门指南
+        两个时代
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="两个时代">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#era-of-human-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        人类数据时代（Era of Human Data）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#era-of-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        体验时代（Era of Experience）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1654,7 +1606,123 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        结论
+        关键论点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="关键论点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-alphazero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. AlphaZero 证明：零人类数据 → 更快、更强
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-37-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. "第37手" — AI 创新的标志
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. RLHF 的致命弱点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 自我生成体验 vs 合成数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-alphaproof-alphazero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. AlphaProof — 数学领域的 AlphaZero
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 模糊领域的扩展
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 对齐与安全
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心金句
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与其他概念的关系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关页面
       
     </span>
   </a>
@@ -1729,247 +1797,137 @@
   
 
 
-<h1 id="think-claude">"Think" 工具：让 Claude 在复杂工具使用场景中停下来思考<a class="headerlink" href="#think-claude" title="Permanent link">&para;</a></h1>
+<h1 id="the-era-of-experience">The Era of Experience（体验时代）<a class="headerlink" href="#the-era-of-experience" title="Permanent link">&para;</a></h1>
+<h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>David Silver（Google DeepMind 首席研究科学家、UCL 教授）于 2025 年发表论文 <strong>"Welcome to The Era of Experience"</strong>，提出 AI 发展正从"人类数据时代"（Era of Human Data）迈向"体验时代"（Era of Experience）。核心论点：<strong>AI 真正的突破不在于模仿人类，而在于通过与环境的直接交互自主生成经验数据，通过试错和自我改进超越人类水准。</strong></p>
 <blockquote>
-<p>原文链接: <a href="https://www.anthropic.com/engineering/claude-think-tool">English Original</a></p>
+<p>"AI真正的能力，既不是模仿人类，也不是照本宣科，而在于发现人类尚未触及的真知。"
+— David Silver</p>
 </blockquote>
-<p><em>Engineering at Anthropic</em></p>
-<p>发布于 2025年3月20日</p>
-<p>一种提升 Claude 复杂问题解决性能的新工具。</p>
-<h3 id="extended-thinking-20251215">Extended Thinking 更新（2025年12月15日）<a class="headerlink" href="#extended-thinking-20251215" title="Permanent link">&para;</a></h3>
-<p>Extended thinking 能力自首次发布以来已有所改进，因此我们建议在大多数情况下使用该功能而不是专用的 think 工具。Extended thinking 提供了类似的好处——为 Claude 提供推理复杂问题的空间——同时具有更好的集成和性能。有关实现细节，请参阅我们的 extended thinking 文档。</p>
-<hr />
-<p>随着我们不断提升 Claude 的复杂问题解决能力，我们发现了一种特别有效的方法：一个"think"工具，它在复杂任务期间创建专门的空间进行结构化思考。</p>
-<p>这种简单却强大的技术——正如我们将在下面解释的，它不同于 Claude 新的"extended thinking"能力（extended thinking 实现细节请参见此处）——已经在 Claude 的 agentic 工具使用能力方面取得了显著的改进。这包括遵循策略、做出一致决策和处理多步骤问题，所有这些都只需最少的实现开销。</p>
-<p>在本文中，我们将探讨如何在不同应用上实现"think"工具，并基于经验证的基准结果分享面向开发者的实用指导。</p>
-<h2 id="think">什么是"think"工具？<a class="headerlink" href="#think" title="Permanent link">&para;</a></h2>
-<p>通过"think"工具，我们赋予 Claude 在得出最终答案的过程中包含一个额外思考步骤的能力——配有自己指定的空间。</p>
-<p>虽然它听起来与 extended thinking 类似，但这是一个不同的概念。Extended thinking 关乎的是 Claude 在开始生成响应之前所做的事情。使用 extended thinking，Claude 在采取行动之前深入考虑并迭代其计划。"think"工具则是让 Claude 在开始生成响应后，添加一个停下来思考它是否拥有继续前进所需所有信息的步骤。这在执行长链工具调用或与用户进行长时间多步骤对话时特别有帮助。</p>
-<p>这使得"think"工具更适合 Claude 无法仅从用户查询中获取 formulate 响应所需的全部信息的情况，以及需要处理外部信息（例如工具调用结果中的信息）的情况。Claude 使用"think"工具执行的推理不如 extended thinking 获得的推理全面，而是更专注于模型发现的新信息。</p>
-<p>我们推荐在简单的工具使用场景（如非顺序工具调用或简单指令遵循）中使用 extended thinking。Extended thinking 也适用于不需要 Claude 调用工具的场景，如编程、数学和物理。"think"工具更适合 Claude 需要调用复杂工具、在长链工具调用中仔细分析工具输出、在具有详细指导原则的策略密集型环境中导航，或做出每个步骤都建立在之前步骤之上且错误代价高昂的顺序决策的场景。</p>
-<p>以下是一个使用来自 τ-Bench 的标准工具规格格式的示例实现：</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;think&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Use the tool to think about something. It will not obtain new information or change the database, but just append the thought to the log. Use it when complex reasoning or some cache memory is needed.&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;input_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;thought&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A thought to think about.&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;thought&quot;</span><span class="p">]</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2 id="-bench">τ-Bench 上的性能<a class="headerlink" href="#-bench" title="Permanent link">&para;</a></h2>
-<p>我们使用 τ-bench（tau-bench）评估了"think"工具，这是一个旨在测试模型在真实客户服务场景中使用工具能力的综合基准，其中"think"工具是评估标准环境的一部分。</p>
-<p>τ-bench 评估 Claude 的以下能力：
-- 与模拟用户进行真实对话
-- 一致地遵循复杂的客服 agent 策略指导原则
-- 使用各种工具访问和操作环境数据库</p>
-<p>τ-bench 中使用的主要评估指标是 pass^k，它衡量给定任务的所有 k 次独立任务试验都成功的概率，在所有任务上取平均值。与 LLM 评估中常见的 pass@k 指标（衡量 k 次试验中是否至少有一次成功）不同，pass^k 评估一致性和可靠性——这对于需要一致遵循策略的客户服务应用来说是关键品质。</p>
-<h2 id="_1">性能分析<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>我们的评估比较了几种不同的配置：
-- 基线（无"think"工具，无 extended thinking 模式）
-- 仅 extended thinking 模式
-- 仅"think"工具
-- "think"工具 + 优化 prompt（针对航空领域）</p>
-<p>结果显示，当 Claude 3.7 在基准的"航空"和"零售"客户服务领域中有效使用"think"工具时，取得了显著的改进：
-- <strong>航空领域</strong>："think"工具配合优化 prompt 在 pass^1 指标上达到 0.570，相比之下基线仅为 0.370——相对改进达 54%。
-- <strong>零售领域</strong>：仅"think"工具就达到 0.812，相比之下基线为 0.783。</p>
-<p>Claude 3.7 Sonnet 在 Tau-Bench 评估"航空"领域四种不同配置下的性能：</p>
+<h2 id="_2">来源<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>论文</strong>: "Welcome to The Era of Experience", David Silver &amp; Richard Sutton, 2025</li>
+<li><strong>播客</strong>: Google DeepMind Podcast — "Is human data enough? With David Silver", 主持人 Hannah Fry, ~49 分钟</li>
+<li>YouTube: https://www.youtube.com/watch?v=zzXyPGEtseI</li>
+<li>Bilibili: https://www.bilibili.com/video/BV19SdiY6EsG/</li>
+<li>X/Twitter 公告: https://x.com/GoogleDeepMind/status/1910363683215008227</li>
+<li><strong>演讲</strong>: Algorithmic Innovation and Entrepreneurship Global Summit on Open Problems for AI, Friends House, London, 2025-10-28</li>
+<li><strong>中文翻译</strong>: 腾讯新闻 — https://news.qq.com/rain/a/20250422A08QQE00</li>
+</ul>
+<h2 id="_3">两个时代<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="era-of-human-data">人类数据时代（Era of Human Data）<a class="headerlink" href="#era-of-human-data" title="Permanent link">&para;</a></h3>
+<ul>
+<li>将人类拥有的全部知识提取出来输入给机器</li>
+<li>大语言模型的核心范式：吸收人类写下的所有文字，实现"全知"</li>
+<li>局限：永远无法超越人类已有的知识上限</li>
+<li>类比：<strong>化石能源</strong> — 能让 AI 赢在起跑线，但终究有限</li>
+</ul>
+<h3 id="era-of-experience">体验时代（Era of Experience）<a class="headerlink" href="#era-of-experience" title="Permanent link">&para;</a></h3>
+<ul>
+<li>让机器真正与世界互动，通过自身经历获得经验</li>
+<li>经验是推动下一代 AI 的"燃料"</li>
+<li>类比：<strong>可持续能源</strong> — 自我生成、自我消化、自我成长的动态经验</li>
+<li>总有一天要突破人类知识的界限，AI 需要自己探索、发现人类尚不知晓的领域</li>
+</ul>
+<h2 id="_4">关键论点<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1-alphazero">1. AlphaZero 证明：零人类数据 → 更快、更强<a class="headerlink" href="#1-alphazero" title="Permanent link">&para;</a></h3>
+<ul>
+<li>AlphaZero 完全不使用任何人类数据（"Zero"的含义）</li>
+<li>方法：自己和自己对弈几百万盘，通过试错学习</li>
+<li>结果：不仅学得更快，表现还比用人类棋谱启动的版本更强</li>
+<li><strong>"苦涩启示"（Bitter Lesson）</strong>: 人类辛苦积累的知识嵌入系统反而限制了 AI 上限；放弃人类数据、让系统自学，AI 反而能无限进步</li>
+</ul>
+<h3 id="2-37-ai">2. "第37手" — AI 创新的标志<a class="headerlink" href="#2-37-ai" title="Permanent link">&para;</a></h3>
+<ul>
+<li>AlphaGo 对李世石第二盘第 37 手：落在五路线，完全超出人类认知</li>
+<li>人类高手万分之一才会做此选择，但它是胜负手</li>
+<li>意义：象征一条无限延伸的创新之路，不仅仅是一个孤立突破</li>
+<li>大语言模型目前缺乏类似"第37手"的创新，因为太注重模仿人类</li>
+</ul>
+<h3 id="3-rlhf">3. RLHF 的致命弱点<a class="headerlink" href="#3-rlhf" title="Permanent link">&para;</a></h3>
+<ul>
+<li>RLHF（基于人类反馈的强化学习）让 AI 朝人类更喜欢的方向优化</li>
+<li>但它<strong>无法突破人类知识的上限</strong>：如果人类评价员无法识别新的、更好的解法，AI 永远学不到那条路线</li>
+<li>Silver 的反转论证：人类反馈反而是<strong>不扎根的</strong> — 人只看答案、不验证结果（如推荐蛋糕食谱但没人真的去烤）</li>
+<li>真正扎根的反馈应基于现实世界的结果</li>
+</ul>
+<h3 id="4-vs">4. 自我生成体验 vs 合成数据<a class="headerlink" href="#4-vs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>合成数据（用大模型生成新数据）终究会遇到上限</li>
+<li>自我生成体验的独特优势：当系统变强 → 遇到更难的问题 → 刚好匹配能力 → 永远有新的体验可"燃烧"</li>
+<li>没有极限，可以不停进化</li>
+</ul>
+<h3 id="5-alphaproof-alphazero">5. AlphaProof — 数学领域的 AlphaZero<a class="headerlink" href="#5-alphaproof-alphazero" title="Permanent link">&para;</a></h3>
+<ul>
+<li>用 AlphaZero 框架做数学定理证明</li>
+<li>使用 Lean 编程语言（形式化数学语言），证明可自动验证</li>
+<li>训练方式：给 100 万个人类定理题目（不给答案），自动扩展到 1 亿道</li>
+<li>成果：在<strong>国际数学奥林匹克（IMO）达到银牌水平</strong></li>
+<li>一道只有不到 1% 参赛者解出的题，AlphaProof 做出了完美证明</li>
+<li>Tim Gowers（菲尔兹奖得主）担任裁判，评价为"远超以往 AI 数学系统的飞跃"</li>
+<li>目标：全面超越人类数学家，攻克黎曼猜想等世纪难题</li>
+</ul>
+<h3 id="6">6. 模糊领域的扩展<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>围棋/数学有明确标准（输赢/对错），但现实领域往往没有</li>
+<li>Silver 的方案：将模糊目标拆解为一组可量化的指标</li>
+<li>例："变健康" → 静息心率、BMI、焦虑水平等综合指标</li>
+<li>指标组合随反馈自适应调整</li>
+<li>AI 能自主判断"此刻该优化什么目标"</li>
+</ul>
+<h3 id="7">7. 对齐与安全<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>造纸夹悖论</strong>: AI 只追求单一指标会走向极端</li>
+<li>解决思路：引入人类的痛苦/快乐信号作为自适应目标调整机制</li>
+<li>当 AI 的行为导致人类痛苦 → 系统自动调整目标组合</li>
+<li>现有 AI 缺乏"生命史"——没有长期学习和目标调整机制</li>
+<li>需要让 AI 有持续多年、不断累积自我经验的过程</li>
+</ul>
+<h2 id="_5">核心金句<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>配置</th>
-<th>k=1</th>
-<th>k=2</th>
-<th>k=3</th>
-<th>k=4</th>
-<th>k=5</th>
+<th>原文</th>
+<th>译文/解读</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>"Think" + Prompt</td>
-<td>0.584</td>
-<td>0.444</td>
-<td>0.384</td>
-<td>0.356</td>
-<td>0.340</td>
+<td>"The bitter lesson"</td>
+<td>人类知识嵌入越多，系统最终表现越差；AI 的表现完全可能超越人类</td>
 </tr>
 <tr>
-<td>"Think"</td>
-<td>0.404</td>
-<td>0.254</td>
-<td>0.186</td>
-<td>0.140</td>
-<td>0.100</td>
+<td>人类数据 = 化石能源</td>
+<td>能让 AI 起步，但有限</td>
 </tr>
 <tr>
-<td>Extended thinking</td>
-<td>0.412</td>
-<td>0.290</td>
-<td>0.232</td>
-<td>0.192</td>
-<td>0.160</td>
+<td>RL = 可持续能源</td>
+<td>自我生成、永不枯竭</td>
 </tr>
 <tr>
-<td>基线</td>
-<td>0.332</td>
-<td>0.206</td>
-<td>0.148</td>
-<td>0.116</td>
-<td>0.100</td>
+<td>"第37手"</td>
+<td>无限创新序列中的一个节点</td>
+</tr>
+<tr>
+<td>RLHF 连孩子和洗澡水都倒掉了</td>
+<td>虽然有用，但锁死了 AI 超越人类的可能</td>
 </tr>
 </tbody>
 </table>
-<p>四种不同配置下的评估结果。分数为比例值。</p>
-<p>航空领域的最佳性能是通过将"think"工具与优化 prompt 配对实现的，该 prompt 给出了在分析客户请求时应使用的推理方法类型的示例。以下是优化 prompt 的示例：</p>
-<h2 id="think_1">使用 think 工具<a class="headerlink" href="#think_1" title="Permanent link">&para;</a></h2>
-<p>在采取任何行动或在收到工具结果后响应用户之前，使用 think 工具作为草稿板来：</p>
+<h2 id="_6">与其他概念的关系<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
-<li>列出适用于当前请求的具体规则</li>
-<li>检查是否已收集所有必要信息</li>
-<li>验证计划的操作是否符合所有策略</li>
-<li>迭代检查工具结果的正确性</li>
+<li><strong>强化学习（RL）</strong>: 体验时代的核心技术路径，见 AlphaGo/AlphaZero/AlphaProof</li>
+<li><strong>LLM 的局限</strong>: 当前大模型本质是模仿人类，难以产生超越人类的创新</li>
+<li><strong>对齐问题</strong>: 体验时代的 AI 需要新的安全范式（自适应目标调整），而非简单的 RLHF</li>
+<li><strong>Bitter Lesson</strong>: Richard Sutton 提出的经典论点，Silver 在此基础上发展</li>
+<li><strong>Reward is Enough</strong>: Silver 2021 年论文，提出单靠强化学习足以实现 AGI</li>
 </ul>
-<p>以下是在 think 工具中进行迭代检查的一些示例：</p>
-<div class="highlight"><pre><span></span><code>用户想取消航班 ABC123
-- 需要验证：用户 ID、预订 ID、原因
-- 检查取消规则：
-  * 是否在预订后 24 小时内？
-  * 如果不是，检查机票等级和保险
-- 验证没有已飞行或已过去的航段
-- 计划：收集缺失信息、验证规则、获取确认
-
-用户想预订 3 张到 NYC 的机票，每人 2 件托运行李
-- 需要用户 ID 来检查：
-  * 会员等级对应的行李额度
-  * 个人资料中存在哪些支付方式
-- 行李计算：
-  * 经济舱 × 3 位乘客
-  * 普通会员：每人 1 件免费行李 → 3 件额外行李 = $150
-  * 银卡会员：每人 2 件免费行李 → 0 件额外行李 = $0
-  * 金卡会员：每人 3 件免费行李 → 0 件额外行李 = $0
-- 需验证的支付规则：
-  * 最多 1 张旅行券、1 张信用卡、3 张礼品卡
-  * 所有支付方式必须在个人资料中
-  * 旅行券余额将作废
-- 计划：
-  1. 获取用户 ID
-  2. 验证会员等级以确定行李费用
-  3. 检查个人资料中的支付方式及其组合是否允许
-  4. 计算总价：机票价格 + 任何行李费用
-  5. 获取明确的预订确认
-</code></pre></div>
-<p>特别有趣的是不同方法的比较方式。使用"think"工具配合优化 prompt 取得了显著优于 extended thinking 模式的结果（后者与无提示的"think"工具表现相似）。仅使用"think"工具（无提示）改进了基线性能，但仍不及优化方法。</p>
-<p>"think"工具与优化 prompting 的组合以显著优势交付了最强性能，这可能归因于基准中航空策略部分的高度复杂性，模型在给出"思考"示例时获益最多。</p>
-<p>在零售领域，我们还测试了各种配置以了解每种方法的具体影响。</p>
-<p>Claude 3.7 Sonnet 在 Tau-Bench 评估"零售"领域三种不同配置下的性能：</p>
-<table>
-<thead>
-<tr>
-<th>配置</th>
-<th>k=1</th>
-<th>k=2</th>
-<th>k=3</th>
-<th>k=4</th>
-<th>k=5</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>"Think"（无 prompt）</td>
-<td>0.812</td>
-<td>0.735</td>
-<td>0.685</td>
-<td>0.650</td>
-<td>0.626</td>
-</tr>
-<tr>
-<td>Extended thinking</td>
-<td>0.770</td>
-<td>0.681</td>
-<td>0.623</td>
-<td>0.581</td>
-<td>0.548</td>
-</tr>
-<tr>
-<td>基线</td>
-<td>0.783</td>
-<td>0.695</td>
-<td>0.643</td>
-<td>0.607</td>
-<td>0.583</td>
-</tr>
-</tbody>
-</table>
-<p>三种不同配置下的评估结果。分数为比例值。</p>
-<p>"think"工具即使在没有额外提示的情况下也达到了 0.812 的最高 pass^1 分数。与航空领域相比，零售策略明显更容易导航，Claude 仅通过拥有思考空间就能改进，无需进一步指导。</p>
-<h2 id="-bench_1">τ-Bench 分析的关键洞察<a class="headerlink" href="#-bench_1" title="Permanent link">&para;</a></h2>
-<p>我们的详细分析揭示了几个可以帮助你有效实现"think"工具的模式：</p>
+<h2 id="_7">相关页面<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>在困难领域中 prompting 非常重要</strong>。仅仅让"think"工具可用可能会在一定程度上提高性能，但在困难领域中将它与优化 prompting 配对会产生戏剧性的更好结果。然而，较容易的领域可能仅从拥有"think"访问权限中受益。</li>
-<li><strong>跨试验的一致性改进</strong>。使用"think"的改进在 pass^k 上一直保持到 k=5，表明该工具帮助 Claude 更有效地处理边缘案例和不寻常场景。</li>
+<li><a href="../anthropic-building-effective-agents/">anthropic-building-effective-agents</a> — 构建有效 Agent 的方法论</li>
+<li><a href="../anthropic-context-engineering/">anthropic-context-engineering</a> — 上下文工程，当前 LLM 的优化方向</li>
+<li><a href="../../hermes-agent-memory-architecture/">hermes-agent-memory-architecture</a> — Agent 记忆系统的另一种设计思路</li>
 </ul>
-<h2 id="swe-bench">SWE-Bench 上的性能<a class="headerlink" href="#swe-bench" title="Permanent link">&para;</a></h2>
-<p>在评估 Claude 3.7 Sonnet 时，类似的"think"工具也被添加到我们的 SWE-bench 设置中，为达到 0.623 的最先进分数做出了贡献。适配后的"think"工具定义如下：</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;think&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Use the tool to think about something. It will not obtain new information or make any changes to the repository, but just log the thought. Use it when complex reasoning or brainstorming is needed. For example, if you explore the repo and discover the source of a bug, call this tool to brainstorm several unique ways of fixing the bug, and assess which change(s) are likely to be simplest and most effective. Alternatively, if you receive some test results, call this tool to brainstorm ways to fix the failing tests.&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;input_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;thought&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Your thoughts.&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;thought&quot;</span><span class="p">]</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>我们的实验（n=30 个使用"think"工具的样本，n=144 个不使用的样本）显示，仅包含此工具就将性能平均提高了 1.6%（Welch's t-test: t(38.89) = 6.71, p &lt; 0.001, Cohen's d = 1.47）。</p>
-<h2 id="think_2">何时使用"think"工具<a class="headerlink" href="#think_2" title="Permanent link">&para;</a></h2>
-<p>基于这些评估结果，我们确定了 Claude 最能从"think"工具中受益的具体场景：</p>
-<ul>
-<li><strong>工具输出分析</strong>。当 Claude 需要在行动之前仔细处理之前工具调用的输出时，可能需要回溯其方法。</li>
-<li><strong>策略密集型环境</strong>。当 Claude 需要遵循详细指导原则并验证合规性时。</li>
-<li><strong>顺序决策</strong>。当每个行动都建立在之前行动之上且错误代价高昂时（通常出现在多步骤领域）。</li>
-</ul>
-<h2 id="_2">实现最佳实践<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>为了从 Claude 的"think"工具中获得最大收益，我们基于 τ-bench 实验推荐以下实现实践。</p>
-<h2 id="1-prompting">1. 使用特定领域示例进行策略性 prompting<a class="headerlink" href="#1-prompting" title="Permanent link">&para;</a></h2>
-<p>最有效的方法是提供关于何时以及如何使用"think"工具的清晰指令，例如用于 τ-bench 航空领域的指令。提供针对你的特定用例量身定制的示例，可以显著改善模型使用"think"工具的效果：
-- 推理过程中期望的详细程度
-- 如何将复杂指令分解为可操作步骤
-- 处理常见场景的决策树
-- 如何检查是否已收集所有必要信息</p>
-<h2 id="2">2. 将复杂指导放在系统提示中<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>我们发现，当它们很长和/或很复杂时，将关于"think"工具的指令包含在系统提示中比放在工具描述本身中更有效。这种方法提供了更广泛的上下文，并帮助模型更好地将思考过程整合到其整体行为中。</p>
-<h2 id="think_3">何时不应使用"think"工具<a class="headerlink" href="#think_3" title="Permanent link">&para;</a></h2>
-<p>虽然"think"工具可以提供显著的改进，但它并不适用于所有工具使用场景，并且确实需要以增加 prompt 长度和输出 token 为代价。具体来说，我们发现"think"工具在以下用例中不提供任何改进：</p>
-<ul>
-<li><strong>非顺序工具调用</strong>。如果 Claude 只需进行单次工具调用或多次并行调用来完成任务，添加"think"不太可能产生任何改进。</li>
-<li><strong>简单指令遵循</strong>。当 Claude 需要遵守的约束不多，且其默认行为已经足够好时，额外的"think"不太可能带来收益。</li>
-</ul>
-<h2 id="_3">入门指南<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>"think"工具是对你的 Claude 实现的一个简单添加，只需几个步骤就能产生有意义的改进：</p>
-<ul>
-<li><strong>在 agentic 工具使用场景中测试</strong>。从具有挑战性的用例开始——即 Claude 目前在策略合规性或长链工具调用中的复杂推理方面遇到困难的用例。</li>
-<li><strong>添加工具定义</strong>。实现一个针对你的领域定制的"think"工具。它需要最少的代码，但能使推理更加结构化。还要考虑将关于何时以及如何使用工具的指令，以及与你的领域相关的示例添加到系统提示中。</li>
-<li><strong>监控和改进</strong>。观察 Claude 在实践中如何使用该工具，并调整你的 prompt 以鼓励更有效的思考模式。</li>
-</ul>
-<p>最好的部分是添加此工具在性能结果方面的负面影响极小。除非 Claude 决定使用它，否则它不会改变外部行为，也不会干扰你现有的工具或工作流。</p>
-<h2 id="_4">结论<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>我们的研究表明，"think"工具可以显著增强 Claude 3.7 Sonnet 在需要策略合规性和长链工具调用中推理的复杂任务上的性能。"Think"不是一刀切的解决方案，但它在正确的用例中提供了实质性的好处，所有这些只需最少的实现复杂度。</p>
-<p>我们期待看到你将如何使用"think"工具与 Claude 构建更有能力、更可靠、更透明的 AI 系统。</p>
-<blockquote>
-<p>虽然我们的 τ-Bench 结果集中在 Claude 3.7 Sonnet 与"think"工具的改进上，但我们的实验表明 Claude 3.5 Sonnet (New) 也能在与 3.7 Sonnet 相同的配置下实现性能提升，表明这种改进可以推广到其他 Claude 模型。</p>
-</blockquote>
 
 
 
