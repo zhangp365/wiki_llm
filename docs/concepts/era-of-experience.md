@@ -1,31 +1,31 @@
 ---
 title: The Era of Experience（体验时代）
 created: 2026-05-11
-updated: 2026-05-11
+updated: 2026-05-12
 type: concept
 tags: [rl, deepmind, alpha, reasoning, alignment]
 sources:
   - raw/articles/deepmind-era-of-experience-podcast-2025.md
+  - raw/articles/david-silver-era-of-experience-speech-2025-10.md
 ---
 
 # The Era of Experience（体验时代）
 
 ## 概述
 
-David Silver（Google DeepMind 首席研究科学家、UCL 教授）于 2025 年发表论文 **"Welcome to The Era of Experience"**，提出 AI 发展正从"人类数据时代"（Era of Human Data）迈向"体验时代"（Era of Experience）。核心论点：**AI 真正的突破不在于模仿人类，而在于通过与环境的直接交互自主生成经验数据，通过试错和自我改进超越人类水准。**
+David Silver（Google DeepMind 首席研究科学家、UCL 教授）于 2025 年与 Richard Sutton 合著论文 **"Welcome to The Era of Experience"**，提出 AI 发展正从"人类数据时代"（Era of Human Data）迈向"体验时代"（Era of Experience）。核心论点：**AI 真正的突破不在于模仿人类，而在于通过与环境的直接交互自主生成经验数据，通过试错和自我改进超越人类水准。**
 
 > "AI真正的能力，既不是模仿人类，也不是照本宣科，而在于发现人类尚未触及的真知。"
-> — David Silver
 
 ## 来源
 
 - **论文**: "Welcome to The Era of Experience", David Silver & Richard Sutton, 2025
-- **播客**: Google DeepMind Podcast — "Is human data enough? With David Silver", 主持人 Hannah Fry, ~49 分钟
+- **播客**: Google DeepMind Podcast — "Is human data enough? with David Silver", 主持人 Hannah Fry
   - YouTube: https://www.youtube.com/watch?v=zzXyPGEtseI
   - Bilibili: https://www.bilibili.com/video/BV19SdiY6EsG/
-  - X/Twitter 公告: https://x.com/GoogleDeepMind/status/1910363683215008227
+  - 中文翻译: 腾讯新闻 — https://news.qq.com/rain/a/20250422A08QQE00
 - **演讲**: Algorithmic Innovation and Entrepreneurship Global Summit on Open Problems for AI, Friends House, London, 2025-10-28
-- **中文翻译**: 腾讯新闻 — https://news.qq.com/rain/a/20250422A08QQE00
+- **Ineffable Intelligence**: Silver 于 2026 年 1 月离开 DeepMind 创办，种子轮 11 亿美元（估值 51 亿），Sequoia / Lightspeed 领投，NVIDIA / Google / 英国主权AI基金跟投
 
 ## 两个时代
 
@@ -33,80 +33,90 @@ David Silver（Google DeepMind 首席研究科学家、UCL 教授）于 2025 年
 
 - 将人类拥有的全部知识提取出来输入给机器
 - 大语言模型的核心范式：吸收人类写下的所有文字，实现"全知"
-- 局限：永远无法超越人类已有的知识上限
-- 类比：**化石能源** — 能让 AI 赢在起跑线，但终究有限
+- 局限：永远无法超越人类已有的知识上限，无法创造新范式
+- 类比：**化石能源** — 能让 AI 赢在起跑线，但终究有限，大部分已用尽
 
 ### 体验时代（Era of Experience）
 
 - 让机器真正与世界互动，通过自身经历获得经验
 - 经验是推动下一代 AI 的"燃料"
 - 类比：**可持续能源** — 自我生成、自我消化、自我成长的动态经验
-- 总有一天要突破人类知识的界限，AI 需要自己探索、发现人类尚不知晓的领域
+- 智能体自行获取的知识终将远超互联网规模
+
+## 体验时代的四大特征
+
+1. **经验流沉浸** — 智能体沉浸在持续的经验流中，不停互动
+2. **扎根环境** — 行动和观察深度扎根于环境，能真正改变世界
+3. **世界锚定的奖励** — 奖励来自世界中的实际后果，而非人类标注者的偏好
+4. **基于经验的规划** — 推理针对实际发生的互动，非抽象的脱离经验的方式
+
+## 案例研究
+
+### 1. AlphaZero — 零人类数据 → 更快、更强
+
+- 完全不使用任何人类数据（"Zero"的含义），从随机权重开始
+- 蒙特卡洛树搜索 + 两个神经网络（Policy / Value Function），三步循环
+- 几小时内击败最好的手工编写程序，进而在国际象棋、将棋、围棋中击败世界冠军程序
+- **"苦涩启示"（Bitter Lesson）**: 人类辛苦积累的知识嵌入系统反而限制了 AI 上限
+- **"第37手"**: AlphaGo 对李世石第二盘，落在五路线，完全超出人类认知，象征无限创新之路
+
+### 2. AlphaProof — 将数学当作博弈
+
+- 用 AlphaZero 框架做数学定理证明
+- 使用 Lean 形式化语言，"策略"（tactics）如同游戏中的行动
+- 学习曲线与围棋一样平滑——从极少初始知识出发，纯自我博弈发现证明
+- 2024 年成为史上第一个在 IMO 获得奖牌的 AI（银牌，距金牌仅差一分）
+- 一道不到 2% 参赛者解出的题，AlphaProof 通过基于经验的规划发现证明
+- 2025 年已有多个系统获得 IMO 金牌
+
+### 3. DiscoRL — 发现强化学习算法
+
+- 在元层面应用"从经验中学习"：用经验学习 RL 算法本身
+- 用神经网络表示学习算法，让它在多种环境中自行摸索最优算法
+- 超越人类设计的最佳 RL 算法（如 MuZero），且能迁移到从未见过的环境
+- 新的 Scaling Law：接触越多训练环境，在所有环境（含未见过）上的表现都越好
 
 ## 关键论点
 
-### 1. AlphaZero 证明：零人类数据 → 更快、更强
+### RLHF 的致命弱点
 
-- AlphaZero 完全不使用任何人类数据（"Zero"的含义）
-- 方法：自己和自己对弈几百万盘，通过试错学习
-- 结果：不仅学得更快，表现还比用人类棋谱启动的版本更强
-- **"苦涩启示"（Bitter Lesson）**: 人类辛苦积累的知识嵌入系统反而限制了 AI 上限；放弃人类数据、让系统自学，AI 反而能无限进步
+- RLHF 让 AI 朝人类更喜欢的方向优化，但**无法突破人类知识的上限**
+- 人类评价员无法识别新的、更好的解法 → AI 永远学不到那条路线
+- 真正扎根的反馈应基于现实世界的结果，而非人类偏好标注
 
-### 2. "第37手" — AI 创新的标志
-
-- AlphaGo 对李世石第二盘第 37 手：落在五路线，完全超出人类认知
-- 人类高手万分之一才会做此选择，但它是胜负手
-- 意义：象征一条无限延伸的创新之路，不仅仅是一个孤立突破
-- 大语言模型目前缺乏类似"第37手"的创新，因为太注重模仿人类
-
-### 3. RLHF 的致命弱点
-
-- RLHF（基于人类反馈的强化学习）让 AI 朝人类更喜欢的方向优化
-- 但它**无法突破人类知识的上限**：如果人类评价员无法识别新的、更好的解法，AI 永远学不到那条路线
-- Silver 的反转论证：人类反馈反而是**不扎根的** — 人只看答案、不验证结果（如推荐蛋糕食谱但没人真的去烤）
-- 真正扎根的反馈应基于现实世界的结果
-
-### 4. 自我生成体验 vs 合成数据
+### 自我生成体验 vs 合成数据
 
 - 合成数据（用大模型生成新数据）终究会遇到上限
-- 自我生成体验的独特优势：当系统变强 → 遇到更难的问题 → 刚好匹配能力 → 永远有新的体验可"燃烧"
-- 没有极限，可以不停进化
+- 自我生成体验：系统变强 → 遇到更难的问题 → 刚好匹配能力 → 永远有新的体验可"燃烧"
 
-### 5. AlphaProof — 数学领域的 AlphaZero
+### 模糊领域的扩展
 
-- 用 AlphaZero 框架做数学定理证明
-- 使用 Lean 编程语言（形式化数学语言），证明可自动验证
-- 训练方式：给 100 万个人类定理题目（不给答案），自动扩展到 1 亿道
-- 成果：在**国际数学奥林匹克（IMO）达到银牌水平**
-- 一道只有不到 1% 参赛者解出的题，AlphaProof 做出了完美证明
-- Tim Gowers（菲尔兹奖得主）担任裁判，评价为"远超以往 AI 数学系统的飞跃"
-- 目标：全面超越人类数学家，攻克黎曼猜想等世纪难题
-
-### 6. 模糊领域的扩展
-
-- 围棋/数学有明确标准（输赢/对错），但现实领域往往没有
-- Silver 的方案：将模糊目标拆解为一组可量化的指标
-  - 例："变健康" → 静息心率、BMI、焦虑水平等综合指标
-  - 指标组合随反馈自适应调整
+- 围棋/数学有明确标准，但现实领域往往没有
+- 方案：将模糊目标拆解为一组可量化的指标，指标组合随反馈自适应调整
 - AI 能自主判断"此刻该优化什么目标"
 
-### 7. 对齐与安全
+### 对齐与安全
 
 - **造纸夹悖论**: AI 只追求单一指标会走向极端
-- 解决思路：引入人类的痛苦/快乐信号作为自适应目标调整机制
-- 当 AI 的行为导致人类痛苦 → 系统自动调整目标组合
-- 现有 AI 缺乏"生命史"——没有长期学习和目标调整机制
+- 引入人类的痛苦/快乐信号作为自适应目标调整机制
 - 需要让 AI 有持续多年、不断累积自我经验的过程
+
+### 路灯下的寓言
+
+- 整个 AI 领域趋同到 LLM 这盏"路灯"下，另一盏路灯（从经验中学习）几乎无人探索
+- 人类数据解决了"AI 的浅层问题"——把已有知识装进模型
+- "AI 的深层问题"是：一个智能体如何为自己学习
 
 ## 核心金句
 
 | 原文 | 译文/解读 |
 |------|-----------|
-| "The bitter lesson" | 人类知识嵌入越多，系统最终表现越差；AI 的表现完全可能超越人类 |
+| "The bitter lesson" | 人类知识嵌入越多，系统最终表现越差 |
 | 人类数据 = 化石能源 | 能让 AI 起步，但有限 |
 | RL = 可持续能源 | 自我生成、永不枯竭 |
 | "第37手" | 无限创新序列中的一个节点 |
 | RLHF 连孩子和洗澡水都倒掉了 | 虽然有用，但锁死了 AI 超越人类的可能 |
+| 路灯寓言 | 整个领域聚集在一盏灯下，忽视另一盏 |
 
 ## 与其他概念的关系
 
@@ -120,4 +130,4 @@ David Silver（Google DeepMind 首席研究科学家、UCL 教授）于 2025 年
 
 - [anthropic-building-effective-agents](anthropic-building-effective-agents.md) — 构建有效 Agent 的方法论
 - [anthropic-context-engineering](anthropic-context-engineering.md) — 上下文工程，当前 LLM 的优化方向
-- [hermes-agent-memory-architecture](../hermes-agent-memory-architecture.md) — Agent 记忆系统的另一种设计思路
+- [hermes-agent-memory-architecture](hermes-agent-memory-architecture.md) — Agent 记忆系统的另一种设计思路

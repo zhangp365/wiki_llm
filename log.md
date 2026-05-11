@@ -105,3 +105,8 @@
 - Updated index.md (28 entries)
 - Updated mkdocs.yml nav
 - Sources: Google DeepMind Podcast, 腾讯新闻翻译
+
+## [2026-05-12] update | The Era of Experience — 补充 Friends House 演讲完整翻译
+- Saved raw speech translation to raw/articles/david-silver-era-of-experience-speech-2025-10.md
+- Updated concepts/era-of-experience.md: 整合演讲三大案例（AlphaZero/AlphaProof/DiscoRL）、四大特征、路灯寓言、Ineffable Intelligence 融资信息
+- Source: 用户提供的 Friends House 演讲完整中文翻译（2025-10-28）
