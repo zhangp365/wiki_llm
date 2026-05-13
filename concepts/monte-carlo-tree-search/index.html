@@ -1902,18 +1902,18 @@
 </code></pre></div>
 <h3 id="2-expansion">2. 扩展 (Expansion)<a class="headerlink" href="#2-expansion" title="Permanent link">&para;</a></h3>
 <p>到达一个未展开过的叶子节点时，创建一个新子节点：</p>
-<div class="highlight"><pre><span></span><code>到达：                  扩展后：
- X | O |              X | O |
-   |   |        →        | X |    ← 新增子节点
-   |   |              |   |
+<div class="highlight"><pre><span></span><code>到达：                扩展后：
+  X | O |              X | O |
+    |   |        →        | X |      ← 新增子节点
+    |   |              |   |
 </code></pre></div>
 <p><strong>不在所有节点上扩展</strong>，只在最有潜力的方向生长，避免盲目展开。</p>
 <h3 id="3-simulation-rollout">3. 模拟 (Simulation / Rollout)<a class="headerlink" href="#3-simulation-rollout" title="Permanent link">&para;</a></h3>
 <p>从新节点开始，<strong>双方随机走子</strong>直到游戏结束，得到一个胜负结果：</p>
 <div class="highlight"><pre><span></span><code>当前局面：          随机走子过程：        最终结果：
- X | O |           X | O | O          X | O | O
-   | X |    →     X | X | O    →     X | X | O
-   |   |           O | O | X        O | O | X
+  X | O |           X | O | O          X | O | O
+    | X |    →     X | X | O    →     X | X | O
+    |   |           O | O | X        O | O | X
                                        我赢了 ✓
 </code></pre></div>
 <p>纯 MCTS 中这一步完全随机。在 AlphaGo 中，这一步被<strong>神经网络</strong>替代。</p>
