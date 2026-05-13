@@ -2,7 +2,7 @@
      2|
      3|> 内容目录。每个 Wiki 页面按类型列出，附一行摘要。
      4|> 先看这里来找到相关页面。
-     5|> Last updated: 2026-05-11 | Total pages: 27
+     5|> Last updated: 2026-05-13 | Total pages: 29
      6|
      7|## Entities
      8|<!-- 按字母排序 -->
@@ -32,6 +32,8 @@
 - [[anthropic-agentic-coding-best-practices]] — Agentic Coding 最佳实践：Claude Code 使用指南
 - [[anthropic-postmortem-three-issues]] — Anthropic 三起生产事故复盘：路由错误、输出损坏、XLA 编译器 Bug
 - [[chromafs-virtual-filesystem]] — Mintlify ChromaFs：虚拟文件系统让 Agent 用 UNIX 命令探索文档，替代昂贵的 sandbox
+- [[monte-carlo-tree-search]] — 蒙特卡洛树搜索 (MCTS)：四步循环、UCB1 探索-利用平衡、搜索宽度与深度、神经网络角色
+- [[mcts-vs-alpha-beta]] — MCTS vs Alpha-Beta 搜索对比：搜索策略、适用场景、围棋为什么需要 MCTS、AlphaGo 融合方案
     19|
 ## Comparisons
 - [[prompt-cache-design-for-agents]] — Agent 提示词缓存设计：OpenCode/Aider/Claude Code 缓存策略对比、缓存友好 Prompt 最佳实践

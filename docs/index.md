@@ -37,6 +37,8 @@ title: LLM Wiki
 | [Agentic Coding 最佳实践](concepts/anthropic-agentic-coding-best-practices.md) | Claude Code 使用指南 | `agent` `anthropic` `coding` |
 || [三起生产事故复盘](concepts/anthropic-postmortem-three-issues.md) | 路由错误、输出损坏、XLA 编译器 Bug | `anthropic` `incident` `postmortem` |
 || [The Era of Experience（体验时代）](concepts/era-of-experience.md) | David Silver：从人类数据时代到体验时代，AlphaZero/AlphaProof 的经验驱动路径 | `rl` `deepmind` `alpha` `reasoning` |
+|| [蒙特卡洛树搜索 (MCTS)](concepts/monte-carlo-tree-search.md) | 四步循环、UCB1 探索-利用平衡、搜索宽度与深度、神经网络角色 | `architecture` `model` |
+|| [MCTS vs Alpha-Beta 搜索对比](concepts/mcts-vs-alpha-beta.md) | 搜索策略差异、适用场景、围棋为什么需要 MCTS、AlphaGo 融合方案 | `comparison` `architecture` |
 
 ## 对比
 
@@ -60,4 +62,4 @@ title: LLM Wiki
 
 ---
 
-*共 28 个条目 · 最后更新：2026-05-11*
+*共 30 个条目 · 最后更新：2026-05-13*
