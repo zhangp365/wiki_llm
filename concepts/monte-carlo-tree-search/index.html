@@ -12,25 +12,31 @@
         <meta name="author" content="zhangp365">
       
       
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/monte-carlo-tree-search/">
       
+      
+        <link rel="prev" href="../era-of-experience/">
+      
+      
+        <link rel="next" href="../mcts-vs-alpha-beta/">
       
       
         
       
       
-      <link rel="icon" href="/wiki_llm/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>LLM Wiki</title>
+        <title>蒙特卡洛树搜索 (MCTS) - LLM Wiki</title>
       
     
     
-      <link rel="stylesheet" href="/wiki_llm/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/wiki_llm/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("/wiki_llm/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#monte-carlo-tree-search-mcts" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -85,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="/wiki_llm/." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -105,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              蒙特卡洛树搜索 (MCTS)
             
           </span>
         </div>
@@ -228,7 +239,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/wiki_llm/." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href="../.." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -258,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -282,8 +293,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -350,11 +363,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -375,7 +388,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -393,7 +406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/vllm-prefix-caching/" class="md-nav__link">
+      <a href="../../vllm-prefix-caching/" class="md-nav__link">
         
   
   
@@ -421,7 +434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/a2a-protocol/" class="md-nav__link">
+      <a href="../../a2a-protocol/" class="md-nav__link">
         
   
   
@@ -449,7 +462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/a2a-task-state-machine/" class="md-nav__link">
+      <a href="../../a2a-task-state-machine/" class="md-nav__link">
         
   
   
@@ -477,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/a2a-security-analysis/" class="md-nav__link">
+      <a href="../../a2a-security-analysis/" class="md-nav__link">
         
   
   
@@ -505,7 +518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/a2a-ecosystem/" class="md-nav__link">
+      <a href="../../a2a-ecosystem/" class="md-nav__link">
         
   
   
@@ -533,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/acp-protocol/" class="md-nav__link">
+      <a href="../../acp-protocol/" class="md-nav__link">
         
   
   
@@ -561,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/acp-stdio-auth-flow/" class="md-nav__link">
+      <a href="../../acp-stdio-auth-flow/" class="md-nav__link">
         
   
   
@@ -589,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/hermes-agent-memory-architecture/" class="md-nav__link">
+      <a href="../../hermes-agent-memory-architecture/" class="md-nav__link">
         
   
   
@@ -617,7 +630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/chromafs-virtual-filesystem/" class="md-nav__link">
+      <a href="../chromafs-virtual-filesystem/" class="md-nav__link">
         
   
   
@@ -645,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-building-effective-agents/" class="md-nav__link">
+      <a href="../anthropic-building-effective-agents/" class="md-nav__link">
         
   
   
@@ -673,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-building-agents-agent-sdk/" class="md-nav__link">
+      <a href="../anthropic-building-agents-agent-sdk/" class="md-nav__link">
         
   
   
@@ -701,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-advanced-tool-use/" class="md-nav__link">
+      <a href="../anthropic-advanced-tool-use/" class="md-nav__link">
         
   
   
@@ -729,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-writing-tools-for-agents/" class="md-nav__link">
+      <a href="../anthropic-writing-tools-for-agents/" class="md-nav__link">
         
   
   
@@ -757,7 +770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-think-tool/" class="md-nav__link">
+      <a href="../anthropic-think-tool/" class="md-nav__link">
         
   
   
@@ -785,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-agent-skills/" class="md-nav__link">
+      <a href="../anthropic-agent-skills/" class="md-nav__link">
         
   
   
@@ -813,7 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-context-engineering/" class="md-nav__link">
+      <a href="../anthropic-context-engineering/" class="md-nav__link">
         
   
   
@@ -841,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-contextual-retrieval/" class="md-nav__link">
+      <a href="../anthropic-contextual-retrieval/" class="md-nav__link">
         
   
   
@@ -869,7 +882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-harnesses-long-running-agents/" class="md-nav__link">
+      <a href="../anthropic-harnesses-long-running-agents/" class="md-nav__link">
         
   
   
@@ -897,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-multi-agent-research-system/" class="md-nav__link">
+      <a href="../anthropic-multi-agent-research-system/" class="md-nav__link">
         
   
   
@@ -925,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-code-execution-mcp/" class="md-nav__link">
+      <a href="../anthropic-code-execution-mcp/" class="md-nav__link">
         
   
   
@@ -953,7 +966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-demystifying-evals/" class="md-nav__link">
+      <a href="../anthropic-demystifying-evals/" class="md-nav__link">
         
   
   
@@ -981,7 +994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-claude-code-sandboxing/" class="md-nav__link">
+      <a href="../anthropic-claude-code-sandboxing/" class="md-nav__link">
         
   
   
@@ -1009,7 +1022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-agentic-coding-best-practices/" class="md-nav__link">
+      <a href="../anthropic-agentic-coding-best-practices/" class="md-nav__link">
         
   
   
@@ -1037,7 +1050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/anthropic-postmortem-three-issues/" class="md-nav__link">
+      <a href="../anthropic-postmortem-three-issues/" class="md-nav__link">
         
   
   
@@ -1065,7 +1078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/era-of-experience/" class="md-nav__link">
+      <a href="../era-of-experience/" class="md-nav__link">
         
   
   
@@ -1090,10 +1103,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/monte-carlo-tree-search/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    蒙特卡洛树搜索 (MCTS)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1109,6 +1149,203 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心问题：为什么需要它？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四步循环
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四步循环">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 选择 (Selection)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-expansion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 扩展 (Expansion)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-simulation-rollout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 模拟 (Simulation / Rollout)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-backpropagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 回传 (Backpropagation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        搜索的宽度和深度
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="搜索的宽度和深度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        搜索宽度（每步考虑多少走法）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        搜索深度（向前看多远）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alphago" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        具体参数（AlphaGo 各版本）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么不用神经网络直接选？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        神经网络在 MCTS 中的角色
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        历史脉络
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关概念
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1121,7 +1358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/concepts/mcts-vs-alpha-beta/" class="md-nav__link">
+      <a href="../mcts-vs-alpha-beta/" class="md-nav__link">
         
   
   
@@ -1216,7 +1453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/prompt-cache-design-for-agents/" class="md-nav__link">
+      <a href="../../prompt-cache-design-for-agents/" class="md-nav__link">
         
   
   
@@ -1244,7 +1481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/comparisons/hermes-vs-aider-prompt-caching/" class="md-nav__link">
+      <a href="../../comparisons/hermes-vs-aider-prompt-caching/" class="md-nav__link">
         
   
   
@@ -1272,7 +1509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/a2a-vs-mcp/" class="md-nav__link">
+      <a href="../../a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -1307,7 +1544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wiki_llm/SCHEMA/" class="md-nav__link">
+      <a href="../../SCHEMA/" class="md-nav__link">
         
   
   
@@ -1344,6 +1581,193 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心问题：为什么需要它？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四步循环
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四步循环">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 选择 (Selection)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-expansion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 扩展 (Expansion)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-simulation-rollout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 模拟 (Simulation / Rollout)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-backpropagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 回传 (Backpropagation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        搜索的宽度和深度
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="搜索的宽度和深度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        搜索宽度（每步考虑多少走法）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        搜索深度（向前看多远）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alphago" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        具体参数（AlphaGo 各版本）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么不用神经网络直接选？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        神经网络在 MCTS 中的角色
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        历史脉络
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关概念
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1361,11 +1785,259 @@
   
 
 
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../vllm-prefix-caching/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    概念
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+  
+
+
+<h1 id="monte-carlo-tree-search-mcts">蒙特卡洛树搜索 (Monte Carlo Tree Search, MCTS)<a class="headerlink" href="#monte-carlo-tree-search-mcts" title="Permanent link">&para;</a></h1>
+<h2 id="_1">定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>MCTS 是一种用于<strong>不完全信息</strong>和<strong>高分支因子</strong>博弈决策的启发式搜索算法。它通过<strong>随机模拟 + 统计采样</strong>来评估局面，不依赖手工设计的评估函数。</p>
+<h2 id="_2">核心问题：为什么需要它？<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在棋类博弈中，AI 需要在一棵博弈树上搜索最优走法：</p>
+<div class="highlight"><pre><span></span><code>                    空棋盘（根节点）
+                   /    |    \
+                 /      |      \
+              走法A   走法B    走法C
+              /  \       |        \
+           对手走 ...  对手走    对手走
+</code></pre></div>
+<p>每一步棋展开的合法走法越多，搜索空间就越大：</p>
+<table>
+<thead>
+<tr>
+<th>游戏</th>
+<th>每步选择数</th>
+<th>一局步数</th>
+<th>搜索空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>井字棋</td>
+<td>~5</td>
+<td>9</td>
+<td>~5,478</td>
+</tr>
+<tr>
+<td>国际象棋</td>
+<td>~35</td>
+<td>80</td>
+<td>10¹²⁰</td>
+</tr>
+<tr>
+<td>围棋</td>
+<td>~250</td>
+<td>200</td>
+<td>10³⁶⁰</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>井字棋</strong>：搜索空间极小，任何方法都够用</li>
+<li><strong>国际象棋</strong>：Alpha-Beta 剪枝 + 深度评估函数可以处理</li>
+<li><strong>围棋</strong>：搜索空间爆炸，Alpha-Beta 完全失效，必须用 MCTS</li>
+</ul>
+<h2 id="_3">四步循环<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>MCTS 的核心是一个四步循环，每次循环树长大一点：</p>
+<h3 id="1-selection">1. 选择 (Selection)<a class="headerlink" href="#1-selection" title="Permanent link">&para;</a></h3>
+<p>从根节点沿最"有潜力"的路径往下走，使用 <strong>UCB1 公式</strong> 选择子节点：</p>
+<div class="highlight"><pre><span></span><code>UCB1 = 胜率 + C × √(ln 父节点访问次数 / 该节点访问次数)
+</code></pre></div>
+<ul>
+<li><strong>前半部分（胜率）</strong>：已验证的实力 — Exploitation</li>
+<li><strong>后半部分（探索项）</strong>：未充分探索的节点有加分 — Exploration</li>
+</ul>
+<p>这实现了 <strong>Explore-Exploit 平衡</strong>：既利用已知好的选择，又探索未知选择。</p>
+<div class="highlight"><pre><span></span><code>两个子节点：
+  节点A：访问 20 次，胜率 70% → 胜率高，但已充分探索
+  节点B：访问 2 次，胜率 50%  → 胜率低，但探索项大
+
+→ 可能选 B（它还没被充分探索，可能有惊喜）
+</code></pre></div>
+<h3 id="2-expansion">2. 扩展 (Expansion)<a class="headerlink" href="#2-expansion" title="Permanent link">&para;</a></h3>
+<p>到达一个未展开过的叶子节点时，创建一个新子节点：</p>
+<div class="highlight"><pre><span></span><code>到达：                  扩展后：
+ X | O |              X | O |
+   |   |        →        | X |    ← 新增子节点
+   |   |              |   |
+</code></pre></div>
+<p><strong>不在所有节点上扩展</strong>，只在最有潜力的方向生长，避免盲目展开。</p>
+<h3 id="3-simulation-rollout">3. 模拟 (Simulation / Rollout)<a class="headerlink" href="#3-simulation-rollout" title="Permanent link">&para;</a></h3>
+<p>从新节点开始，<strong>双方随机走子</strong>直到游戏结束，得到一个胜负结果：</p>
+<div class="highlight"><pre><span></span><code>当前局面：          随机走子过程：        最终结果：
+ X | O |           X | O | O          X | O | O
+   | X |    →     X | X | O    →     X | X | O
+   |   |           O | O | X        O | O | X
+                                       我赢了 ✓
+</code></pre></div>
+<p>纯 MCTS 中这一步完全随机。在 AlphaGo 中，这一步被<strong>神经网络</strong>替代。</p>
+<h3 id="4-backpropagation">4. 回传 (Backpropagation)<a class="headerlink" href="#4-backpropagation" title="Permanent link">&para;</a></h3>
+<p>把胜负结果沿路径<strong>反向更新</strong>回去：</p>
+<div class="highlight"><pre><span></span><code>                    [访问 21 次, 胜率 71%]  ← 更新
+                   /            \
+        [访问 8 次, 胜率 62%]  [访问 3 次, 胜率 67%]  ← 更新
+              |
+        [访问 3 次, 胜率 100%]  ← 刚模拟的节点，赢了 +1
+
+更新规则：访问次数 +1，如果赢了则胜利次数 +1，重新计算胜率
+</code></pre></div>
+<h2 id="_4">搜索的宽度和深度<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">搜索宽度（每步考虑多少走法）<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>围棋每步有 ~250 个合法走法，不可能全搜。AlphaGo 用<strong>策略网络</strong>做预筛选：</p>
+<div class="highlight"><pre><span></span><code>250 个合法走法
+      ↓ 策略网络打分
+筛选出 ~5-10 个高概率走法
+      ↓ MCTS 在这 5-10 个中展开搜索
+</code></pre></div>
+<h3 id="_6">搜索深度（向前看多远）<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>搜索深度<strong>不均匀</strong>，不是每条线都看一样远：</p>
+<div class="highlight"><pre><span></span><code>                 根节点
+               /   |   \
+            很深！  一般深   很浅
+             |        |
+          继续深     到这就停了
+             |
+          ...（这条路线有意思，一直搜）
+</code></pre></div>
+<ul>
+<li><strong>关键变化</strong>（双方最优应对）→ 搜得很深，可能 20-30 步</li>
+<li><strong>明显差的变化</strong> → 搜几步就放弃，不值得浪费时间</li>
+<li>实际由<strong>时间预算</strong>决定（AlphaGo 正式赛约 2 分钟/步）</li>
+</ul>
+<h3 id="alphago">具体参数（AlphaGo 各版本）<a class="headerlink" href="#alphago" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>AlphaGo Fan</th>
+<th>AlphaGo Zero</th>
+<th>AlphaZero</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每步模拟次数</td>
+<td>~1,600</td>
+<td>~1,600</td>
+<td>~800</td>
+</tr>
+<tr>
+<td>搜索宽度</td>
+<td>策略网络筛选 ~5-10</td>
+<td>策略网络筛选</td>
+<td>策略网络筛选</td>
+</tr>
+<tr>
+<td>搜索深度</td>
+<td>不均匀，关键路线 20+ 步</td>
+<td>类似</td>
+<td>类似</td>
+</tr>
+<tr>
+<td>每步用时</td>
+<td>~2 秒</td>
+<td>~2 秒</td>
+<td>~0.4 秒</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">为什么不用神经网络直接选？<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>神经网络给出的是<strong>单步判断</strong>（"当前局面胜率多少"），但博弈需要<strong>多步推演</strong>：</p>
+<div class="highlight"><pre><span></span><code>我走最优 → 对手走最优 → 我再走最优 → ... → 真正结果
+
+单看一步：胜率 80%（乐观估计）
+搜到底：  胜率 10%（被对手反击打爆）
+</code></pre></div>
+<p>三重原因：
+1. <strong>对手会反击</strong>：只看当前胜率是贪心策略，容易掉坑
+2. <strong>单次判断有噪声</strong>：多次采样平均才能降低误差
+3. <strong>长期 vs 短期</strong>：需要向前推演发现隐藏的陷阱</p>
+<p><strong>类比</strong>：神经网络是老司机凭直觉判断"这条路看起来不错"，MCTS 是真的开车进去看看前面有没有修路。直觉再准也只看一步，往前多走几步才能发现真相。</p>
+<h2 id="mcts">神经网络在 MCTS 中的角色<a class="headerlink" href="#mcts" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>纯 MCTS（无神经网络）：
+  当前局面 → 随机走到终局 → 看谁赢 → 统计
+  （模拟慢，随机走子质量差，结果噪声大）
+
+AlphaGo（MCTS + 神经网络）：
+  策略网络 → 筛选候选走法（缩窄搜索宽度）
+  价值网络 → 替代随机模拟直接预测胜率（提高评估质量）
+  （模拟次数少但质量高，用 1,600 次碾压所有人类）
+</code></pre></div>
+<h2 id="_8">历史脉络<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>1990s</strong>：MCTS 由 Rémi Coulom 等提出</li>
+<li><strong>2006</strong>：首次应用于围棋程序（Crazy Stone）</li>
+<li><strong>2016</strong>：AlphaGo 结合 MCTS + 深度学习击败李世石</li>
+<li><strong>2017</strong>：AlphaGo Zero 从零开始自我博弈训练，纯 MCTS + 神经网络</li>
+<li><strong>2018</strong>：AlphaZero 统一国际象棋、将棋、围棋，同一套架构</li>
+</ul>
+<h2 id="_9">相关概念<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../mcts-vs-alpha-beta/">mcts-vs-alpha-beta</a> — MCTS 与 Alpha-Beta 剪枝的详细对比</li>
+<li><a href="../era-of-experience/">era-of-experience</a> — AI 发展阶段中 MCTS + 自我博弈的地位</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1424,10 +2096,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/wiki_llm/", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "/wiki_llm/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="/wiki_llm/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
