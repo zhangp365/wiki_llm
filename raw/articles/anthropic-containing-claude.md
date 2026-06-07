@@ -1,21 +1,3 @@
----
-title: "跨产品约束Claude的方法"
-created: 2026-05-25
-updated: 2026-05-25
-type: concept
-tags: [agent, anthropic]
-sources: [raw/articles/anthropic-containing-claude.md]
-original: https://www.anthropic.com/engineering/how-we-contain-claude
----
-
-# 跨产品约束Claude的方法
-
-> 原文链接: [English Original](https://www.anthropic.com/engineering/how-we-contain-claude)
-
-*Engineering at Anthropic*
-
-发布于 2026年05年25日
-
 # How we contain Claude across products \ Anthropic
 
 [Skip to main content](https://www.anthropic.com/engineering/how-we-contain-claude#main-content)[Skip to footer](https://www.anthropic.com/engineering/how-we-contain-claude#footer)

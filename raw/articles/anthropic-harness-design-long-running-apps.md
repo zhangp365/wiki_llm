@@ -1,21 +1,3 @@
----
-title: "长时间应用开发的Harness设计"
-created: 2026-03-24
-updated: 2026-03-24
-type: concept
-tags: [agent, anthropic]
-sources: [raw/articles/anthropic-harness-design-long-running-apps.md]
-original: https://www.anthropic.com/engineering/harness-design-long-running-apps
----
-
-# 长时间应用开发的Harness设计
-
-> 原文链接: [English Original](https://www.anthropic.com/engineering/harness-design-long-running-apps)
-
-*Engineering at Anthropic*
-
-发布于 2026年03年24日
-
 [Skip to footer](#footer)
 
 [Try Claude](https://claude.ai/)

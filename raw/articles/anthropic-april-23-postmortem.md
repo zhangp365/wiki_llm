@@ -1,21 +1,3 @@
----
-title: "关于Claude Code质量报告的最新更新"
-created: 2026-04-23
-updated: 2026-04-23
-type: concept
-tags: [agent, anthropic]
-sources: [raw/articles/anthropic-april-23-postmortem.md]
-original: https://www.anthropic.com/engineering/april-23-postmortem
----
-
-# 关于Claude Code质量报告的最新更新
-
-> 原文链接: [English Original](https://www.anthropic.com/engineering/april-23-postmortem)
-
-*Engineering at Anthropic*
-
-发布于 2026年04年23日
-
 [Skip to footer](#footer)
 
 [Try Claude](https://claude.ai/)

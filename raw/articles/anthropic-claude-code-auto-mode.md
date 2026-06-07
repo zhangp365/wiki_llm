@@ -1,21 +1,3 @@
----
-title: "我们如何构建Claude Code自动模式"
-created: 2026-03-25
-updated: 2026-03-25
-type: concept
-tags: [agent, anthropic]
-sources: [raw/articles/anthropic-claude-code-auto-mode.md]
-original: https://www.anthropic.com/engineering/claude-code-auto-mode
----
-
-# 我们如何构建Claude Code自动模式
-
-> 原文链接: [English Original](https://www.anthropic.com/engineering/claude-code-auto-mode)
-
-*Engineering at Anthropic*
-
-发布于 2026年03年25日
-
 [Skip to footer](#footer)
 
 [Try Claude](https://claude.ai/)

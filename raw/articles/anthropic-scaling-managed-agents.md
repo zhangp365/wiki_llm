@@ -1,21 +1,3 @@
----
-title: "扩展托管Agent：将大脑与双手解耦"
-created: 2026-04-08
-updated: 2026-04-08
-type: concept
-tags: [agent, anthropic]
-sources: [raw/articles/anthropic-scaling-managed-agents.md]
-original: https://www.anthropic.com/engineering/managed-agents
----
-
-# 扩展托管Agent：将大脑与双手解耦
-
-> 原文链接: [English Original](https://www.anthropic.com/engineering/managed-agents)
-
-*Engineering at Anthropic*
-
-发布于 2026年04年08日
-
 # Scaling Managed Agents: Decoupling the brain from the hands \ Anthropic
 
 [Skip to main content](https://www.anthropic.com/engineering/managed-agents#main-content)[Skip to footer](https://www.anthropic.com/engineering/managed-agents#footer)
