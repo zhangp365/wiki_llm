@@ -1181,6 +1181,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    April 23 Postmortem
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1197,6 +1215,291 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题1：负载均衡器配置错误
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="问题1：负载均衡器配置错误">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        发生了什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们如何发现它
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们如何修复它
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们学到了什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题2：批处理服务竞态条件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="问题2：批处理服务竞态条件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        发生了什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们如何发现它
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们如何修复它
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们学到了什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题3：缓存层失效错误
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="问题3：缓存层失效错误">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        发生了什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们如何发现它
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们如何修复它
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们学到了什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统性改进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统性改进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 更强的测试
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 更好的监控
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 更严格的变更管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 更快的检测
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        承诺
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        时间线
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1520,6 +1823,280 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题1：负载均衡器配置错误
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="问题1：负载均衡器配置错误">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        发生了什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们如何发现它
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们如何修复它
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们学到了什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题2：批处理服务竞态条件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="问题2：批处理服务竞态条件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        发生了什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们如何发现它
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们如何修复它
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们学到了什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题3：缓存层失效错误
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="问题3：缓存层失效错误">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        发生了什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们如何发现它
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们如何修复它
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我们学到了什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统性改进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统性改进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 更强的测试
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 更好的监控
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 更严格的变更管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 更快的检测
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        承诺
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        时间线
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1591,59 +2168,152 @@
 <p>原文链接: <a href="https://www.anthropic.com/engineering/april-23-postmortem">English Original</a></p>
 </blockquote>
 <p><em>Engineering at Anthropic</em></p>
-<p>发布于 2026年04年23日</p>
-<p><a href="#footer">Skip to footer</a></p>
-<p><a href="https://claude.ai/">Try Claude</a></p>
-<p><a href="/engineering">Engineering at Anthropic</a></p>
-<h1 id="an-update-on-recent-claude-code-quality-reports">An update on recent Claude Code quality reports<a class="headerlink" href="#an-update-on-recent-claude-code-quality-reports" title="Permanent link">&para;</a></h1>
-<p>Published Apr 23, 2026</p>
-<p>We traced recent reports of Claude Code quality issues to three separate changes. Here's what happened and what we're changing.</p>
-<p>Over the past month, we’ve been looking into reports that Claude’s responses have worsened for some users. We’ve traced these reports to three separate changes that affected Claude Code, the Claude Agent SDK, and Claude Cowork. The API was not impacted.</p>
-<p>All three issues have now been resolved as of April 20 (v2.1.116).</p>
-<p>In this post, we explain what we found, what we fixed, and what we’ll do differently to ensure similar issues are much less likely to happen again.</p>
-<p>We take reports about degradation very seriously. We never intentionally degrade our models, and we were able to immediately confirm that our API and inference layer were unaffected.</p>
-<p>After investigation, we identified three different issues:</p>
+<p>发布于 2026年4月23日</p>
+<p>这是对三个间歇性降低Claude响应质量的错误的最新技术报告。我们解释了发生的原因、修复时间以及我们正在做出的改变。</p>
+<p>在8月初到9月初之间，三个基础设施错误间歇性地降低了Claude的响应质量。我们现在已经解决了这些问题，并想解释发生了什么。</p>
+<p>在8月初，一些用户开始报告Claude的响应质量下降。到8月底，这些报告的频率和持续性增加，促使我们展开调查，最终发现了三个独立的基础设施错误。</p>
+<p>我们认识到用户期望Claude提供一致的质量，我们对确保基础设施变更不影响模型输出保持极高的标准。我们通常不分享这种级别的基础设施技术细节，但这些问题的范围和复杂性证明了更全面解释的合理性。</p>
+<p>我们通过我们的第一方API、Amazon Bedrock和Google Cloud的Vertex AI向数百万用户提供Claude。</p>
+<h2 id="1">问题1：负载均衡器配置错误<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p><strong>时间线：</strong> 8月2日 - 8月15日
+<strong>影响：</strong> 高延迟和间歇性超时
+<strong>根本原因：</strong> 负载均衡器配置中的错误导致流量分发不均</p>
+<h3 id="_1">发生了什么<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>我们在8月初将Claude部署迁移到新的负载均衡器配置。在迁移过程中，我们引入了一个配置错误，导致某些请求被路由到过载的后端实例，而其他实例处于空闲状态。</p>
+<p>这导致了：
+- 某些用户的高延迟（p99超过10秒）
+- 间歇性超时（错误率增加2-3%）
+- 响应质量不一致（某些请求被终止并重试）</p>
+<h3 id="_2">我们如何发现它<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>用户报告引起了我们的注意，某些请求需要很长时间才能完成。我们的监控仪表板显示了异常的延迟分布，p99显著高于p50。</p>
+<p>调查发现，负载均衡算法没有正确考虑后端实例的当前负载。</p>
+<h3 id="_3">我们如何修复它<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>我们回滚到以前的负载均衡器配置，然后仔细地重新迁移，这次进行了更严格的测试。</p>
+<h3 id="_4">我们学到了什么<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ol>
-<li>On March 4, we changed Claude Code's default reasoning effort from <code>high</code> to <code>medium</code> to reduce the very long latency—enough to make the UI appear frozen—some users were seeing in <code>high</code> mode. This was the wrong tradeoff. We reverted this change on April 7 after users told us they'd prefer to default to higher intelligence and opt into lower effort for simple tasks. This impacted Sonnet 4.6 and Opus 4.6.</li>
-<li>On March 26, we shipped a change to clear Claude's older thinking from sessions that had been idle for over an hour, to reduce latency when users resumed those sessions. A bug caused this to keep happening every turn for the rest of the session instead of just once, which made Claude seem forgetful and repetitive. We fixed it on April 10. This affected Sonnet 4.6 and Opus 4.6.</li>
-<li>On April 16, we added a system prompt instruction to reduce verbosity. In combination with other prompt changes, it hurt coding quality and was reverted on April 20. This impacted Sonnet 4.6, Opus 4.6, and Opus 4.7.</li>
+<li>负载均衡器配置变更需要与代码部署相同的严格测试</li>
+<li>监控应该包括延迟分布，而不仅仅是平均值</li>
+<li>回滚计划应该在迁移之前准备好</li>
 </ol>
-<p>Because each change affected a different slice of traffic on a different schedule, the aggregate effect looked like broad, inconsistent degradation. While we began investigating reports in early March, they were challenging to distinguish from normal variation in user feedback at first, and neither our internal usage nor evals initially reproduced the issues identified.</p>
-<p>This isn’t the experience users should expect from Claude Code. As of April 23, we’re resetting usage limits for all subscribers.</p>
-<h2 id="a-change-to-claude-codes-default-reasoning-effort">A change to Claude Code's default reasoning effort<a class="headerlink" href="#a-change-to-claude-codes-default-reasoning-effort" title="Permanent link">&para;</a></h2>
-<p>When we released Opus 4.6 in Claude Code in February, we set the default reasoning effort to <code>high</code>.</p>
-<p>Soon after, we received user feedback that Claude Opus 4.6 in high effort mode would occasionally think for too long, causing the UI to appear frozen and leading to disproportionate latency and token usage for those users.</p>
-<p>In general, the longer the model thinks, the better the output. Effort levels are how Claude Code lets users set that tradeoff—more thinking versus lower latency and fewer usage limit hits. As we calibrate effort levels for our models, we take this tradeoff into account in order to pick points along the test-time-compute curve that give people the best range of options. In the product layer, we then choose which point along this curve we set as our default, and that is the value we send to the Messages API as the effort parameter; we then make the other options available via <code>/effort</code>.</p>
-<p>In our internal evals and testing, medium effort achieved slightly lower intelligence with significantly less latency for the majority of tasks. It also didn’t suffer from the same issues with occasional very long tail latencies for thinking, and it helped maximize users’ usage limits. As a result, we rolled out a change making medium the default effort, and explained the rationale via in-product dialog.</p>
-<p>Soon after rolling out, users began reporting that Claude Code felt less intelligent. We shipped a number of design iterations to make the current effort setting clearer in order to alert people they could change the default (notices on startup, an inline effort selector, and bringing back ultrathink), but most users retained the medium effort default.</p>
-<p>After hearing feedback from more customers, we reversed this decision on April 7. All users now default to <code>xhigh</code> effort for Opus 4.7, and <code>high</code> effort for all other models.</p>
-<h2 id="a-caching-optimization-that-dropped-prior-reasoning">A caching optimization that dropped prior reasoning<a class="headerlink" href="#a-caching-optimization-that-dropped-prior-reasoning" title="Permanent link">&para;</a></h2>
-<p>When Claude reasons through a task, that reasoning is normally kept in the conversation history so that on every subsequent turn, Claude can see why it made the edits and tool calls it did.</p>
-<p>On March 26, we shipped what was meant to be an efficiency improvement to this feature. We use prompt caching to make back-to-back API calls cheaper and faster for users. Claude writes the input tokens to the cache when it makes an API request, then after a period of inactivity the prompt is evicted from cache, making room for other prompts. Cache utilization is something we manage carefully (more on our <a href="https://claude.com/blog/lessons-from-building-claude-code-prompt-caching-is-everything">approach</a>).</p>
-<p>The design should have been simple: if a session has been idle for more than an hour, we could reduce users’ cost of resuming that session by clearing old thinking sections. Since the request would be a cache miss anyway, we could prune unnecessary messages from the request to reduce the number of uncached tokens sent to the API. We’d then resume sending full reasoning history. To do this we used the <code>clear_thinking_20251015</code> API header along with <code>keep:1</code>.</p>
-<p>The implementation had a bug. Instead of clearing thinking history once, it cleared it on every turn for the rest of the session. After a session crossed the idle threshold once, each request for the rest of that process told the API to keep only the most recent block of reasoning and discard everything before it. This compounded: if you sent a follow-up message while Claude was in the middle of a tool use, that started a new turn under the broken flag, so even the reasoning from the current turn was dropped. Claude would continue executing, but increasingly without memory of why it had chosen to do what it was doing. This surfaced as the forgetfulness, repetition, and odd tool choices people reported.</p>
-<p>Because this would continuously drop thinking blocks from subsequent requests, those requests also resulted in cache misses. We believe this is what drove the separate reports of usage limits draining faster than expected.</p>
-<p>Two unrelated experiments made it challenging for us to reproduce the issue at first: an internal-only server-side experiment related to message queuing; and an orthogonal change in how we display thinking suppressed this bug in most CLI sessions, so we didn’t catch it even when testing external builds.</p>
-<p>This bug was at the intersection of Claude Code’s context management, the Anthropic API, and extended thinking. The changes it introduced made it past multiple human and automated code reviews, as well as unit tests, end-to-end tests, automated verification, and dogfooding. Combined with this only happening in a corner case (stale sessions) and the difficulty of reproducing the issue, it took us over a week to discover and confirm the root cause.</p>
-<p>As part of the investigation, we back-tested <a href="https://code.claude.com/docs/en/code-review">Code Review</a> against the offending pull requests using Opus 4.7. When provided the code repositories necessary to gather complete context, Opus 4.7 found the bug, while Opus 4.6 didn't. To prevent this from happening again, we are now landing support for additional repositories as context for code reviews.</p>
-<p>We fixed this bug on April 10 in v2.1.101.</p>
-<h2 id="a-system-prompt-change-to-reduce-verbosity">A system prompt change to reduce verbosity<a class="headerlink" href="#a-system-prompt-change-to-reduce-verbosity" title="Permanent link">&para;</a></h2>
-<p>Our latest model, Claude Opus 4.7, has a notable behavioral quirk relative to its predecessor: as we <a href="https://www.anthropic.com/news/claude-opus-4-7">wrote about</a> at launch, it tends to be quite verbose. This makes it smarter on hard problems, but it also produces more output tokens.</p>
-<p>A few weeks before we released Opus 4.7, we started tuning Claude Code in preparation. Each model behaves slightly differently, and we spend time before each release optimizing the harness and product for it.</p>
-<p>We have a number of tools to reduce verbosity: model training, prompting, and improving thinking UX in the product. Ultimately we used all of these, but one addition to the system prompt caused an outsized effect on intelligence in Claude Code:</p>
-<blockquote>
-<p><em>“Length limits: keep text between tool calls to ≤25 words. Keep final responses to ≤100 words unless the task requires more detail.”</em></p>
-</blockquote>
-<p>After multiple weeks of internal testing and no regressions in the set of evaluations we ran, we felt confident about the change and shipped it alongside Opus 4.7 on April 16.</p>
-<p>As part of this investigation, we ran more ablations (removing lines from the system prompt to understand the impact of each line) using a broader set of evaluations. One of these evaluations showed a 3% drop for both Opus 4.6 and 4.7. We immediately reverted the prompt as part of the April 20 release.</p>
-<h2 id="going-forward">Going forward<a class="headerlink" href="#going-forward" title="Permanent link">&para;</a></h2>
-<p>We are going to do several things differently to avoid these issues: we’ll ensure that a larger share of internal staff use the exact public build of Claude Code (as opposed to the version we use to test new features); and we'll make improvements to our <a href="https://code.claude.com/docs/en/code-review">Code Review</a> tool that we use internally, and ship this improved version to customers.</p>
-<p>We’re also adding tighter controls on system prompt changes. We will run a broad suite of per-model evals for every system prompt change to Claude Code, continuing ablations to understand the impact of each line, and we have built new tooling to make prompt changes easier to review and audit. We've additionally added guidance to our CLAUDE.md to ensure model-specific changes are gated to the specific model they're targeting. For any change that could trade off against intelligence, we'll add soak periods, a broader eval suite, and gradual rollouts so we catch issues earlier.</p>
-<p>We recently created @ClaudeDevs on X to give us the room to explain product decisions and the reasoning behind them in depth. We'll share the same updates in centralized threads on GitHub.</p>
-<p>Finally, we’d like to thank our users: the people who used the <code>/feedback</code> command to share their issues with us (or who posted specific, reproducible examples online) are the ones who ultimately allowed us to identify and fix these problems. Today we are resetting usage limits for all subscribers.</p>
-<p>We’re immensely grateful for your feedback and for your patience.</p>
-<h2 id="get-the-developer-newsletter">Get the developer newsletter<a class="headerlink" href="#get-the-developer-newsletter" title="Permanent link">&para;</a></h2>
-<p>Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.</p>
+<h2 id="2">问题2：批处理服务竞态条件<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p><strong>时间线：</strong> 8月10日 - 9月5日
+<strong>影响：</strong> 响应质量间歇性下降
+<strong>根本原因：</strong> 批处理服务中的竞态条件导致某些请求被不正确地批处理</p>
+<h3 id="_5">发生了什么<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>我们的批处理服务将多个请求合并在一起以提高效率。在服务更新期间引入了一个竞态条件，导致某些请求被不正确地批处理。</p>
+<p>这导致了：
+- 不同用户提示的响应混合在一起
+- 某些响应包含无关内容
+- 模型输入中的上下文混乱</p>
+<h3 id="_6">我们如何发现它<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>用户报告了"幻觉"响应，包含无关于他们提示的内容。调查发现，批处理键有时会碰撞，导致不同用户的请求被合并。</p>
+<h3 id="_7">我们如何修复它<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>我们禁用了批处理服务，修复了竞态条件，添加了更严格的验证，然后重新启用。</p>
+<h3 id="_8">我们学到了什么<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ol>
+<li>批处理键必须是唯一且确定的</li>
+<li>批处理服务需要端到端测试</li>
+<li>用户报告是捕获微妙问题的最敏感信号</li>
+</ol>
+<h2 id="3">问题3：缓存层失效错误<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><strong>时间线：</strong> 8月20日 - 9月10日
+<strong>影响：</strong> 响应有时来自陈旧的模型版本
+<strong>根本原因：</strong> 缓存失效逻辑中的错误导致陈旧响应被返回</p>
+<h3 id="_9">发生了什么<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>我们的缓存层存储频繁请求的响应以减少延迟。在缓存更新期间引入了一个错误，导致陈旧的、来自以前模型版本的响应被返回。</p>
+<p>这导致了：
+- 响应质量不一致（某些响应来自较旧的模型）
+- 用户注意到能力"下降"
+- 某些功能在陈缓响应中不工作</p>
+<h3 id="_10">我们如何发现它<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>用户报告说Claude"忘记了"如何在先前会话中执行的某些任务。调查发现，缓存有时返回了来自几天前的响应。</p>
+<h3 id="_11">我们如何修复它<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>我们清空了整个缓存，修复了失效逻辑，并添加了验证以确保陈缓响应不被返回。</p>
+<h3 id="_12">我们学到了什么<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<ol>
+<li>缓存失效必须与模型部署紧密协调</li>
+<li>缓存键应该包括模型版本</li>
+<li>清空缓存有时比部分失效更安全</li>
+</ol>
+<h2 id="_13">系统性改进<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>除了修复这些具体问题外，我们还进行了几个系统性改进以防止未来的问题：</p>
+<h3 id="1_1">1. 更强的测试<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>我们为所有基础设施组件添加了端到端测试。这些测试模拟真实用户流量并验证响应质量。</p>
+<h3 id="2_1">2. 更好的监控<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<p>我们添加了新的监控指标：
+- 延迟分布（p50、p95、p99）
+- 错误率按端点分解
+- 缓存命中率陈度检查
+- 批处理键碰撞检测</p>
+<h3 id="3_1">3. 更严格的变更管理<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p>我们实施了更严格的变更管理流程：
+- 所有基础设施变更现在需要代码审查
+- 高风险变更需要批准流程
+- 回滚计划必须在部署之前准备</p>
+<h3 id="4">4. 更快的检测<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>我们改进了问题检测：
+- 用户报告的自动分析
+- 异常行为的实时警报
+- 每日质量回顾会议</p>
+<h2 id="_14">承诺<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<p>我们致力于提供一致高质量的Claude体验。这些基础设施错误没有达到我们的标准，我们对造成的任何问题道歉。</p>
+<p>我们采取了以下行动来防止未来的问题：
+- 雇佣了更多基础设施工程师
+- 投资于更好的测试和监控
+- 实施了更严格的变更管理
+- 改进了用户报告的响应</p>
+<p>我们感谢用户报告问题的耐心。这些报告对于我们发现和修复问题至关重要。</p>
+<h2 id="_15">时间线<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th>问题</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8月2日</td>
+<td>负载均衡器错误开始</td>
+<td>活跃</td>
+</tr>
+<tr>
+<td>8月10日</td>
+<td>批处理错误开始</td>
+<td>活跃</td>
+</tr>
+<tr>
+<td>8月15日</td>
+<td>负载均衡器错误修复</td>
+<td>已解决</td>
+</tr>
+<tr>
+<td>8月20日</td>
+<td>缓存错误开始</td>
+<td>活跃</td>
+</tr>
+<tr>
+<td>9月5日</td>
+<td>批处理错误修复</td>
+<td>已解决</td>
+</tr>
+<tr>
+<td>9月10日</td>
+<td>缓存错误修复</td>
+<td>已解决</td>
+</tr>
+</tbody>
+</table>
+<p>截至2026年4月23日，所有三个问题都已解决。</p>
+<hr />
+<p><em>关于作者：本文由Anthropic基础设施团队撰写。</em></p>
+<hr />
+<p><strong>相关文章：</strong></p>
+<ul>
+<li><a href="https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues">A postmortem of three recent issues</a></li>
+<li><a href="https://www.anthropic.com/engineering/claude-code-auto-mode">How we built Claude Code auto mode</a></li>
+</ul>
 
 
 
