@@ -86,6 +86,11 @@ nav:
     - Claude Code Sandboxing: concepts/anthropic-claude-code-sandboxing.md
     - Agentic Coding Best Practices: concepts/anthropic-agentic-coding-best-practices.md
     - Postmortem Three Issues: concepts/anthropic-postmortem-three-issues.md
+    - Containing Claude Across Products: concepts/anthropic-containing-claude.md
+    - Scaling Managed Agents: concepts/anthropic-scaling-managed-agents.md
+    - Harness Design for Long-running Apps: concepts/anthropic-harness-design-long-running-apps.md
+    - April 23 Postmortem: concepts/anthropic-april-23-postmortem.md
+    - Claude Code Auto Mode: concepts/anthropic-claude-code-auto-mode.md
     - The Era of Experience（体验时代）: concepts/era-of-experience.md
     - 蒙特卡洛树搜索 (MCTS): concepts/monte-carlo-tree-search.md
     - MCTS vs Alpha-Beta 搜索对比: concepts/mcts-vs-alpha-beta.md
