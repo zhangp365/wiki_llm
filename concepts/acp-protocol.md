@@ -33,8 +33,8 @@ ACP 是基于 **JSON-RPC 2.0** 的双向通信协议，用于 UI 客户端（如
 | `session/load` | Client → Agent (Request) | 加载历史会话，恢复上下文 |
 | `session/prompt` | Client → Agent (Request) | 发送用户任务，启动执行循环，**不设超时**，整个 turn 完成才回复 |
 | `session/cancel` | Client → Agent (Request) | 取消当前 prompt turn |
-| `session/setMode` | Client → Agent (Request) | 切换工作模式（Chat / Agent） |
-| `session/setModel` | Client → Agent (Request) | 切换当前会话绑定的 LLM 模型 |
+| `session/set_mode` | Client → Agent (Request) | 切换工作模式（ask / code / architect），详见 [Session Modes](https://agentclientprotocol.com/protocol/v1/session-modes) |
+| `session/set_config_option` | Client → Agent (Request) | 设置配置选项（包括模型、推理级别等），详见 [Session Config Options](https://agentclientprotocol.com/protocol/v1/session-config-options) |
 
 ### 三、扩展机制
 
@@ -86,4 +86,6 @@ ACP 是基于 **JSON-RPC 2.0** 的双向通信协议，用于 UI 客户端（如
 
 ## 参考
 
-- **官方文档**：https://agentclientprotocol.com
+- **官方文档**：[Agent Client Protocol](https://agentclientprotocol.com)
+- **Session Config Options**：[设置配置选项（包括模型）](https://agentclientprotocol.com/protocol/v1/session-config-options)
+- **Session Modes**：[切换工作模式](https://agentclientprotocol.com/protocol/v1/session-modes)
