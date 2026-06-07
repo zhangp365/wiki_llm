@@ -49,7 +49,39 @@
          <lastmod>2026-06-07</lastmod>
     </url>
     <url>
+         <loc>https://zhangp365.github.io/wiki_llm/comparisons/a2a-vs-mcp/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
          <loc>https://zhangp365.github.io/wiki_llm/comparisons/hermes-vs-aider-prompt-caching/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
+         <loc>https://zhangp365.github.io/wiki_llm/comparisons/prompt-cache-design-for-agents/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
+         <loc>https://zhangp365.github.io/wiki_llm/concepts/a2a-ecosystem/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
+         <loc>https://zhangp365.github.io/wiki_llm/concepts/a2a-protocol/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
+         <loc>https://zhangp365.github.io/wiki_llm/concepts/a2a-security-analysis/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
+         <loc>https://zhangp365.github.io/wiki_llm/concepts/a2a-task-state-machine/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
+         <loc>https://zhangp365.github.io/wiki_llm/concepts/acp-protocol/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
+         <loc>https://zhangp365.github.io/wiki_llm/concepts/acp-stdio-auth-flow/</loc>
          <lastmod>2026-06-07</lastmod>
     </url>
     <url>
@@ -65,6 +97,10 @@
          <lastmod>2026-06-07</lastmod>
     </url>
     <url>
+         <loc>https://zhangp365.github.io/wiki_llm/concepts/anthropic-april-23-postmortem/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
          <loc>https://zhangp365.github.io/wiki_llm/concepts/anthropic-building-agents-agent-sdk/</loc>
          <lastmod>2026-06-07</lastmod>
     </url>
@@ -73,11 +109,19 @@
          <lastmod>2026-06-07</lastmod>
     </url>
     <url>
+         <loc>https://zhangp365.github.io/wiki_llm/concepts/anthropic-claude-code-auto-mode/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
          <loc>https://zhangp365.github.io/wiki_llm/concepts/anthropic-claude-code-sandboxing/</loc>
          <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://zhangp365.github.io/wiki_llm/concepts/anthropic-code-execution-mcp/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
+         <loc>https://zhangp365.github.io/wiki_llm/concepts/anthropic-containing-claude/</loc>
          <lastmod>2026-06-07</lastmod>
     </url>
     <url>
@@ -93,6 +137,10 @@
          <lastmod>2026-06-07</lastmod>
     </url>
     <url>
+         <loc>https://zhangp365.github.io/wiki_llm/concepts/anthropic-harness-design-long-running-apps/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
          <loc>https://zhangp365.github.io/wiki_llm/concepts/anthropic-harnesses-long-running-agents/</loc>
          <lastmod>2026-06-07</lastmod>
     </url>
@@ -102,6 +150,10 @@
     </url>
     <url>
          <loc>https://zhangp365.github.io/wiki_llm/concepts/anthropic-postmortem-three-issues/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
+         <loc>https://zhangp365.github.io/wiki_llm/concepts/anthropic-scaling-managed-agents/</loc>
          <lastmod>2026-06-07</lastmod>
     </url>
     <url>
@@ -121,11 +173,19 @@
          <lastmod>2026-06-07</lastmod>
     </url>
     <url>
+         <loc>https://zhangp365.github.io/wiki_llm/concepts/hermes-agent-memory-architecture/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
          <loc>https://zhangp365.github.io/wiki_llm/concepts/mcts-vs-alpha-beta/</loc>
          <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://zhangp365.github.io/wiki_llm/concepts/monte-carlo-tree-search/</loc>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
+         <loc>https://zhangp365.github.io/wiki_llm/concepts/vllm-prefix-caching/</loc>
          <lastmod>2026-06-07</lastmod>
     </url>
 </urlset>
