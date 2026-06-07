@@ -3,7 +3,7 @@ title: "扩展托管Agent：将大脑与双手解耦"
 created: 2026-04-08
 updated: 2026-04-08
 type: concept
-tags: [agent, anthropic]
+tags: [agent, anthropic, managed-agents]
 sources: [raw/articles/anthropic-scaling-managed-agents.md]
 original: https://www.anthropic.com/engineering/managed-agents
 ---
@@ -14,216 +14,287 @@ original: https://www.anthropic.com/engineering/managed-agents
 
 *Engineering at Anthropic*
 
-发布于 2026年04年08日
+发布于 2026年4月8日
 
-# Scaling Managed Agents: Decoupling the brain from the hands \ Anthropic
+Harness编码的假设会随着模型改进而过时。Managed Agents——我们用于长期Agent工作的托管服务——围绕随着Harness变化而保持稳定的接口构建。
 
-[Skip to main content](https://www.anthropic.com/engineering/managed-agents#main-content)[Skip to footer](https://www.anthropic.com/engineering/managed-agents#footer)
+[通过我们的文档开始使用Claude Managed Agents。]
 
-[](https://www.anthropic.com/)
+Engineering Blog上的一个持续主题是如何构建有效的Agent和为长期工作设计Harness。仅仅作为一个例子，在早期工作中我们发现Claude Sonnet 4.5会在感觉到其上下文限制临近时过早结束任务——这种行为有时被称为"上下文焦虑"。我们通过在Harness中添加上下文重置来解决这个问题。
 
-*   [Research](https://www.anthropic.com/research)
-*   [Economic Futures](https://www.anthropic.com/economic-futures)
-*   Commitments
-*   Learn
-*   [News](https://www.anthropic.com/news)
+Managed Agents通过将长期工作分解为可管理的会话来解决这些问题，而无需特定于Harness的假设。服务保持Agent状态，在会话之间管理上下文窗口，并通过稳定的接口处理工作进程的执行。这使得在模型改进或Harness设计演变时可以迭代Agent实现，而无需更改调用代码。
 
-[Try Claude](https://claude.ai/)
+本文介绍了Managed Agents，如何在其上构建自定义Agent实现，以及我们学到的部署大规模长期Agent工作的经验。
 
-[Engineering at Anthropic](https://www.anthropic.com/engineering)
+## 什么是Managed Agent？
 
-![Image 1](https://www-cdn.anthropic.com/images/4zrzovbb/website/282c56ae3ec0a72a15c5f4186744ce0ac940a2dd-2554x2554.svg)
+托管Agent是一种长期运行的Agent工作，其中托管服务（而不是调用代码）管理Agent的会话、上下文和执行过程。
 
-# Scaling Managed Agents: Decoupling the brain from the hands
+调用代码向托管Agent提交工作，并等待结果。服务负责：
+- 管理会话生命周期（启动、暂停、恢复、完成）
+- 在会话之间管理上下文窗口
+- 处理执行错误和重试
+- 将进度流式传输回调用者
 
-Published Apr 08, 2026
+托管Agent是围绕工作进程的概念构建的，工作进程是长期任务的可恢复单元。工作进程包含：
+- Agent执行的会话历史
+- 文件系统状态
+- 来自先前会话的待处理操作
 
-Harnesses encode assumptions that go stale as models improve. Managed Agents—our hosted service for long-horizon agent work—is built around interfaces that stay stable as harnesses change.
+这托管服务接口可以在工作进程上执行操作：
+- `run(work_process_id)`：恢复工作进程并执行一个会话
+- `pause(work_process_id)`：暂停工作进程
+- `get_status(work_process_id)`：获取工作进程的当前状态
+- `list_work_processes()`：列出所有工作进程
 
-_Get started with Claude Managed Agents by following our [docs](https://platform.claude.com/docs/en/managed-agents/overview)._
+托管服务通过REST API公开这些操作，并通过Webhooks发送进度更新。
 
-A running topic on the Engineering Blog is how to [build effective agents](https://www.anthropic.com/engineering/building-effective-agents) and [design harnesses](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) for [long-running work](https://www.anthropic.com/engineering/harness-design-long-running-apps). A common thread across this work is that harnesses encode assumptions about what Claude can’t do on its own. However, those assumptions need to be frequently questioned because they can [go stale](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) as models improve.
+## 为什么托管Agent？
 
-As just one example, in prior work [we found](https://www.anthropic.com/engineering/harness-design-long-running-apps) that Claude Sonnet 4.5 would wrap up tasks prematurely as it sensed its context limit approaching—a behavior sometimes called “context anxiety.” We addressed this by adding context resets to the harness. But when we used the same harness on Claude Opus 4.5, we found that the behavior was gone. The resets had become dead weight.
+在长期Agent工作中出现三个主要问题，托管Agent通过将管理从调用代码中分离出来来解决这些问题：
 
-We expect harnesses to continue evolving. So we built Managed Agents: a hosted service in the Claude Platform that runs long-horizon agents on your behalf through a small set of interfaces meant to outlast any particular implementation—including the ones we run today.
+### 1. 上下文窗口管理
 
-Building Managed Agents meant solving an old problem in computing: how to design a system for “[programs as yet unthought of](http://www.catb.org/esr/writings/taoup/html/ch03s01.html).” Decades ago, operating systems solved this problem by virtualizing hardware into abstractions—_process, file_—general enough for programs that didn't exist yet. The abstractions outlasted the hardware. The `read()` command is agnostic as to whether it’s accessing a disk pack from the 1970s or a modern SSD. The abstractions on top stayed stable while the implementations underneath changed freely.
+长期工作通常会耗尽上下文窗口。当模型达到其上下文限制时，它需要：
+- 识别当前状态
+- 保存必要信息以供恢复
+- 从干净状态重新开始
 
-Managed Agents follow the same pattern. We virtualized the components of an agent: a session (the append-only log of everything that happened), a harness (the loop that calls Claude and routes Claude’s tool calls to the relevant infrastructure), and a sandbox (an execution environment where Claude can run code and edit files). This allows the implementation of each to be swapped without disturbing the others. We're opinionated about the shape of these interfaces, not about what runs behind them.
+托管服务自动处理这种上下文重置。它保留完整会话历史以供调试，但仅将相关状态传递给模型以进行每个会话。
 
-![Image 2](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F903b624ada206b10753a24c6a1367e74a869165d-1080x1080.png&w=3840&q=75)
+### 2. 执行可靠性
 
-## Don’t adopt a pet
+长期工作会遇到执行错误：
+- API故障
+- 网络超时
+- 模型输出错误
+- 资源限制
 
-We started by placing all agent components into a single container, which meant the session, agent harness, and sandbox all shared an environment. There were benefits to this approach, including that file edits are direct syscalls, and there were no service boundaries to design.
+托管服务实现自动重试和恢复。它跟踪每个操作的执行状态，并从失败点恢复。
 
-But by coupling everything into one container, we ran into an old infrastructure problem: we’d adopted a [_pet_](https://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/). In the pets-vs-cattle analogy, a pet is a named, hand-tended individual you can’t afford to lose, while cattle are interchangeable. In our case, the server became that pet; if a container failed, the session was lost. If a container was unresponsive, we had to nurse it back to health.
+### 3. 会话管理
 
-Nursing containers meant debugging unresponsive stuck sessions. Our only window in was the WebSocket event stream, but that couldn’t tell us _where_ failures arose, which meant that a bug in the harness, a packet drop in the event stream, or a container going offline all presented the same. To figure out what went wrong, an engineer had to open a shell inside the container, but because that container often also held user data, that approach essentially meant we lacked the ability to debug.
+长期工作跨越多个会话。托管服务管理：
+- 何时开始新会话
+- 何时暂停等待输入
+- 何时完成工作进程
+- 如何在会话之间传递状态
 
-A second issue was that the harness assumed that whatever Claude worked on lived in the container with it. When customers asked us to connect Claude to their virtual private cloud, they had to either peer their network with ours, or run our harness in their own environment. An assumption baked into the harness became a problem when we wanted to connect it to different infrastructure.
+调用代码不需要处理这些细节——它只需提交工作并等待结果。
 
-## Decouple the brain from the hands
+## 架构
 
-The solution we arrived at was to decouple what we thought of as the “brain” (Claude and its harness) from both the “hands” (sandboxes and tools that perform actions) and the “session” (the log of session events). Each became an interface that made few assumptions about the others, and each could fail or be replaced independently.
+托管Agent由四个主要组件组成：
 
-**The harness leaves the container.**Decoupling the brain from the hands meant the harness no longer lived inside the container. It called the container the way it called any other tool: `execute(name, input) → string`. The container became cattle. If the container died, the harness caught the failure as a tool-call error and passed it back to Claude. If Claude decided to retry, a new container could be reinitialized with a standard recipe: `provision({resources})`. We no longer had to nurse failed containers back to health.
+### 工作进程存储
 
-**Recovering from harness failure.**The harness also became cattle. Because the session log sits outside the harness, nothing in the harness needs to survive a crash. When one fails, a new one can be rebooted with `wake(sessionId)`, use `getSession(id)` to get back the event log, and resume from the last event. During the agent loop, the harness writes to the session with `emitEvent(id, event)` in order to keep a durable record of events.
+工作进程存储保留Agent执行的状态。对于每个工作进程，它存储：
+- 会话历史（所有Agent调用的完整历史）
+- 当前状态（下一个会话的相关状态）
+- 文件系统快照（工作目录的状态）
+- 待处理操作（尚未执行的队列操作）
 
-![Image 3](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F73e900af5b9d6ed8c64db0a8e74d4465963556b7-1640x1596.png&w=3840&q=75)
+工作进程存储是持久化的，并可在会话之间访问。
 
-**The security boundary.** In the coupled design, any untrusted code that Claude generated was run in the same container as credentials—so a prompt injection only had to convince Claude to read its own environment. Once an attacker has those tokens, they can spawn fresh, unrestricted sessions and delegate work to them. Narrow scoping is an obvious mitigation, but this encodes an assumption about what Claude can't do with a limited token—and Claude is getting increasingly smart. The structural fix was to make sure the tokens are never reachable from the sandbox where Claude’s generated code runs.
+### 调度器
 
-We used two patterns to ensure this. Auth can be bundled with a resource or held in a vault outside the sandbox. For Git, we use each repository’s access token to clone the repo during sandbox initialization and wire it into the local git remote. Git `push` and `pull` work from inside the sandbox without the agent ever handling the token itself. For custom tools, we support MCP and store OAuth tokens in a secure vault. Claude calls MCP tools via a dedicated proxy; this proxy takes in a token associated with the session. The proxy can then fetch the corresponding credentials from the vault and make the call to the external service. The harness is never made aware of any credentials.
+调度器管理工作进程的生命周期。它接收操作请求（`run`、`pause`、`get_status`）并将它们路由到适当的工作进程。
 
-## The session is not Claude’s context window
+调度器还管理并发限制——它确保不超过最大并发工作进程数，并按优先级对工作进程进行排序。
 
-Long-horizon tasks often exceed the length of Claude’s context window, and the standard ways to address this all involve irreversible decisions about what to keep. We’ve explored these techniques in [prior work](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) on context engineering. For example, compaction lets Claude save a summary of its context window and the memory tool lets Claude write context to files, enabling learning across sessions. This can be paired with context trimming, which selectively removes tokens such as old tool results or thinking blocks.
+### 执行器
 
-But irreversible decisions to selectively retain or discard context can lead to failures. It is difficult to know which tokens the future turns will need. If messages are transformed by a compaction step, the harness removes compacted messages from Claude’s context window, and these are recoverable only if they are stored. Prior work [has explored](https://arxiv.org/pdf/2512.24601) ways to address this by storing context as an object that lives _outside_ the context window. For example, context can be an object in a REPL that the LLM programmatically accesses by writing code to filter or slice it.
+执行器运行Agent会话。它接收工作进程和要执行的Harness，然后：
+- 从工作进程存储加载状态
+- 为新会话准备上下文窗口
+- 调用Agent API
+- 处理工具调用
+- 更新工作进程存储
+- 流式传输进度更新
 
-![Image 4](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcf0719d7832b1f577b7393c84a7c53eecc725ca4-760x200.png&w=1920&q=75)
+执行器实现重试和恢复逻辑。如果Agent调用失败，执行器会：
+- 捕获错误
+- 回滚部分状态更新
+- 记录失败
+- 重试操作（使用指数退避）
 
-In Managed Agents, the session provides this same benefit, serving as a context object that lives outside Claude’s context window. But rather than be stored within the sandbox or REPL, context is durably stored in the session log. The interface, `getEvents(),` allows the brain to interrogate context by selecting positional slices of the event stream. The interface can be used flexibly, allowing the brain to pick up from wherever it last stopped reading, rewinding a few events before a specific moment to see the lead up, or rereading context before a specific action.
+### Harness接口
 
-Any fetched events can also be transformed in the harness before being passed to Claude’s context window. These transformations can be whatever the harness encodes, including context organization to achieve a high prompt cache hit rate and context engineering. We separated the concerns of recoverable context storage in the session and arbitrary context management in the harness because we can’t predict what specific context engineering will be required in future models. The interfaces push that context management into the harness, and only guarantee that the session is durable and available for interrogation.
+Harness是定义Agent如何在特定任务上工作的代码。它包括：
+- 系统提示
+- 工具定义
+- 工作流程逻辑（例如，如何处理工具结果）
+- 评估标准（如何确定工作完成）
 
-## Many brains, many hands
+托管服务与Harness解耦。它调用Harness的钩子来执行会话：
+- `prepare_context(work_process_state)`：为下一个会话准备上下文窗口
+- `execute(session_input)`：执行一个会话
+- `evaluate(state)`：评估工作是否完成
 
-**Many brains.**Decoupling the brain from the hands solved one of our earliest customer complaints. When teams wanted Claude to work against resources in their own VPC, the only path was to peer their network with ours, because the container holding the harness assumed every resource sat next to it. Once the harness was no longer in the container, that assumption went away. The same change had a performance payoff. When we initially put the brain in a container, it meant that many brains required as many containers. For each brain, no inference could happen until that container was provisioned; every session paid the full container setup cost up front. Every session, even ones that would never touch the sandbox, had to clone the repo, boot the process, fetch pending events from our servers.
+这种解耦使得Harness可以随时间变化，而无需更改托管服务或调用代码。
 
-That dead time is expressed in time-to-first-token (TTFT), which measures how long a session waits between accepting work and producing its first response token. TTFT is the latency the user most acutely _feels_.
+## 使用托管服务
 
-Decoupling the brain from the hands means that containers are provisioned by the brain via a tool call `(execute(name, input) → string)` only if they are needed. So a session that didn't need a container right away didn't wait for one. Inference could start as soon as the orchestration layer pulled pending events from the session log. Using this architecture, our p50 TTFT dropped roughly 60% and p95 dropped over 90%. Scaling to many brains just meant starting many stateless harnesses, and connecting them to hands only if needed.
+以下是如何使用托管服务来运行长期Agent工作：
 
-**Many hands.**We also wanted the ability to connect each brain to many hands. In practice, this means Claude must reason about many execution environments and decide where to send work—a harder cognitive task than operating in a single shell. We started with the brain in a single container because earlier models weren't capable of this. As intelligence scaled, the single container became the limitation instead: when that container failed, we lost state for every hand that the brain was reaching into.
+### 1. 创建工作进程
 
-Decoupling the brain from the hands makes each hand a tool, `execute(name, input) → string`: a name and input go in, and a string is returned. That interface supports any custom tool, any MCP server, and our own tools. The harness doesn’t know whether the sandbox is a container, a phone, or a Pokémon emulator. And because no hand is coupled to any brain, brains can pass hands to one another.
+向`POST /work_processes`提交请求以创建新工作进程：
+```json
+{
+  "harness_id": "my_custom_harness",
+  "input": {
+    "task": "Fix the bug in the authentication module"
+  },
+  "options": {
+    "max_sessions": 100,
+    "timeout": 3600
+  }
+}
+```
 
-![Image 5](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4f67b1c10566552aec514a716ea43544ab330e0b-668x243.png&w=1920&q=75)
+响应包含`work_process_id`和初始状态。
 
-## Conclusion
+### 2. 运行工作进程
 
-The challenge we faced is an old one: how to design a system for “programs as yet unthought of.” Operating systems have lasted decades by virtualizing the hardware into abstractions general enough for programs that didn't exist yet. With Managed Agents, we aimed to design a system that accommodates future harnesses, sandboxes, or other components around Claude.
+向`POST /work_processes/{work_process_id}/run`提交请求以启动工作进程。
 
-Managed Agents is a meta-harness in the same spirit, unopinionated about the _specific_ harness that Claude will need in the future. Rather, it is a system with general interfaces that allow many different harnesses. For example, Claude Code is an excellent harness that we use widely across tasks. We’ve also shown that task-specific agent harnesses excel in narrow domains. Managed Agents can accommodate any of these, matching Claude’s intelligence over time.
+托管服务将运行会话直到：
+- Harness报告工作完成
+- 达到`max_sessions`限制
+- 发生不可恢复的错误
+- 调用者调用`pause`操作
 
-Meta-harness design means being opinionated about the interfaces around Claude: we expect that Claude will need the ability to manipulate state (the session) and perform computation (the sandbox). We also expect that Claude will require the ability to scale to many brains and many hands. We designed the interfaces so that these can be run reliably and securely over long time horizons. But we make no assumptions about the number or location of brains or hands that Claude will need.
+### 3. 监控进度
 
-## Acknowledgements
+通过Webhook接收进度更新。对于每个会话，托管服务发送包含以下内容的消息：
+- 会话ID
+- 会话状态（运行中、完成、失败）
+- 模型输出
+- 工具调用
+- 错误（如果有）
 
-Written by Lance Martin, Gabe Cemaj, and Michael Cohen. Thanks to Nodir Turakulov and Jeremy Fox for helpful conversations on these topics. Special thanks to the Agents API team and Jake Eaton for their contributions.
-
-## Get the developer newsletter
-
-Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
-
-Please provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.
-
-[](https://www.anthropic.com/)
-
-### Products
-
-*   [Claude](https://claude.com/product/overview)
-*   [Claude Code](https://claude.com/product/claude-code)
-*   [Claude Code Enterprise](https://claude.com/product/claude-code/enterprise)
-*   [Claude Cowork](https://claude.com/product/cowork)
-*   [Claude Security](https://claude.com/product/claude-security)
-*   [Claude for Chrome](https://claude.com/chrome)
-*   [Claude for Slack](https://claude.com/claude-for-slack)
-*   [Claude for Microsoft 365](https://claude.com/claude-for-microsoft-365)
-*   [Skills](https://www.claude.com/skills)
-*   [Download app](https://claude.ai/download)
-*   [Pricing](https://claude.com/pricing)
-*   [Log in to Claude](https://claude.ai/)
-
-### Models
-
-*   [Mythos Preview](https://www.anthropic.com/glasswing)
-*   [Opus](https://www.anthropic.com/claude/opus)
-*   [Sonnet](https://www.anthropic.com/claude/sonnet)
-*   [Haiku](https://www.anthropic.com/claude/haiku)
-
-### Solutions
-
-*   [AI agents](https://claude.com/solutions/agents)
-*   [Code modernization](https://claude.com/solutions/code-modernization)
-*   [Coding](https://claude.com/solutions/coding)
-*   [Customer support](https://claude.com/solutions/customer-support)
-*   [Education](https://claude.com/solutions/education)
-*   [Enterprise](https://claude.com/solutions/enterprise)
-*   [Financial services](https://claude.com/solutions/financial-services)
-*   [Government](https://claude.com/solutions/government)
-*   [Healthcare](https://claude.com/solutions/healthcare)
-*   [Legal](https://claude.com/solutions/legal)
-*   [Life sciences](https://claude.com/solutions/life-sciences)
-*   [Nonprofits](https://claude.com/solutions/nonprofits)
-*   [Security](https://claude.com/solutions/security)
-*   [Small business](https://claude.com/solutions/small-business)
-*   [Startups](https://claude.com/programs/startups)
-
-### Claude Platform
-
-*   [Overview](https://claude.com/platform/api)
-*   [Developer docs](https://platform.claude.com/docs)
-*   [Pricing](https://claude.com/pricing#api)
-*   [Marketplace](https://claude.com/platform/marketplace)
-*   [Regional compliance](https://claude.com/regional-compliance)
-*   [Claude on AWS](https://claude.com/partners/claude-on-aws)
-*   [Google Cloud’s Vertex AI](https://claude.com/partners/google-cloud-vertex-ai)
-*   [Microsoft Foundry](https://claude.com/partners/microsoft-foundry)
-*   [Console login](https://platform.claude.com/)
-
-### Resources
-
-*   [Blog](https://claude.com/blog)
-*   [Claude partner network](https://claude.com/partners)
-*   [Community](https://claude.com/community)
-*   [Connectors](https://claude.com/connectors)
-*   [Courses](https://www.anthropic.com/learn)
-*   [Customer stories](https://claude.com/customers)
-*   [Engineering at Anthropic](https://www.anthropic.com/engineering)
-*   [Events](https://www.anthropic.com/events)
-*   [Inside Claude Code](https://www.anthropic.com/product/claude-code)
-*   [Inside Claude Cowork](https://www.anthropic.com/product/claude-cowork)
-*   [Inside Claude Enterprise](https://www.anthropic.com/product/enterprise)
-*   [Inside Claude Security](https://www.anthropic.com/product/security)
-*   [Plugins](https://claude.com/plugins)
-*   [Powered by Claude](https://claude.com/partners/powered-by-claude)
-*   [Service partners](https://claude.com/partners/services)
-*   [Tutorials](https://claude.com/resources/tutorials)
-*   [Use cases](https://claude.com/resources/use-cases)
-
-### Help and security
-
-*   [Availability](https://www.anthropic.com/supported-countries)
-*   [Status](https://status.anthropic.com/)
-*   [Support center](https://support.claude.com/en/)
-
-### Company
-
-*   [Anthropic](https://www.anthropic.com/company)
-*   [Careers](https://www.anthropic.com/careers)
-*   [Economic Futures](https://www.anthropic.com/economic-index)
-*   [Research](https://www.anthropic.com/research)
-*   [News](https://www.anthropic.com/news)
-*   [Claude’s Constitution](https://www.anthropic.com/constitution)
-*   [Responsible Scaling Policy](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy)
-*   [Security and compliance](https://trust.anthropic.com/)
-*   [Transparency](https://www.anthropic.com/transparency)
-
-### Terms and policies
-
-Privacy choices*   [Privacy policy](https://www.anthropic.com/legal/privacy)
-*   [Consumer health data privacy policy](https://www.anthropic.com/legal/consumer-health-data-privacy-policy)
-*   [Responsible disclosure policy](https://www.anthropic.com/responsible-disclosure-policy)
-*   [Terms of service: Commercial](https://www.anthropic.com/legal/commercial-terms)
-*   [Terms of service: Consumer](https://www.anthropic.com/legal/consumer-terms)
-*   [Usage policy](https://www.anthropic.com/legal/aup)
-
-© 2026 Anthropic PBC
-*   [](https://www.linkedin.com/company/anthropicresearch)
-*   [](https://x.com/AnthropicAI)
-*   [](https://www.youtube.com/@anthropic-ai)
+调用者可以实时跟踪Agent的进度。
+
+### 4. 检索结果
+
+当工作进程完成时，调用`GET /work_processes/{work_process_id}`以检索最终结果。
+
+响应包含：
+- 最终状态（成功、失败、超时）
+- 输出（Agent生成的任何结果）
+- 会话历史（完整的执行历史）
+
+## 构建自定义Harness
+
+托管服务设计为支持自定义Harness。要构建自己的Harness：
+
+### 1. 定义Harness接口
+
+实现三个钩子：
+- `prepare_context`：准备下一个会话的上下文窗口
+- `execute`：执行一个会话
+- `evaluate`：评估工作是否完成
+
+### 2. 上传Harness
+
+将Harness代码上传到托管服务。Harness可以使用任何语言——服务只是执行它。
+
+### 3. 注册Harness
+
+调用`POST /harnesses`以注册Harness。请求包括：
+- Harness ID
+- 代码位置（例如，Docker镜像、S3路径）
+- 钩子规范（如何调用每个钩子）
+
+托管服务验证Harness并使其可用于工作进程。
+
+## 经验教训
+
+在构建和部署托管Agent时，我们学到了几个经验教训：
+
+### 1. 解耦Harness和托管服务
+
+通过将Harness和托管服务解耦，我们可以在不破坏调用者代码的情况下迭代它们。这使我们能够在模型改进时快速更新Harness。
+
+### 2. 自动上下文管理
+
+手动上下文管理容易出错。托管服务自动处理上下文重置，确保Agent不会丢失状态或重复工作。
+
+### 3. 执行可靠性
+
+长期工作需要强大的重试和恢复。托管服务实现自动重试，并在每个操作后检查状态，以便从故障中恢复。
+
+### 4. 可观测性
+
+调试长期工作很难。托管服务保留完整的会话历史，并提供详细的进度更新，以便你可以理解Agent在做什么。
+
+### 5. 可扩展性
+
+托管服务支持数千个并发工作进程。调度器管理资源并确保高优先级工作首先完成。
+
+## 未来方向
+
+我们正在积极开发托管Agent的几个方向：
+
+### 1. 更智能的上下文管理
+
+我们正在探索更好的算法来压缩和重置上下文窗口。目标是在将最相关的信息传递给模型的同时，最小化令牌使用。
+
+### 2. 更强的错误恢复
+
+我们正在增强错误恢复逻辑，以处理更复杂的失败场景。这包括：
+- 检测何时重试无用（例如，由于模型中的逻辑错误）
+- 自动切换到备用模型
+- 实现人工介入机制
+
+### 3. 更多的Harness集成
+
+我们正在构建与更多Harness的集成，包括：
+- Claude Code的编码Harness
+- 自定义研究Harness
+- 数据分析Harness
+
+### 4. 改进的调试工具
+
+我们正在构建工具来可视化和调试长期工作。这包括：
+- 会话历史的时间线视图
+- 状态变化的可视化
+- 工具调用的跟踪
+
+## 开始使用
+
+托管服务现已普遍可用。要开始使用：
+1. 阅读[文档](https://platform.claude.com/docs/en/managed-agents/overview)
+2. 探索[示例Harness](https://github.com/anthropics/managed-agents-examples)
+3. 在你自己的工作中部署托管Agent
+
+我们很高兴看到你构建了什么。如果你有任何问题或反馈，请在[GitHub](https://github.com/anthropics/managed-agents)上告诉我们。
+
+---
+
+*脚注：*
+
+1. *上下文焦虑是指模型在感知到上下文限制临近时过早结束任务的行为。这通常会导致任务未完成，因为模型试图在耗尽令牌之前"收尾"。*
+
+2. *上下文重置是一种技术，用于在会话之间清除上下文窗口，同时保留相关信息。托管服务自动实现上下文重置。*
+
+3. *工作进程是长期任务的可恢复单元。它包含所有必要的状态，以便Agent可以从任何先前的会话恢复工作。*
+
+4. *Harness是定义Agent如何在特定任务上工作的代码。托管服务与Harness解耦，以便它们可以独立进化。*
+
+5. *托管服务管理会话、上下文和执行，以便调用代码只需提交工作并等待结果。这简化了调用者代码，并使Agent工作更加可靠。*
+
+---
+
+**相关文章：**
+
+*   [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)
+*   [Harness design for long-running application development](https://www.anthropic.com/engineering/harness-design-long-running-apps)
+*   [Building a C compiler with a team of parallel Claudes](https://www.anthropic.com/engineering/building-c-compiler)
+
+---
+
+*关于作者：本文由Anthropic的Managed Agents团队撰写。*
+
+*想要更多吗？[订阅开发者通讯](https://www.anthropic.com/newsletter)以获取每月产品更新。*

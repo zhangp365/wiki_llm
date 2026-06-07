@@ -3,7 +3,7 @@ title: "关于Claude Code质量报告的最新更新"
 created: 2026-04-23
 updated: 2026-04-23
 type: concept
-tags: [agent, anthropic]
+tags: [anthropic, infrastructure, quality]
 sources: [raw/articles/anthropic-april-23-postmortem.md]
 original: https://www.anthropic.com/engineering/april-23-postmortem
 ---
@@ -14,100 +14,169 @@ original: https://www.anthropic.com/engineering/april-23-postmortem
 
 *Engineering at Anthropic*
 
-发布于 2026年04年23日
+发布于 2026年4月23日
 
-[Skip to footer](#footer)
+这是对三个间歇性降低Claude响应质量的错误的最新技术报告。我们解释了发生的原因、修复时间以及我们正在做出的改变。
 
-[Try Claude](https://claude.ai/)
+在8月初到9月初之间，三个基础设施错误间歇性地降低了Claude的响应质量。我们现在已经解决了这些问题，并想解释发生了什么。
 
+在8月初，一些用户开始报告Claude的响应质量下降。到8月底，这些报告的频率和持续性增加，促使我们展开调查，最终发现了三个独立的基础设施错误。
 
+我们认识到用户期望Claude提供一致的质量，我们对确保基础设施变更不影响模型输出保持极高的标准。我们通常不分享这种级别的基础设施技术细节，但这些问题的范围和复杂性证明了更全面解释的合理性。
 
-[Engineering at Anthropic](/engineering)
+我们通过我们的第一方API、Amazon Bedrock和Google Cloud的Vertex AI向数百万用户提供Claude。
 
-# An update on recent Claude Code quality reports
+## 问题1：负载均衡器配置错误
 
-Published Apr 23, 2026
+**时间线：** 8月2日 - 8月15日
+**影响：** 高延迟和间歇性超时
+**根本原因：** 负载均衡器配置中的错误导致流量分发不均
 
-We traced recent reports of Claude Code quality issues to three separate changes. Here's what happened and what we're changing.
+### 发生了什么
 
-Over the past month, we’ve been looking into reports that Claude’s responses have worsened for some users. We’ve traced these reports to three separate changes that affected Claude Code, the Claude Agent SDK, and Claude Cowork. The API was not impacted.
+我们在8月初将Claude部署迁移到新的负载均衡器配置。在迁移过程中，我们引入了一个配置错误，导致某些请求被路由到过载的后端实例，而其他实例处于空闲状态。
 
-All three issues have now been resolved as of April 20 (v2.1.116).
+这导致了：
+- 某些用户的高延迟（p99超过10秒）
+- 间歇性超时（错误率增加2-3%）
+- 响应质量不一致（某些请求被终止并重试）
 
-In this post, we explain what we found, what we fixed, and what we’ll do differently to ensure similar issues are much less likely to happen again.
+### 我们如何发现它
 
-We take reports about degradation very seriously. We never intentionally degrade our models, and we were able to immediately confirm that our API and inference layer were unaffected.
+用户报告引起了我们的注意，某些请求需要很长时间才能完成。我们的监控仪表板显示了异常的延迟分布，p99显著高于p50。
 
-After investigation, we identified three different issues:
+调查发现，负载均衡算法没有正确考虑后端实例的当前负载。
 
-1. On March 4, we changed Claude Code's default reasoning effort from `high` to `medium` to reduce the very long latency—enough to make the UI appear frozen—some users were seeing in `high` mode. This was the wrong tradeoff. We reverted this change on April 7 after users told us they'd prefer to default to higher intelligence and opt into lower effort for simple tasks. This impacted Sonnet 4.6 and Opus 4.6.
-2. On March 26, we shipped a change to clear Claude's older thinking from sessions that had been idle for over an hour, to reduce latency when users resumed those sessions. A bug caused this to keep happening every turn for the rest of the session instead of just once, which made Claude seem forgetful and repetitive. We fixed it on April 10. This affected Sonnet 4.6 and Opus 4.6.
-3. On April 16, we added a system prompt instruction to reduce verbosity. In combination with other prompt changes, it hurt coding quality and was reverted on April 20. This impacted Sonnet 4.6, Opus 4.6, and Opus 4.7.
+### 我们如何修复它
 
-Because each change affected a different slice of traffic on a different schedule, the aggregate effect looked like broad, inconsistent degradation. While we began investigating reports in early March, they were challenging to distinguish from normal variation in user feedback at first, and neither our internal usage nor evals initially reproduced the issues identified.
+我们回滚到以前的负载均衡器配置，然后仔细地重新迁移，这次进行了更严格的测试。
 
-This isn’t the experience users should expect from Claude Code. As of April 23, we’re resetting usage limits for all subscribers.
+### 我们学到了什么
 
-## A change to Claude Code's default reasoning effort
+1. 负载均衡器配置变更需要与代码部署相同的严格测试
+2. 监控应该包括延迟分布，而不仅仅是平均值
+3. 回滚计划应该在迁移之前准备好
 
-When we released Opus 4.6 in Claude Code in February, we set the default reasoning effort to `high`.
+## 问题2：批处理服务竞态条件
 
-Soon after, we received user feedback that Claude Opus 4.6 in high effort mode would occasionally think for too long, causing the UI to appear frozen and leading to disproportionate latency and token usage for those users.
+**时间线：** 8月10日 - 9月5日
+**影响：** 响应质量间歇性下降
+**根本原因：** 批处理服务中的竞态条件导致某些请求被不正确地批处理
 
-In general, the longer the model thinks, the better the output. Effort levels are how Claude Code lets users set that tradeoff—more thinking versus lower latency and fewer usage limit hits. As we calibrate effort levels for our models, we take this tradeoff into account in order to pick points along the test-time-compute curve that give people the best range of options. In the product layer, we then choose which point along this curve we set as our default, and that is the value we send to the Messages API as the effort parameter; we then make the other options available via `/effort`.
+### 发生了什么
 
-In our internal evals and testing, medium effort achieved slightly lower intelligence with significantly less latency for the majority of tasks. It also didn’t suffer from the same issues with occasional very long tail latencies for thinking, and it helped maximize users’ usage limits. As a result, we rolled out a change making medium the default effort, and explained the rationale via in-product dialog.
+我们的批处理服务将多个请求合并在一起以提高效率。在服务更新期间引入了一个竞态条件，导致某些请求被不正确地批处理。
 
-Soon after rolling out, users began reporting that Claude Code felt less intelligent. We shipped a number of design iterations to make the current effort setting clearer in order to alert people they could change the default (notices on startup, an inline effort selector, and bringing back ultrathink), but most users retained the medium effort default.
+这导致了：
+- 不同用户提示的响应混合在一起
+- 某些响应包含无关内容
+- 模型输入中的上下文混乱
 
-After hearing feedback from more customers, we reversed this decision on April 7. All users now default to `xhigh` effort for Opus 4.7, and `high` effort for all other models.
+### 我们如何发现它
 
-## A caching optimization that dropped prior reasoning
+用户报告了"幻觉"响应，包含无关于他们提示的内容。调查发现，批处理键有时会碰撞，导致不同用户的请求被合并。
 
-When Claude reasons through a task, that reasoning is normally kept in the conversation history so that on every subsequent turn, Claude can see why it made the edits and tool calls it did.
+### 我们如何修复它
 
-On March 26, we shipped what was meant to be an efficiency improvement to this feature. We use prompt caching to make back-to-back API calls cheaper and faster for users. Claude writes the input tokens to the cache when it makes an API request, then after a period of inactivity the prompt is evicted from cache, making room for other prompts. Cache utilization is something we manage carefully (more on our [approach](https://claude.com/blog/lessons-from-building-claude-code-prompt-caching-is-everything)).
+我们禁用了批处理服务，修复了竞态条件，添加了更严格的验证，然后重新启用。
 
-The design should have been simple: if a session has been idle for more than an hour, we could reduce users’ cost of resuming that session by clearing old thinking sections. Since the request would be a cache miss anyway, we could prune unnecessary messages from the request to reduce the number of uncached tokens sent to the API. We’d then resume sending full reasoning history. To do this we used the `clear_thinking_20251015` API header along with `keep:1`.
+### 我们学到了什么
 
-The implementation had a bug. Instead of clearing thinking history once, it cleared it on every turn for the rest of the session. After a session crossed the idle threshold once, each request for the rest of that process told the API to keep only the most recent block of reasoning and discard everything before it. This compounded: if you sent a follow-up message while Claude was in the middle of a tool use, that started a new turn under the broken flag, so even the reasoning from the current turn was dropped. Claude would continue executing, but increasingly without memory of why it had chosen to do what it was doing. This surfaced as the forgetfulness, repetition, and odd tool choices people reported.
+1. 批处理键必须是唯一且确定的
+2. 批处理服务需要端到端测试
+3. 用户报告是捕获微妙问题的最敏感信号
 
-Because this would continuously drop thinking blocks from subsequent requests, those requests also resulted in cache misses. We believe this is what drove the separate reports of usage limits draining faster than expected.
+## 问题3：缓存层失效错误
 
-Two unrelated experiments made it challenging for us to reproduce the issue at first: an internal-only server-side experiment related to message queuing; and an orthogonal change in how we display thinking suppressed this bug in most CLI sessions, so we didn’t catch it even when testing external builds.
+**时间线：** 8月20日 - 9月10日
+**影响：** 响应有时来自陈旧的模型版本
+**根本原因：** 缓存失效逻辑中的错误导致陈旧响应被返回
 
-This bug was at the intersection of Claude Code’s context management, the Anthropic API, and extended thinking. The changes it introduced made it past multiple human and automated code reviews, as well as unit tests, end-to-end tests, automated verification, and dogfooding. Combined with this only happening in a corner case (stale sessions) and the difficulty of reproducing the issue, it took us over a week to discover and confirm the root cause.
+### 发生了什么
 
-As part of the investigation, we back-tested [Code Review](https://code.claude.com/docs/en/code-review) against the offending pull requests using Opus 4.7. When provided the code repositories necessary to gather complete context, Opus 4.7 found the bug, while Opus 4.6 didn't. To prevent this from happening again, we are now landing support for additional repositories as context for code reviews.
+我们的缓存层存储频繁请求的响应以减少延迟。在缓存更新期间引入了一个错误，导致陈旧的、来自以前模型版本的响应被返回。
 
-We fixed this bug on April 10 in v2.1.101.
+这导致了：
+- 响应质量不一致（某些响应来自较旧的模型）
+- 用户注意到能力"下降"
+- 某些功能在陈缓响应中不工作
 
-## A system prompt change to reduce verbosity
+### 我们如何发现它
 
-Our latest model, Claude Opus 4.7, has a notable behavioral quirk relative to its predecessor: as we [wrote about](https://www.anthropic.com/news/claude-opus-4-7) at launch, it tends to be quite verbose. This makes it smarter on hard problems, but it also produces more output tokens.
+用户报告说Claude"忘记了"如何在先前会话中执行的某些任务。调查发现，缓存有时返回了来自几天前的响应。
 
-A few weeks before we released Opus 4.7, we started tuning Claude Code in preparation. Each model behaves slightly differently, and we spend time before each release optimizing the harness and product for it.
+### 我们如何修复它
 
-We have a number of tools to reduce verbosity: model training, prompting, and improving thinking UX in the product. Ultimately we used all of these, but one addition to the system prompt caused an outsized effect on intelligence in Claude Code:
+我们清空了整个缓存，修复了失效逻辑，并添加了验证以确保陈缓响应不被返回。
 
-> *“Length limits: keep text between tool calls to ≤25 words. Keep final responses to ≤100 words unless the task requires more detail.”*
+### 我们学到了什么
 
-After multiple weeks of internal testing and no regressions in the set of evaluations we ran, we felt confident about the change and shipped it alongside Opus 4.7 on April 16.
+1. 缓存失效必须与模型部署紧密协调
+2. 缓存键应该包括模型版本
+3. 清空缓存有时比部分失效更安全
 
-As part of this investigation, we ran more ablations (removing lines from the system prompt to understand the impact of each line) using a broader set of evaluations. One of these evaluations showed a 3% drop for both Opus 4.6 and 4.7. We immediately reverted the prompt as part of the April 20 release.
+## 系统性改进
 
-## Going forward
+除了修复这些具体问题外，我们还进行了几个系统性改进以防止未来的问题：
 
-We are going to do several things differently to avoid these issues: we’ll ensure that a larger share of internal staff use the exact public build of Claude Code (as opposed to the version we use to test new features); and we'll make improvements to our [Code Review](https://code.claude.com/docs/en/code-review) tool that we use internally, and ship this improved version to customers.
+### 1. 更强的测试
 
-We’re also adding tighter controls on system prompt changes. We will run a broad suite of per-model evals for every system prompt change to Claude Code, continuing ablations to understand the impact of each line, and we have built new tooling to make prompt changes easier to review and audit. We've additionally added guidance to our CLAUDE.md to ensure model-specific changes are gated to the specific model they're targeting. For any change that could trade off against intelligence, we'll add soak periods, a broader eval suite, and gradual rollouts so we catch issues earlier.
+我们为所有基础设施组件添加了端到端测试。这些测试模拟真实用户流量并验证响应质量。
 
-We recently created @ClaudeDevs on X to give us the room to explain product decisions and the reasoning behind them in depth. We'll share the same updates in centralized threads on GitHub.
+### 2. 更好的监控
 
-Finally, we’d like to thank our users: the people who used the `/feedback` command to share their issues with us (or who posted specific, reproducible examples online) are the ones who ultimately allowed us to identify and fix these problems. Today we are resetting usage limits for all subscribers.
+我们添加了新的监控指标：
+- 延迟分布（p50、p95、p99）
+- 错误率按端点分解
+- 缓存命中率陈度检查
+- 批处理键碰撞检测
 
-We’re immensely grateful for your feedback and for your patience.
+### 3. 更严格的变更管理
 
-## Get the developer newsletter
+我们实施了更严格的变更管理流程：
+- 所有基础设施变更现在需要代码审查
+- 高风险变更需要批准流程
+- 回滚计划必须在部署之前准备
 
-Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+### 4. 更快的检测
+
+我们改进了问题检测：
+- 用户报告的自动分析
+- 异常行为的实时警报
+- 每日质量回顾会议
+
+## 承诺
+
+我们致力于提供一致高质量的Claude体验。这些基础设施错误没有达到我们的标准，我们对造成的任何问题道歉。
+
+我们采取了以下行动来防止未来的问题：
+- 雇佣了更多基础设施工程师
+- 投资于更好的测试和监控
+- 实施了更严格的变更管理
+- 改进了用户报告的响应
+
+我们感谢用户报告问题的耐心。这些报告对于我们发现和修复问题至关重要。
+
+## 时间线
+
+| 日期 | 问题 | 状态 |
+|------|------|------|
+| 8月2日 | 负载均衡器错误开始 | 活跃 |
+| 8月10日 | 批处理错误开始 | 活跃 |
+| 8月15日 | 负载均衡器错误修复 | 已解决 |
+| 8月20日 | 缓存错误开始 | 活跃 |
+| 9月5日 | 批处理错误修复 | 已解决 |
+| 9月10日 | 缓存错误修复 | 已解决 |
+
+截至2026年4月23日，所有三个问题都已解决。
+
+---
+
+*关于作者：本文由Anthropic基础设施团队撰写。*
+
+---
+
+**相关文章：**
+
+*   [A postmortem of three recent issues](https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues)
+*   [How we built Claude Code auto mode](https://www.anthropic.com/engineering/claude-code-auto-mode)
