@@ -1,23 +1,3 @@
-# How we contain Claude across products \ Anthropic
-
-[Skip to main content](https://www.anthropic.com/engineering/how-we-contain-claude#main-content)[Skip to footer](https://www.anthropic.com/engineering/how-we-contain-claude#footer)
-
-[](https://www.anthropic.com/)
-
-*   [Research](https://www.anthropic.com/research)
-*   [Economic Futures](https://www.anthropic.com/economic-futures)
-*   Commitments
-*   Learn
-*   [News](https://www.anthropic.com/news)
-
-[Try Claude](https://claude.ai/)
-
-[Engineering at Anthropic](https://www.anthropic.com/engineering)
-
-![Image 1](https://www-cdn.anthropic.com/images/4zrzovbb/website/47d14a71a7a759af39e1bc36ee68d65eb16ad74d-1000x1000.svg)
-
-# How we contain Claude across products
-
 Published May 25, 2026
 
 As agents grow more capable, so does their potential blast radius. The engineering question is how to cap it. Here’s what we’ve learned building containment for claude.ai, Claude Code, and Cowork.
