@@ -12,17 +12,15 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/">
       
       
-      
-        <link rel="next" href="vllm-prefix-caching/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
@@ -31,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -94,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href=".." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -237,7 +235,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+    <a href=".." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -264,37 +262,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    首页
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -310,81 +281,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        概念
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        对比
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        实体
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        查询存档
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        笔记
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -514,7 +410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="vllm-prefix-caching/" class="md-nav__link">
+      <a href="../vllm-prefix-caching/" class="md-nav__link">
         
   
   
@@ -542,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="a2a-protocol/" class="md-nav__link">
+      <a href="../a2a-protocol/" class="md-nav__link">
         
   
   
@@ -570,7 +466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="a2a-task-state-machine/" class="md-nav__link">
+      <a href="../a2a-task-state-machine/" class="md-nav__link">
         
   
   
@@ -598,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="a2a-security-analysis/" class="md-nav__link">
+      <a href="../a2a-security-analysis/" class="md-nav__link">
         
   
   
@@ -626,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="a2a-ecosystem/" class="md-nav__link">
+      <a href="../a2a-ecosystem/" class="md-nav__link">
         
   
   
@@ -654,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="acp-protocol/" class="md-nav__link">
+      <a href="../acp-protocol/" class="md-nav__link">
         
   
   
@@ -682,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="acp-stdio-auth-flow/" class="md-nav__link">
+      <a href="../acp-stdio-auth-flow/" class="md-nav__link">
         
   
   
@@ -710,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hermes-agent-memory-architecture/" class="md-nav__link">
+      <a href="../hermes-agent-memory-architecture/" class="md-nav__link">
         
   
   
@@ -738,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/chromafs-virtual-filesystem/" class="md-nav__link">
+      <a href="chromafs-virtual-filesystem/" class="md-nav__link">
         
   
   
@@ -766,7 +662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-building-effective-agents/" class="md-nav__link">
+      <a href="anthropic-building-effective-agents/" class="md-nav__link">
         
   
   
@@ -794,7 +690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-building-agents-agent-sdk/" class="md-nav__link">
+      <a href="anthropic-building-agents-agent-sdk/" class="md-nav__link">
         
   
   
@@ -822,7 +718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-advanced-tool-use/" class="md-nav__link">
+      <a href="anthropic-advanced-tool-use/" class="md-nav__link">
         
   
   
@@ -850,7 +746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-writing-tools-for-agents/" class="md-nav__link">
+      <a href="anthropic-writing-tools-for-agents/" class="md-nav__link">
         
   
   
@@ -878,7 +774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-think-tool/" class="md-nav__link">
+      <a href="anthropic-think-tool/" class="md-nav__link">
         
   
   
@@ -906,7 +802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-agent-skills/" class="md-nav__link">
+      <a href="anthropic-agent-skills/" class="md-nav__link">
         
   
   
@@ -934,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-context-engineering/" class="md-nav__link">
+      <a href="anthropic-context-engineering/" class="md-nav__link">
         
   
   
@@ -962,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-contextual-retrieval/" class="md-nav__link">
+      <a href="anthropic-contextual-retrieval/" class="md-nav__link">
         
   
   
@@ -990,7 +886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-harnesses-long-running-agents/" class="md-nav__link">
+      <a href="anthropic-harnesses-long-running-agents/" class="md-nav__link">
         
   
   
@@ -1018,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-multi-agent-research-system/" class="md-nav__link">
+      <a href="anthropic-multi-agent-research-system/" class="md-nav__link">
         
   
   
@@ -1046,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-code-execution-mcp/" class="md-nav__link">
+      <a href="anthropic-code-execution-mcp/" class="md-nav__link">
         
   
   
@@ -1074,7 +970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-demystifying-evals/" class="md-nav__link">
+      <a href="anthropic-demystifying-evals/" class="md-nav__link">
         
   
   
@@ -1102,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-claude-code-sandboxing/" class="md-nav__link">
+      <a href="anthropic-claude-code-sandboxing/" class="md-nav__link">
         
   
   
@@ -1130,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-agentic-coding-best-practices/" class="md-nav__link">
+      <a href="anthropic-agentic-coding-best-practices/" class="md-nav__link">
         
   
   
@@ -1158,7 +1054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-postmortem-three-issues/" class="md-nav__link">
+      <a href="anthropic-postmortem-three-issues/" class="md-nav__link">
         
   
   
@@ -1186,7 +1082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-containing-claude/" class="md-nav__link">
+      <a href="anthropic-containing-claude/" class="md-nav__link">
         
   
   
@@ -1214,7 +1110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-scaling-managed-agents/" class="md-nav__link">
+      <a href="anthropic-scaling-managed-agents/" class="md-nav__link">
         
   
   
@@ -1242,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-harness-design-long-running-apps/" class="md-nav__link">
+      <a href="anthropic-harness-design-long-running-apps/" class="md-nav__link">
         
   
   
@@ -1270,7 +1166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-april-23-postmortem/" class="md-nav__link">
+      <a href="anthropic-april-23-postmortem/" class="md-nav__link">
         
   
   
@@ -1298,7 +1194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/anthropic-claude-code-auto-mode/" class="md-nav__link">
+      <a href="anthropic-claude-code-auto-mode/" class="md-nav__link">
         
   
   
@@ -1326,7 +1222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/era-of-experience/" class="md-nav__link">
+      <a href="era-of-experience/" class="md-nav__link">
         
   
   
@@ -1354,7 +1250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/monte-carlo-tree-search/" class="md-nav__link">
+      <a href="monte-carlo-tree-search/" class="md-nav__link">
         
   
   
@@ -1382,7 +1278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/mcts-vs-alpha-beta/" class="md-nav__link">
+      <a href="mcts-vs-alpha-beta/" class="md-nav__link">
         
   
   
@@ -1477,7 +1373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="prompt-cache-design-for-agents/" class="md-nav__link">
+      <a href="../prompt-cache-design-for-agents/" class="md-nav__link">
         
   
   
@@ -1505,7 +1401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="comparisons/hermes-vs-aider-prompt-caching/" class="md-nav__link">
+      <a href="../comparisons/hermes-vs-aider-prompt-caching/" class="md-nav__link">
         
   
   
@@ -1533,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="a2a-vs-mcp/" class="md-nav__link">
+      <a href="../a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -1568,7 +1464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SCHEMA/" class="md-nav__link">
+      <a href="../SCHEMA/" class="md-nav__link">
         
   
   
@@ -1753,47 +1649,47 @@
 <td><code>agent</code> <code>architecture</code> <code>open-source</code></td>
 </tr>
 <tr>
-<td><a href="concepts/chromafs-virtual-filesystem/">ChromaFs 虚拟文件系统</a></td>
+<td><a href="concepts/chromafs-virtual-filesystem.md">ChromaFs 虚拟文件系统</a></td>
 <td>Mintlify ChromaFs：虚拟文件系统让 Agent 用 UNIX 命令探索文档，替代昂贵 sandbox</td>
 <td><code>agent</code> <code>tool-use</code> <code>open-source</code></td>
 </tr>
 <tr>
-<td><a href="concepts/anthropic-building-effective-agents/">构建高效 Agent</a></td>
+<td><a href="concepts/anthropic-building-effective-agents.md">构建高效 Agent</a></td>
 <td>Anthropic Agent 设计模式：Prompt Chaining、Routing、并行化、Orchestrator-Workers、Evaluator-Optimizer</td>
 <td><code>agent</code> <code>anthropic</code> <code>patterns</code></td>
 </tr>
 <tr>
-<td><a href="concepts/anthropic-building-agents-agent-sdk/">Claude Agent SDK</a></td>
+<td><a href="concepts/anthropic-building-agents-agent-sdk.md">Claude Agent SDK</a></td>
 <td>Agent Loop、子 Agent、Compaction、MCP 集成</td>
 <td><code>agent</code> <code>anthropic</code> <code>sdk</code></td>
 </tr>
 <tr>
-<td><a href="concepts/anthropic-advanced-tool-use/">高级工具使用</a></td>
+<td><a href="concepts/anthropic-advanced-tool-use.md">高级工具使用</a></td>
 <td>Tool Search（按需发现）、Programmatic Tool Calling、Tool Use Examples</td>
 <td><code>agent</code> <code>anthropic</code> <code>tool-use</code></td>
 </tr>
 <tr>
-<td><a href="concepts/anthropic-writing-tools-for-agents/">为 Agent 编写工具</a></td>
+<td><a href="concepts/anthropic-writing-tools-for-agents.md">为 Agent 编写工具</a></td>
 <td>工具原型设计、评估、6 条核心原则</td>
 <td><code>agent</code> <code>anthropic</code> <code>tool-use</code></td>
 </tr>
 <tr>
-<td><a href="concepts/anthropic-think-tool/">Think 工具</a></td>
+<td><a href="concepts/anthropic-think-tool.md">Think 工具</a></td>
 <td>复杂工具调用前的专用思考步骤</td>
 <td><code>agent</code> <code>anthropic</code> <code>reasoning</code></td>
 </tr>
 <tr>
-<td><a href="concepts/anthropic-agent-skills/">Agent Skills</a></td>
+<td><a href="concepts/anthropic-agent-skills.md">Agent Skills</a></td>
 <td>SKILL.md 文件和渐进式披露机制</td>
 <td><code>agent</code> <code>anthropic</code> <code>skills</code></td>
 </tr>
 <tr>
-<td><a href="concepts/anthropic-context-engineering/">上下文工程</a></td>
+<td><a href="concepts/anthropic-context-engineering.md">上下文工程</a></td>
 <td>上下文衰减、注意力预算、上下文检索与压缩</td>
 <td><code>agent</code> <code>anthropic</code> <code>context</code></td>
 </tr>
 <tr>
-<td><a href="concepts/anthropic-contextual-retrieval/">上下文检索</a></td>
+<td><a href="concepts/anthropic-contextual-retrieval.md">上下文检索</a></td>
 <td>Contextual Embeddings + BM25 + 重排序</td>
 <td><code>agent</code> <code>anthropic</code> <code>retrieval</code></td>
 </tr>
@@ -1803,73 +1699,73 @@
 <td><code>agent</code> <code>anthropic</code> <code>harness</code></td>
 </tr>
 <tr>
-<td><a href="concepts/anthropic-multi-agent-research-system/">多 Agent 研究系统</a></td>
+<td><a href="concepts/anthropic-multi-agent-research-system.md">多 Agent 研究系统</a></td>
 <td>架构设计与实践经验</td>
 <td><code>agent</code> <code>anthropic</code> <code>multi-agent</code></td>
 </tr>
 <tr>
-<td><a href="concepts/anthropic-code-execution-mcp/">MCP 代码执行</a></td>
+<td><a href="concepts/anthropic-code-execution-mcp.md">MCP 代码执行</a></td>
 <td>通过 Model Context Protocol 运行代码</td>
 <td><code>agent</code> <code>anthropic</code> <code>mcp</code></td>
 </tr>
 <tr>
-<td><a href="concepts/anthropic-demystifying-evals/">Agent 评估方法论</a></td>
+<td><a href="concepts/anthropic-demystifying-evals.md">Agent 评估方法论</a></td>
 <td>评估指标、LLM-as-Judge、真实场景测试</td>
 <td><code>agent</code> <code>anthropic</code> <code>evaluation</code></td>
 </tr>
 <tr>
-<td><a href="concepts/anthropic-claude-code-sandboxing/">Claude Code 沙箱化</a></td>
+<td><a href="concepts/anthropic-claude-code-sandboxing.md">Claude Code 沙箱化</a></td>
 <td>安全执行 Bash 和云端运行</td>
 <td><code>agent</code> <code>anthropic</code> <code>security</code></td>
 </tr>
 <tr>
-<td><a href="concepts/anthropic-agentic-coding-best-practices/">Agentic Coding 最佳实践</a></td>
+<td><a href="concepts/anthropic-agentic-coding-best-practices.md">Agentic Coding 最佳实践</a></td>
 <td>Claude Code 使用指南</td>
 <td><code>agent</code> <code>anthropic</code> <code>coding</code></td>
 </tr>
 <tr>
 <td></td>
-<td><a href="concepts/anthropic-containing-claude/">跨产品约束Claude的方法</a></td>
+<td><a href="concepts/anthropic-containing-claude.md">跨产品约束Claude的方法</a></td>
 <td>Agent安全策略、沙箱、虚拟机隔离、防护机制设计</td>
 </tr>
 <tr>
 <td></td>
-<td><a href="concepts/anthropic-scaling-managed-agents/">扩展托管Agent：将大脑与双手解耦</a></td>
+<td><a href="concepts/anthropic-scaling-managed-agents.md">扩展托管Agent：将大脑与双手解耦</a></td>
 <td>托管Agent架构、会话管理、上下文窗口、工作进程</td>
 </tr>
 <tr>
 <td></td>
-<td><a href="concepts/anthropic-harness-design-long-running-apps/">长时间应用开发的Harness设计</a></td>
+<td><a href="concepts/anthropic-harness-design-long-running-apps.md">长时间应用开发的Harness设计</a></td>
 <td>规划器-生成器-评估器模式、状态快照、上下文重置</td>
 </tr>
 <tr>
 <td></td>
-<td><a href="concepts/anthropic-april-23-postmortem/">Claude Code质量报告</a></td>
+<td><a href="concepts/anthropic-april-23-postmortem.md">Claude Code质量报告</a></td>
 <td>三起基础设施问题：负载均衡、批处理竞态、缓存失效</td>
 </tr>
 <tr>
 <td></td>
-<td><a href="concepts/anthropic-claude-code-auto-mode/">Claude Code自动模式</a></td>
+<td><a href="concepts/anthropic-claude-code-auto-mode.md">Claude Code自动模式</a></td>
 <td>自动批准机制、分类器设计、权限管理、防护策略</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td><a href="concepts/anthropic-postmortem-three-issues/">三起生产事故复盘</a></td>
+<td><a href="concepts/anthropic-postmortem-three-issues.md">三起生产事故复盘</a></td>
 </tr>
 <tr>
 <td></td>
-<td><a href="concepts/era-of-experience/">The Era of Experience（体验时代）</a></td>
+<td><a href="concepts/era-of-experience.md">The Era of Experience（体验时代）</a></td>
 <td>David Silver：从人类数据时代到体验时代，AlphaZero/AlphaProof 的经验驱动路径</td>
 </tr>
 <tr>
 <td></td>
-<td><a href="concepts/monte-carlo-tree-search/">蒙特卡洛树搜索 (MCTS)</a></td>
+<td><a href="concepts/monte-carlo-tree-search.md">蒙特卡洛树搜索 (MCTS)</a></td>
 <td>四步循环、UCB1 探索-利用平衡、搜索宽度与深度、神经网络角色</td>
 </tr>
 <tr>
 <td></td>
-<td><a href="concepts/mcts-vs-alpha-beta/">MCTS vs Alpha-Beta 搜索对比</a></td>
+<td><a href="concepts/mcts-vs-alpha-beta.md">MCTS vs Alpha-Beta 搜索对比</a></td>
 <td>搜索策略差异、适用场景、围棋为什么需要 MCTS、AlphaGo 融合方案</td>
 </tr>
 </tbody>
@@ -1885,17 +1781,17 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="prompt-cache-design-for-agents/">Agent 提示词缓存设计</a></td>
+<td><a href="prompt-cache-design-for-agents.md">Agent 提示词缓存设计</a></td>
 <td>OpenCode/Aider/Claude Code 缓存策略对比、缓存友好 Prompt 最佳实践</td>
 <td><code>inference</code> <code>agent</code> <code>open-source</code></td>
 </tr>
 <tr>
-<td><a href="comparisons/hermes-vs-aider-prompt-caching/">Hermes vs Aider 缓存对比</a></td>
+<td><a href="comparisons/hermes-vs-aider-prompt-caching.md">Hermes vs Aider 缓存对比</a></td>
 <td>Hermes Agent vs Aider 提示词缓存设计对比：冻结策略、多 Provider 适配、cache warming</td>
 <td><code>inference</code> <code>agent</code> <code>open-source</code></td>
 </tr>
 <tr>
-<td><a href="a2a-vs-mcp/">A2A vs MCP</a></td>
+<td><a href="a2a-vs-mcp.md">A2A vs MCP</a></td>
 <td>A2A 与 MCP 全面对比：定位、交互模式、适用场景、采纳现状</td>
 <td><code>protocol</code> <code>comparison</code></td>
 </tr>
@@ -1908,7 +1804,7 @@
 <h2 id="_5">笔记<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>暂无条目。</p>
 <hr />
-<p><em>共 35 个条目 · 最后更新：2026-06-07</em></p>
+<p><em>共 30 个条目 · 最后更新：2026-05-13</em></p>
 
 
 
@@ -1983,10 +1879,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
