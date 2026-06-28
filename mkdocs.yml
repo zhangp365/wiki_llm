@@ -35,6 +35,7 @@ theme:
     - content.code.copy
   icon:
     repo: fontawesome/brands/github
+  custom_dir: docs/overrides
 
 plugins:
   - search:
@@ -45,6 +46,8 @@ plugins:
 markdown_extensions:
   - toc:
       permalink: true
+  - pymdownx.arithmatex:
+      generic: true
   - admonition
   - pymdownx.details
   - pymdownx.superfences
