@@ -35,15 +35,15 @@ title: LLM Wiki
 | [Agent 评估方法论](concepts/anthropic-demystifying-evals.md) | 评估指标、LLM-as-Judge、真实场景测试 | `agent` `anthropic` `evaluation` |
 | [Claude Code 沙箱化](concepts/anthropic-claude-code-sandboxing.md) | 安全执行 Bash 和云端运行 | `agent` `anthropic` `security` |
 | [Agentic Coding 最佳实践](concepts/anthropic-agentic-coding-best-practices.md) | Claude Code 使用指南 | `agent` `anthropic` `coding` |
-|| [跨产品约束Claude的方法](concepts/anthropic-containing-claude.md) | Agent安全策略、沙箱、虚拟机隔离、防护机制设计 | `anthropic` `security` `agent` |
-|| [扩展托管Agent：将大脑与双手解耦](concepts/anthropic-scaling-managed-agents.md) | 托管Agent架构、会话管理、上下文窗口、工作进程 | `anthropic` `agent` `architecture` |
-|| [长时间应用开发的Harness设计](concepts/anthropic-harness-design-long-running-apps.md) | 规划器-生成器-评估器模式、状态快照、上下文重置 | `anthropic` `agent` `harness` |
-|| [Claude Code质量报告](concepts/anthropic-april-23-postmortem.md) | 三起基础设施问题：负载均衡、批处理竞态、缓存失效 | `anthropic` `incident` `postmortem` |
-|| [Claude Code自动模式](concepts/anthropic-claude-code-auto-mode.md) | 自动批准机制、分类器设计、权限管理、防护策略 | `anthropic` `agent` `security` |
-||| [三起生产事故复盘](concepts/anthropic-postmortem-three-issues.md) | 路由错误、输出损坏、XLA 编译器 Bug | `anthropic` `incident` `postmortem` |
-|| [The Era of Experience（体验时代）](concepts/era-of-experience.md) | David Silver：从人类数据时代到体验时代，AlphaZero/AlphaProof 的经验驱动路径 | `rl` `deepmind` `alpha` `reasoning` |
-|| [蒙特卡洛树搜索 (MCTS)](concepts/monte-carlo-tree-search.md) | 四步循环、UCB1 探索-利用平衡、搜索宽度与深度、神经网络角色 | `architecture` `model` |
-|| [MCTS vs Alpha-Beta 搜索对比](concepts/mcts-vs-alpha-beta.md) | 搜索策略差异、适用场景、围棋为什么需要 MCTS、AlphaGo 融合方案 | `comparison` `architecture` |
+| [跨产品约束Claude的方法](concepts/anthropic-containing-claude.md) | Agent安全策略、沙箱、虚拟机隔离、防护机制设计 | `anthropic` `security` `agent` |
+| [扩展托管Agent：将大脑与双手解耦](concepts/anthropic-scaling-managed-agents.md) | 托管Agent架构、会话管理、上下文窗口、工作进程 | `anthropic` `agent` `architecture` |
+| [长时间应用开发的Harness设计](concepts/anthropic-harness-design-long-running-apps.md) | 规划器-生成器-评估器模式、状态快照、上下文重置 | `anthropic` `agent` `harness` |
+| [Claude Code质量报告](concepts/anthropic-april-23-postmortem.md) | 三起基础设施问题：负载均衡、批处理竞态、缓存失效 | `anthropic` `incident` `postmortem` |
+| [Claude Code自动模式](concepts/anthropic-claude-code-auto-mode.md) | 自动批准机制、分类器设计、权限管理、防护策略 | `anthropic` `agent` `security` |
+| [三起生产事故复盘](concepts/anthropic-postmortem-three-issues.md) | 路由错误、输出损坏、XLA 编译器 Bug | `anthropic` `incident` `postmortem` |
+| [The Era of Experience（体验时代）](concepts/era-of-experience.md) | David Silver：从人类数据时代到体验时代，AlphaZero/AlphaProof 的经验驱动路径 | `rl` `deepmind` `alpha` `reasoning` |
+| [蒙特卡洛树搜索 (MCTS)](concepts/monte-carlo-tree-search.md) | 四步循环、UCB1 探索-利用平衡、搜索宽度与深度、神经网络角色 | `architecture` `model` |
+| [MCTS vs Alpha-Beta 搜索对比](concepts/mcts-vs-alpha-beta.md) | 搜索策略差异、适用场景、围棋为什么需要 MCTS、AlphaGo 融合方案 | `comparison` `architecture` |
 
 ## 对比
 
