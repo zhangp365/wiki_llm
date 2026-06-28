@@ -2037,11 +2037,18 @@
 <p>MCTS 的核心是一个四步循环，每次循环树长大一点：</p>
 <h3 id="1-selection">1. 选择 (Selection)<a class="headerlink" href="#1-selection" title="Permanent link">&para;</a></h3>
 <p>从根节点沿最"有潜力"的路径往下走，使用 <strong>UCB1 公式</strong> 选择子节点：</p>
-<div class="highlight"><pre><span></span><code>UCB1 = 胜率 + C × √(ln 父节点访问次数 / 该节点访问次数)
-</code></pre></div>
+<div class="arithmatex">\[\text{UCB1}(j) = \frac{w_j}{n_j} + C \sqrt{\frac{\ln n}{n_j}}\]</div>
 <ul>
-<li><strong>前半部分（胜率）</strong>：已验证的实力 — Exploitation</li>
-<li><strong>后半部分（探索项）</strong>：未充分探索的节点有加分 — Exploration</li>
+<li><span class="arithmatex">\(w_j\)</span>：子节点 <span class="arithmatex">\(j\)</span> 的获胜次数</li>
+<li><span class="arithmatex">\(n_j\)</span>：子节点 <span class="arithmatex">\(j\)</span> 的访问次数</li>
+<li><span class="arithmatex">\(n\)</span>：父节点的访问次数</li>
+<li>
+<p><span class="arithmatex">\(C\)</span>：探索常数（通常取 <span class="arithmatex">\(\sqrt{2}\)</span>）</p>
+</li>
+<li>
+<p><strong>前半部分</strong> <span class="arithmatex">\(w_j / n_j\)</span>（胜率）：已验证的实力 — Exploitation</p>
+</li>
+<li><strong>后半部分</strong> <span class="arithmatex">\(C \sqrt{\ln n / n_j}\)</span>（探索项）：未充分探索的节点有加分 — Exploration</li>
 </ul>
 <p>这实现了 <strong>Explore-Exploit 平衡</strong>：既利用已知好的选择，又探索未知选择。</p>
 <div class="highlight"><pre><span></span><code>两个子节点：
@@ -2249,8 +2256,19 @@ AlphaGo（MCTS + 神经网络）：
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.path", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
+
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]]
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   </body>
 </html>
