@@ -2098,7 +2098,7 @@ TOOL CALL: salesforce.updateRecord(
 <p>请注意，代码执行引入了自身的复杂性。运行智能体生成的代码需要一个安全的执行环境，配备适当的 sandboxing、资源限制和监控。这些基础设施需求增加了运营开销和安全考虑，而直接工具调用则避免了这些。代码执行的好处——降低 token 成本、更低延迟和改进的工具组合——应该与这些实现成本进行权衡。</p>
 <h2 id="_3">总结<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>MCP 为智能体连接许多工具和系统提供了基础协议。然而，一旦连接了太多 server，工具定义和结果可能消耗过多 token，降低智能体效率。</p>
-<p>尽管这里的许多问题感觉很新颖——context 管理、工具组合、状态持久化——但它们在软件工程中有已知的解决方案。代码执行将这些成熟的模式应用于智能体，让它们使用熟悉的编程构造更高效地与 MCP server 交互。如果你实现了这种方法，我们鼓励你与 [[anthropic-mcp-intro|MCP 社区]] 分享你的发现。</p>
+<p>尽管这里的许多问题感觉很新颖——context 管理、工具组合、状态持久化——但它们在软件工程中有已知的解决方案。代码执行将这些成熟的模式应用于智能体，让它们使用熟悉的编程构造更高效地与 MCP server 交互。如果你实现了这种方法，我们鼓励你与 <a href="concepts/MCP 社区.md">anthropic-mcp-intro</a> 分享你的发现。</p>
 <h2 id="_4">致谢<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>本文由 Adam Jones 和 Conor Kelly 撰写。感谢 Jeremy Fox、Jerome Swannack、Stuart Ritchie、Molly Vorwerck、Matt Samuels 和 Maggie Vo 对本文草稿的反馈。</p>
 

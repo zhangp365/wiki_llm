@@ -49,43 +49,7 @@
          <lastmod>2026-06-28</lastmod>
     </url>
     <url>
-         <loc>https://zhangp365.github.io/wiki_llm/comparisons/a2a-vs-mcp/</loc>
-         <lastmod>2026-06-28</lastmod>
-    </url>
-    <url>
          <loc>https://zhangp365.github.io/wiki_llm/comparisons/hermes-vs-aider-prompt-caching/</loc>
-         <lastmod>2026-06-28</lastmod>
-    </url>
-    <url>
-         <loc>https://zhangp365.github.io/wiki_llm/comparisons/prompt-cache-design-for-agents/</loc>
-         <lastmod>2026-06-28</lastmod>
-    </url>
-    <url>
-         <loc>https://zhangp365.github.io/wiki_llm/concepts/</loc>
-         <lastmod>2026-06-28</lastmod>
-    </url>
-    <url>
-         <loc>https://zhangp365.github.io/wiki_llm/concepts/a2a-ecosystem/</loc>
-         <lastmod>2026-06-28</lastmod>
-    </url>
-    <url>
-         <loc>https://zhangp365.github.io/wiki_llm/concepts/a2a-protocol/</loc>
-         <lastmod>2026-06-28</lastmod>
-    </url>
-    <url>
-         <loc>https://zhangp365.github.io/wiki_llm/concepts/a2a-security-analysis/</loc>
-         <lastmod>2026-06-28</lastmod>
-    </url>
-    <url>
-         <loc>https://zhangp365.github.io/wiki_llm/concepts/a2a-task-state-machine/</loc>
-         <lastmod>2026-06-28</lastmod>
-    </url>
-    <url>
-         <loc>https://zhangp365.github.io/wiki_llm/concepts/acp-protocol/</loc>
-         <lastmod>2026-06-28</lastmod>
-    </url>
-    <url>
-         <loc>https://zhangp365.github.io/wiki_llm/concepts/acp-stdio-auth-flow/</loc>
          <lastmod>2026-06-28</lastmod>
     </url>
     <url>
@@ -177,19 +141,11 @@
          <lastmod>2026-06-28</lastmod>
     </url>
     <url>
-         <loc>https://zhangp365.github.io/wiki_llm/concepts/hermes-agent-memory-architecture/</loc>
-         <lastmod>2026-06-28</lastmod>
-    </url>
-    <url>
          <loc>https://zhangp365.github.io/wiki_llm/concepts/mcts-vs-alpha-beta/</loc>
          <lastmod>2026-06-28</lastmod>
     </url>
     <url>
          <loc>https://zhangp365.github.io/wiki_llm/concepts/monte-carlo-tree-search/</loc>
-         <lastmod>2026-06-28</lastmod>
-    </url>
-    <url>
-         <loc>https://zhangp365.github.io/wiki_llm/concepts/vllm-prefix-caching/</loc>
          <lastmod>2026-06-28</lastmod>
     </url>
 </urlset>
