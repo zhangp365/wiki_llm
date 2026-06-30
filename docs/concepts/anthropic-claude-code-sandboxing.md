@@ -79,3 +79,7 @@ Claude Code on the Web 使用自定义代理服务来透明地处理所有 git �
 ## 致谢
 
 本文由 David Dworken 和 Oliver Weller-Davies 撰写，Meaghan Choi、Catherine Wu、Molly Vorwerck、Alex Isken、Kier Bradwell 和 Kevin Garcia 参与贡献。
+
+## 相关链接
+- [[anthropic-containing-claude]] — 跨产品约束 Claude 的安全策略（沙箱的更全面视角）
+- [[anthropic-claude-code-auto-mode]] — 自动批准机制（减少权限提示的另一种方法）

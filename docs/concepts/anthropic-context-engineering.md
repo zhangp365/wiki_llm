@@ -60,7 +60,7 @@ Position encoding interpolation 等技术允许模型通过将其适应最初训
 
 ## Context 检索与 Agentic Search
 
-在 [anthropic-building-effective-agents](concepts/构建高效 AI Agent.md) 一文中，我们强调了基于 LLM 的工作流和 Agent 之间的区别。自那篇文章发表以来，我们倾向于对 Agent 采用一个简单的定义：LLM 在循环中自主使用工具。
+在 [[anthropic-building-effective-agents|构建高效 AI Agent]] 一文中，我们强调了基于 LLM 的工作流和 Agent 之间的区别。自那篇文章发表以来，我们倾向于对 Agent 采用一个简单的定义：LLM 在循环中自主使用工具。
 
 与客户合作，我们看到业界正在向这个简单的范式靠拢。随着底层模型变得更有能力，Agent 的自主水平可以扩展：更聪明的模型允许 Agent 独立导航细微差别的问题空间并从错误中恢复。
 
@@ -107,3 +107,8 @@ Context engineering 代表了我们使用 LLM 构建方式的一个根本性转�
 ## 致谢
 
 本文由 Anthropic 的 Applied AI 团队撰写：Prithvi Rajasekaran、Ethan Dixon、Carly Ryan 和 Jeremy Hadfield，Rafi Ayub、Hannah Moran、Cal Rueb 和 Connor Jennings 也有贡献。特别感谢 Molly Vorwerck、Stuart Ritchie 和 Maggie Vo 的支持。
+
+## 相关链接
+- [[anthropic-contextual-retrieval]] — Contextual Retrieval 上下文感知检索
+- [[anthropic-think-tool]] — 复杂任务中的结构化思考工具
+- [[anthropic-harnesses-long-running-agents]] — 长时间运行 Agent 的 Harness（context 管理实践）

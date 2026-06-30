@@ -485,3 +485,9 @@ claude --permission-mode auto -p "fix all lint errors"
 关注什么有效。当 Claude 产生出色输出时，注意你做了什么：prompt 结构、你提供的 context、你处于的模式。当 Claude 遇到困难时，问为什么。Context 太嘈杂了吗？Prompt 太模糊了吗？任务对于一次处理来说太大了？
 
 随着时间的推移，你会培养出任何指南都无法捕捉的直觉。你会知道什么时候应该具体，什么时候应该开放；什么时候应该规划，什么时候应该探索；什么时候应该清除 context，什么时候应该让它累积。
+
+## 相关链接
+- [[anthropic-claude-code-auto-mode]] — 自动批准机制
+- [[anthropic-agent-skills]] — Agent Skills 机制
+- [[anthropic-containing-claude]] — Claude 安全约束策略
+- [[anthropic-demystifying-evals]] — Agent 评估方法论

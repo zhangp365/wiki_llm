@@ -12,7 +12,7 @@ sources:
 # David Silver 讲座：体验时代（The Era of Experience）
 
 > 本文为 David Silver 2025 年 10 月 28 日在 Friends House, London 的演讲完整中文翻译。
-> 整理笔记见下方 [整理笔记](#整理笔记) 部分。
+> 整理笔记见下方 [[#整理笔记]] 部分。
 
 ## 演讲信息
 
@@ -220,6 +220,6 @@ Silver 于 2026 年 1 月离开 DeepMind 创办的公司，种子轮 11 亿美�
 
 ### 相关页面
 
-- [anthropic-building-effective-agents](anthropic-building-effective-agents.md) — 构建有效 Agent 的方法论
-- [anthropic-context-engineering](anthropic-context-engineering.md) — 上下文工程，当前 LLM 的优化方向
-- [hermes-agent-memory-architecture](hermes-agent-memory-architecture.md) — Agent 记忆系统的另一种设计思路
+- [[anthropic-building-effective-agents]] — 构建有效 Agent 的方法论
+- [[anthropic-context-engineering]] — 上下文工程，当前 LLM 的优化方向
+- [[hermes-agent-memory-architecture]] — Agent 记忆系统的另一种设计思路

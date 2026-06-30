@@ -232,3 +232,8 @@ Claude 3.7 Sonnet 在 Tau-Bench 评估"零售"领域三种不同配置下的性�
 我们期待看到你将如何使用"think"工具与 Claude 构建更有能力、更可靠、更透明的 AI 系统。
 
 > 虽然我们的 τ-Bench 结果集中在 Claude 3.7 Sonnet 与"think"工具的改进上，但我们的实验表明 Claude 3.5 Sonnet (New) 也能在与 3.7 Sonnet 相同的配置下实现性能提升，表明这种改进可以推广到其他 Claude 模型。
+
+## 相关链接
+- [[anthropic-advanced-tool-use]] — 高级工具使用（Tool Search、Programmatic Tool Calling）
+- [[anthropic-building-effective-agents]] — Agent 设计模式
+- [[anthropic-context-engineering]] — 上下文工程（思考工具属于 context 策略的一部分）

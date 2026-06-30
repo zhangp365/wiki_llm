@@ -123,3 +123,8 @@ original: https://www.anthropic.com/engineering/a-postmortem-of-three-recent-iss
 ## 致谢
 
 由 Sam McAllister 撰写，感谢 Stuart Ritchie、Jonathan Gray、Kashyap Murali、Brennan Saeta、Oliver Rausch、Alex Palcuie 以及许多其他人。
+
+## 相关链接
+- [[anthropic-april-23-postmortem]] — 关于 Claude Code 质量报告的最新更新
+- [[anthropic-scaling-managed-agents]] — 托管 Agent 架构与基础设施
+- [[anthropic-containing-claude]] — Agent 安全策略与防护机制

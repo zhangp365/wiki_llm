@@ -210,3 +210,9 @@ CONCISE = "concise"
 产品更新、操作指南、社区聚焦等内容。每月发送到您的邮箱。
 
 请提供您的电子邮件地址以接收我们的月度开发者通讯。您可以随时取消订阅。
+
+## 相关链接
+- [[anthropic-advanced-tool-use]] — 高级工具使用能力
+- [[anthropic-building-agents-agent-sdk]] — Claude Agent SDK（工具运行的基础框架）
+- [[anthropic-code-execution-mcp]] — MCP 代码执行（工具的另一面）
+- [[anthropic-agent-skills]] — Agent Skills（可组合的能力扩展）

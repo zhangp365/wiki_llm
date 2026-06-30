@@ -18,7 +18,7 @@ original: https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
 
 好的评估帮助团队更自信地发布 AI 智能体。没有评估，很容易陷入被动循环——只在生产环境中发现问题，修复一个故障又造成另一个。评估使问题和行为变更在影响用户之前变得可见，其价值在智能体的整个生命周期中不断累积。
 
-正如我们在 [building-effective-agents](concepts/Building effective agents.md) 中描述的，智能体在多轮中操作：调用工具、修改状态、并根据中间结果进行调整。这些使 AI 智能体有用的相同能力——自主性、智能和灵活性——也使它们更难评估。
+正如我们在 [[anthropic-building-effective-agents|Building effective agents]] 中描述的，智能体在多轮中操作：调用工具、修改状态、并根据中间结果进行调整。这些使 AI 智能体有用的相同能力——自主性、智能和灵活性——也使它们更难评估。
 
 通过我们的内部工作和与处于智能体开发前沿的客户合作，我们学会了如何为智能体设计更严格和有用的评估。以下是真实世界部署中跨多种智能体架构和用例行之有效的方法。
 
@@ -316,4 +316,4 @@ AI 智能体评估仍然是一个新兴的、快速发展的领域。随着智�
 
 ## 另请参阅
 
-本文与 [anthropic-multi-agent-research-system](concepts/多智能体研究系统.md) 中的评估实践密切相关，也可以参考 [anthropic-code-execution-mcp](concepts/MCP 代码执行.md) 了解工具效率相关内容。
+本文与 [[anthropic-multi-agent-research-system|多智能体研究系统]] 中的评估实践密切相关，也可以参考 [[anthropic-code-execution-mcp|MCP 代码执行]] 了解工具效率相关内容。

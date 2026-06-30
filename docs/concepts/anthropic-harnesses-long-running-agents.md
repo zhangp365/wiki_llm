@@ -131,3 +131,8 @@ Claude 的失败表现为两种模式。首先，Agent 倾向于一次做太多�
 ## 脚注
 
 1. 我们在此语境中称它们为独立的 Agent，只是因为它们有不同的初始用户 prompt。系统 prompt、工具集和整体 Agent harness 在其他方面是相同的。
+
+## 相关链接
+- [[anthropic-harness-design-long-running-apps]] — 长时间应用开发的 Harness 设计模式
+- [[anthropic-scaling-managed-agents]] — 托管 Agent 架构
+- [[anthropic-building-agents-agent-sdk]] — Claude Agent SDK 构建指南

@@ -142,5 +142,5 @@ Alpha-Beta 的精神  +  MCTS 的框架  +  深度学习的评估
 
 ## 相关概念
 
-- [monte-carlo-tree-search](monte-carlo-tree-search.md) — MCTS 的完整详解（四步循环、UCB1、搜索参数）
-- [era-of-experience](era-of-experience.md) — AI 发展阶段中 MCTS + 自我博弈的地位
+- [[monte-carlo-tree-search]] — MCTS 的完整详解（四步循环、UCB1、搜索参数）
+- [[era-of-experience]] — AI 发展阶段中 MCTS + 自我博弈的地位

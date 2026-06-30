@@ -93,3 +93,8 @@ Skills 是一个简单的概念，具有相应简单的格式。这种简单性�
 ## 致谢
 
 由 Barry Zhang、Keith Lazuka 和 Mahesh Murag 撰写，他们都非常喜欢文件夹。特别感谢 Anthropic 内部许多倡导、支持和构建 Skills 的其他人。
+
+## 相关链接
+- [[anthropic-agentic-coding-best-practices]] — Claude Code 最佳实践（含 Skills 使用指南）
+- [[anthropic-advanced-tool-use]] — 高级工具使用：Tool Search、Programmatic Tool Calling
+- [[anthropic-building-effective-agents]] — 构建高效 Agent 的设计模式

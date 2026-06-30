@@ -107,3 +107,8 @@ Context engineering 代表了我们使用 LLM 构建方式的一个根本性转�
 ## 致谢
 
 本文由 Anthropic 的 Applied AI 团队撰写：Prithvi Rajasekaran、Ethan Dixon、Carly Ryan 和 Jeremy Hadfield，Rafi Ayub、Hannah Moran、Cal Rueb 和 Connor Jennings 也有贡献。特别感谢 Molly Vorwerck、Stuart Ritchie 和 Maggie Vo 的支持。
+
+## 相关链接
+- [[anthropic-contextual-retrieval]] — Contextual Retrieval 上下文感知检索
+- [[anthropic-think-tool]] — 复杂任务中的结构化思考工具
+- [[anthropic-harnesses-long-running-agents]] — 长时间运行 Agent 的 Harness（context 管理实践）

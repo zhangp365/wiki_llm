@@ -167,3 +167,9 @@ Claude Agent SDK 通过让 Claude 访问可以编写文件、运行命令和迭�
 ## 致谢
 
 由 Thariq Shihipar 撰写，Molly Vorwerck、Suzanne Wang、Alex Isken、Cat Wu、Keir Bradwell、Alexander Bricken 和 Ashwin Bhat 提供笔记和编辑。
+
+## 相关链接
+- [[anthropic-building-effective-agents]] — 构建高效 Agent 的设计模式
+- [[anthropic-harnesses-long-running-agents]] — 长时间运行 Agent 的有效 Harness
+- [[anthropic-containing-claude]] — 跨产品约束 Claude 的安全策略
+- [[anthropic-writing-tools-for-agents]] — 为 Agent 编写高效工具

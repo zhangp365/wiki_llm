@@ -193,4 +193,11 @@ Agent 的自治性质意味着更高的成本，以及错误累积的潜在可�
 - 测试模型如何使用你的工具：在我们的工作台中运行许多示例输入，看看模型犯了什么错误，并进行迭代。
 - 对你的工具进行防错（Poka-yoke）。更改参数使错误更难发生。
 
-在为 SWE-bench 构建 Agent 时，我们实际上花在优化工具上的时间比整体 prompt 更多。例如，我们发现模型在 Agent 移出根目录后会犯使用相对文件路径的错误。为了解决这个问题，我们将工具更改为始终要求绝对文件路径——我们发现模型使用此方法完美无瑕。
+我们在为 SWE-bench 构建 Agent 时，我们实际上花在优化工具上的时间比整体 prompt 更多。例如，我们发现模型在 Agent 移出根目录后会犯使用相对文件路径的错误。为了解决这个问题，我们将工具更改为始终要求绝对文件路径——我们发现模型使用此方法完美无瑕。
+
+## 相关链接
+- [[anthropic-containing-claude]] — Agent 安全防护与影响范围约束
+- [[anthropic-scaling-managed-agents]] — 托管 Agent 架构与长期任务
+- [[anthropic-harnesses-long-running-agents]] — 长时间运行 Agent 的 Harness 设计
+- [[anthropic-writing-tools-for-agents]] — 工具设计与 ACI（Agent-Computer Interface）
+- [[anthropic-demystifying-evals]] — Agent 评估方法论

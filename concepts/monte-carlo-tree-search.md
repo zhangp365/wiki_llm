@@ -190,3 +190,7 @@ AlphaGo（MCTS + 神经网络）：
 
 - [mcts-vs-alpha-beta](mcts-vs-alpha-beta.md) — MCTS 与 Alpha-Beta 剪枝的详细对比
 - [era-of-experience](era-of-experience.md) — AI 发展阶段中 MCTS + 自我博弈的地位
+
+## Wikilinks
+- [[mcts-vs-alpha-beta]] — MCTS 与 Alpha-Beta 剪枝的详细对比
+- [[era-of-experience]] — AI 发展阶段中 MCTS + 自我博弈的地位

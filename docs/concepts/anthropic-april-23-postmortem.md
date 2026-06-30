@@ -174,6 +174,11 @@ original: https://www.anthropic.com/engineering/april-23-postmortem
 
 *关于作者：本文由Anthropic基础设施团队撰写。*
 
+## 相关链接
+- [[anthropic-postmortem-three-issues]] — 三起近期事件的事后复盘（详细技术分析）
+- [[anthropic-scaling-managed-agents]] — 托管 Agent 基础设施
+- [[anthropic-containing-claude]] — Agent 安全策略与防护机制
+
 ---
 
 **相关文章：**

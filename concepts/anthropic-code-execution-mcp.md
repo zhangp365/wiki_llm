@@ -257,8 +257,13 @@ const csvPath = await saveSheetAsCsv('abc123');
 
 MCP 为智能体连接许多工具和系统提供了基础协议。然而，一旦连接了太多 server，工具定义和结果可能消耗过多 token，降低智能体效率。
 
-尽管这里的许多问题感觉很新颖——context 管理、工具组合、状态持久化——但它们在软件工程中有已知的解决方案。代码执行将这些成熟的模式应用于智能体，让它们使用熟悉的编程构造更高效地与 MCP server 交互。如果你实现了这种方法，我们鼓励你与 [[anthropic-mcp-intro|MCP 社区]] 分享你的发现。
+尽管这里的许多问题感觉很新颖——context 管理、工具组合、状态持久化——但它们在软件工程中有已知的解决方案。代码执行将这些成熟的模式应用于智能体，让它们使用熟悉的编程构造更高效地与 MCP server 交互。如果你实现了这种方法，我们鼓励你与 [[a2a-protocol|MCP 社区]] 分享你的发现。
 
 ## 致谢
 
 本文由 Adam Jones 和 Conor Kelly 撰写。感谢 Jeremy Fox、Jerome Swannack、Stuart Ritchie、Molly Vorwerck、Matt Samuels 和 Maggie Vo 对本文草稿的反馈。
+
+## 相关链接
+- [[anthropic-advanced-tool-use]] — 高级工具使用（Tool Search、Programmatic Tool Calling）
+- [[anthropic-writing-tools-for-agents]] — 为 Agent 编写高效工具
+- [[anthropic-agent-skills]] — Agent Skills 机制

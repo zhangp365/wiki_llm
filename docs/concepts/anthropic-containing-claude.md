@@ -288,3 +288,8 @@ A: 不。随着模型能力提高，旧的安全措施变得不足。这是一�
 ---
 
 *本文最后更新于2026年5月25日。*
+
+## 相关链接
+- [[anthropic-claude-code-sandboxing]] — 沙箱技术实现细节
+- [[anthropic-building-effective-agents]] — Agent 安全设计模式
+- [[anthropic-claude-code-auto-mode]] — 自动批准机制

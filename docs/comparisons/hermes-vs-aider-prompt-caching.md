@@ -200,7 +200,7 @@ Aider 的 3 层递进设计在 Anthropic 上确实更优，尤其有 cache warmi
 
 ## 相关页面
 
-- [prompt-cache-design-for-agents../prompt-cache-design-for-agents.md) — Agent 提示词缓存设计模式（OpenCode/Aider/Claude Code 对比）
-- [vllm-prefix-caching../vllm-prefix-caching.md) — vLLM KV Cache 与 Prefix Caching 详解
-- [hermes-agent-memory-architecture../hermes-agent-memory-architecture.md) — Hermes Agent 四层记忆系统架构
-- [anthropic-context-engineeringconcepts/anthropic-context-engineering.md) — 高效上下文工程
+- [[prompt-cache-design-for-agents]] — Agent 提示词缓存设计模式（OpenCode/Aider/Claude Code 对比）
+- [[vllm-prefix-caching]] — vLLM KV Cache 与 Prefix Caching 详解
+- [[hermes-agent-memory-architecture]] — Hermes Agent 四层记忆系统架构
+- [[anthropic-context-engineering]] — 高效上下文工程

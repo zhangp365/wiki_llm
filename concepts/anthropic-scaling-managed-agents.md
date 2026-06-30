@@ -298,3 +298,8 @@ Harness是定义Agent如何在特定任务上工作的代码。它包括：
 *关于作者：本文由Anthropic的Managed Agents团队撰写。*
 
 *想要更多吗？[订阅开发者通讯](https://www.anthropic.com/newsletter)以获取每月产品更新。*
+
+## 相关链接
+- [[anthropic-harnesses-long-running-agents]] — 长时间运行 Agent 的 Harness 设计
+- [[anthropic-harness-design-long-running-apps]] — Harness 设计的三个模式
+- [[anthropic-building-effective-agents]] — Agent 设计模式

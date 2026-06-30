@@ -127,3 +127,8 @@ Harness设计是长时间Agent工作的关键因素。通过应用这些模式�
 ---
 
 *关于作者：本文由Anthropic的Agent团队撰写。*
+
+## 相关链接
+- [[anthropic-harnesses-long-running-agents]] — 面向长时间运行 Agent 的有效 Harness
+- [[anthropic-scaling-managed-agents]] — 托管 Agent 架构（长期任务的托管方案）
+- [[anthropic-building-effective-agents]] — Agent 设计模式

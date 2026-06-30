@@ -184,3 +184,8 @@ Agent可能因四个原因采取危险行动：
 ---
 
 *关于作者：本文由Anthropic的Claude Code团队撰写。*
+
+## 相关链接
+- [[anthropic-claude-code-sandboxing]] — 沙箱技术：另一种减少权限提示的方法
+- [[anthropic-containing-claude]] — 跨产品约束 Claude 的安全策略
+- [[anthropic-agentic-coding-best-practices]] — Claude Code 最佳实践指南

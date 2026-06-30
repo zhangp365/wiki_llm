@@ -170,3 +170,8 @@ Reranking 的一个重要考虑是对延迟和成本的影响，特别是在 rer
 ## 致谢
 
 研究和撰写由 Daniel Ford 完成。感谢 Orowa Sikder、Gautam Mittal 和 Kenneth Lien 的关键反馈，Samuel Flamini 实现了 cookbook，Lauren Polansky 协调项目，以及 Alex Albert、Susan Payne、Stuart Ritchie 和 Brad Abrams 对本文的贡献。
+
+## 相关链接
+- [[anthropic-context-engineering]] — 上下文工程（Context Engineering 综合指南）
+- [[vllm-prefix-caching]] — vLLM 前缀缓存（与 prompt caching 相关）
+- [[hermes-vs-aider-prompt-caching]] — Hermes vs Aider 缓存策略对比
