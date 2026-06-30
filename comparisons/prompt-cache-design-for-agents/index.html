@@ -15,6 +15,10 @@
         <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/comparisons/prompt-cache-design-for-agents/">
       
       
+        <link rel="prev" href="../../concepts/mcts-vs-alpha-beta/">
+      
+      
+        <link rel="next" href="../hermes-vs-aider-prompt-caching/">
       
       
         
@@ -410,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../vllm-prefix-caching/" class="md-nav__link">
+      <a href="../../concepts/vllm-prefix-caching/" class="md-nav__link">
         
   
   
@@ -438,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../a2a-protocol/" class="md-nav__link">
+      <a href="../../concepts/a2a-protocol/" class="md-nav__link">
         
   
   
@@ -466,7 +470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../a2a-task-state-machine/" class="md-nav__link">
+      <a href="../../concepts/a2a-task-state-machine/" class="md-nav__link">
         
   
   
@@ -494,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../a2a-security-analysis/" class="md-nav__link">
+      <a href="../../concepts/a2a-security-analysis/" class="md-nav__link">
         
   
   
@@ -522,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../a2a-ecosystem/" class="md-nav__link">
+      <a href="../../concepts/a2a-ecosystem/" class="md-nav__link">
         
   
   
@@ -550,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../acp-protocol/" class="md-nav__link">
+      <a href="../../concepts/acp-protocol/" class="md-nav__link">
         
   
   
@@ -578,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../acp-stdio-auth-flow/" class="md-nav__link">
+      <a href="../../concepts/acp-stdio-auth-flow/" class="md-nav__link">
         
   
   
@@ -606,7 +610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hermes-agent-memory-architecture/" class="md-nav__link">
+      <a href="../../concepts/hermes-agent-memory-architecture/" class="md-nav__link">
         
   
   
@@ -669,7 +673,7 @@
   <span class="md-ellipsis">
     
   
-    Building effective agents
+    构建高效 Agent
   
 
     
@@ -725,7 +729,7 @@
   <span class="md-ellipsis">
     
   
-    Advanced Tool Use
+    高级工具使用
   
 
     
@@ -753,7 +757,7 @@
   <span class="md-ellipsis">
     
   
-    Writing Tools for Agents
+    为 Agent 编写工具
   
 
     
@@ -781,7 +785,7 @@
   <span class="md-ellipsis">
     
   
-    Think Tool
+    Think 工具
   
 
     
@@ -837,7 +841,7 @@
   <span class="md-ellipsis">
     
   
-    Context Engineering
+    上下文工程
   
 
     
@@ -865,7 +869,7 @@
   <span class="md-ellipsis">
     
   
-    Contextual Retrieval
+    上下文检索
   
 
     
@@ -893,7 +897,7 @@
   <span class="md-ellipsis">
     
   
-    Harnesses for Long-running Agents
+    长运行 Agent Harness
   
 
     
@@ -921,7 +925,7 @@
   <span class="md-ellipsis">
     
   
-    Multi-Agent Research System
+    多 Agent 研究系统
   
 
     
@@ -949,7 +953,7 @@
   <span class="md-ellipsis">
     
   
-    Code Execution with MCP
+    MCP 代码执行
   
 
     
@@ -977,7 +981,7 @@
   <span class="md-ellipsis">
     
   
-    Demystifying Agent Evals
+    Agent 评估方法论
   
 
     
@@ -1005,7 +1009,7 @@
   <span class="md-ellipsis">
     
   
-    Claude Code Sandboxing
+    Claude Code 沙箱化
   
 
     
@@ -1033,7 +1037,7 @@
   <span class="md-ellipsis">
     
   
-    Agentic Coding Best Practices
+    Agentic Coding 最佳实践
   
 
     
@@ -1061,7 +1065,7 @@
   <span class="md-ellipsis">
     
   
-    Postmortem Three Issues
+    三起生产事故复盘
   
 
     
@@ -1089,7 +1093,7 @@
   <span class="md-ellipsis">
     
   
-    Containing Claude Across Products
+    跨产品约束 Claude
   
 
     
@@ -1117,7 +1121,7 @@
   <span class="md-ellipsis">
     
   
-    Scaling Managed Agents
+    扩展托管 Agent
   
 
     
@@ -1145,7 +1149,7 @@
   <span class="md-ellipsis">
     
   
-    Harness Design for Long-running Apps
+    Harness 设计
   
 
     
@@ -1173,7 +1177,7 @@
   <span class="md-ellipsis">
     
   
-    April 23 Postmortem
+    Claude Code 质量报告
   
 
     
@@ -1201,7 +1205,7 @@
   <span class="md-ellipsis">
     
   
-    Claude Code Auto Mode
+    Claude Code 自动模式
   
 
     
@@ -1229,7 +1233,7 @@
   <span class="md-ellipsis">
     
   
-    The Era of Experience（体验时代）
+    The Era of Experience
   
 
     
@@ -1285,7 +1289,7 @@
   <span class="md-ellipsis">
     
   
-    MCTS vs Alpha-Beta 搜索对比
+    MCTS vs Alpha-Beta
   
 
     
@@ -1310,8 +1314,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1330,11 +1336,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -1355,7 +1361,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1370,10 +1376,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../prompt-cache-design-for-agents/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent 提示词缓存设计
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1389,6 +1422,220 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概述
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opencode-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenCode 的 Prompt 结构与缓存设计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenCode 的 Prompt 结构与缓存设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        提示词组装顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        缓存优化措施
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结评价
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aider — 业界标杆
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aider — 业界标杆">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分层缓存架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心设计
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        缓存友好的 Prompt 设计原则
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存友好的 Prompt 设计原则">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心规则：前缀匹配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳排列顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        具体技巧
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        各平台缓存机制对比
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anthropic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic 官方缓存基准数据
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent 工具调用缓存设计的关键洞察
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关页面
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1429,7 +1676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../a2a-vs-mcp/" class="md-nav__link">
+      <a href="../a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -1721,6 +1968,46 @@
 
   
 
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    对比
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
 
               
               <article class="md-content__inner md-typeset">

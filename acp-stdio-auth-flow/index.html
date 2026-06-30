@@ -15,10 +15,6 @@
         <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/acp-stdio-auth-flow/">
       
       
-        <link rel="prev" href="../acp-protocol/">
-      
-      
-        <link rel="next" href="../hermes-agent-memory-architecture/">
       
       
         
@@ -293,10 +289,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -373,11 +367,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -398,7 +392,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -416,7 +410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vllm-prefix-caching/" class="md-nav__link">
+      <a href="../concepts/vllm-prefix-caching/" class="md-nav__link">
         
   
   
@@ -444,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-protocol/" class="md-nav__link">
+      <a href="../concepts/a2a-protocol/" class="md-nav__link">
         
   
   
@@ -472,7 +466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-task-state-machine/" class="md-nav__link">
+      <a href="../concepts/a2a-task-state-machine/" class="md-nav__link">
         
   
   
@@ -500,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-security-analysis/" class="md-nav__link">
+      <a href="../concepts/a2a-security-analysis/" class="md-nav__link">
         
   
   
@@ -528,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-ecosystem/" class="md-nav__link">
+      <a href="../concepts/a2a-ecosystem/" class="md-nav__link">
         
   
   
@@ -556,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acp-protocol/" class="md-nav__link">
+      <a href="../concepts/acp-protocol/" class="md-nav__link">
         
   
   
@@ -581,37 +575,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ACP stdio 授权流程
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../concepts/acp-stdio-auth-flow/" class="md-nav__link">
         
   
   
@@ -627,153 +594,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        传输基础
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        完整生命周期
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="完整生命周期">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-spawn-initialize" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ① spawn + initialize 握手
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-sessionnew" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ② session/new — 创建会话
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-sessionprompt" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ③ session/prompt — 发送任务
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ④ 权限请求（核心阻塞流程）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ⑤ 权限授予后执行
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-turn" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ⑥ 流式总结 + Turn 结束
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tool_call-kind" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        tool_call kind 枚举
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        消息方向速查
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        参见
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -786,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hermes-agent-memory-architecture/" class="md-nav__link">
+      <a href="../concepts/hermes-agent-memory-architecture/" class="md-nav__link">
         
   
   
@@ -849,7 +669,7 @@
   <span class="md-ellipsis">
     
   
-    Building effective agents
+    构建高效 Agent
   
 
     
@@ -905,7 +725,7 @@
   <span class="md-ellipsis">
     
   
-    Advanced Tool Use
+    高级工具使用
   
 
     
@@ -933,7 +753,7 @@
   <span class="md-ellipsis">
     
   
-    Writing Tools for Agents
+    为 Agent 编写工具
   
 
     
@@ -961,7 +781,7 @@
   <span class="md-ellipsis">
     
   
-    Think Tool
+    Think 工具
   
 
     
@@ -1017,7 +837,7 @@
   <span class="md-ellipsis">
     
   
-    Context Engineering
+    上下文工程
   
 
     
@@ -1045,7 +865,7 @@
   <span class="md-ellipsis">
     
   
-    Contextual Retrieval
+    上下文检索
   
 
     
@@ -1073,7 +893,7 @@
   <span class="md-ellipsis">
     
   
-    Harnesses for Long-running Agents
+    长运行 Agent Harness
   
 
     
@@ -1101,7 +921,7 @@
   <span class="md-ellipsis">
     
   
-    Multi-Agent Research System
+    多 Agent 研究系统
   
 
     
@@ -1129,7 +949,7 @@
   <span class="md-ellipsis">
     
   
-    Code Execution with MCP
+    MCP 代码执行
   
 
     
@@ -1157,7 +977,7 @@
   <span class="md-ellipsis">
     
   
-    Demystifying Agent Evals
+    Agent 评估方法论
   
 
     
@@ -1185,7 +1005,7 @@
   <span class="md-ellipsis">
     
   
-    Claude Code Sandboxing
+    Claude Code 沙箱化
   
 
     
@@ -1213,7 +1033,7 @@
   <span class="md-ellipsis">
     
   
-    Agentic Coding Best Practices
+    Agentic Coding 最佳实践
   
 
     
@@ -1241,7 +1061,7 @@
   <span class="md-ellipsis">
     
   
-    Postmortem Three Issues
+    三起生产事故复盘
   
 
     
@@ -1269,7 +1089,7 @@
   <span class="md-ellipsis">
     
   
-    Containing Claude Across Products
+    跨产品约束 Claude
   
 
     
@@ -1297,7 +1117,7 @@
   <span class="md-ellipsis">
     
   
-    Scaling Managed Agents
+    扩展托管 Agent
   
 
     
@@ -1325,7 +1145,7 @@
   <span class="md-ellipsis">
     
   
-    Harness Design for Long-running Apps
+    Harness 设计
   
 
     
@@ -1353,7 +1173,7 @@
   <span class="md-ellipsis">
     
   
-    April 23 Postmortem
+    Claude Code 质量报告
   
 
     
@@ -1381,7 +1201,7 @@
   <span class="md-ellipsis">
     
   
-    Claude Code Auto Mode
+    Claude Code 自动模式
   
 
     
@@ -1409,7 +1229,7 @@
   <span class="md-ellipsis">
     
   
-    The Era of Experience（体验时代）
+    The Era of Experience
   
 
     
@@ -1465,7 +1285,7 @@
   <span class="md-ellipsis">
     
   
-    MCTS vs Alpha-Beta 搜索对比
+    MCTS vs Alpha-Beta
   
 
     
@@ -1553,7 +1373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../prompt-cache-design-for-agents/" class="md-nav__link">
+      <a href="../comparisons/prompt-cache-design-for-agents/" class="md-nav__link">
         
   
   
@@ -1609,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a2a-vs-mcp/" class="md-nav__link">
+      <a href="../comparisons/a2a-vs-mcp/" class="md-nav__link">
         
   
   
@@ -1834,46 +1654,6 @@
 
   
 
-
-  <nav class="md-path" aria-label="导航栏" >
-    <ol class="md-path__list">
-      
-        
-  
-  
-    <li class="md-path__item">
-      <a href=".." class="md-path__link">
-        
-  <span class="md-ellipsis">
-    首页
-  </span>
-
-      </a>
-    </li>
-  
-
-      
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../vllm-prefix-caching/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    概念
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
 
               
               <article class="md-content__inner md-typeset">
