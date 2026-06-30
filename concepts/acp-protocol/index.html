@@ -12,13 +12,9 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/monte-carlo-tree-search/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/acp-protocol/">
       
       
-        <link rel="prev" href="../era-of-experience/">
-      
-      
-        <link rel="next" href="../mcts-vs-alpha-beta/">
       
       
         
@@ -29,7 +25,7 @@
     
     
       
-        <title>蒙特卡洛树搜索 (MCTS) - LLM Wiki</title>
+        <title>ACP（Agent Client Protocol）接口总览 - LLM Wiki</title>
       
     
     
@@ -80,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monte-carlo-tree-search-mcts" class="md-skip">
+        <a href="#acpagent-client-protocol" class="md-skip">
           跳转至
         </a>
       
@@ -116,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              蒙特卡洛树搜索 (MCTS)
+              ACP（Agent Client Protocol）接口总览
             
           </span>
         </div>
@@ -293,10 +289,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -373,11 +367,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -398,7 +392,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1253,37 +1247,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    蒙特卡洛树搜索 (MCTS)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../monte-carlo-tree-search/" class="md-nav__link">
         
   
   
@@ -1299,214 +1266,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        定义
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心问题：为什么需要它？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四步循环
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四步循环">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 选择 (Selection)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-expansion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 扩展 (Expansion)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-simulation-rollout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 模拟 (Simulation / Rollout)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-backpropagation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. 回传 (Backpropagation)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        搜索的宽度和深度
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="搜索的宽度和深度">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        搜索宽度（每步考虑多少走法）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        搜索深度（向前看多远）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alphago" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        具体参数（AlphaGo 各版本）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        为什么不用神经网络直接选？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mcts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        神经网络在 MCTS 中的角色
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        历史脉络
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关概念
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#wikilinks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Wikilinks
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1755,7 +1514,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        定义
+        核心设计
       
     </span>
   </a>
@@ -1766,30 +1525,19 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心问题：为什么需要它？
+        接口分类
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="接口分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        四步循环
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四步循环">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 选择 (Selection)
+        一、生命周期初始化
       
     </span>
   </a>
@@ -1797,60 +1545,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-expansion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 扩展 (Expansion)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-simulation-rollout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 模拟 (Simulation / Rollout)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-backpropagation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. 回传 (Backpropagation)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        搜索的宽度和深度
+        二、会话管理
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="搜索的宽度和深度">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        搜索宽度（每步考虑多少走法）
+        三、扩展机制
       
     </span>
   </a>
@@ -1858,21 +1567,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#agent-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        搜索深度（向前看多远）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alphago" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        具体参数（AlphaGo 各版本）
+        四、Agent → Client（反向消息）
       
     </span>
   </a>
@@ -1881,6 +1579,28 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sessionupdate-sessionupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        session/update 的 sessionUpdate 类型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        权限请求流程要点
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1888,18 +1608,7 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        为什么不用神经网络直接选？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mcts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        神经网络在 MCTS 中的角色
+        关键设计决策
       
     </span>
   </a>
@@ -1910,7 +1619,7 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        历史脉络
+        与相关协议的关系
       
     </span>
   </a>
@@ -1921,18 +1630,35 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        相关概念
+        参考
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参考">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        官方文档
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#wikilinks" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Wikilinks
+        相关链接
       
     </span>
   </a>
@@ -1957,46 +1683,6 @@
   
 
 
-  <nav class="md-path" aria-label="导航栏" >
-    <ol class="md-path__list">
-      
-        
-  
-  
-    <li class="md-path__item">
-      <a href="../.." class="md-path__link">
-        
-  <span class="md-ellipsis">
-    首页
-  </span>
-
-      </a>
-    </li>
-  
-
-      
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../../vllm-prefix-caching/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    概念
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
               
               <article class="md-content__inner md-typeset">
                 
@@ -2007,204 +1693,210 @@
   
 
 
-<h1 id="monte-carlo-tree-search-mcts">蒙特卡洛树搜索 (Monte Carlo Tree Search, MCTS)<a class="headerlink" href="#monte-carlo-tree-search-mcts" title="Permanent link">&para;</a></h1>
-<h2 id="_1">定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>MCTS 是一种用于<strong>不完全信息</strong>和<strong>高分支因子</strong>博弈决策的启发式搜索算法。它通过<strong>随机模拟 + 统计采样</strong>来评估局面，不依赖手工设计的评估函数。</p>
-<h2 id="_2">核心问题：为什么需要它？<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>在棋类博弈中，AI 需要在一棵博弈树上搜索最优走法：</p>
-<div class="highlight"><pre><span></span><code>                    空棋盘（根节点）
-                   /    |    \
-                 /      |      \
-              走法A   走法B    走法C
-              /  \       |        \
-           对手走 ...  对手走    对手走
-</code></pre></div>
-<p>每一步棋展开的合法走法越多，搜索空间就越大：</p>
+<h1 id="acpagent-client-protocol">ACP（Agent Client Protocol）接口总览<a class="headerlink" href="#acpagent-client-protocol" title="Permanent link">&para;</a></h1>
+<p>ACP 是基于 <strong>JSON-RPC 2.0</strong> 的双向通信协议，用于 UI 客户端（如 TensorChat）与 Agent 子进程（如 OpenCode）之间的结构化交互。底层传输为 newline-delimited JSON，通过 stdin/stdout 管道通信，stderr 专用于日志。</p>
+<h2 id="_1">核心设计<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>消息两类</strong>：Request（有 <code>id</code>，需回应，发起方阻塞等待）与 Notification（无 <code>id</code>，单向推送）</li>
+<li><strong>双向对称</strong>：Client 和 Agent 都可以发起 Request</li>
+<li><strong>进程模型</strong>：Agent 作为 Editor 的子进程运行</li>
+</ul>
+<h2 id="_2">接口分类<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">一、生命周期初始化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>游戏</th>
-<th>每步选择数</th>
-<th>一局步数</th>
-<th>搜索空间</th>
+<th>接口</th>
+<th>方向</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>井字棋</td>
-<td>~5</td>
-<td>9</td>
-<td>~5,478</td>
-</tr>
-<tr>
-<td>国际象棋</td>
-<td>~35</td>
-<td>80</td>
-<td>10¹²⁰</td>
-</tr>
-<tr>
-<td>围棋</td>
-<td>~250</td>
-<td>200</td>
-<td>10³⁶⁰</td>
+<td><code>initialize</code></td>
+<td>Client → Agent</td>
+<td>握手，交换双方能力表（clientCapabilities / agentCapabilities），必须最先发送。详见 <a href="https://agentclientprotocol.com/protocol/v1/initialization">Initialization</a></td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>井字棋</strong>：搜索空间极小，任何方法都够用</li>
-<li><strong>国际象棋</strong>：Alpha-Beta 剪枝 + 深度评估函数可以处理</li>
-<li><strong>围棋</strong>：搜索空间爆炸，Alpha-Beta 完全失效，必须用 MCTS</li>
-</ul>
-<h2 id="_3">四步循环<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>MCTS 的核心是一个四步循环，每次循环树长大一点：</p>
-<h3 id="1-selection">1. 选择 (Selection)<a class="headerlink" href="#1-selection" title="Permanent link">&para;</a></h3>
-<p>从根节点沿最"有潜力"的路径往下走，使用 <strong>UCB1 公式</strong> 选择子节点：</p>
-<div class="arithmatex">\[\text{UCB1}(j) = \frac{w_j}{n_j} + C \sqrt{\frac{\ln n}{n_j}}\]</div>
-<ul>
-<li><span class="arithmatex">\(w_j\)</span>：子节点 <span class="arithmatex">\(j\)</span> 的获胜次数</li>
-<li><span class="arithmatex">\(n_j\)</span>：子节点 <span class="arithmatex">\(j\)</span> 的访问次数</li>
-<li><span class="arithmatex">\(n\)</span>：父节点的访问次数</li>
-<li>
-<p><span class="arithmatex">\(C\)</span>：探索常数（通常取 <span class="arithmatex">\(\sqrt{2}\)</span>）</p>
-</li>
-<li>
-<p><strong>前半部分</strong> <span class="arithmatex">\(w_j / n_j\)</span>（胜率）：已验证的实力 — Exploitation</p>
-</li>
-<li><strong>后半部分</strong> <span class="arithmatex">\(C \sqrt{\ln n / n_j}\)</span>（探索项）：未充分探索的节点有加分 — Exploration</li>
-</ul>
-<p>这实现了 <strong>Explore-Exploit 平衡</strong>：既利用已知好的选择，又探索未知选择。</p>
-<div class="highlight"><pre><span></span><code>两个子节点：
-  节点A：访问 20 次，胜率 70% → 胜率高，但已充分探索
-  节点B：访问 2 次，胜率 50%  → 胜率低，但探索项大
-
-→ 可能选 B（它还没被充分探索，可能有惊喜）
-</code></pre></div>
-<h3 id="2-expansion">2. 扩展 (Expansion)<a class="headerlink" href="#2-expansion" title="Permanent link">&para;</a></h3>
-<p>到达一个未展开过的叶子节点时，创建一个新子节点：</p>
-<div class="highlight"><pre><span></span><code>到达：                扩展后：
-  X | O |              X | O |
-    |   |        →        | X |      ← 新增子节点
-    |   |              |   |
-</code></pre></div>
-<p><strong>不在所有节点上扩展</strong>，只在最有潜力的方向生长，避免盲目展开。</p>
-<h3 id="3-simulation-rollout">3. 模拟 (Simulation / Rollout)<a class="headerlink" href="#3-simulation-rollout" title="Permanent link">&para;</a></h3>
-<p>从新节点开始，<strong>双方随机走子</strong>直到游戏结束，得到一个胜负结果：</p>
-<div class="highlight"><pre><span></span><code>当前局面：          随机走子过程：        最终结果：
-  X | O |           X | O | O          X | O | O
-    | X |    →     X | X | O    →     X | X | O
-    |   |           O | O | X        O | O | X
-                                       我赢了 ✓
-</code></pre></div>
-<p>纯 MCTS 中这一步完全随机。在 AlphaGo 中，这一步被<strong>神经网络</strong>替代。</p>
-<h3 id="4-backpropagation">4. 回传 (Backpropagation)<a class="headerlink" href="#4-backpropagation" title="Permanent link">&para;</a></h3>
-<p>把胜负结果沿路径<strong>反向更新</strong>回去：</p>
-<div class="highlight"><pre><span></span><code>                    [访问 21 次, 胜率 71%]  ← 更新
-                   /            \
-        [访问 8 次, 胜率 62%]  [访问 3 次, 胜率 67%]  ← 更新
-              |
-        [访问 3 次, 胜率 100%]  ← 刚模拟的节点，赢了 +1
-
-更新规则：访问次数 +1，如果赢了则胜利次数 +1，重新计算胜率
-</code></pre></div>
-<h2 id="_4">搜索的宽度和深度<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="_5">搜索宽度（每步考虑多少走法）<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>围棋每步有 ~250 个合法走法，不可能全搜。AlphaGo 用<strong>策略网络</strong>做预筛选：</p>
-<div class="highlight"><pre><span></span><code>250 个合法走法
-      ↓ 策略网络打分
-筛选出 ~5-10 个高概率走法
-      ↓ MCTS 在这 5-10 个中展开搜索
-</code></pre></div>
-<h3 id="_6">搜索深度（向前看多远）<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>搜索深度<strong>不均匀</strong>，不是每条线都看一样远：</p>
-<div class="highlight"><pre><span></span><code>                 根节点
-               /   |   \
-            很深！  一般深   很浅
-             |        |
-          继续深     到这就停了
-             |
-          ...（这条路线有意思，一直搜）
-</code></pre></div>
-<ul>
-<li><strong>关键变化</strong>（双方最优应对）→ 搜得很深，可能 20-30 步</li>
-<li><strong>明显差的变化</strong> → 搜几步就放弃，不值得浪费时间</li>
-<li>实际由<strong>时间预算</strong>决定（AlphaGo 正式赛约 2 分钟/步）</li>
-</ul>
-<h3 id="alphago">具体参数（AlphaGo 各版本）<a class="headerlink" href="#alphago" title="Permanent link">&para;</a></h3>
+<h3 id="_4">二、会话管理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>AlphaGo Fan</th>
-<th>AlphaGo Zero</th>
-<th>AlphaZero</th>
+<th>接口</th>
+<th>方向</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>每步模拟次数</td>
-<td>~1,600</td>
-<td>~1,600</td>
-<td>~800</td>
+<td><code>session/new</code></td>
+<td>Client → Agent (Request)</td>
+<td>创建新会话，返回 sessionId。详见 <a href="https://agentclientprotocol.com/protocol/v1/session-setup">Session Setup</a></td>
 </tr>
 <tr>
-<td>搜索宽度</td>
-<td>策略网络筛选 ~5-10</td>
-<td>策略网络筛选</td>
-<td>策略网络筛选</td>
+<td><code>session/load</code></td>
+<td>Client → Agent (Request)</td>
+<td>加载历史会话，恢复上下文。详见 <a href="https://agentclientprotocol.com/protocol/v1/session-setup">Session Setup</a></td>
 </tr>
 <tr>
-<td>搜索深度</td>
-<td>不均匀，关键路线 20+ 步</td>
-<td>类似</td>
-<td>类似</td>
+<td><code>session/prompt</code></td>
+<td>Client → Agent (Request)</td>
+<td>发送用户任务，启动执行循环，<strong>不设超时</strong>，整个 turn 完成才回复。详见 <a href="https://agentclientprotocol.com/protocol/v1/prompt-turn">Prompt Turn</a></td>
 </tr>
 <tr>
-<td>每步用时</td>
-<td>~2 秒</td>
-<td>~2 秒</td>
-<td>~0.4 秒</td>
+<td><code>session/cancel</code></td>
+<td>Client → Agent (Request)</td>
+<td>取消当前 prompt turn。详见 <a href="https://agentclientprotocol.com/protocol/v1/prompt-turn">Prompt Turn</a></td>
+</tr>
+<tr>
+<td><code>session/set_mode</code></td>
+<td>Client → Agent (Request)</td>
+<td>切换工作模式（ask / code / architect），详见 <a href="https://agentclientprotocol.com/protocol/v1/session-modes">Session Modes</a></td>
+</tr>
+<tr>
+<td><code>session/set_config_option</code></td>
+<td>Client → Agent (Request)</td>
+<td>设置配置选项（包括模型、推理级别等），详见 <a href="https://agentclientprotocol.com/protocol/v1/session-config-options">Session Config Options</a></td>
 </tr>
 </tbody>
 </table>
-<h2 id="_7">为什么不用神经网络直接选？<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p>神经网络给出的是<strong>单步判断</strong>（"当前局面胜率多少"），但博弈需要<strong>多步推演</strong>：</p>
-<div class="highlight"><pre><span></span><code>我走最优 → 对手走最优 → 我再走最优 → ... → 真正结果
-
-单看一步：胜率 80%（乐观估计）
-搜到底：  胜率 10%（被对手反击打爆）
-</code></pre></div>
-<p>三重原因：
-1. <strong>对手会反击</strong>：只看当前胜率是贪心策略，容易掉坑
-2. <strong>单次判断有噪声</strong>：多次采样平均才能降低误差
-3. <strong>长期 vs 短期</strong>：需要向前推演发现隐藏的陷阱</p>
-<p><strong>类比</strong>：神经网络是老司机凭直觉判断"这条路看起来不错"，MCTS 是真的开车进去看看前面有没有修路。直觉再准也只看一步，往前多走几步才能发现真相。</p>
-<h2 id="mcts">神经网络在 MCTS 中的角色<a class="headerlink" href="#mcts" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>纯 MCTS（无神经网络）：
-  当前局面 → 随机走到终局 → 看谁赢 → 统计
-  （模拟慢，随机走子质量差，结果噪声大）
-
-AlphaGo（MCTS + 神经网络）：
-  策略网络 → 筛选候选走法（缩窄搜索宽度）
-  价值网络 → 替代随机模拟直接预测胜率（提高评估质量）
-  （模拟次数少但质量高，用 1,600 次碾压所有人类）
-</code></pre></div>
-<h2 id="_8">历史脉络<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_5">三、扩展机制<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>接口</th>
+<th>方向</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ext/method</code></td>
+<td>双向 (Request)</td>
+<td>扩展 RPC 命令，支持自定义功能（调试、插件等）。详见 <a href="https://agentclientprotocol.com/protocol/v1/extensibility">Extensibility</a></td>
+</tr>
+<tr>
+<td><code>ext/notification</code></td>
+<td>双向 (Notification)</td>
+<td>扩展事件通知，轻量级单向同步。详见 <a href="https://agentclientprotocol.com/protocol/v1/extensibility">Extensibility</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="agent-client">四、Agent → Client（反向消息）<a class="headerlink" href="#agent-client" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>接口</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>session/update</code></td>
+<td>Notification</td>
+<td>执行过程状态推送（tool_call pending/completed、流式文本等）。详见 <a href="https://agentclientprotocol.com/protocol/v1/tool-calls">Tool Calls</a></td>
+</tr>
+<tr>
+<td><code>session/request_permission</code></td>
+<td><strong>Request</strong></td>
+<td>🔑 <strong>权限请求核心</strong>：Agent 发出后<strong>阻塞挂起</strong>，等待 UI 回复授权结果。详见 <a href="https://agentclientprotocol.com/protocol/v1/authentication">Authentication</a></td>
+</tr>
+<tr>
+<td><code>fs/read_text_file</code> / <code>fs/write_text_file</code></td>
+<td>Request</td>
+<td>反向文件系统调用，需 Client 在 initialize 时声明 fs 能力。详见 <a href="https://agentclientprotocol.com/protocol/v1/file-system">File System</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sessionupdate-sessionupdate">session/update 的 sessionUpdate 类型<a class="headerlink" href="#sessionupdate-sessionupdate" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plan</code></td>
+<td>计划列表</td>
+</tr>
+<tr>
+<td><code>tool_call</code></td>
+<td>新 tool call（pending 状态）</td>
+</tr>
+<tr>
+<td><code>tool_call_update</code></td>
+<td>状态更新（in_progress / completed / failed）</td>
+</tr>
+<tr>
+<td><code>agent_message_chunk</code></td>
+<td>流式文本 token</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">权限请求流程要点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p><code>request_permission</code> 是唯一让 Agent 完全阻塞的环节：</p>
 <ul>
-<li><strong>1990s</strong>：MCTS 由 Rémi Coulom 等提出</li>
-<li><strong>2006</strong>：首次应用于围棋程序（Crazy Stone）</li>
-<li><strong>2016</strong>：AlphaGo 结合 MCTS + 深度学习击败李世石</li>
-<li><strong>2017</strong>：AlphaGo Zero 从零开始自我博弈训练，纯 MCTS + 神经网络</li>
-<li><strong>2018</strong>：AlphaZero 统一国际象棋、将棋、围棋，同一套架构</li>
+<li>Agent 发送请求后挂起，stdin 仍在监听（可接收取消信号）</li>
+<li>Client 弹出授权对话框，用户可选：允许一次 / 始终允许 / 拒绝 / 取消整个任务</li>
+<li>"始终允许"后 Client 本地记忆偏好，同类操作后续自动放行</li>
+<li>取消 prompt turn 时，必须对所有 pending 的 request_permission 回复 <code>outcome: "cancelled"</code></li>
 </ul>
-<h2 id="_9">相关概念<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_7">关键设计决策<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fs 反向调用是否需要授权？</td>
+<td>不需要，fs 能力在 initialize 阶段整体声明</td>
+</tr>
+<tr>
+<td>多个 tool call 怎么处理？</td>
+<td>每个 tool call 独立走一次 request_permission（除非已被 allow-always）</td>
+</tr>
+<tr>
+<td>prompt turn 能设超时吗？</td>
+<td>不应设超时，复杂任务可能持续 5-10 分钟</td>
+</tr>
+<tr>
+<td>tool_call 状态流转</td>
+<td><code>pending → in_progress → completed / failed</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_8">与相关协议的关系<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../mcts-vs-alpha-beta/">mcts-vs-alpha-beta</a> — MCTS 与 Alpha-Beta 剪枝的详细对比</li>
-<li><a href="../era-of-experience/">era-of-experience</a> — AI 发展阶段中 MCTS + 自我博弈的地位</li>
+<li><strong>ACP vs MCP</strong>：MCP 是模型与工具的协议（工具服务器），ACP 是 UI 与 Agent 的协议（客户端-代理），详见 <a href="a2a-vs-mcp.md">A2A vs MCP</a></li>
+<li><strong>ACP vs A2A</strong>：<a href="../a2a-protocol/">A2A 协议</a> 是 Agent 间通信协议（点对点），ACP 是 Agent 与宿主编排器的协议</li>
+<li>三者互补：MCP 管工具，ACP 管编排，<a href="../a2a-protocol/">A2A 协议</a> 管协作</li>
 </ul>
-<h2 id="wikilinks">Wikilinks<a class="headerlink" href="#wikilinks" title="Permanent link">&para;</a></h2>
+<h2 id="_9">参考<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_10">官方文档<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <ul>
-<li>[[mcts-vs-alpha-beta]] — MCTS 与 Alpha-Beta 剪枝的详细对比</li>
-<li>[[era-of-experience]] — AI 发展阶段中 MCTS + 自我博弈的地位</li>
+<li><strong>主页</strong>：<a href="https://agentclientprotocol.com">Agent Client Protocol</a></li>
+<li><strong>Initialization</strong>：<a href="https://agentclientprotocol.com/protocol/v1/initialization">初始化握手</a></li>
+<li><strong>Session Setup</strong>：<a href="https://agentclientprotocol.com/protocol/v1/session-setup">会话创建与加载</a></li>
+<li><strong>Prompt Turn</strong>：<a href="https://agentclientprotocol.com/protocol/v1/prompt-turn">提示词轮次</a></li>
+<li><strong>Session Modes</strong>：<a href="https://agentclientprotocol.com/protocol/v1/session-modes">切换工作模式</a></li>
+<li><strong>Session Config Options</strong>：<a href="https://agentclientprotocol.com/protocol/v1/session-config-options">设置配置选项（包括模型）</a></li>
+<li><strong>Tool Calls</strong>：<a href="https://agentclientprotocol.com/protocol/v1/tool-calls">工具调用执行</a></li>
+<li><strong>File System</strong>：<a href="https://agentclientprotocol.com/protocol/v1/file-system">文件系统访问</a></li>
+<li><strong>Authentication</strong>：<a href="https://agentclientprotocol.com/protocol/v1/authentication">权限请求与授权</a></li>
+<li><strong>Extensibility</strong>：<a href="https://agentclientprotocol.com/protocol/v1/extensibility">扩展机制</a></li>
+</ul>
+<h2 id="_11">相关链接<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[[acp-stdio-auth-flow]] — ACP stdio 授权流程详解</li>
+<li>[[a2a-protocol]] — Agent 间通信协议（A2A Protocol）</li>
+<li>[[a2a-vs-mcp]] — ACP 与 A2A/MCP 协议对比分析</li>
 </ul>
 
 

@@ -29,7 +29,7 @@
     
     
       
-        <title>ChromaFs 虚拟文件系统 - LLM Wiki</title>
+        <title>ChromaFs — Agent 虚拟文件系统 - LLM Wiki</title>
       
     
     
@@ -79,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#chromafs-agent" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -111,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ChromaFs 虚拟文件系统
+              ChromaFs — Agent 虚拟文件系统
             
           </span>
         </div>
@@ -641,6 +646,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChromaFs 虚拟文件系统
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -658,6 +683,152 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心思想
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        背景：为什么不用沙箱
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技术架构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="技术架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#just-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基础：just-bash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录树引导
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rbac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        访问控制（RBAC）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面重组
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        只读保证
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grep 优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键数据
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关概念
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1510,6 +1681,143 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心思想
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        背景：为什么不用沙箱
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技术架构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="技术架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#just-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基础：just-bash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录树引导
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rbac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        访问控制（RBAC）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面重组
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        只读保证
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grep 优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键数据
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关概念
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1577,98 +1885,90 @@
   
 
 
-  <h1>ChromaFs 虚拟文件系统</h1>
-
-<pre><code> 1|---
- 2|title: ChromaFs — Agent 虚拟文件系统
- 3|created: 2026-05-05
- 4|updated: 2026-05-05
- 5|type: concept
- 6|tags: [agent, tool-use, open-source]
- 7|sources: [raw/articles/mintlify-chromafs-virtual-filesystem.md]
- 8|---
- 9|
-10|# ChromaFs — Agent 虚拟文件系统
-11|
-12|&gt; **原文链接**: [How we built a virtual filesystem for our Assistant](https://www.mintlify.com/blog/how-we-built-a-virtual-filesystem-for-our-assistant) — Dens Sumesh, Mintlify Engineering, 2026-03-24
-13|
-14|## 核心思想
-15|
-16|Agent 正在趋同于以文件系统作为主要交互界面（参考 [arXiv:2601.11672](https://arxiv.org/abs/2601.11672)）。`grep`、`cat`、`ls`、`find` 就是一个 Agent 需要的全部工具。ChromaFs 的核心洞察是：Agent 不需要一个**真实的**文件系统，只需要**幻觉**。通过拦截 UNIX 命令并将其翻译为数据库查询，实现了轻量级的虚拟文件系统。
-17|
-18|## 背景：为什么不用沙箱
-19|
-20|传统方案是给 Agent 一个真实文件系统（sandbox + git clone），但问题明显：
-21|
-22|| 指标 | Sandbox 方案 | ChromaFs |
-23||------|-------------|----------|
-24|| P90 启动时间 | ~46 秒 | ~100 毫秒 |
-25|| 边际计算成本 | ~$0.0137/会话 | ~$0（复用现有 DB） |
-26|| 搜索机制 | 线性磁盘扫描 | DB 元数据查询 |
-27|| 基础设施 | Daytona 等 sandbox 提供商 | 已有 Chroma DB |
-28|
-29|85 万次/月的对话量下，sandbox 方案年成本超过 $70,000。
-30|
-31|## 技术架构
-32|
-33|### 基础：just-bash
-34|
-35|ChromaFs 基于 [just-bash](https://github.com/vercel-labs/just-bash)（Vercel Labs 出品的 TypeScript bash 重实现），支持 `grep`/`cat`/`ls`/`find`/`cd`。just-bash 暴露可插拔的 `IFileSystem` 接口，负责解析、管道和 flag 逻辑，ChromaFs 则将每个底层文件系统调用翻译为 Chroma 查询。
-36|
-37|### 目录树引导
-38|
-39|整个文件树以 gzip 压缩的 JSON（`__path_tree__`）存储在 Chroma collection 中，包含路径和访问控制元数据：
-40|
-41|```json
-42|{
-43|  "auth/oauth": { "isPublic": true, "groups": [] },
-44|  "internal/billing": { "isPublic": false, "groups": ["admin", "billing"] }
-45|}
-46|```
-47|
-48|初始化时解压为内存中的 `Set&lt;string&gt;` + `Map&lt;string, string[]&gt;`，`ls`/`cd`/`find` 全部本地内存解析，零网络调用。
-49|
-50|### 访问控制（RBAC）
-51|
-52|根据用户 session token 在构建文件树前裁剪 slug。用户无权访问的文件从树中完全移除，Agent 既不能访问也不能引用。在真实 sandbox 中需要管理 Linux 用户组/chmod/独立容器镜像，ChromaFs 中只需几行过滤代码。
-53|
-54|### 页面重组
-55|
-56|Chroma 中的文档按 chunk 存储（用于 embedding），`cat` 时按 `chunk_index` 排序并拼接为完整页面。结果带缓存，grep 流程中重复读取不二次查询数据库。
-57|
-58|还支持**惰性文件指针**：大型 OpenAPI spec 存在 S3 中，`ls` 时可见但 `cat` 时才拉取。
-59|
-60|### 只读保证
-61|
-62|所有写操作抛出 `EROFS` 错误。Agent 可自由探索但不能修改文档，系统无状态、无需 session 清理、无 Agent 间污染风险。
-63|
-64|### Grep 优化
-65|
-66|`grep -r` 的核心优化是**两阶段过滤**：
-67|1. **粗筛（Chroma）**：将 grep 模式翻译为 Chroma 查询（`$contains` 或 `$regex`），识别可能命中的文件
-68|2. **精筛（内存）**：将匹配的 chunks 批量预取到 Redis 缓存，重写 grep 命令后交还 just-bash 在内存中执行
-69|
-70|大规模递归查询毫秒级完成。
-71|
-72|## 关键数据
-73|
-74|- 日均 30,000+ 会话
-75|- 启动时间从 46 秒降至 100 毫秒（460x 提升）
-76|- 零新增基础设施成本
-77|- 内置 RBAC
-78|
-79|## 相关概念
-80|
-81|- [A2A 协议](a2a-protocol.md) — Agent 间通信协议，文件系统接口是另一种 Agent 交互范式
-82|- [Hermes Agent 记忆架构](hermes-agent-memory-architecture.md) — Hermes Agent 使用真实文件系统的 Agent 工具实现
-83|
-</code></pre>
+<h1 id="chromafs-agent">ChromaFs — Agent 虚拟文件系统<a class="headerlink" href="#chromafs-agent" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>原文链接</strong>: <a href="https://www.mintlify.com/blog/how-we-built-a-virtual-filesystem-for-our-assistant">How we built a virtual filesystem for our Assistant</a> — Dens Sumesh, Mintlify Engineering, 2026-03-24</p>
+</blockquote>
+<h2 id="_1">核心思想<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Agent 正在趋同于以文件系统作为主要交互界面（参考 <a href="https://arxiv.org/abs/2601.11672">arXiv:2601.11672</a>）。<code>grep</code>、<code>cat</code>、<code>ls</code>、<code>find</code> 就是一个 Agent 需要的全部工具。ChromaFs 的核心洞察是：Agent 不需要一个<strong>真实的</strong>文件系统，只需要<strong>幻觉</strong>。通过拦截 UNIX 命令并将其翻译为数据库查询，实现了轻量级的虚拟文件系统。</p>
+<h2 id="_2">背景：为什么不用沙箱<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>传统方案是给 Agent 一个真实文件系统（sandbox + git clone），但问题明显：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>Sandbox 方案</th>
+<th>ChromaFs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P90 启动时间</td>
+<td>~46 秒</td>
+<td>~100 毫秒</td>
+</tr>
+<tr>
+<td>边际计算成本</td>
+<td>~$0.0137/会话</td>
+<td>~$0（复用现有 DB）</td>
+</tr>
+<tr>
+<td>搜索机制</td>
+<td>线性磁盘扫描</td>
+<td>DB 元数据查询</td>
+</tr>
+<tr>
+<td>基础设施</td>
+<td>Daytona 等 sandbox 提供商</td>
+<td>已有 Chroma DB</td>
+</tr>
+</tbody>
+</table>
+<p>85 万次/月的对话量下，sandbox 方案年成本超过 $70,000。</p>
+<h2 id="_3">技术架构<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="just-bash">基础：just-bash<a class="headerlink" href="#just-bash" title="Permanent link">&para;</a></h3>
+<p>ChromaFs 基于 <a href="https://github.com/vercel-labs/just-bash">just-bash</a>（Vercel Labs 出品的 TypeScript bash 重实现），支持 <code>grep</code>/<code>cat</code>/<code>ls</code>/<code>find</code>/<code>cd</code>。just-bash 暴露可插拔的 <code>IFileSystem</code> 接口，负责解析、管道和 flag 逻辑，ChromaFs 则将每个底层文件系统调用翻译为 Chroma 查询。</p>
+<h3 id="_4">目录树引导<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>整个文件树以 gzip 压缩的 JSON（<code>__path_tree__</code>）存储在 Chroma collection 中，包含路径和访问控制元数据：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;auth/oauth&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;isPublic&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;groups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;internal/billing&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;isPublic&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;groups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;billing&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>初始化时解压为内存中的 <code>Set&lt;string&gt;</code> + <code>Map&lt;string, string[]&gt;</code>，<code>ls</code>/<code>cd</code>/<code>find</code> 全部本地内存解析，零网络调用。</p>
+<h3 id="rbac">访问控制（RBAC）<a class="headerlink" href="#rbac" title="Permanent link">&para;</a></h3>
+<p>根据用户 session token 在构建文件树前裁剪 slug。用户无权访问的文件从树中完全移除，Agent 既不能访问也不能引用。在真实 sandbox 中需要管理 Linux 用户组/chmod/独立容器镜像，ChromaFs 中只需几行过滤代码。</p>
+<h3 id="_5">页面重组<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>Chroma 中的文档按 chunk 存储（用于 embedding），<code>cat</code> 时按 <code>chunk_index</code> 排序并拼接为完整页面。结果带缓存，grep 流程中重复读取不二次查询数据库。</p>
+<p>还支持<strong>惰性文件指针</strong>：大型 OpenAPI spec 存在 S3 中，<code>ls</code> 时可见但 <code>cat</code> 时才拉取。</p>
+<h3 id="_6">只读保证<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>所有写操作抛出 <code>EROFS</code> 错误。Agent 可自由探索但不能修改文档，系统无状态、无需 session 清理、无 Agent 间污染风险。</p>
+<h3 id="grep">Grep 优化<a class="headerlink" href="#grep" title="Permanent link">&para;</a></h3>
+<p><code>grep -r</code> 的核心优化是<strong>两阶段过滤</strong>：
+1. <strong>粗筛（Chroma）</strong>：将 grep 模式翻译为 Chroma 查询（<code>$contains</code> 或 <code>$regex</code>），识别可能命中的文件
+2. <strong>精筛（内存）</strong>：将匹配的 chunks 批量预取到 Redis 缓存，重写 grep 命令后交还 just-bash 在内存中执行</p>
+<p>大规模递归查询毫秒级完成。</p>
+<h2 id="_7">关键数据<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li>日均 30,000+ 会话</li>
+<li>启动时间从 46 秒降至 100 毫秒（460x 提升）</li>
+<li>零新增基础设施成本</li>
+<li>内置 RBAC</li>
+</ul>
+<h2 id="_8">相关概念<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[[a2a-protocol]] — Agent 间通信协议，文件系统接口是另一种 Agent 交互范式</li>
+<li>[[hermes-agent-memory-architecture]] — Hermes Agent 使用真实文件系统的 Agent 工具实现</li>
+</ul>
 
 
 
 
 
 
+
+  
+  
 
 
 

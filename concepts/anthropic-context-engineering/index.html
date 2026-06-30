@@ -1011,6 +1011,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关链接
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1795,6 +1806,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关链接
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1891,7 +1913,7 @@
 <p><strong>工具定义</strong> 本质上也是 context，并且同样受益于精心策划。每个工具定义所用的 token 都会从可用的注意力预算中消耗一部分，因此工具定义的 token 效率对于 Agent 性能至关重要。我们在之前关于构建高效 Agent 的帖子中讨论了 token 效率工具的概念——工具的输入和输出模式经过精心设计，使用最少的 token 来传递最大量的信息。</p>
 <p><strong>检索到的 context</strong> 是 Agent 被赋予的任务相关信息。理想情况下，这是通过 RAG 或 agentic search 获取的，我们将在下面讨论。</p>
 <h2 id="context-agentic-search">Context 检索与 Agentic Search<a class="headerlink" href="#context-agentic-search" title="Permanent link">&para;</a></h2>
-<p>在 <a href="concepts/构建高效 AI Agent.md">anthropic-building-effective-agents</a> 一文中，我们强调了基于 LLM 的工作流和 Agent 之间的区别。自那篇文章发表以来，我们倾向于对 Agent 采用一个简单的定义：LLM 在循环中自主使用工具。</p>
+<p>在 [[anthropic-building-effective-agents|构建高效 AI Agent]] 一文中，我们强调了基于 LLM 的工作流和 Agent 之间的区别。自那篇文章发表以来，我们倾向于对 Agent 采用一个简单的定义：LLM 在循环中自主使用工具。</p>
 <p>与客户合作，我们看到业界正在向这个简单的范式靠拢。随着底层模型变得更有能力，Agent 的自主水平可以扩展：更聪明的模型允许 Agent 独立导航细微差别的问题空间并从错误中恢复。</p>
 <p>我们现在看到工程师在设计 Agent 的 context 方式上的转变。如今，许多 AI 原生应用程序采用某种形式的基于嵌入的预推理时检索来提供重要的 context 供 Agent 推理。随着领域转向更 Agent 化的方法，我们越来越多地看到团队用"just in time"（即时）context 策略来增强这些检索系统。</p>
 <p>"just in time"方法不是预先处理所有相关数据，而是让 Agent 维护轻量级标识符（文件路径、存储的查询、Web 链接等），并使用这些引用在运行时通过工具动态加载数据到 context 中。Anthropic 的 Agent 编码解决方案 Claude Code 使用这种方法对大型数据库执行复杂的数据分析。模型可以编写针对性的查询、存储结果，并利用 Bash 命令如 <code>head</code> 和 <code>tail</code> 分析大量数据，而无需将完整数据对象加载到 context 中。这种方法反映了人类的认知方式：我们通常不会记住整个信息库，而是引入外部组织和索引系统（如文件系统、收件箱和书签）来按需检索相关信息。</p>
@@ -1915,6 +1937,12 @@
 <p>立即在 Claude Developer Platform 中开始使用 context engineering，并通过我们的 memory 和 context management cookbook 获取有用的技巧和最佳实践。</p>
 <h2 id="_3">致谢<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>本文由 Anthropic 的 Applied AI 团队撰写：Prithvi Rajasekaran、Ethan Dixon、Carly Ryan 和 Jeremy Hadfield，Rafi Ayub、Hannah Moran、Cal Rueb 和 Connor Jennings 也有贡献。特别感谢 Molly Vorwerck、Stuart Ritchie 和 Maggie Vo 的支持。</p>
+<h2 id="_4">相关链接<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[[anthropic-contextual-retrieval]] — Contextual Retrieval 上下文感知检索</li>
+<li>[[anthropic-think-tool]] — 复杂任务中的结构化思考工具</li>
+<li>[[anthropic-harnesses-long-running-agents]] — 长时间运行 Agent 的 Harness（context 管理实践）</li>
+</ul>
 
 
 

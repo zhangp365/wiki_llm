@@ -12,13 +12,9 @@
         <meta name="author" content="zhangp365">
       
       
-        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/monte-carlo-tree-search/">
+        <link rel="canonical" href="https://zhangp365.github.io/wiki_llm/concepts/vllm-prefix-caching/">
       
       
-        <link rel="prev" href="../era-of-experience/">
-      
-      
-        <link rel="next" href="../mcts-vs-alpha-beta/">
       
       
         
@@ -29,7 +25,7 @@
     
     
       
-        <title>蒙特卡洛树搜索 (MCTS) - LLM Wiki</title>
+        <title>vLLM KV Cache 与 Prefix Caching 命中机制 - LLM Wiki</title>
       
     
     
@@ -80,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monte-carlo-tree-search-mcts" class="md-skip">
+        <a href="#vllm-kv-cache-prefix-caching" class="md-skip">
           跳转至
         </a>
       
@@ -116,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              蒙特卡洛树搜索 (MCTS)
+              vLLM KV Cache 与 Prefix Caching 命中机制
             
           </span>
         </div>
@@ -293,10 +289,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -373,11 +367,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -398,7 +392,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1253,37 +1247,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    蒙特卡洛树搜索 (MCTS)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../monte-carlo-tree-search/" class="md-nav__link">
         
   
   
@@ -1299,214 +1266,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        定义
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心问题：为什么需要它？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四步循环
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四步循环">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 选择 (Selection)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-expansion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 扩展 (Expansion)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-simulation-rollout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 模拟 (Simulation / Rollout)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-backpropagation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. 回传 (Backpropagation)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        搜索的宽度和深度
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="搜索的宽度和深度">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        搜索宽度（每步考虑多少走法）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        搜索深度（向前看多远）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alphago" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        具体参数（AlphaGo 各版本）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        为什么不用神经网络直接选？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mcts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        神经网络在 MCTS 中的角色
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        历史脉络
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关概念
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#wikilinks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Wikilinks
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1755,7 +1514,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        定义
+        概述
       
     </span>
   </a>
@@ -1766,30 +1525,19 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心问题：为什么需要它？
+        核心架构
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四步循环
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四步循环">
+    <nav class="md-nav" aria-label="核心架构">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-selection" class="md-nav__link">
+  <a href="#pagedattention" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 选择 (Selection)
+        PagedAttention（基础层）
       
     </span>
   </a>
@@ -1797,32 +1545,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-expansion" class="md-nav__link">
+  <a href="#automatic-prefix-cachingapc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 扩展 (Expansion)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-simulation-rollout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 模拟 (Simulation / Rollout)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-backpropagation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. 回传 (Backpropagation)
+        Automatic Prefix Caching（APC，缓存命中层）
       
     </span>
   </a>
@@ -1835,22 +1561,83 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        搜索的宽度和深度
+        Agent 工具调用场景的缓存命中
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="搜索的宽度和深度">
+    <nav class="md-nav" aria-label="Agent 工具调用场景的缓存命中">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        理论命中率公式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实际命中率估算
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        搜索宽度（每步考虑多少走法）
+        多轮缓存命中率衰减
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vllm-vs-sglang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vLLM vs SGLang 关键差距
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        已知 Bug 和问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="已知 Bug 和问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键 Bug
       
     </span>
   </a>
@@ -1861,18 +1648,7 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        搜索深度（向前看多远）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alphago" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        具体参数（AlphaGo 各版本）
+        性能问题
       
     </span>
   </a>
@@ -1888,7 +1664,7 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        为什么不用神经网络直接选？
+        业界观点
       
     </span>
   </a>
@@ -1896,10 +1672,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mcts" class="md-nav__link">
+  <a href="#prompt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        神经网络在 MCTS 中的角色
+        缓存友好的 Prompt 设计最佳实践
       
     </span>
   </a>
@@ -1910,29 +1686,7 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        历史脉络
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关概念
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#wikilinks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Wikilinks
+        相关页面
       
     </span>
   </a>
@@ -1957,46 +1711,6 @@
   
 
 
-  <nav class="md-path" aria-label="导航栏" >
-    <ol class="md-path__list">
-      
-        
-  
-  
-    <li class="md-path__item">
-      <a href="../.." class="md-path__link">
-        
-  <span class="md-ellipsis">
-    首页
-  </span>
-
-      </a>
-    </li>
-  
-
-      
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../../vllm-prefix-caching/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    概念
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
               
               <article class="md-content__inner md-typeset">
                 
@@ -2007,204 +1721,187 @@
   
 
 
-<h1 id="monte-carlo-tree-search-mcts">蒙特卡洛树搜索 (Monte Carlo Tree Search, MCTS)<a class="headerlink" href="#monte-carlo-tree-search-mcts" title="Permanent link">&para;</a></h1>
-<h2 id="_1">定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>MCTS 是一种用于<strong>不完全信息</strong>和<strong>高分支因子</strong>博弈决策的启发式搜索算法。它通过<strong>随机模拟 + 统计采样</strong>来评估局面，不依赖手工设计的评估函数。</p>
-<h2 id="_2">核心问题：为什么需要它？<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>在棋类博弈中，AI 需要在一棵博弈树上搜索最优走法：</p>
-<div class="highlight"><pre><span></span><code>                    空棋盘（根节点）
-                   /    |    \
-                 /      |      \
-              走法A   走法B    走法C
-              /  \       |        \
-           对手走 ...  对手走    对手走
+<h1 id="vllm-kv-cache-prefix-caching">vLLM KV Cache 与 Prefix Caching 命中机制<a class="headerlink" href="#vllm-kv-cache-prefix-caching" title="Permanent link">&para;</a></h1>
+<h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>vLLM 的缓存体系由两层组成：底层的 PagedAttention 和上层的 Automatic Prefix Caching (APC)。在 Agent 多轮工具调用场景下，缓存命中率取决于共享前缀占总输入的比例，理论上最高可达 ~95%，但受 block 对齐粒度和调度策略限制，实际通常在 70-90%。</p>
+<h2 id="_2">核心架构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="pagedattention">PagedAttention（基础层）<a class="headerlink" href="#pagedattention" title="Permanent link">&para;</a></h3>
+<p>借鉴 OS 虚拟内存分页思想：
+- KV cache 切分为固定大小的 block（默认 16 tokens）
+- 每个请求维护一个 block table（类似页表）
+- 避免连续内存分配造成的碎片化
+- 支持跨请求共享 block（只读 COW 语义）</p>
+<h3 id="automatic-prefix-cachingapc">Automatic Prefix Caching（APC，缓存命中层）<a class="headerlink" href="#automatic-prefix-cachingapc" title="Permanent link">&para;</a></h3>
+<ul>
+<li>开启方式：<code>--enable-prefix-caching</code></li>
+<li>工作原理：对每个 block 计算 hash（基于 token 内容），新请求到来时逐 block 匹配已缓存 hash</li>
+<li>匹配到的 block 直接复用，跳过 prefill 计算</li>
+<li><strong>粒度：block 级别（16 tokens 对齐）</strong>，不是 token 级别</li>
+</ul>
+<h2 id="agent">Agent 工具调用场景的缓存命中<a class="headerlink" href="#agent" title="Permanent link">&para;</a></h2>
+<p>Agent 场景非常适合 prefix caching，每次工具调用重复发送：
+- System prompt（不变）
+- Tool definitions/Schema（不变，通常 3K-15K tokens）
+- 之前的多轮对话历史（累积增长）</p>
+<h3 id="_3">理论命中率公式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>Hit Rate ≈ [2P + U×(N-1)] / [2P + U×(N+1)]
 </code></pre></div>
-<p>每一步棋展开的合法走法越多，搜索空间就越大：</p>
+- P = 共享前缀大小（system prompt + tools）
+- U = 每轮新增 unique tokens
+- N = 轮次</p>
+<h3 id="_4">实际命中率估算<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>游戏</th>
-<th>每步选择数</th>
-<th>一局步数</th>
-<th>搜索空间</th>
+<th>场景</th>
+<th>前缀占比</th>
+<th>vLLM APC</th>
+<th>SGLang RadixAttention</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>井字棋</td>
-<td>~5</td>
-<td>9</td>
-<td>~5,478</td>
+<td>大 system prompt + 多 tools (10K+ tokens)</td>
+<td>极高</td>
+<td><strong>90-95%</strong></td>
+<td><strong>95-99%</strong></td>
 </tr>
 <tr>
-<td>国际象棋</td>
-<td>~35</td>
-<td>80</td>
-<td>10¹²⁰</td>
+<td>中等 tools (3K-5K tokens)</td>
+<td>高</td>
+<td><strong>75-90%</strong></td>
+<td><strong>85-95%</strong></td>
 </tr>
 <tr>
-<td>围棋</td>
-<td>~250</td>
-<td>200</td>
-<td>10³⁶⁰</td>
+<td>少量 tools (&lt;1K tokens)</td>
+<td>中</td>
+<td><strong>50-70%</strong></td>
+<td><strong>60-80%</strong></td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>井字棋</strong>：搜索空间极小，任何方法都够用</li>
-<li><strong>国际象棋</strong>：Alpha-Beta 剪枝 + 深度评估函数可以处理</li>
-<li><strong>围棋</strong>：搜索空间爆炸，Alpha-Beta 完全失效，必须用 MCTS</li>
-</ul>
-<h2 id="_3">四步循环<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>MCTS 的核心是一个四步循环，每次循环树长大一点：</p>
-<h3 id="1-selection">1. 选择 (Selection)<a class="headerlink" href="#1-selection" title="Permanent link">&para;</a></h3>
-<p>从根节点沿最"有潜力"的路径往下走，使用 <strong>UCB1 公式</strong> 选择子节点：</p>
-<div class="arithmatex">\[\text{UCB1}(j) = \frac{w_j}{n_j} + C \sqrt{\frac{\ln n}{n_j}}\]</div>
-<ul>
-<li><span class="arithmatex">\(w_j\)</span>：子节点 <span class="arithmatex">\(j\)</span> 的获胜次数</li>
-<li><span class="arithmatex">\(n_j\)</span>：子节点 <span class="arithmatex">\(j\)</span> 的访问次数</li>
-<li><span class="arithmatex">\(n\)</span>：父节点的访问次数</li>
-<li>
-<p><span class="arithmatex">\(C\)</span>：探索常数（通常取 <span class="arithmatex">\(\sqrt{2}\)</span>）</p>
-</li>
-<li>
-<p><strong>前半部分</strong> <span class="arithmatex">\(w_j / n_j\)</span>（胜率）：已验证的实力 — Exploitation</p>
-</li>
-<li><strong>后半部分</strong> <span class="arithmatex">\(C \sqrt{\ln n / n_j}\)</span>（探索项）：未充分探索的节点有加分 — Exploration</li>
-</ul>
-<p>这实现了 <strong>Explore-Exploit 平衡</strong>：既利用已知好的选择，又探索未知选择。</p>
-<div class="highlight"><pre><span></span><code>两个子节点：
-  节点A：访问 20 次，胜率 70% → 胜率高，但已充分探索
-  节点B：访问 2 次，胜率 50%  → 胜率低，但探索项大
-
-→ 可能选 B（它还没被充分探索，可能有惊喜）
-</code></pre></div>
-<h3 id="2-expansion">2. 扩展 (Expansion)<a class="headerlink" href="#2-expansion" title="Permanent link">&para;</a></h3>
-<p>到达一个未展开过的叶子节点时，创建一个新子节点：</p>
-<div class="highlight"><pre><span></span><code>到达：                扩展后：
-  X | O |              X | O |
-    |   |        →        | X |      ← 新增子节点
-    |   |              |   |
-</code></pre></div>
-<p><strong>不在所有节点上扩展</strong>，只在最有潜力的方向生长，避免盲目展开。</p>
-<h3 id="3-simulation-rollout">3. 模拟 (Simulation / Rollout)<a class="headerlink" href="#3-simulation-rollout" title="Permanent link">&para;</a></h3>
-<p>从新节点开始，<strong>双方随机走子</strong>直到游戏结束，得到一个胜负结果：</p>
-<div class="highlight"><pre><span></span><code>当前局面：          随机走子过程：        最终结果：
-  X | O |           X | O | O          X | O | O
-    | X |    →     X | X | O    →     X | X | O
-    |   |           O | O | X        O | O | X
-                                       我赢了 ✓
-</code></pre></div>
-<p>纯 MCTS 中这一步完全随机。在 AlphaGo 中，这一步被<strong>神经网络</strong>替代。</p>
-<h3 id="4-backpropagation">4. 回传 (Backpropagation)<a class="headerlink" href="#4-backpropagation" title="Permanent link">&para;</a></h3>
-<p>把胜负结果沿路径<strong>反向更新</strong>回去：</p>
-<div class="highlight"><pre><span></span><code>                    [访问 21 次, 胜率 71%]  ← 更新
-                   /            \
-        [访问 8 次, 胜率 62%]  [访问 3 次, 胜率 67%]  ← 更新
-              |
-        [访问 3 次, 胜率 100%]  ← 刚模拟的节点，赢了 +1
-
-更新规则：访问次数 +1，如果赢了则胜利次数 +1，重新计算胜率
-</code></pre></div>
-<h2 id="_4">搜索的宽度和深度<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="_5">搜索宽度（每步考虑多少走法）<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>围棋每步有 ~250 个合法走法，不可能全搜。AlphaGo 用<strong>策略网络</strong>做预筛选：</p>
-<div class="highlight"><pre><span></span><code>250 个合法走法
-      ↓ 策略网络打分
-筛选出 ~5-10 个高概率走法
-      ↓ MCTS 在这 5-10 个中展开搜索
-</code></pre></div>
-<h3 id="_6">搜索深度（向前看多远）<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>搜索深度<strong>不均匀</strong>，不是每条线都看一样远：</p>
-<div class="highlight"><pre><span></span><code>                 根节点
-               /   |   \
-            很深！  一般深   很浅
-             |        |
-          继续深     到这就停了
-             |
-          ...（这条路线有意思，一直搜）
-</code></pre></div>
-<ul>
-<li><strong>关键变化</strong>（双方最优应对）→ 搜得很深，可能 20-30 步</li>
-<li><strong>明显差的变化</strong> → 搜几步就放弃，不值得浪费时间</li>
-<li>实际由<strong>时间预算</strong>决定（AlphaGo 正式赛约 2 分钟/步）</li>
-</ul>
-<h3 id="alphago">具体参数（AlphaGo 各版本）<a class="headerlink" href="#alphago" title="Permanent link">&para;</a></h3>
+<h3 id="_5">多轮缓存命中率衰减<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>以 system + tools = 10K tokens，每轮新增 ~1K tokens 为例：</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>AlphaGo Fan</th>
-<th>AlphaGo Zero</th>
-<th>AlphaZero</th>
+<th>轮次</th>
+<th>总输入 tokens</th>
+<th>可缓存 tokens</th>
+<th>命中率</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>每步模拟次数</td>
-<td>~1,600</td>
-<td>~1,600</td>
-<td>~800</td>
+<td>Turn 2</td>
+<td>~11K</td>
+<td>~10K</td>
+<td><strong>~91%</strong></td>
 </tr>
 <tr>
-<td>搜索宽度</td>
-<td>策略网络筛选 ~5-10</td>
-<td>策略网络筛选</td>
-<td>策略网络筛选</td>
+<td>Turn 5</td>
+<td>~14K</td>
+<td>~10K</td>
+<td><strong>~71%</strong></td>
 </tr>
 <tr>
-<td>搜索深度</td>
-<td>不均匀，关键路线 20+ 步</td>
-<td>类似</td>
-<td>类似</td>
+<td>Turn 10</td>
+<td>~19K</td>
+<td>~10K</td>
+<td><strong>~53%</strong></td>
 </tr>
 <tr>
-<td>每步用时</td>
-<td>~2 秒</td>
-<td>~2 秒</td>
-<td>~0.4 秒</td>
+<td>Turn 20</td>
+<td>~29K</td>
+<td>~10K</td>
+<td><strong>~34%</strong></td>
 </tr>
 </tbody>
 </table>
-<h2 id="_7">为什么不用神经网络直接选？<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p>神经网络给出的是<strong>单步判断</strong>（"当前局面胜率多少"），但博弈需要<strong>多步推演</strong>：</p>
-<div class="highlight"><pre><span></span><code>我走最优 → 对手走最优 → 我再走最优 → ... → 真正结果
-
-单看一步：胜率 80%（乐观估计）
-搜到底：  胜率 10%（被对手反击打爆）
-</code></pre></div>
-<p>三重原因：
-1. <strong>对手会反击</strong>：只看当前胜率是贪心策略，容易掉坑
-2. <strong>单次判断有噪声</strong>：多次采样平均才能降低误差
-3. <strong>长期 vs 短期</strong>：需要向前推演发现隐藏的陷阱</p>
-<p><strong>类比</strong>：神经网络是老司机凭直觉判断"这条路看起来不错"，MCTS 是真的开车进去看看前面有没有修路。直觉再准也只看一步，往前多走几步才能发现真相。</p>
-<h2 id="mcts">神经网络在 MCTS 中的角色<a class="headerlink" href="#mcts" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>纯 MCTS（无神经网络）：
-  当前局面 → 随机走到终局 → 看谁赢 → 统计
-  （模拟慢，随机走子质量差，结果噪声大）
-
-AlphaGo（MCTS + 神经网络）：
-  策略网络 → 筛选候选走法（缩窄搜索宽度）
-  价值网络 → 替代随机模拟直接预测胜率（提高评估质量）
-  （模拟次数少但质量高，用 1,600 次碾压所有人类）
-</code></pre></div>
-<h2 id="_8">历史脉络<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="vllm-vs-sglang">vLLM vs SGLang 关键差距<a class="headerlink" href="#vllm-vs-sglang" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>vLLM APC</th>
+<th>SGLang RadixAttention</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>缓存粒度</td>
+<td>Block 级（16 tokens）</td>
+<td>Token 级（Radix Tree）</td>
+</tr>
+<tr>
+<td>缓存生成输出</td>
+<td>❌ 不支持</td>
+<td>✅ 自动缓存</td>
+</tr>
+<tr>
+<td>调度策略</td>
+<td>FCFS（无缓存亲和性）</td>
+<td>Cache-aware 重排序</td>
+</tr>
+<tr>
+<td>多轮对话</td>
+<td>部分支持</td>
+<td>完整支持</td>
+</tr>
+<tr>
+<td>开启方式</td>
+<td>需手动 flag</td>
+<td>默认开启</td>
+</tr>
+</tbody>
+</table>
+<p>SGLang 在 Agent 工作负载上通常领先 vLLM <strong>10-30% 吞吐量</strong>，核心原因是 RadixAttention 会主动重排请求调度顺序来最大化缓存命中。实现基于 LMSYS 团队的 radix tree 数据结构，将 token 序列映射到 KV tensor，自动处理 prefix 匹配、复用和 LRU 淘汰。</p>
+<h2 id="bug">已知 Bug 和问题<a class="headerlink" href="#bug" title="Permanent link">&para;</a></h2>
+<h3 id="bug_1">关键 Bug<a class="headerlink" href="#bug_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>#42019</strong> — <code>prompt_logprobs</code> 在 prefix caching 开启时结果不确定，依赖请求到达顺序。修复 PR #42245 待合并。</p>
+</li>
+<li>
+<p><strong>#38182</strong> — MTP（Multi-Token Prediction）speculative decoding 与 prefix caching 冲突，命中率从 ~92% 暴降到 ~71%，未解决。</p>
+</li>
+<li>
+<p><strong>#39702</strong> — CPU offload scheduler 存在 TOCTOU 竞态条件，长时间运行会导致 server crash。</p>
+</li>
+</ol>
+<h3 id="_6">性能问题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>#23444（13 条评论）</strong> — 当 KV cache 利用率到 ~99% 时吞吐量崩塌。大 prompt 会驱逐大量小对话共享的缓存前缀（"缓存雪崩"）。</p>
+</li>
+<li>
+<p><strong>#39806</strong> — 推理模型（如 DeepSeek-R1）的 thinking tokens 产生大量死缓存分支，50 个并发对话浪费 65-80GB 显存。SGLang 已修复，vLLM PR 仍在 open。</p>
+</li>
+<li>
+<p><strong>RFC #42185</strong> — V1 调度器用 FCFS 排序，完全不感知缓存亲和性，这是 Agent 场景命中率上不去的架构根因。</p>
+</li>
+</ol>
+<h2 id="_7">业界观点<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>1990s</strong>：MCTS 由 Rémi Coulom 等提出</li>
-<li><strong>2006</strong>：首次应用于围棋程序（Crazy Stone）</li>
-<li><strong>2016</strong>：AlphaGo 结合 MCTS + 深度学习击败李世石</li>
-<li><strong>2017</strong>：AlphaGo Zero 从零开始自我博弈训练，纯 MCTS + 神经网络</li>
-<li><strong>2018</strong>：AlphaZero 统一国际象棋、将棋、围棋，同一套架构</li>
+<li><strong>SGLang 的 RadixAttention 被公认为 Agent 场景最优方案</strong>，vLLM GitHub issues 里多个用户明确表示因缓存问题切换到 SGLang</li>
+<li><strong>vLLM 团队 V2 架构计划</strong>引入类似 RadixAttention 的 token 级缓存，但时间表未定</li>
+<li><strong>TensorRT-LLM</strong> 在单请求延迟上可能更优，但 Agent 多轮缓存场景公开对比数据很少</li>
+<li><strong>社区共识</strong>：纯 Agent/多轮工具调用场景选 SGLang，单轮高并发场景 vLLM 仍然很强</li>
 </ul>
-<h2 id="_9">相关概念<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="prompt">缓存友好的 Prompt 设计最佳实践<a class="headerlink" href="#prompt" title="Permanent link">&para;</a></h2>
+<p>所有 prefix caching 方案（vLLM APC、SGLang、Anthropic、OpenAI）都基于前缀匹配。因此：</p>
+<ol>
+<li><strong>System prompt 放最前面，Tool 定义放第二位，历史放第三，当前消息放最后</strong></li>
+<li><strong>工具定义按固定顺序排列</strong>（按名称字母排序），避免序列化顺序变化破坏前缀匹配</li>
+<li><strong>不在 system prompt 中注入动态内容</strong>（时间戳、请求 ID、随机数）</li>
+<li><strong>只 append 新消息到末尾，绝不 prepend 或重排</strong></li>
+<li><strong>考虑做 cache warming</strong>：发 <code>max_tokens=1</code> 的保活请求防止 TTL 过期</li>
+</ol>
+<h2 id="_8">相关页面<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../mcts-vs-alpha-beta/">mcts-vs-alpha-beta</a> — MCTS 与 Alpha-Beta 剪枝的详细对比</li>
-<li><a href="../era-of-experience/">era-of-experience</a> — AI 发展阶段中 MCTS + 自我博弈的地位</li>
-</ul>
-<h2 id="wikilinks">Wikilinks<a class="headerlink" href="#wikilinks" title="Permanent link">&para;</a></h2>
-<ul>
-<li>[[mcts-vs-alpha-beta]] — MCTS 与 Alpha-Beta 剪枝的详细对比</li>
-<li>[[era-of-experience]] — AI 发展阶段中 MCTS + 自我博弈的地位</li>
+<li>[[prompt-cache-design-for-agents]] — Agent 提示词缓存设计模式与业界对比</li>
+<li>[[anthropic-context-engineering]] — 高效上下文工程</li>
+<li>[[anthropic-advanced-tool-use]] — Claude 高级工具使用</li>
 </ul>
 
 
