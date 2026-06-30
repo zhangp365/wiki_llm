@@ -12,14 +12,14 @@ title: LLM Wiki
 
 | 条目 | 摘要 | 标签 |
 |------|------|------|
-| [vLLM Prefix Caching](vllm-prefix-caching.md) | PagedAttention、APC 机制、Agent 场景命中率、已知 Bug、vs SGLang | `inference` `open-source` `architecture` |
-| [A2A 协议详解](a2a-protocol.md) | A2A 协议完整详解：数据模型、会话机制、消息流转、RPC 方法 | `protocol` `agent` `architecture` |
-| [Task 状态机](a2a-task-state-machine.md) | Task 状态机：8 个状态、转换规则、v0.3→v1.0 变更 | `protocol` `agent` |
-| [A2A 安全分析](a2a-security-analysis.md) | 10 个已知安全缺口：Prompt 注入、AgentCard 投毒、会话走私 | `protocol` `security` |
-| [A2A 生态系统](a2a-ecosystem.md) | 生态工具链：Waggle、A2Apex、EDDI、实际部署案例 | `protocol` `open-source` |
-| [ACP 接口总览](acp-protocol.md) | ACP 全部接口分类：生命周期、会话管理、扩展机制、权限请求 | `protocol` `agent` `tool-use` |
-| [ACP stdio 授权流程](acp-stdio-auth-flow.md) | stdio 授权完整流程：spawn→initialize→prompt→permission→执行→结束 | `protocol` `agent` `tool-use` |
-| [Hermes Agent 记忆架构](hermes-agent-memory-architecture.md) | 四层记忆系统：提示词记忆、会话搜索、技能系统、Honcho 深层建模 | `agent` `architecture` `open-source` |
+| [vLLM Prefix Caching](concepts/vllm-prefix-caching.md) | PagedAttention、APC 机制、Agent 场景命中率、已知 Bug、vs SGLang | `inference` `open-source` `architecture` |
+| [A2A 协议详解](concepts/a2a-protocol.md) | A2A 协议完整详解：数据模型、会话机制、消息流转、RPC 方法 | `protocol` `agent` `architecture` |
+| [Task 状态机](concepts/a2a-task-state-machine.md) | Task 状态机：8 个状态、转换规则、v0.3→v1.0 变更 | `protocol` `agent` |
+| [A2A 安全分析](concepts/a2a-security-analysis.md) | 10 个已知安全缺口：Prompt 注入、AgentCard 投毒、会话走私 | `protocol` `security` |
+| [A2A 生态系统](concepts/a2a-ecosystem.md) | 生态工具链：Waggle、A2Apex、EDDI、实际部署案例 | `protocol` `open-source` |
+| [ACP 接口总览](concepts/acp-protocol.md) | ACP 全部接口分类：生命周期、会话管理、扩展机制、权限请求 | `protocol` `agent` `tool-use` |
+| [ACP stdio 授权流程](concepts/acp-stdio-auth-flow.md) | stdio 授权完整流程：spawn→initialize→prompt→permission→执行→结束 | `protocol` `agent` `tool-use` |
+| [Hermes Agent 记忆架构](concepts/hermes-agent-memory-architecture.md) | 四层记忆系统：提示词记忆、会话搜索、技能系统、Honcho 深层建模 | `agent` `architecture` `open-source` |
 | [ChromaFs 虚拟文件系统](concepts/chromafs-virtual-filesystem.md) | Mintlify ChromaFs：虚拟文件系统让 Agent 用 UNIX 命令探索文档，替代昂贵 sandbox | `agent` `tool-use` `open-source` |
 | [构建高效 Agent](concepts/anthropic-building-effective-agents.md) | Anthropic Agent 设计模式：Prompt Chaining、Routing、并行化、Orchestrator-Workers、Evaluator-Optimizer | `agent` `anthropic` `patterns` |
 | [Claude Agent SDK](concepts/anthropic-building-agents-agent-sdk.md) | Agent Loop、子 Agent、Compaction、MCP 集成 | `agent` `anthropic` `sdk` |
@@ -49,9 +49,9 @@ title: LLM Wiki
 
 | 条目 | 摘要 | 标签 |
 |------|------|------|
-| [Agent 提示词缓存设计](prompt-cache-design-for-agents.md) | OpenCode/Aider/Claude Code 缓存策略对比、缓存友好 Prompt 最佳实践 | `inference` `agent` `open-source` |
+| [Agent 提示词缓存设计](comparisons/prompt-cache-design-for-agents.md) | OpenCode/Aider/Claude Code 缓存策略对比、缓存友好 Prompt 最佳实践 | `inference` `agent` `open-source` |
 | [Hermes vs Aider 缓存对比](comparisons/hermes-vs-aider-prompt-caching.md) | Hermes Agent vs Aider 提示词缓存设计对比：冻结策略、多 Provider 适配、cache warming | `inference` `agent` `open-source` |
-| [A2A vs MCP](a2a-vs-mcp.md) | A2A 与 MCP 全面对比：定位、交互模式、适用场景、采纳现状 | `protocol` `comparison` |
+| [A2A vs MCP](comparisons/a2a-vs-mcp.md) | A2A 与 MCP 全面对比：定位、交互模式、适用场景、采纳现状 | `protocol` `comparison` |
 
 ## 实体
 
