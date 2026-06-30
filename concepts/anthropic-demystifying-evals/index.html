@@ -2078,7 +2078,7 @@
 <p>使智能体有用的能力也使它们难以评估。在不同部署中有效的策略结合了多种技术，以匹配其所衡量系统的复杂性。</p>
 <h2 id="_1">引言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>好的评估帮助团队更自信地发布 AI 智能体。没有评估，很容易陷入被动循环——只在生产环境中发现问题，修复一个故障又造成另一个。评估使问题和行为变更在影响用户之前变得可见，其价值在智能体的整个生命周期中不断累积。</p>
-<p>正如我们在 [[anthropic-building-effective-agents|Building effective agents]] 中描述的，智能体在多轮中操作：调用工具、修改状态、并根据中间结果进行调整。这些使 AI 智能体有用的相同能力——自主性、智能和灵活性——也使它们更难评估。</p>
+<p>正如我们在 <a href="../anthropic-building-effective-agents/">Building effective agents</a> 中描述的，智能体在多轮中操作：调用工具、修改状态、并根据中间结果进行调整。这些使 AI 智能体有用的相同能力——自主性、智能和灵活性——也使它们更难评估。</p>
 <p>通过我们的内部工作和与处于智能体开发前沿的客户合作，我们学会了如何为智能体设计更严格和有用的评估。以下是真实世界部署中跨多种智能体架构和用例行之有效的方法。</p>
 <h2 id="_2">评估的结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>评估（"eval"）是对 AI 系统的测试：给 AI 一个输入，然后对其输出应用评分逻辑以衡量成功。在本文中，我们关注可以在开发期间运行的自动化评估，无需真实用户。</p>
@@ -2294,7 +2294,7 @@
 <p><strong>Arize</strong> 提供 Phoenix（一个用于 LLM 跟踪、调试和离线或在线评估的开源平台）和 AX（一个扩展 Phoenix 用于规模、优化和监控的 SaaS 产品）。</p>
 <p>许多团队结合多种工具、构建自己的评估框架，或仅使用简单的评估脚本作为起点。我们发现，虽然框架可以是加速进展和标准化的有价值方式，但它们的好坏取决于你通过它们运行的评估任务。通常最好快速选择适合你工作流的框架，然后通过迭代高质量测试用例和评分器将精力投入到评估本身。</p>
 <h2 id="_17">另请参阅<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
-<p>本文与 [[anthropic-multi-agent-research-system|多智能体研究系统]] 中的评估实践密切相关，也可以参考 [[anthropic-code-execution-mcp|MCP 代码执行]] 了解工具效率相关内容。</p>
+<p>本文与 <a href="../anthropic-multi-agent-research-system/">多智能体研究系统</a> 中的评估实践密切相关，也可以参考 <a href="../anthropic-code-execution-mcp/">MCP 代码执行</a> 了解工具效率相关内容。</p>
 
 
 

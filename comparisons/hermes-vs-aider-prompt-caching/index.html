@@ -2127,7 +2127,7 @@
 </ol>
 <h3 id="_4">缓存标记实现核心逻辑<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># agent/prompt_caching.py — &quot;system_and_3&quot; 策略</span>
-<span class="k">def</span> <span class="nf">apply_anthropic_cache_control</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">native_anthropic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache_ttl</span><span class="o">=</span><span class="s2">&quot;5m&quot;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_anthropic_cache_control</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">native_anthropic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache_ttl</span><span class="o">=</span><span class="s2">&quot;5m&quot;</span><span class="p">):</span>
     <span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ephemeral&quot;</span><span class="p">}</span>
     <span class="k">if</span> <span class="n">cache_ttl</span> <span class="o">==</span> <span class="s2">&quot;1h&quot;</span><span class="p">:</span>
         <span class="n">marker</span><span class="p">[</span><span class="s2">&quot;ttl&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;1h&quot;</span>
@@ -2429,10 +2429,10 @@ Hermes:   &quot;在所有 Provider 上都好&quot;    — 广度优先，byte �
 <p><strong>理想状态：</strong> Hermes 在保持多 Provider 适配的同时，为 Anthropic Provider 增加 cache warming（~50 行代码改动），即可达到 Aider 的缓存保活能力，同时保留自己的跨平台优势。</p>
 <h2 id="_11">相关页面<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[[prompt-cache-design-for-agents]] — Agent 提示词缓存设计模式（OpenCode/Aider/Claude Code 对比）</li>
-<li>[[vllm-prefix-caching]] — vLLM KV Cache 与 Prefix Caching 详解</li>
-<li>[[hermes-agent-memory-architecture]] — Hermes Agent 四层记忆系统架构</li>
-<li>[[anthropic-context-engineering]] — 高效上下文工程</li>
+<li><a href="../prompt-cache-design-for-agents/">prompt-cache-design-for-agents</a> — Agent 提示词缓存设计模式（OpenCode/Aider/Claude Code 对比）</li>
+<li><a href="../../concepts/vllm-prefix-caching/">vllm-prefix-caching</a> — vLLM KV Cache 与 Prefix Caching 详解</li>
+<li><a href="../../concepts/hermes-agent-memory-architecture/">hermes-agent-memory-architecture</a> — Hermes Agent 四层记忆系统架构</li>
+<li><a href="../../concepts/anthropic-context-engineering/">anthropic-context-engineering</a> — 高效上下文工程</li>
 </ul>
 
 
