@@ -12,25 +12,26 @@
 
 ```
 wiki/
-├── SCHEMA.md           # 规范、结构规则、标签体系
-├── index.md            # 内容目录（按类型分段）
+├── docs/               # Obsidian vault + MkDocs 内容源
+│   ├── SCHEMA.md       # 规范、结构规则、标签体系
+│   ├── index.md        # 内容目录（按类型分段）
+│   ├── concepts/       # Layer 2: 概念/主题页面
+│   ├── comparisons/    # Layer 2: 对比分析
+│   └── assets/         # 站点图片、图表
 ├── log.md              # 操作日志（只追加）
 ├── raw/                # Layer 1: 原始来源（不可修改）
 │   ├── articles/       # 文章、网页
 │   ├── papers/         # 论文、PDF
 │   ├── transcripts/    # 会议记录、访谈
 │   └── assets/         # 图片、图表
-├── entities/           # Layer 2: 实体页面（人、公司、产品）
-├── concepts/           # Layer 2: 概念/主题页面
-├── comparisons/        # Layer 2: 对比分析
-└── queries/            # Layer 2: 查询结果存档
+└── mkdocs.yml          # GitHub Pages 站点配置
 ```
 
 ## 🚀 使用方式
 
-- **Obsidian**: 直接打开为 vault，支持 `[[wikilinks]]` 和 Graph View
+- **Obsidian**: 直接打开 `docs/` 为 vault，支持 `[[wikilinks]]` 和 Graph View
 - **VS Code**: 配合 Markdown 预览使用
-- **GitHub Pages**: 可部署为静态站点
+- **GitHub Pages**: 通过 MkDocs Material 部署为静态站点，`[[wikilinks]]` 由插件转换为网页链接
 - **Hermes Agent**: 通过 llm-wiki skill 自动维护
 
 ## 🔗 在线访问
@@ -40,7 +41,7 @@ wiki/
 
 ## 📋 标签体系
 
-详见 [SCHEMA.md](SCHEMA.md)，涵盖：
+详见 [SCHEMA.md](docs/SCHEMA.md)，涵盖：
 - **AI/ML 技术**: model, architecture, agent, training, inference, alignment, benchmark, multimodal
 - **协议与框架**: protocol, framework, tool-use
 - **行业与生态**: company, person, open-source, product, trend

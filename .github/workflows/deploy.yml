@@ -30,18 +30,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install MkDocs Material
-        run: pip install mkdocs-material
-
-      - name: Sync wiki content to docs/
-        run: |
-          mkdir -p docs/concepts docs/comparisons docs/queries docs/entities docs/notes
-          cp concepts/*.md docs/concepts/ 2>/dev/null || true
-          cp comparisons/*.md docs/comparisons/ 2>/dev/null || true
-          cp queries/*.md docs/queries/ 2>/dev/null || true
-          cp entities/*.md docs/entities/ 2>/dev/null || true
-          cp notes/*.md docs/notes/ 2>/dev/null || true
-          cp SCHEMA.md docs/ 2>/dev/null || true
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force

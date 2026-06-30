@@ -80,7 +80,7 @@ ACP 是基于 **JSON-RPC 2.0** 的双向通信协议，用于 UI 客户端（如
 
 ## 与相关协议的关系
 
-- **ACP vs MCP**：MCP 是模型与工具的协议（工具服务器），ACP 是 UI 与 Agent 的协议（客户端-代理），详见 [A2A vs MCP](a2a-vs-mcp.md)
+- **ACP vs MCP**：MCP 是模型与工具的协议（工具服务器），ACP 是 UI 与 Agent 的协议（客户端-代理），详见 [A2A vs MCP](../comparisons/a2a-vs-mcp.md)
 - **ACP vs A2A**：[A2A 协议](a2a-protocol.md) 是 Agent 间通信协议（点对点），ACP 是 Agent 与宿主编排器的协议
 - 三者互补：MCP 管工具，ACP 管编排，[A2A 协议](a2a-protocol.md) 管协作
 

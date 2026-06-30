@@ -13,7 +13,7 @@ sources:
 
 > Hermes Agent 采用分层记忆架构，核心设计原则：**保持提示词稳定以利用缓存，其他信息按需检索**。不是一套记忆系统，而是四套协同工作的系统。
 
-![Hermes Agent 记忆系统架构图](../raw/assets/hermes-memory-architecture-diagram.jpg)
+![Hermes Agent 记忆系统架构图](../assets/images/hermes-memory-architecture-diagram.jpg)
 
 ## 核心设计哲学
 
@@ -131,7 +131,7 @@ FTS5 全文搜索 → 按会话分组 → 解析父子关系 → 截取匹配片
 ## 相关页面
 
 - [A2A 协议详解](a2a-protocol.md) — Agent 间通信协议
-- [A2A vs MCP](a2a-vs-mcp.md) — Agent 协议对比
+- [A2A vs MCP](../comparisons/a2a-vs-mcp.md) — Agent 协议对比
 
 ## Wikilinks
 - [[chromafs-virtual-filesystem]] — ChromaFS 虚拟文件系统（冷存储层参考）

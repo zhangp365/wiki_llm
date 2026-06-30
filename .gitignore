@@ -4,3 +4,5 @@ _archive/
 *.tmp
 log-*.md
 site/
+.obsidian/
+docs/.obsidian/

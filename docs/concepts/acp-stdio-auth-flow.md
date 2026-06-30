@@ -133,7 +133,7 @@ Agent → Client (Notification, 无需回应)
 
 - [ACP 接口总览](acp-protocol.md) — ACP 全部接口分类总览
 - [A2A 协议详解](a2a-protocol.md) — Agent 间通信协议（与 ACP 互补）
-- [A2A vs MCP](a2a-vs-mcp.md) — 协议对比分析
+- [A2A vs MCP](../comparisons/a2a-vs-mcp.md) — 协议对比分析
 
 ## 相关链接
 - [[acp-protocol]] — ACP 全部接口分类总览

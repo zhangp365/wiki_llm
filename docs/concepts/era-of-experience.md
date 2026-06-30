@@ -12,7 +12,7 @@ sources:
 # David Silver 讲座：体验时代（The Era of Experience）
 
 > 本文为 David Silver 2025 年 10 月 28 日在 Friends House, London 的演讲完整中文翻译。
-> 整理笔记见下方 [[#整理笔记]] 部分。
+> 整理笔记见下方“整理笔记”部分。
 
 ## 演讲信息
 

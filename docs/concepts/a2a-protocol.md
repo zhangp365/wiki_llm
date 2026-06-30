@@ -32,7 +32,7 @@ Task 是 A2A 的核心工作单元，所有通信围绕 Task 展开。
 |------|------|
 | `id` | UUID，服务端生成 |
 | `contextId` | 会话标识，将相关任务分组 |
-| `status` | [[a2a-task-state-machine\|TaskStatus]]，包含 state + 可选 message |
+| `status` | [[a2a-task-state-machine|TaskStatus]]，包含 state + 可选 message |
 | `artifacts[]` | 输出结果（文件、数据、文本） |
 | `history[]` | Message 数组（对话线程） |
 | `metadata` | 可扩展键值对 |
@@ -50,7 +50,7 @@ Task 中的单次通信单元：
 | `taskId` | 可选，引用已有任务用于后续交互 |
 | `contextId` | 可选，用于会话连续性 |
 | `role` | `ROLE_USER` 或 `ROLE_AGENT` |
-| `parts[]` | [[#part-内容单元\|Part]] 数组 |
+| `parts[]` | Part 数组 |
 | `metadata` | 可扩展键值对 |
 | `referenceTaskIds[]` | 关联任务链接 |
 
@@ -107,7 +107,7 @@ A2A 使用 `contextId` 维持会话连续性，**没有独立的 Session 对象*
 - Client 可以只发 `contextId` 不发 `taskId`，在同一会话中开启新任务
 - 新任务可继承同一 `contextId` 下之前交互的上下文
 
-> 📌 [[a2a-vs-mcp\|对比 MCP]]：A2A 是有状态的、多轮的；MCP 通常是单次无状态调用。
+> 📌 [[a2a-vs-mcp|对比 MCP]]：A2A 是有状态的、多轮的；MCP 通常是单次无状态调用。
 
 ## 消息流转
 
@@ -245,7 +245,7 @@ Agent 自行决定 `history[]` 中存储什么。客户端**不能依赖**通过
 9. **AgentCard 投毒** — Trustwave 展示了 "Agent in the Middle" 攻击
 10. **路线图未解决** — 聚焦治理/SDK，未提及授权标准化
 
-> 详见 [[a2a-security-analysis\|A2A 安全分析]]
+> 详见 [[a2a-security-analysis|A2A 安全分析]]
 
 ## 相关页面
 
