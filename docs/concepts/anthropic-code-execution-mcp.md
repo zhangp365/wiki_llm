@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-11-code-execution-mcp.md]
 original: https://www.anthropic.com/engineering/code-execution-with-mcp
 ---
 
-# Anthropic MCP 代码执行
+# Anthropic 使用 MCP 进行代码执行：构建更高效的智能体
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/code-execution-with-mcp)
 

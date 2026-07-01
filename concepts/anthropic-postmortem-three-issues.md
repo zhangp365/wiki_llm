@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-15-postmortem-three-issues.md]
 original: https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues
 ---
 
-# Anthropic 三起生产事故复盘
+# Anthropic 三起近期事件的事后复盘
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues)
 

@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-12-demystifying-evals.md]
 original: https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
 ---
 
-# Anthropic Agent 评估方法论
+# Anthropic 揭秘 AI 智能体评估
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)
 

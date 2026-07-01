@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-5-think-tool.md]
 original: https://www.anthropic.com/engineering/claude-think-tool
 ---
 
-# Anthropic Think 工具
+# Anthropic "Think" 工具：让 Claude 在复杂工具使用场景中停下来思考
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/claude-think-tool)
 

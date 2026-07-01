@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-scaling-managed-agents.md]
 original: https://www.anthropic.com/engineering/managed-agents
 ---
 
-# Anthropic 扩展托管 Agent
+# Anthropic 扩展托管Agent：将大脑与双手解耦
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/managed-agents)
 

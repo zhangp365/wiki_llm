@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-3-advanced-tool-use.md]
 original: https://www.anthropic.com/engineering/advanced-tool-use
 ---
 
-# Anthropic 高级工具使用
+# Anthropic Claude 高级工具使用：Tool Search Tool、Programmatic Tool Calling 和 Tool Use Examples
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/advanced-tool-use)
 

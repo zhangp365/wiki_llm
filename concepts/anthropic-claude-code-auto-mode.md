@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-claude-code-auto-mode.md]
 original: https://www.anthropic.com/engineering/claude-code-auto-mode
 ---
 
-# Anthropic Claude Code 自动模式
+# Anthropic 我们如何构建Claude Code自动模式
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/claude-code-auto-mode)
 

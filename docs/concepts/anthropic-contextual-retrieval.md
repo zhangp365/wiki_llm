@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-8-contextual-retrieval.md]
 original: https://www.anthropic.com/engineering/contextual-retrieval
 ---
 
-# Anthropic 上下文检索
+# Anthropic Contextual Retrieval：上下文感知检索
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/contextual-retrieval)
 

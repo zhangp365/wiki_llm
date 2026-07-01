@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-april-23-postmortem.md]
 original: https://www.anthropic.com/engineering/april-23-postmortem
 ---
 
-# Anthropic Claude Code 质量报告
+# Anthropic 关于Claude Code质量报告的最新更新
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/april-23-postmortem)
 

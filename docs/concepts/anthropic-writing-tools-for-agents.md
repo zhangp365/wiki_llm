@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-4-writing-tools-for-agents.md]
 original: https://www.anthropic.com/engineering/writing-tools-for-agents
 ---
 
-# Anthropic 为 Agent 编写工具
+# Anthropic 为 Agent 编写高效工具——借助 Agent 自身
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/writing-tools-for-agents)
 

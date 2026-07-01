@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-2-building-agents-claude-agent-sdk.md]
 original: https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk
 ---
 
-# Anthropic Agent SDK
+# Anthropic 使用 Claude Agent SDK 构建 Agent
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk)
 

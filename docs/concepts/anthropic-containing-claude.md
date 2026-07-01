@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-containing-claude.md]
 original: https://www.anthropic.com/engineering/how-we-contain-claude
 ---
 
-# Anthropic 跨产品约束 Claude
+# Anthropic 跨产品约束Claude的方法
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/how-we-contain-claude)
 

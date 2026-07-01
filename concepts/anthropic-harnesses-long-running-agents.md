@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-9-harnesses-long-running-agents.md]
 original: https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents
 ---
 
-# Anthropic 长运行 Agent Harness
+# Anthropic 面向长时间运行 Agent 的有效 Harness
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)
 

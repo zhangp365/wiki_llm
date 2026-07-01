@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-harness-design-long-running-apps.md]
 original: https://www.anthropic.com/engineering/harness-design-long-running-apps
 ---
 
-# Anthropic Harness 设计
+# Anthropic 长时间应用开发的Harness设计
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/harness-design-long-running-apps)
 

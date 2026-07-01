@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-14-agentic-coding-best-practices.md]
 original: https://www.anthropic.com/engineering/claude-code-best-practices
 ---
 
-# Anthropic Agentic Coding 最佳实践
+# Anthropic Claude Code：Agentic 编程最佳实践
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/claude-code-best-practices)
 

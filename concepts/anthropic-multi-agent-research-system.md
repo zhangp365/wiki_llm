@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-10-multi-agent-research-system.md]
 original: https://www.anthropic.com/engineering/multi-agent-research-system
 ---
 
-# Anthropic 多 Agent 研究系统
+# Anthropic 我们如何构建多智能体研究系统
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/multi-agent-research-system)
 

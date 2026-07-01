@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-6-agent-skills.md]
 original: https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills
 ---
 
-# Anthropic Agent Skills
+# Anthropic 使用 Agent Skills 为 Agent 装备真实世界能力
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
 

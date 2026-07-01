@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-13-claude-code-sandboxing.md]
 original: https://www.anthropic.com/engineering/claude-code-sandboxing
 ---
 
-# Anthropic Claude Code 沙箱化
+# Anthropic 超越权限提示：让 Claude Code 更安全、更自主
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/claude-code-sandboxing)
 

@@ -8,7 +8,7 @@ sources: [raw/articles/anthropic-7-context-engineering.md]
 original: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
 ---
 
-# Anthropic 上下文工程
+# Anthropic 面向 AI Agent 的有效 Context Engineering
 
 > 原文链接: [English Original](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
 
