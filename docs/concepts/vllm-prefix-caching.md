@@ -39,12 +39,13 @@ Agent 场景非常适合 prefix caching，每次工具调用重复发送：
 
 ### 理论命中率公式
 
-```
-Hit Rate ≈ [2P + U×(N-1)] / [2P + U×(N+1)]
-```
-- P = 共享前缀大小（system prompt + tools）
-- U = 每轮新增 unique tokens
-- N = 轮次
+$$
+\text{Hit Rate} \approx \frac{2P + U \times (N-1)}{2P + U \times (N+1)}
+$$
+
+- $P$ = 共享前缀大小（system prompt + tools）
+- $U$ = 每轮新增 unique tokens
+- $N$ = 轮次
 
 ### 实际命中率估算
 
