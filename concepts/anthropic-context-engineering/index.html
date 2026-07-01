@@ -2539,7 +2539,7 @@
 <h2 id="context-engineering-agent">为什么 Context Engineering 对构建强大的 Agent 至关重要<a class="headerlink" href="#context-engineering-agent" title="Permanent link">&para;</a></h2>
 <p>尽管 LLM 速度越来越快、管理数据量的能力越来越大，但我们观察到，LLM 和人类一样，在某个点会失去焦点或经历困惑。对"大海捞针"式基准测试的研究揭示了 <strong>context rot</strong>（上下文腐化）的概念：随着 context window 中 token 数量的增加，模型从该 context 中准确回忆信息的能力会下降。</p>
 <p>虽然一些模型表现出比其他模型更温和的退化，但这一特征在所有模型中都会出现。因此，context 必须被视为一种边际收益递减的有限资源。就像具有有限工作记忆容量的人类一样，LLM 在解析大量 context 时也有一个"注意力预算"。引入的每一个新 token 都会消耗这个预算的一部分，增加了仔细策划可用 token 的需求。</p>
-<p>这种注意力稀缺性源于 LLM 的架构约束。LLM 基于 transformer 架构，该架构使得每个 token 都能关注整个 context 中的所有其他 token。这对 n 个 token 产生了 n² 的成对关系。</p>
+<p>这种注意力稀缺性源于 LLM 的架构约束。LLM 基于 transformer 架构，该架构使得每个 token 都能关注整个 context 中的所有其他 token。这对 <span class="arithmatex">\(n\)</span> 个 token 产生了 <span class="arithmatex">\(n^2\)</span> 的成对关系。</p>
 <p>随着 context 长度的增加，模型捕捉这些成对关系的能力会被摊薄，在 context 大小和注意力焦点之间产生自然的张力。此外，模型从训练数据分布中发展其注意力模式，其中较短序列通常比较长序列更常见。这意味着模型对 context 范围内的依赖关系的经验更少，专门的参数也更少。</p>
 <p>Position encoding interpolation 等技术允许模型通过将其适应最初训练的较小 context 来处理更长的序列，尽管 token 位置理解会有一些退化。这些因素创造了一个性能梯度而非硬性悬崖：模型在更长 context 下仍然高度有能，但在信息检索和长程推理方面可能表现出降低的精度。</p>
 <h2 id="context">有效 Context 的解剖结构<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>

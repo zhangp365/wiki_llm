@@ -2658,11 +2658,14 @@
 - Tool definitions/Schema（不变，通常 3K-15K tokens）
 - 之前的多轮对话历史（累积增长）</p>
 <h3 id="_3">理论命中率公式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code>Hit Rate ≈ [2P + U×(N-1)] / [2P + U×(N+1)]
-</code></pre></div>
-- P = 共享前缀大小（system prompt + tools）
-- U = 每轮新增 unique tokens
-- N = 轮次</p>
+<div class="arithmatex">\[
+\text{Hit Rate} \approx \frac{2P + U \times (N-1)}{2P + U \times (N+1)}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(P\)</span> = 共享前缀大小（system prompt + tools）</li>
+<li><span class="arithmatex">\(U\)</span> = 每轮新增 unique tokens</li>
+<li><span class="arithmatex">\(N\)</span> = 轮次</li>
+</ul>
 <h3 id="_4">实际命中率估算<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
