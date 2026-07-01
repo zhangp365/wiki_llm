@@ -38,11 +38,11 @@ theme:
   custom_dir: docs/overrides
 
 plugins:
-  - roamlinks
   - search:
       lang:
         - zh
         - en
+  - roamlinks
 
 markdown_extensions:
   - toc:

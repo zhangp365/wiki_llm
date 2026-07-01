@@ -42,6 +42,7 @@ plugins:
       lang:
         - zh
         - en
+  - roamlinks
 
 markdown_extensions:
   - toc:
