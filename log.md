@@ -117,3 +117,12 @@
   - concepts/monte-carlo-tree-search.md — MCTS 完整概念详解：四步循环、UCB1、搜索宽度深度、神经网络角色
   - concepts/mcts-vs-alpha-beta.md — MCTS vs Alpha-Beta 对比：搜索策略差异、适用场景、AlphaGo 融合方案
 - 更新: index.md（新增 2 个页面，总计 29 页）
+
+## [2026-07-09] ingest | Lilian Weng - Harness Engineering for Self-Improvement
+- 来源: https://lilianweng.github.io/posts/2026-07-04-harness/
+- 创建原始来源: raw/articles/lilianweng-harness-engineering-self-improvement-2026.md
+- 创建 Wiki 页面:
+  - concepts/lilianweng-harness-engineering-self-improvement.md — Harness 工程与自我改进（完整中文翻译：设计模式、上下文工程、进化搜索、自我改进 Harness、7 大未来挑战）
+- 同步 docs/concepts/
+- 更新 index.md（新增 1 页，总计 36 页）、mkdocs.yml nav
+- 总计: 1 raw + 1 wiki page

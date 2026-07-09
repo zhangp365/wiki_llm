@@ -70,6 +70,7 @@ title: LLM Wiki
 |------|------|------|
 | [Anthropic 长运行 Agent Harness](concepts/anthropic-harnesses-long-running-agents.md) | 初始化器、进度追踪、环境管理 | `agent` `anthropic` `harness` |
 | [Anthropic Harness 设计](concepts/anthropic-harness-design-long-running-apps.md) | 规划器-生成器-评估器模式、状态快照、上下文重置 | `anthropic` `agent` `harness` |
+| [Lilian Weng: Harness 工程与自我改进](concepts/lilianweng-harness-engineering-self-improvement.md) | Harness 设计模式、上下文工程、进化搜索、自我改进 Harness、7 大未来挑战 | `agent` `harness` `rsi` `optimization` |
 
 ### 推理优化
 
@@ -114,4 +115,4 @@ title: LLM Wiki
 
 ---
 
-*共 35 个条目 · 最后更新：2026-06-30*
+*共 36 个条目 · 最后更新：2026-07-09*

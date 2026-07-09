@@ -99,6 +99,7 @@ nav:
     - Agent 运行管理:
       - Anthropic 长运行 Agent Harness: concepts/anthropic-harnesses-long-running-agents.md
       - Anthropic Harness 设计: concepts/anthropic-harness-design-long-running-apps.md
+      - Lilian Weng Harness 工程与自我改进: concepts/lilianweng-harness-engineering-self-improvement.md
     - 推理优化:
       - vLLM Prefix Caching: concepts/vllm-prefix-caching.md
     - AI 系统:
